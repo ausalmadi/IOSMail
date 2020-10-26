@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F56573C253E3673002E5031 /* IOSMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F56573C253E3673002E5031 /* iosMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F56573F253E3673002E5031 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F565741253E3673002E5031 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3F565743253E3673002E5031 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		3F56573D253E3673002E5031 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F56573C253E3673002E5031 /* IOSMail.app */,
+				3F56573C253E3673002E5031 /* iosMail.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,9 +78,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3F56573B253E3673002E5031 /* IOSMail */ = {
+		3F56573B253E3673002E5031 /* iosMail */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3F565750253E3677002E5031 /* Build configuration list for PBXNativeTarget "IOSMail" */;
+			buildConfigurationList = 3F565750253E3677002E5031 /* Build configuration list for PBXNativeTarget "iosMail" */;
 			buildPhases = (
 				3F565738253E3673002E5031 /* Sources */,
 				3F565739253E3673002E5031 /* Frameworks */,
@@ -90,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = IOSMail;
+			name = iosMail;
 			productName = IOSMail;
-			productReference = 3F56573C253E3673002E5031 /* IOSMail.app */;
+			productReference = 3F56573C253E3673002E5031 /* iosMail.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -109,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3F565737253E3673002E5031 /* Build configuration list for PBXProject "IOSMail" */;
+			buildConfigurationList = 3F565737253E3673002E5031 /* Build configuration list for PBXProject "iosMail" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F56573B253E3673002E5031 /* IOSMail */,
+				3F56573B253E3673002E5031 /* iosMail */,
 			);
 		};
 /* End PBXProject section */
@@ -334,7 +334,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3F565737253E3673002E5031 /* Build configuration list for PBXProject "IOSMail" */ = {
+		3F565737253E3673002E5031 /* Build configuration list for PBXProject "iosMail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F56574E253E3677002E5031 /* Debug */,
@@ -343,7 +343,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3F565750253E3677002E5031 /* Build configuration list for PBXNativeTarget "IOSMail" */ = {
+		3F565750253E3677002E5031 /* Build configuration list for PBXNativeTarget "iosMail" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F565751253E3677002E5031 /* Debug */,
