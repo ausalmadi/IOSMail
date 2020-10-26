@@ -60,11 +60,19 @@
 				3F565741253E3673002E5031 /* SceneDelegate.swift */,
 				3F565743253E3673002E5031 /* ViewController.swift */,
 				3F565745253E3673002E5031 /* Main.storyboard */,
+				3F60B71025474B72009BD1BD /* MVC */,
 				3F565748253E3677002E5031 /* Assets.xcassets */,
 				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
 				3F56574D253E3677002E5031 /* Info.plist */,
 			);
 			path = IOSMail;
+			sourceTree = "<group>";
+		};
+		3F60B71025474B72009BD1BD /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
