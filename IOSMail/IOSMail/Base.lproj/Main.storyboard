@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LogIn View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IOSMail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="LogIn View Controller" customClass="ViewController" customModule="IOSMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-316" y="-7"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="HW5-hB-icK">
             <objects>
-                <viewController id="mfG-TN-pZu" sceneMemberID="viewController">
+                <viewController id="mfG-TN-pZu" userLabel="Home View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lIE-lD-cEg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="636" y="-29"/>
         </scene>
-        <!--View Controller-->
+        <!--Reading View Controller-->
         <scene sceneID="nH1-ak-8BT">
             <objects>
-                <viewController id="boz-12-v8k" sceneMemberID="viewController">
+                <viewController id="boz-12-v8k" userLabel="Reading View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sra-lQ-UtN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="1523" y="175"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="Fwb-go-SRW">
             <objects>
-                <viewController id="CGJ-p8-LON" sceneMemberID="viewController">
+                <viewController id="CGJ-p8-LON" userLabel="Setting View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHU-gg-A8V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="184" y="670"/>
         </scene>
-        <!--View Controller-->
+        <!--Sent View Controller-->
         <scene sceneID="pif-3e-pdg">
             <objects>
-                <viewController id="oWm-NH-vdx" sceneMemberID="viewController">
+                <viewController id="oWm-NH-vdx" userLabel="Sent View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-B3-8He">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="172" y="-755"/>
         </scene>
-        <!--View Controller-->
+        <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
             <objects>
-                <viewController id="ZYt-K6-SDN" sceneMemberID="viewController">
+                <viewController id="ZYt-K6-SDN" userLabel="Composing View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ouc-XD-tq2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
