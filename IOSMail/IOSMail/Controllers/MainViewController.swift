@@ -12,12 +12,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-
-   
-    @IBAction func goButon(_ sender: UIButton) {
-        performSegue(withIdentifier:"goToMain", sender: self)
-    }
-    
+    }    
 }
 
