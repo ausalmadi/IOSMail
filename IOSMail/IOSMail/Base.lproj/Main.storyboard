@@ -3,16 +3,16 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login-->
+        <!--Main-->
         <scene sceneID="h8p-43-IOt">
             <objects>
-                <viewController title="Login" modalPresentationStyle="fullScreen" id="DfM-ck-gft" sceneMemberID="viewController">
+                <viewController title="Login" modalPresentationStyle="fullScreen" id="DfM-ck-gft" userLabel="Main" customClass="MainViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wTy-bP-pLd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkR-w8-3e7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-2B-lTw">
                                 <rect key="frame" x="166" y="130" width="42" height="21"/>
@@ -35,10 +35,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
+                                <rect key="frame" x="43" y="539" width="335" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <state key="normal" title="go to the next page">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goButon:" destination="DfM-ck-gft" eventType="touchUpInside" id="i3j-Mj-6bB"/>
+                                    <segue destination="mfG-TN-pZu" kind="show" identifier="goToMain" id="GWa-Iq-2l2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qge-1I-pKp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="goButton" destination="nkR-w8-3e7" id="PbN-Ho-M7d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixe-eL-NQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,22 +62,23 @@
         <!--Home View Controller-->
         <scene sceneID="HW5-hB-icK">
             <objects>
-                <viewController id="mfG-TN-pZu" userLabel="Home View Controller" sceneMemberID="viewController">
+                <viewController id="mfG-TN-pZu" userLabel="Home View Controller" customClass="HomeViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lIE-lD-cEg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="I7e-qi-zj1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lkE-dB-Nbz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2i-xh-9AS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="-29"/>
+            <point key="canvasLocation" x="634.78260869565224" y="-29.464285714285712"/>
         </scene>
         <!--Reading View Controller-->
         <scene sceneID="nH1-ak-8BT">
             <objects>
-                <viewController id="boz-12-v8k" userLabel="Reading View Controller" sceneMemberID="viewController">
+                <viewController id="boz-12-v8k" userLabel="Reading View Controller" customClass="ReadingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sra-lQ-UtN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +93,7 @@
         <!--Setting View Controller-->
         <scene sceneID="Fwb-go-SRW">
             <objects>
-                <viewController id="CGJ-p8-LON" userLabel="Setting View Controller" sceneMemberID="viewController">
+                <viewController id="CGJ-p8-LON" userLabel="Setting View Controller" customClass="SettingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHU-gg-A8V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +108,7 @@
         <!--Sent View Controller-->
         <scene sceneID="pif-3e-pdg">
             <objects>
-                <viewController id="oWm-NH-vdx" userLabel="Sent View Controller" sceneMemberID="viewController">
+                <viewController id="oWm-NH-vdx" userLabel="Sent View Controller" customClass="SentViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-B3-8He">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +123,7 @@
         <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
             <objects>
-                <viewController id="ZYt-K6-SDN" userLabel="Composing View Controller" sceneMemberID="viewController">
+                <viewController id="ZYt-K6-SDN" userLabel="Composing View Controller" customClass="ComposingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ouc-XD-tq2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,9 +139,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
