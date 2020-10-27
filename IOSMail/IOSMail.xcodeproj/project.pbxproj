@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3680B2592548B95300E15EF2 /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3680B2582548B95300E15EF2 /* test.xib */; };
+		3680B25D2548BBED00E15EF2 /* snippets.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3680B25C2548BBED00E15EF2 /* snippets.rtf */; };
 		3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */; };
 		3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671772548AF8C00A4DD92 /* SettingViewController.swift */; };
 		3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717A2548AFA100A4DD92 /* SentViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3680B2582548B95300E15EF2 /* test.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
+		3680B25C2548BBED00E15EF2 /* snippets.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = snippets.rtf; sourceTree = "<group>"; };
 		3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		3F2671772548AF8C00A4DD92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3F26717A2548AFA100A4DD92 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3680B25B2548BBC400E15EF2 /* Daves Extra Code Snippets */ = {
+			isa = PBXGroup;
+			children = (
+				3680B25C2548BBED00E15EF2 /* snippets.rtf */,
+			);
+			path = "Daves Extra Code Snippets";
+			sourceTree = "<group>";
+		};
 		3F2671732548AF2400A4DD92 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +75,7 @@
 		3F565733253E3673002E5031 = {
 			isa = PBXGroup;
 			children = (
+				3680B25B2548BBC400E15EF2 /* Daves Extra Code Snippets */,
 				3F56573E253E3673002E5031 /* IOSMail */,
 				3F56573D253E3673002E5031 /* Products */,
 			);
@@ -86,6 +99,7 @@
 				3F565748253E3677002E5031 /* Assets.xcassets */,
 				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
 				3F56574D253E3677002E5031 /* Info.plist */,
+				3680B2582548B95300E15EF2 /* test.xib */,
 			);
 			path = IOSMail;
 			sourceTree = "<group>";
@@ -147,7 +161,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3680B25D2548BBED00E15EF2 /* snippets.rtf in Resources */,
 				3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */,
+				3680B2592548B95300E15EF2 /* test.xib in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
 				3F565747253E3673002E5031 /* Main.storyboard in Resources */,
 			);
