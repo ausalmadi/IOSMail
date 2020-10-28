@@ -163,10 +163,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lLd-hw-LOK">
-                                <rect key="frame" x="20" y="150" width="374" height="511"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
                                 <rect key="frame" x="153.5" y="98" width="107" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -177,9 +173,7 @@
                         <viewLayoutGuide key="safeArea" id="aSc-c7-vXA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lLd-hw-LOK" firstAttribute="centerX" secondItem="aHU-gg-A8V" secondAttribute="centerX" id="2vn-g4-YJu"/>
                             <constraint firstItem="caZ-hc-4oK" firstAttribute="top" secondItem="aSc-c7-vXA" secondAttribute="top" constant="10" id="Gmw-Lm-Ndj"/>
-                            <constraint firstItem="lLd-hw-LOK" firstAttribute="top" secondItem="caZ-hc-4oK" secondAttribute="bottom" constant="15" id="UHd-t8-HXp"/>
                             <constraint firstItem="caZ-hc-4oK" firstAttribute="centerX" secondItem="aHU-gg-A8V" secondAttribute="centerX" id="x3R-Tx-5up"/>
                         </constraints>
                     </view>
@@ -203,19 +197,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IOW-OX-DE8">
+                                <rect key="frame" x="4" y="141" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JJu-80-ocB"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pim-6Y-sRy">
+                                <rect key="frame" x="9" y="227" width="404" height="648"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Js0-Ol-acr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IOW-OX-DE8" secondAttribute="trailing" constant="-24" id="1dL-sr-2R1"/>
+                            <constraint firstItem="pim-6Y-sRy" firstAttribute="leading" secondItem="Js0-Ol-acr" secondAttribute="leading" constant="9" id="9UV-cr-Xmv"/>
                             <constraint firstItem="ck6-UT-xvg" firstAttribute="top" secondItem="Js0-Ol-acr" secondAttribute="top" constant="10" id="JqG-LU-z1N"/>
+                            <constraint firstItem="IOW-OX-DE8" firstAttribute="leading" secondItem="Js0-Ol-acr" secondAttribute="leading" constant="4" id="Lob-ld-0FO"/>
+                            <constraint firstItem="pim-6Y-sRy" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" constant="93" id="NWe-tr-WWH"/>
+                            <constraint firstItem="IOW-OX-DE8" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" constant="7" id="OG9-aK-EQU"/>
+                            <constraint firstItem="Js0-Ol-acr" firstAttribute="bottom" secondItem="pim-6Y-sRy" secondAttribute="bottom" constant="-62" id="YUq-Me-gqV"/>
                             <constraint firstItem="ck6-UT-xvg" firstAttribute="centerX" secondItem="2VE-B3-8He" secondAttribute="centerX" id="usI-Er-FOw"/>
+                            <constraint firstItem="pim-6Y-sRy" firstAttribute="centerX" secondItem="IOW-OX-DE8" secondAttribute="centerX" id="vub-YX-IKY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nrj-E3-IHw"/>
+                    <connections>
+                        <outlet property="tableView" destination="pim-6Y-sRy" id="tEf-xa-1bq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfe-3s-bFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735" y="-29"/>
+            <point key="canvasLocation" x="3734.7826086956525" y="-29.464285714285712"/>
         </scene>
         <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
@@ -268,7 +283,7 @@
     <resources>
         <image name="button" width="298" height="93"/>
         <namedColor name="MenuBar">
-            <color red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.017000000923871994" green="0.19799999892711639" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
