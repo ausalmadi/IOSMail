@@ -7,14 +7,31 @@
 
 import UIKit
 
-class ComposingViewController: MainViewController {
+class ComposingViewController: MainViewController, UITextViewDelegate {
 
+    @IBOutlet var messageBody: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        messageBody.delegate = self
+        messageBody.text = "Type here..."
+        messageBody.textColor = UIColor.lightGray
+        
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            messageBody.text = "Type here..."
+            messageBody.textColor = UIColor.lightGray
+        }
+    }
 
     /*
     // MARK: - Navigation
