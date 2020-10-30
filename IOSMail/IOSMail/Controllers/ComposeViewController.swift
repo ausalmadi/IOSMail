@@ -1,15 +1,14 @@
 //
-//  ComposingViewController.swift
+//  ComposeViewController.swift
 //  iosMail
 //
-//  Created by student on 2020-10-27.
+//  Created by student on 2020-10-30.
 //
 
 import UIKit
 
-class ComposingViewController: MainViewController {
+class ComposeViewController: UIViewController {
 
-    @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
