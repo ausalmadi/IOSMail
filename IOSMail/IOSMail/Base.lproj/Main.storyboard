@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="button" translatesAutoresizingMaskIntoConstraints="NO" id="CHx-Wc-eY2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button" translatesAutoresizingMaskIntoConstraints="NO" id="CHx-Wc-eY2">
                                 <rect key="frame" x="56" y="748" width="298" height="93"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
-                                <rect key="frame" x="138" y="761" width="134" height="60"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                                <state key="normal" title="L o g i n">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
+                                <rect key="frame" x="39" y="745" width="337" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Login" backgroundImage="button">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
                                 <connections>
@@ -67,9 +67,14 @@
                         <constraints>
                             <constraint firstItem="sXS-x0-dYe" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="EMb-OW-zno"/>
                             <constraint firstItem="Qge-1I-pKp" firstAttribute="bottom" secondItem="CHx-Wc-eY2" secondAttribute="bottom" constant="50" id="dCe-sJ-RCJ"/>
-                            <constraint firstItem="Qge-1I-pKp" firstAttribute="bottom" secondItem="sXS-x0-dYe" secondAttribute="bottom" constant="83" id="jfg-EA-NZ0"/>
+                            <constraint firstItem="Qge-1I-pKp" firstAttribute="bottom" secondItem="sXS-x0-dYe" secondAttribute="bottom" constant="100" id="jfg-EA-NZ0"/>
                             <constraint firstItem="CHx-Wc-eY2" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="oxJ-lQ-0Mx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CHx-Wc-eY2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="iqW-s8-Riz"/>
                 </viewController>
@@ -482,7 +487,6 @@
         <!--Navigation Controller-->
         <scene sceneID="wEF-Qs-nSL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="55I-Uq-aGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MjE-s4-JuF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YXo-sR-XQi"/>
@@ -495,6 +499,7 @@
                         <segue destination="mfG-TN-pZu" kind="relationship" relationship="rootViewController" id="1w6-GE-sp0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55I-Uq-aGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1544.9275362318842" y="-29.464285714285712"/>
         </scene>
