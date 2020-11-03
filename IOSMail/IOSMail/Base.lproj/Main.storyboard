@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
-                                <rect key="frame" x="157" y="778" width="100" height="59"/>
+                                <rect key="frame" x="160.66666666666666" y="777" width="93" height="60"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="40"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" systemColor="systemRedColor"/>
@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_logo" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-MB-a5A">
-                                <rect key="frame" x="144.66666666666666" y="628" width="124.99999999999997" height="125"/>
+                                <rect key="frame" x="144.66666666666666" y="627" width="124.99999999999997" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="GX3-2X-XZb"/>
                                     <constraint firstAttribute="width" constant="125" id="aWi-VR-Pgl"/>
@@ -122,22 +122,23 @@
                                 <color key="tintColor" name="MenuBar"/>
                             </toolbar>
                             <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="NN0-0E-gBO">
-                                <rect key="frame" x="0.0" y="133" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="134" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
                                 <rect key="frame" x="0.0" y="224" width="414" height="295"/>
+
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
-                                <rect key="frame" x="47" y="194" width="71" height="22"/>
+                                <rect key="frame" x="47" y="195" width="71" height="22"/>
                                 <state key="normal" title="Delete" image="trash" catalog="system"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wU6-fG-CHd">
-                                <rect key="frame" x="127" y="98" width="46" height="34.000000000000014"/>
+                                <rect key="frame" x="127" y="98" width="46" height="35.000000000000014"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwD-QI-Se5">
-                                <rect key="frame" x="20" y="194" width="19" height="22"/>
+                                <rect key="frame" x="20" y="195" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="Qu7-0A-ci1">
