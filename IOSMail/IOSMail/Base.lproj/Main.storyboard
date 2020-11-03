@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Itim-Regular.ttf">
+            <string>Itim-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main-->
         <scene sceneID="h8p-43-IOt">
@@ -121,12 +126,6 @@
                                 </items>
                                 <color key="tintColor" name="MenuBar"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
-                                <rect key="frame" x="171.66666666666666" y="98" width="71" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" systemColor="linkColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="NN0-0E-gBO">
                                 <rect key="frame" x="0.0" y="134" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -146,6 +145,12 @@
                                 <rect key="frame" x="20" y="195" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
+                                <rect key="frame" x="168" y="98" width="100" height="36"/>
+                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                <color key="textColor" systemColor="linkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I7e-qi-zj1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -177,7 +182,6 @@
                             <constraint firstItem="OwD-QI-Se5" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="20" id="o7E-hB-cvY"/>
                             <constraint firstItem="OwD-QI-Se5" firstAttribute="top" secondItem="NN0-0E-gBO" secondAttribute="bottom" constant="5" id="pAZ-nR-d5t"/>
                             <constraint firstItem="wU6-fG-CHd" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="127" id="poX-qu-IWr"/>
-                            <constraint firstItem="PEI-Md-saM" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="171.66999999999999" id="xHT-MH-ChK"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -198,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2i-xh-9AS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1174" y="-46"/>
+            <point key="canvasLocation" x="1173.913043478261" y="-46.205357142857139"/>
         </scene>
         <!--Reading View Controller-->
         <scene sceneID="nH1-ak-8BT">
@@ -490,7 +494,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button" width="157.5" height="93.5"/>
+        <image name="button" width="105" height="62.333332061767578"/>
         <image name="mail.fill" catalog="system" width="128" height="93"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="square" catalog="system" width="128" height="114"/>
