@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,7 @@
 		3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F56574A253E3677002E5031 /* LaunchScreen.storyboard */; };
 		3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D295B2549BCD900434B99 /* TableViewCell.swift */; };
 		3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D295C2549BCD900434B99 /* TableViewCell.xib */; };
+		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
 		9C7E62B9782C2ACDEF8A3842 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20CB816A692055A1F47403 /* Pods_iosMail.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		3F56574D253E3677002E5031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8D295B2549BCD900434B99 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		3F8D295C2549BCD900434B99 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		3F56573E253E3673002E5031 /* IOSMail */ = {
 			isa = PBXGroup;
 			children = (
+				522DEEBF2551B6F30002F4A1 /* Fonts */,
 				3F8D295A2549BC8800434B99 /* View */,
 				3F2671732548AF2400A4DD92 /* Controllers */,
 				3F56573F253E3673002E5031 /* AppDelegate.swift */,
@@ -126,13 +129,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		522DEEBF2551B6F30002F4A1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CA0BE086621AA883DFBA4CA0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				1AFDCC095EF2F7A138B2A087 /* Pods-iosMail.debug.xcconfig */,
 				2BA67A116F4415878A122D27 /* Pods-iosMail.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,6 +218,7 @@
 				3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */,
 				3680B2592548B95300E15EF2 /* test.xib in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
+				522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */,
 				3F565747253E3673002E5031 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
