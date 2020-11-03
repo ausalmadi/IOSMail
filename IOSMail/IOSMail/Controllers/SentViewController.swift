@@ -12,28 +12,19 @@ class SentViewController: MainViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let data = ["To: ABC", "To: CDF","To: GBHDG","To: ABC", "To: CDF","To: GBHDG"]
-    let date = ["1Aug","12Aug","16Aug","17Aug","20Aug","1Sep"]
+    let date = ["1 Aug","12 Aug","16 Aug","17 Aug","20 Aug","1 Sep"]
+    let lineOne = ["Subject: This is the 1st line", "Subject: Happy Holidays!", "Subject: Have I got something for you", "Subject: This is the best email program ever!", "Subject: What's Up ?", "Subject: Christmas is coming ..."]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view.
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 //MARK: Tableview delegate and datasource
@@ -47,6 +38,7 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
             cell.tableLabel.text = self.data[indexPath.row]
             cell.tableDateLabel.text = self.date[indexPath.row]
+            cell.tableLineLabel.text = self.lineOne[indexPath.row]
             return cell
         }
         return UITableViewCell()
