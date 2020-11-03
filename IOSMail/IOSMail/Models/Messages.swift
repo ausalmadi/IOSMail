@@ -7,10 +7,10 @@
 
 import Foundation
 
-class Messages {
-	var subject : String = ""
-	var from : String = ""
-	var to : String = ""
-	var body : String = ""
-	var date : String = ""
+struct Messages {
+	let subject : String
+	let from : String
+	let to : String
+	let body : String
+	let date : String
 }

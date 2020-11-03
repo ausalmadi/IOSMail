@@ -9,19 +9,8 @@ import Foundation
 
 struct mailData : Codable{
 
-	//init(_id : String){
-		//self.id = _id
-		//self.threadId = ""
-		//self.labelIds = [""]
-		//self.snippet = ""
-		//self.historyId = ""
-		//self.internalDate = ""
-		//self.payload = MessagePart(from: <#Decoder#>)
-		//self.sizeEstimate = 0
-		//self.raw = ""
-	//}
 
-	let id : String,
+	/* let id : String,
 	threadId: String,
 	labelIds: [String],
 	snippet : String,
@@ -29,7 +18,11 @@ struct mailData : Codable{
 	internalDate: String,
 	payload: MessagePart,
 	sizeEstimate : Int,
-	raw : String
+	raw : String */
+	let emailAddress : String,
+	messagesTotal : Int,
+	threadsTotal: Int,
+	historyId : Int
 
 }
 

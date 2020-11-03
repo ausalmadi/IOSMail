@@ -13,12 +13,21 @@ protocol MailManagerDelegate {
 }
 
 struct MailManager {
-	let mailURL = "https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
+	let userId = "burningman2k9@gmail.com"
+	let apiKey = ""
+	let mailURL = "https://gmail.googleapis.com/gmail/v1/users/"
+
+	/*GET https://gmail.googleapis.com/gmail/v1/users/burningman2k9%40gmail.com/profile?key=[YOUR_API_KEY] HTTP/1.1
+
+	Authorization: Bearer [YOUR_ACCESS_TOKEN]
+	Accept: application/json*/
+
+		//"https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
 
 	var delegate: MailManagerDelegate?
 
 	func fetchMail(cityName: String) {
-		let urlString = "\(mailURL)&q=\(cityName)"
+		let urlString = "\(self.userId)/profile/\(self.apiKey)"
 		performRequest(with: urlString)
 	}
 
@@ -33,7 +42,7 @@ struct MailManager {
 				}
 				if let safeData = data {
 					if let _mail = self.parseJSON(safeData) {
-						//self.delegate?.didUpdateMail(self, mail: _mail)
+						self.delegate?.didUpdateMail(self, mail: _mail)
 					}
 				}
 			}
@@ -41,7 +50,7 @@ struct MailManager {
 		}
 	}
 
-	func parseJSON(_ maildata: Data) -> mailData? {
+	func parseJSON(_ maildata: Data) -> MailModel? {
 		let decoder = JSONDecoder()
 		do {
 			let decodedData = try decoder.decode(mailData.self, from: maildata)
@@ -50,7 +59,7 @@ struct MailManager {
 			//let name = decodedData.name
 
 			//let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
-			let mail = try mailData(from: maildata as! Decoder) //_id : "id01")
+			let mail = MailModel(emailAddress: decodedData.emailAddress) //_id : "id01")
 			return mail
 
 		} catch {

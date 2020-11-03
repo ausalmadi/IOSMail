@@ -8,5 +8,7 @@
 import Foundation
 
 struct MailModel {
+	let emailAddress : String
+
 	
 }
