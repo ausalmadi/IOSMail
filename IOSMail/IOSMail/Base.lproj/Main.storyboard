@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DfM-ck-gft">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ELE-Oa-rbb">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
@@ -123,29 +123,29 @@
                                 </items>
                                 <color key="tintColor" name="MenuBar"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
                                 <rect key="frame" x="162" y="98" width="100" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="NN0-0E-gBO">
-                                <rect key="frame" x="0.0" y="134" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
-                                <rect key="frame" x="0.0" y="225" width="414" height="523"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="top" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
+                                <rect key="frame" x="5" y="225" width="400" height="520"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.90000000000000002"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
-                                <rect key="frame" x="47" y="195" width="71" height="22"/>
+                                <rect key="frame" x="47" y="180" width="71" height="25"/>
                                 <state key="normal" title="Delete" image="trash" catalog="system"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wU6-fG-CHd">
-                                <rect key="frame" x="127" y="98" width="46" height="35.000000000000028"/>
+                                <rect key="frame" x="127" y="98" width="46" height="20"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwD-QI-Se5">
-                                <rect key="frame" x="20" y="195" width="19" height="22"/>
+                                <rect key="frame" x="20" y="180" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
                         </subviews>
@@ -153,9 +153,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8cP-2l-Fcf" firstAttribute="top" secondItem="NN0-0E-gBO" secondAttribute="bottom" constant="5" id="1zn-hT-aVp"/>
-                            <constraint firstItem="Ydi-R1-rWG" firstAttribute="top" secondItem="OwD-QI-Se5" secondAttribute="bottom" constant="8" symbolic="YES" id="2GS-Ec-Sj8"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="top" secondItem="Ydi-R1-rWG" secondAttribute="bottom" constant="16" id="4zl-0j-B27"/>
-                            <constraint firstItem="Ydi-R1-rWG" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" id="6a9-e3-f6e"/>
+                            <constraint firstItem="Ydi-R1-rWG" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="5" id="6a9-e3-f6e"/>
                             <constraint firstItem="NN0-0E-gBO" firstAttribute="top" secondItem="wU6-fG-CHd" secondAttribute="bottom" constant="0.67000000000000004" id="93m-Nd-OMu"/>
                             <constraint firstItem="wU6-fG-CHd" firstAttribute="top" secondItem="I7e-qi-zj1" secondAttribute="top" constant="10" id="E34-52-ojI"/>
                             <constraint firstItem="PEI-Md-saM" firstAttribute="top" secondItem="I7e-qi-zj1" secondAttribute="top" constant="10" id="HOY-f2-ZXh"/>
@@ -168,7 +167,7 @@
                             <constraint firstItem="WAi-yB-azA" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" id="bXM-Ae-mx9"/>
                             <constraint firstItem="Ydi-R1-rWG" firstAttribute="top" secondItem="8cP-2l-Fcf" secondAttribute="bottom" constant="8" symbolic="YES" id="ca1-zt-WFn"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="trailing" secondItem="I7e-qi-zj1" secondAttribute="trailing" id="eqd-5r-NSI"/>
-                            <constraint firstItem="Ydi-R1-rWG" firstAttribute="trailing" secondItem="I7e-qi-zj1" secondAttribute="trailing" id="eyz-cW-dMF"/>
+                            <constraint firstItem="Ydi-R1-rWG" firstAttribute="trailing" secondItem="I7e-qi-zj1" secondAttribute="trailing" constant="5" id="eyz-cW-dMF"/>
                             <constraint firstItem="Ydi-R1-rWG" firstAttribute="top" secondItem="OwD-QI-Se5" secondAttribute="bottom" constant="11" id="fqf-rS-B3y"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="bottom" secondItem="I7e-qi-zj1" secondAttribute="bottom" id="h5s-Jp-Glw"/>
                             <constraint firstItem="NN0-0E-gBO" firstAttribute="top" secondItem="PEI-Md-saM" secondAttribute="bottom" id="hEs-1F-cdg"/>
