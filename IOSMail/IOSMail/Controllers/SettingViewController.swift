@@ -9,13 +9,18 @@ import UIKit
 
 class SettingViewController: MainViewController {
 
+    @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var signatureText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func signatureOn(_ sender: UISwitch) {
+    }
+    
     /*
     // MARK: - Navigation
 
