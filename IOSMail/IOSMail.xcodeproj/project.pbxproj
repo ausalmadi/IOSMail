@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		365CF5892551D7D400954DDD /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5882551D7D400954DDD /* Messages.swift */; };
+		365CF5902551EAE400954DDD /* mailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF58F2551EAE400954DDD /* mailData.swift */; };
+		365CF5932551F09F00954DDD /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5922551F09F00954DDD /* MailManager.swift */; };
+		365CF5962551F4C600954DDD /* MailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5952551F4C600954DDD /* MailModel.swift */; };
 		3680B2592548B95300E15EF2 /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3680B2582548B95300E15EF2 /* test.xib */; };
 		3680B25D2548BBED00E15EF2 /* snippets.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3680B25C2548BBED00E15EF2 /* snippets.rtf */; };
 		3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */; };
@@ -32,6 +36,10 @@
 		1D20CB816A692055A1F47403 /* Pods_iosMail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosMail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA67A116F4415878A122D27 /* Pods-iosMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.release.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.release.xcconfig"; sourceTree = "<group>"; };
 		36159F20254B5B1C00C80D97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		365CF5882551D7D400954DDD /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		365CF58F2551EAE400954DDD /* mailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailData.swift; sourceTree = "<group>"; };
+		365CF5922551F09F00954DDD /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
+		365CF5952551F4C600954DDD /* MailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailModel.swift; sourceTree = "<group>"; };
 		3680B2582548B95300E15EF2 /* test.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
 		3680B25C2548BBED00E15EF2 /* snippets.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = snippets.rtf; sourceTree = "<group>"; };
 		3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +73,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		365CF5872551D7AC00954DDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				365CF5882551D7D400954DDD /* Messages.swift */,
+				365CF58F2551EAE400954DDD /* mailData.swift */,
+				365CF5922551F09F00954DDD /* MailManager.swift */,
+				365CF5952551F4C600954DDD /* MailModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3680B25B2548BBC400E15EF2 /* Daves Extra Code Snippets */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +127,7 @@
 		3F56573E253E3673002E5031 /* IOSMail */ = {
 			isa = PBXGroup;
 			children = (
+				365CF5872551D7AC00954DDD /* Models */,
 				522DEEBF2551B6F30002F4A1 /* Fonts */,
 				3F8D295A2549BC8800434B99 /* View */,
 				3F2671732548AF2400A4DD92 /* Controllers */,
@@ -281,9 +301,13 @@
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
+				365CF5902551EAE400954DDD /* mailData.swift in Sources */,
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
 				3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */,
+				365CF5892551D7D400954DDD /* Messages.swift in Sources */,
+				365CF5962551F4C600954DDD /* MailModel.swift in Sources */,
 				3F26717E2548AFC200A4DD92 /* ComposingViewController.swift in Sources */,
+				365CF5932551F09F00954DDD /* MailManager.swift in Sources */,
 				3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
