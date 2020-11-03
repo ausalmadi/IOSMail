@@ -10,15 +10,17 @@ import UIKit
 class SettingViewController: MainViewController {
 
     @IBOutlet weak var emailAddress: UITextField!
-    @IBOutlet weak var signatureText: UITextField!
+    @IBOutlet weak var signatureTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func signatureOn(_ sender: UISwitch) {
+        UISwitch.init()
+        
     }
     
     /*
