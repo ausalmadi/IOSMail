@@ -22,9 +22,13 @@
 		3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F56574A253E3677002E5031 /* LaunchScreen.storyboard */; };
 		3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D295B2549BCD900434B99 /* TableViewCell.swift */; };
 		3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D295C2549BCD900434B99 /* TableViewCell.xib */; };
+		9C7E62B9782C2ACDEF8A3842 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20CB816A692055A1F47403 /* Pods_iosMail.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AFDCC095EF2F7A138B2A087 /* Pods-iosMail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.debug.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.debug.xcconfig"; sourceTree = "<group>"; };
+		1D20CB816A692055A1F47403 /* Pods_iosMail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosMail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BA67A116F4415878A122D27 /* Pods-iosMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.release.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.release.xcconfig"; sourceTree = "<group>"; };
 		36159F20254B5B1C00C80D97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3680B2582548B95300E15EF2 /* test.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
 		3680B25C2548BBED00E15EF2 /* snippets.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = snippets.rtf; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C7E62B9782C2ACDEF8A3842 /* Pods_iosMail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +88,8 @@
 				3680B25B2548BBC400E15EF2 /* Daves Extra Code Snippets */,
 				3F56573E253E3673002E5031 /* IOSMail */,
 				3F56573D253E3673002E5031 /* Products */,
+				CA0BE086621AA883DFBA4CA0 /* Pods */,
+				F1B24588C2AE74DBABA99B23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +126,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CA0BE086621AA883DFBA4CA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AFDCC095EF2F7A138B2A087 /* Pods-iosMail.debug.xcconfig */,
+				2BA67A116F4415878A122D27 /* Pods-iosMail.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F1B24588C2AE74DBABA99B23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D20CB816A692055A1F47403 /* Pods_iosMail.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F565750253E3677002E5031 /* Build configuration list for PBXNativeTarget "iosMail" */;
 			buildPhases = (
+				252BFE77B6FE595DD78532A8 /* [CP] Check Pods Manifest.lock */,
 				3F565738253E3673002E5031 /* Sources */,
 				3F565739253E3673002E5031 /* Frameworks */,
 				3F56573A253E3673002E5031 /* Resources */,
+				5A097F88BDBB26108C14728F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,6 +213,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		252BFE77B6FE595DD78532A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iosMail-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A097F88BDBB26108C14728F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F565738253E3673002E5031 /* Sources */ = {
@@ -345,6 +414,7 @@
 		};
 		3F565751253E3677002E5031 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AFDCC095EF2F7A138B2A087 /* Pods-iosMail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -367,6 +437,7 @@
 		};
 		3F565752253E3677002E5031 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BA67A116F4415878A122D27 /* Pods-iosMail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
