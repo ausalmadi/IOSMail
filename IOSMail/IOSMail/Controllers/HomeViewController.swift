@@ -19,7 +19,8 @@ class HomeViewController: MainViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
-    let date = ["1Aug","1Sep","1Oct","17Oct","20Oct","30Oct"]
+    let date = ["1 Aug","1 Sep","1 Oct","17 Oct","20 Oct","30 Oct"]
+    let subject = ["Subject: 1", "Subject: 2", "Subject: 3", "Subject: 4", "Subject: 5", "Subject: 6"]
     
         
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
             cell.tableLabel.text = self.data[indexPath.row]
             cell.tableDateLabel.text = self.date[indexPath.row]
+            cell.tableSubjectLabel.text = self.subject[indexPath.row]
             return cell
         }
         return UITableViewCell()

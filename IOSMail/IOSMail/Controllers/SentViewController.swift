@@ -12,7 +12,9 @@ class SentViewController: MainViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let data = ["To: ABC", "To: CDF","To: GBHDG","To: ABC", "To: CDF","To: GBHDG"]
-    let date = ["1Aug","12Aug","16Aug","17Aug","20Aug","1Sep"]
+    let date = ["1 Aug","12 Aug","16 Aug","17 Aug","20 Aug","1 Sep"]
+    let subject = ["Subject: A", "Subject: B", "Subject: C", "Subject: D", "Subject: E", "Subject: F"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -47,6 +49,7 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
             cell.tableLabel.text = self.data[indexPath.row]
             cell.tableDateLabel.text = self.date[indexPath.row]
+            cell.tableSubjectLabel.text = self.subject[indexPath.row]
             return cell
         }
         return UITableViewCell()
