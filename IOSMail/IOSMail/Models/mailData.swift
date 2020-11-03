@@ -7,8 +7,21 @@
 
 import Foundation
 
-struct mailData {
-	var id : String,
+struct mailData : Codable{
+
+	//init(_id : String){
+		//self.id = _id
+		//self.threadId = ""
+		//self.labelIds = [""]
+		//self.snippet = ""
+		//self.historyId = ""
+		//self.internalDate = ""
+		//self.payload = MessagePart(from: <#Decoder#>)
+		//self.sizeEstimate = 0
+		//self.raw = ""
+	//}
+
+	let id : String,
 	threadId: String,
 	labelIds: [String],
 	snippet : String,
@@ -20,8 +33,8 @@ struct mailData {
 
 }
 
-struct MessagePart {
-	var partId : String,
+struct MessagePart : Codable{
+	let partId : String,
 	mimeType: String,
 	filename: String,
 	headers : [Header],
@@ -29,13 +42,13 @@ struct MessagePart {
 	parts : [MessagePart]
 }
 
-struct Header {
-	var name: String,
+struct Header : Codable {
+	let name: String,
 	value: String
 }
 
-struct MessageBodyPart {
-	var attachmentId : String,
+struct MessageBodyPart : Codable{
+	let attachmentId : String,
 	size : Int,
 	data : String
 }

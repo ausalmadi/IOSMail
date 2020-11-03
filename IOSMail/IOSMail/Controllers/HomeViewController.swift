@@ -23,19 +23,10 @@ class HomeViewController: MainViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-		let newMsg = Messages()
-		newMsg.from = "some@one.com"
-		newMsg.subject = "re: subject"
-		newMsg.to = "some@one.else.com"
-		newMsg.date = "oct 31 2020"
-		newMsg.body = "some more text goes here"
+		let newMsg = Messages(subject: "re: subject", from: "some@one.com", to: "some@one.else.com", body: "some more text goes here", date: "oct 31 2020")
 		messages.append(newMsg)
-		let newMsg1 = Messages()
-		newMsg1.from = "some@one.com"
-		newMsg1.subject = "subject"
-		newMsg1.to = "some@one.else.com"
-		newMsg1.date = "oct 30 2020"
-		newMsg1.body = "some text goes here"
+		let newMsg1 = Messages(subject: "subject", from: "some@one.com", to: "some@one.else.com", body: "some text goes here", date: "oct 30 2020")
+
 		messages.append(newMsg1)
 
         // Do any additional setup after loading the view.
