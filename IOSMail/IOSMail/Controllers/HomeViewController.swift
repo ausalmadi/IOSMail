@@ -8,23 +8,36 @@
 import UIKit
 
 class HomeViewController: MainViewController {
-  
-    
-  
-    
+
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
+	var messages = [Messages]()
+	let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
     let date = ["1 Aug","1 Sep","1 Oct","17 Oct","20 Oct","30 Oct"]
     let subject = ["Subject: 1", "Subject: 2", "Subject: 3", "Subject: 4", "Subject: 5", "Subject: 6"]
     
         
     override func viewDidLoad() {
         super.viewDidLoad()
+		let newMsg = Messages()
+		newMsg.from = "some@one.com"
+		newMsg.subject = "re: subject"
+		newMsg.to = "some@one.else.com"
+		newMsg.date = "oct 31 2020"
+		newMsg.body = "some more text goes here"
+		messages.append(newMsg)
+		let newMsg1 = Messages()
+		newMsg1.from = "some@one.com"
+		newMsg1.subject = "subject"
+		newMsg1.to = "some@one.else.com"
+		newMsg1.date = "oct 30 2020"
+		newMsg1.body = "some text goes here"
+		messages.append(newMsg1)
+
         // Do any additional setup after loading the view.
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         
@@ -44,14 +57,17 @@ class HomeViewController: MainViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
+        return self.messages.count
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
-            cell.tableLabel.text = self.data[indexPath.row]
-            cell.tableDateLabel.text = self.date[indexPath.row]
-            cell.tableSubjectLabel.text = self.subject[indexPath.row]
+			cell.tableLabel.text = self.messages[indexPath.row].subject
+				//self.data[indexPath.row]
+			cell.tableDateLabel.text = self.messages[indexPath.row].date
+				//self.date[indexPath.row]
+			cell.tableSubjectLabel.text = self.messages[indexPath.row].body
+				//self.subject[indexPath.row]
             return cell
         }
         return UITableViewCell()
