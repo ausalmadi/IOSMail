@@ -24,6 +24,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto-Light.ttf</string>
 		<string>Itim-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

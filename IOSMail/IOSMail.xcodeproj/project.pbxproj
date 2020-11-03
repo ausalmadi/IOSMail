@@ -23,6 +23,7 @@
 		3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D295B2549BCD900434B99 /* TableViewCell.swift */; };
 		3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D295C2549BCD900434B99 /* TableViewCell.xib */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
+		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
 		9C7E62B9782C2ACDEF8A3842 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20CB816A692055A1F47403 /* Pods_iosMail.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		3F8D295B2549BCD900434B99 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		3F8D295C2549BCD900434B99 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
+		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */,
+				52E578262551CE1C0028539E /* Roboto-Light.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				3680B2592548B95300E15EF2 /* test.xib in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
 				522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */,
+				52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */,
 				3F565747253E3673002E5031 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
