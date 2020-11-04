@@ -403,7 +403,7 @@ Email@address.com</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0y9-tX-0EM" userLabel="Base View">
-                                <rect key="frame" x="10" y="103" width="394" height="690"/>
+                                <rect key="frame" x="10" y="103" width="394" height="700"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hHd-Vq-isH" userLabel="Header View">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="115"/>
@@ -527,17 +527,34 @@ Email@address.com</string>
                                             <constraint firstItem="fXi-Ra-V1q" firstAttribute="centerX" secondItem="KFm-vv-IH9" secondAttribute="centerX" id="o8P-Up-6ka"/>
                                         </constraints>
                                     </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-1B-ieF">
+                                        <rect key="frame" x="0.0" y="660" width="394" height="40"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="fd9-vC-q3L"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="SEND">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="OMv-ay-c7A"/>
+                                <constraints>
+                                    <constraint firstItem="cRk-1B-ieF" firstAttribute="leading" secondItem="0y9-tX-0EM" secondAttribute="leading" id="Clg-gP-irz"/>
+                                    <constraint firstAttribute="trailing" secondItem="cRk-1B-ieF" secondAttribute="trailing" id="E9g-Bx-W1L"/>
+                                    <constraint firstItem="cRk-1B-ieF" firstAttribute="centerX" secondItem="0y9-tX-0EM" secondAttribute="centerX" id="LsS-r8-ZUn"/>
+                                    <constraint firstItem="cRk-1B-ieF" firstAttribute="bottom" secondItem="0y9-tX-0EM" secondAttribute="bottom" id="brE-qM-8z7"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lJA-MB-Bnz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="lJA-MB-Bnz" firstAttribute="bottom" secondItem="0y9-tX-0EM" secondAttribute="bottom" constant="10" id="UFg-Gv-E5o"/>
                             <constraint firstItem="0y9-tX-0EM" firstAttribute="leading" secondItem="lJA-MB-Bnz" secondAttribute="leading" constant="10" id="VPC-rP-PNB"/>
                             <constraint firstItem="0y9-tX-0EM" firstAttribute="top" secondItem="lJA-MB-Bnz" secondAttribute="top" constant="15" id="qBm-iQ-7So"/>
                             <constraint firstItem="0y9-tX-0EM" firstAttribute="centerX" secondItem="ouc-XD-tq2" secondAttribute="centerX" id="tNb-gc-VQB"/>
-                            <constraint firstItem="0y9-tX-0EM" firstAttribute="centerY" secondItem="ouc-XD-tq2" secondAttribute="centerY" id="zlH-MT-bjq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" largeTitleDisplayMode="always" id="zAr-hf-5Cx"/>
@@ -547,7 +564,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9V-6y-dQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="397"/>
+            <point key="canvasLocation" x="2095.6521739130435" y="396.42857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nha-wu-LJT">
