@@ -9,7 +9,7 @@
 "LxM-QY-eVi.title" = "Sent";
 
 /* Class = "UILabel"; text = "login eMail Label"; ObjectID = "MTR-2B-lTw"; */
-"MTR-2B-lTw.text" = "eMail";
+"MTR-2B-lTw.text" = "eMail Address";
 
 /* Class = "UILabel"; text = "Inbox"; ObjectID = "PEI-Md-saM"; */
 "PEI-Md-saM.text" = "Inbox";
