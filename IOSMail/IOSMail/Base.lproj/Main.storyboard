@@ -13,6 +13,9 @@
         <array key="Itim-Regular.ttf">
             <string>Itim-Regular</string>
         </array>
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Main-->
@@ -23,61 +26,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-2B-lTw">
-                                <rect key="frame" x="168" y="127" width="71" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ks-6I-aWE">
-                                <rect key="frame" x="31" y="288" width="350" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g5I-d2-aOv">
-                                <rect key="frame" x="32" y="171" width="349" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hco-l5-Adc">
-                                <rect key="frame" x="141" y="244" width="125" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
-                                <rect key="frame" x="160.66666666666666" y="777" width="93" height="60"/>
-                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="40"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" systemColor="systemRedColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mfG-TN-pZu" kind="showDetail" id="1ZF-WS-QBZ"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_logo" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-MB-a5A">
-                                <rect key="frame" x="144.66666666666666" y="627" width="124.99999999999997" height="125"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6ZW-xI-pvY" userLabel="Data Stack View">
+                                <rect key="frame" x="107" y="118" width="200" height="170"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eMail Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-2B-lTw">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="36"/>
+                                        <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g5I-d2-aOv" userLabel="Email Text Field">
+                                        <rect key="frame" x="0.0" y="46" width="200" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hco-l5-Adc">
+                                        <rect key="frame" x="0.0" y="90" width="200" height="36"/>
+                                        <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Ks-6I-aWE" userLabel="Password Text Field">
+                                        <rect key="frame" x="0.0" y="136" width="200" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="GX3-2X-XZb"/>
-                                    <constraint firstAttribute="width" constant="125" id="aWi-VR-Pgl"/>
+                                    <constraint firstAttribute="width" constant="200" id="f5a-9b-aKf"/>
                                 </constraints>
-                            </imageView>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ucx-sC-Zpy" userLabel="Button Stack View">
+                                <rect key="frame" x="132" y="475.66666666666674" width="150" height="175"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_logo" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-MB-a5A">
+                                        <rect key="frame" x="25" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="GX3-2X-XZb"/>
+                                            <constraint firstAttribute="width" constant="100" id="aWi-VR-Pgl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
+                                        <rect key="frame" x="0.0" y="124.99999999999994" width="150" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="COQ-yp-lgG"/>
+                                            <constraint firstAttribute="width" constant="150" id="r2e-gY-ReQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="20"/>
+                                        <state key="normal" backgroundImage="btnLogin2">
+                                            <color key="titleColor" systemColor="systemRedColor"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="mfG-TN-pZu" kind="showDetail" id="1ZF-WS-QBZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qge-1I-pKp"/>
-                        <color key="backgroundColor" name="MenuBar"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
-                            <constraint firstItem="sXS-x0-dYe" firstAttribute="top" secondItem="jLU-MB-a5A" secondAttribute="bottom" constant="25" id="2yW-RQ-3QF"/>
-                            <constraint firstItem="sXS-x0-dYe" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="3ku-P9-2TV"/>
-                            <constraint firstItem="jLU-MB-a5A" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="UXh-ha-dKj"/>
-                            <constraint firstItem="Qge-1I-pKp" firstAttribute="bottom" secondItem="sXS-x0-dYe" secondAttribute="bottom" constant="25" id="bOY-mR-cfh"/>
+                            <constraint firstItem="6ZW-xI-pvY" firstAttribute="top" secondItem="Qge-1I-pKp" secondAttribute="top" constant="30" id="7KA-uZ-LLW"/>
+                            <constraint firstItem="6ZW-xI-pvY" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="adV-hk-1Yf"/>
+                            <constraint firstItem="ucx-sC-Zpy" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="fyo-6W-jja"/>
+                            <constraint firstItem="ucx-sC-Zpy" firstAttribute="centerY" secondItem="wTy-bP-pLd" secondAttribute="centerY" constant="115" id="tXq-7h-Goe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iqW-s8-Riz"/>
@@ -95,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-yB-azA">
-                                <rect key="frame" x="0.0" y="764" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Reader" id="ql7-pI-RwO" userLabel="Reader">
                                         <connections>
@@ -221,7 +237,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reader" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-na-RjJ">
-                                <rect key="frame" x="162.33333333333334" y="98" width="89.666666666666657" height="36"/>
+                                <rect key="frame" x="162" y="98" width="90" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -305,11 +321,11 @@ Email@address.com</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axA-OA-GBm">
-                                <rect key="frame" x="179" y="433" width="61" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axA-OA-GBm">
+                                <rect key="frame" x="163" y="440" width="95" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
-                                <state key="normal" title="Save"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="btnSaveMed"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aSc-c7-vXA"/>
@@ -338,7 +354,7 @@ Email@address.com</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck6-UT-xvg">
-                                <rect key="frame" x="177.33333333333334" y="98" width="59.666666666666657" height="36"/>
+                                <rect key="frame" x="177" y="98" width="60" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -492,10 +508,10 @@ Email@address.com</string>
                                         </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-vv-IH9" userLabel="Body Scroll View">
-                                        <rect key="frame" x="0.0" y="120" width="394" height="535"/>
+                                        <rect key="frame" x="0.0" y="120" width="394" height="570"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="535"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="570"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -571,6 +587,8 @@ Email@address.com</string>
         </scene>
     </scenes>
     <resources>
+        <image name="btnLogin2" width="111.5" height="36"/>
+        <image name="btnSaveMed" width="94.5" height="36"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="sMail_logo" width="60" height="60"/>
         <image name="square" catalog="system" width="128" height="114"/>
@@ -596,6 +614,9 @@ Email@address.com</string>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
