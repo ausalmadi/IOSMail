@@ -1383,6 +1383,7 @@
 		52C140D7DD2882B61659D78FD974B815 /* grpc_service.upb.h in Headers */ = {isa = PBXBuildFile; fileRef = 076896452B8910E16B370A2BE7E672AB /* grpc_service.upb.h */; };
 		52CC8F2056C33A9A5BE25D424329A01B /* channel_stack.cc in Sources */ = {isa = PBXBuildFile; fileRef = D76A691EABF68E57F1CBDA2204F233F0 /* channel_stack.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
 		52CD5B6FA7730DEF00CBC257C497E4CE /* secure_auth_context.h in Copy src/cpp/common Private Headers */ = {isa = PBXBuildFile; fileRef = 49609855FEF523ABECE94911C931002D /* secure_auth_context.h */; };
+		52F9C2882553097B001F95DE /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F9C2872553097B001F95DE /* CoreServices.framework */; };
 		52FCD4A0311D7D7F6B0AE41A9C30C164 /* transport_security.h in Headers */ = {isa = PBXBuildFile; fileRef = 5158252600E4C8562FAAF7BB0D6F2AC3 /* transport_security.h */; };
 		5302B2EB4C034FAF28889D03E27E7BBA /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = AEF9E3DC15251207AFFDF4A43F087DC8 /* error.h */; };
 		5302BB04401245B4A060AFF4F8005044 /* string.cc in Sources */ = {isa = PBXBuildFile; fileRef = 55AC617D87EE81CDBCAB08D938D043B6 /* string.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
@@ -2584,7 +2585,6 @@
 		9CAAE71BBE926C6A2563B0019D9CB622 /* PromisesObjC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3538C50D4414323A8055932E309EA52 /* PromisesObjC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CCB6CCF46DC970D078EBD61AB494F63 /* alts_counter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9952F38D143F5624F0421837E20E3316 /* alts_counter.h */; };
 		9CD47B5F52A0B70D65E06D7808C290E5 /* security_context.h in Headers */ = {isa = PBXBuildFile; fileRef = AB14CE6CE704656B7F20B5B9491F8040 /* security_context.h */; };
-		9CF084BE513D62D77A1D4081870EA582 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CCDACE4B31580CF22A0B76F3261746B /* MobileCoreServices.framework */; };
 		9D0F631C8F95268892EE64E6041325A2 /* grpclb_client_stats.cc in Sources */ = {isa = PBXBuildFile; fileRef = C32D6F24A1E69CF8260CBEE43F57484A /* grpclb_client_stats.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
 		9D208644A8A8232EB88C68CFF7F7FEF8 /* thread_pool_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 08CD256D24118FD66F139B76BF91BA69 /* thread_pool_interface.h */; };
 		9D406BA64FFFAF2F661519D6C56111AE /* backup_poller.h in Headers */ = {isa = PBXBuildFile; fileRef = 49C0EFBD00E8B51A5168BD3073486221 /* backup_poller.h */; };
@@ -9339,6 +9339,7 @@
 		52E2C38F5B5E953AD1771EE8A451DC5C /* workaround_utils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = workaround_utils.h; path = src/core/ext/filters/workarounds/workaround_utils.h; sourceTree = "<group>"; };
 		52E9591187E2469422CC26B378765F66 /* polling_entity.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = polling_entity.cc; path = src/core/lib/iomgr/polling_entity.cc; sourceTree = "<group>"; };
 		52F8A06E37D7971E593BD542FF44786C /* polyval.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = polyval.c; path = src/crypto/fipsmodule/modes/polyval.c; sourceTree = "<group>"; };
+		52F9C2872553097B001F95DE /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		52FD97415D33C0ED841A80880F7D8BA2 /* pollset_set.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = pollset_set.cc; path = src/core/lib/iomgr/pollset_set.cc; sourceTree = "<group>"; };
 		5324E0F15D8C78C0E6777B28C05318C2 /* pollset_set_custom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pollset_set_custom.h; path = src/core/lib/iomgr/pollset_set_custom.h; sourceTree = "<group>"; };
 		5367E52F83D154B512E8B42394D2FA05 /* hpack_encoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hpack_encoder.h; path = src/core/ext/transport/chttp2/transport/hpack_encoder.h; sourceTree = "<group>"; };
@@ -11525,9 +11526,9 @@
 				6BAFFDCD44C7A35517AEE05DB0257E3C /* absl.framework in Frameworks */,
 				AA02CB6A67732B536F49EC3EE47F8DE5 /* FirebaseCore.framework in Frameworks */,
 				E860014519E804085F8873C379F5A858 /* Foundation.framework in Frameworks */,
+				52F9C2882553097B001F95DE /* CoreServices.framework in Frameworks */,
 				918D98E019B0F88FBC01C59A17735DC5 /* grpcpp.framework in Frameworks */,
 				AD1D142AFAE400BCCD716ABD4D01FDF3 /* leveldb.framework in Frameworks */,
-				9CF084BE513D62D77A1D4081870EA582 /* MobileCoreServices.framework in Frameworks */,
 				B4EE802F01D5371DF3DA47332E18B4F2 /* nanopb.framework in Frameworks */,
 				2D1A01887F90946B4301488CDF653EBC /* SystemConfiguration.framework in Frameworks */,
 				8D98956CDB8B67CCDBA1EEC8E19D305D /* UIKit.framework in Frameworks */,
@@ -12310,6 +12311,7 @@
 		38D4B2C0EE04AFBF584ABBA6594EB69A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52F9C2872553097B001F95DE /* CoreServices.framework */,
 				6F394E4971930939D943CD452FA98147 /* absl.framework */,
 				F5E0CB10F40E0BE6135B70C5499C7B7A /* FBLPromises.framework */,
 				096F4F3A304448F2CDD4F85C9327CF29 /* FirebaseCore.framework */,

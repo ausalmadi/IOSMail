@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DfM-ck-gft">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ELE-Oa-rbb">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
@@ -127,7 +127,6 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
                                 <rect key="frame" x="0.0" y="224" width="414" height="295"/>
-
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
@@ -207,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2i-xh-9AS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173.913043478261" y="-46.205357142857139"/>
+            <point key="canvasLocation" x="1200" y="-29"/>
         </scene>
         <!--Reading View Controller-->
         <scene sceneID="nH1-ak-8BT">
@@ -222,9 +221,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reader" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-na-RjJ">
-                                <rect key="frame" x="161" y="98" width="92" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="162.33333333333334" y="98" width="89.666666666666657" height="36"/>
+                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -244,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c73-Id-g3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="-363"/>
+            <point key="canvasLocation" x="2096" y="-415"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Fwb-go-SRW">
@@ -255,7 +254,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
-                                <rect key="frame" x="152" y="98" width="110.33333333333331" height="35"/>
+                                <rect key="frame" x="154" y="98" width="106" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -303,9 +302,15 @@ Phone Number
 Email@address.com</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axA-OA-GBm">
+                                <rect key="frame" x="179" y="433" width="61" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                <state key="normal" title="Save"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aSc-c7-vXA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -322,7 +327,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgZ-xg-Wjh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173.913043478261" y="673.66071428571422"/>
+            <point key="canvasLocation" x="1199" y="701"/>
         </scene>
         <!--Sent View Controller-->
         <scene sceneID="pif-3e-pdg">
@@ -333,9 +338,9 @@ Email@address.com</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck6-UT-xvg">
-                                <rect key="frame" x="177" y="98" width="60" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="177.33333333333334" y="98" width="59.666666666666657" height="36"/>
+                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IOW-OX-DE8">
@@ -371,7 +376,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfe-3s-bFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="158"/>
+            <point key="canvasLocation" x="2938" y="-29"/>
         </scene>
         <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
@@ -526,7 +531,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9V-6y-dQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2014" y="485"/>
+            <point key="canvasLocation" x="2096" y="397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nha-wu-LJT">
