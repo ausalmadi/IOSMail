@@ -111,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-yB-azA">
-                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="764" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="Reader" id="ql7-pI-RwO" userLabel="Reader">
                                         <connections>
@@ -131,7 +131,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1bz-WX-zie"/>
                                     <barButtonItem title="Settings" id="kfU-xx-Mcv">
                                         <connections>
-                                            <segue destination="CGJ-p8-LON" kind="show" identifier="MainToSettings" id="x1z-xI-T0x"/>
+                                            <segue destination="CGJ-p8-LON" kind="showDetail" identifier="MainToSettings" id="x1z-xI-T0x"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -266,11 +266,11 @@
             <objects>
                 <viewController id="CGJ-p8-LON" userLabel="Setting View Controller" customClass="SettingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHU-gg-A8V">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
-                                <rect key="frame" x="154" y="98" width="106" height="36"/>
+                                <rect key="frame" x="154" y="10" width="106" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
