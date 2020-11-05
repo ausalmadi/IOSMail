@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/gervan/OneDrive/Documents/GITxCode_play/IOSMail.git/IOSMail/iosMail.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
