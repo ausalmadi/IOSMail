@@ -52,10 +52,10 @@ class HomeViewController: MainViewController {
     }
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if (segue.identifier == "MainToReader") {
-			let vc = segue.destination as! ReadingViewController
+		//if (segue.identifier == "MainToReader") {
+			//let vc = segue.destination as! ReadingViewController
 			//vc.verificationId = messages(self.index).getSubject()
-		}
+		//}
 	}
     
 }
@@ -75,6 +75,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 		print(indexPath.row)
 		index = indexPath.row
 		performSegue(withIdentifier: "MainToReader", sender: self)
+		/*let viewController:
+			UIViewController = UIStoryboard(
+				name: "Main", bundle: nil
+			)
+			.instantiateViewController(withIdentifier: "Reader") as UIViewController*/
+		// .instantiatViewControllerWithIdentifier() returns AnyObject!
+		// this must be downcast to utilize it
+		//viewController.modalPresentationStyle = .fullScreen
+		//self.present(viewController, animated: false, completion: nil)
 
 		/*if let viewController = storyboard?.instantiateViewController(identifier: "TrailViewController") as? TrailViewController {
 			viewController.trail = selectedTrail
