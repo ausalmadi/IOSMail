@@ -9,8 +9,11 @@ import UIKit
 
 class ReadingViewController: MainViewController {
 
+	var verificationId : String = ""
+
 	override func viewDidLoad() {
         super.viewDidLoad()
+		print(verificationId)
 		// Register the table view cell class and its reuse id
 
 		// (optional) include this line if you want to remove the extra empty cell divider lines

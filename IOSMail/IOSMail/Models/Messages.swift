@@ -13,4 +13,8 @@ struct Messages {
 	let to : String
 	let body : String
 	let date : String
+
+	func getSubject() -> String{
+		return self.subject
+	}
 }
