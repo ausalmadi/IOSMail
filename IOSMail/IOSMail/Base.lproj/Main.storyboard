@@ -157,8 +157,8 @@
                                 <rect key="frame" x="20" y="151.33333333333334" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
-                                <rect key="frame" x="168.66666666666666" y="53.999999999999993" width="74" height="86.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
+                                <rect key="frame" x="158" y="54" width="85" height="86"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
@@ -176,7 +176,7 @@
                             <constraint firstItem="PEI-Md-saM" firstAttribute="top" secondItem="I7e-qi-zj1" secondAttribute="top" constant="10" id="HOY-f2-ZXh"/>
                             <constraint firstItem="8cP-2l-Fcf" firstAttribute="leading" secondItem="OwD-QI-Se5" secondAttribute="trailing" constant="8" symbolic="YES" id="OMG-Rv-Pkm"/>
                             <constraint firstItem="8cP-2l-Fcf" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="47" id="WO2-C8-jfe"/>
-                            <constraint firstItem="PEI-Md-saM" firstAttribute="leading" secondItem="wU6-fG-CHd" secondAttribute="trailing" constant="10" id="afH-Lt-uuA"/>
+                            <constraint firstItem="PEI-Md-saM" firstAttribute="leading" secondItem="wU6-fG-CHd" secondAttribute="trailing" constant="5" id="afH-Lt-uuA"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" id="bXM-Ae-mx9"/>
                             <constraint firstItem="Ydi-R1-rWG" firstAttribute="top" secondItem="8cP-2l-Fcf" secondAttribute="bottom" constant="8" symbolic="YES" id="ca1-zt-WFn"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="trailing" secondItem="I7e-qi-zj1" secondAttribute="trailing" id="eqd-5r-NSI"/>
@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2i-xh-9AS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="-29"/>
+            <point key="canvasLocation" x="1198.5507246376812" y="-29.464285714285712"/>
         </scene>
         <!--Reading View Controller-->
         <scene sceneID="nH1-ak-8BT">
