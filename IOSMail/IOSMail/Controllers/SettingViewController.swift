@@ -19,7 +19,7 @@ class SettingViewController: MainViewController {
     }
     
     @IBAction func signatureOn(_ sender: UISwitch) {
-        UISwitch.init()
+//        UISwitch.init()
         
     }
     
