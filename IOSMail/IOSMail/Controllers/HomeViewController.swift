@@ -52,12 +52,13 @@ class HomeViewController: MainViewController {
     }
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		//if (segue.identifier == "MainToReader") {
-			//let vc = segue.destination as! ReadingViewController
+		if (segue.identifier == "MainToReader") {
+			let vc = segue.destination as! ReadingViewController
 			//vc.verificationId = messages(self.index).getSubject()
-		//}
+			//vc.message = messages(self.index).getSubject() as! String
+			vc.setMessage(msg: messages[self.index])
+		}
 	}
-    
 }
 
 //MARK: Tableview delegate and datasource

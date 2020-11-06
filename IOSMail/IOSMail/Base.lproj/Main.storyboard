@@ -275,6 +275,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fi9-9W-Qtd"/>
+                    <connections>
+                        <outlet property="msgBody" destination="jhM-UC-0fb" id="0xm-1s-Mue"/>
+                        <outlet property="msgFrom" destination="inV-35-ITq" id="CUg-da-yPc"/>
+                        <outlet property="msgSubject" destination="OhR-eC-Zku" id="ayB-eL-NSE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c73-Id-g3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

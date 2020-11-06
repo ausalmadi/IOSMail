@@ -10,10 +10,33 @@ import UIKit
 class ReadingViewController: MainViewController {
 
 	var verificationId : String = ""
+	var message = Messages(subject: "", from: "", to: "", body: "", date: "")
 
+	@IBOutlet weak var msgBody: UITextView!
+	@IBOutlet weak var msgSubject: UITextField!
+
+	@IBOutlet weak var msgFrom: UITextField!
+	func setMessage(msg : Messages){
+		self.message = msg
+		//print (msg.getBody())
+		//print (msg.getSubject() )
+		
+		//if let _ = msg.body { msgBody.text = msg.body! as String}
+		//if let _ = msg.subject  { msgSubject.text = msg.subject! as String }
+
+	}
 	override func viewDidLoad() {
         super.viewDidLoad()
-		print(verificationId)
+
+
+		msgBody.text = message.body! as String
+
+		msgSubject.text = message.subject! as String
+		msgFrom.text = message.from! as String
+
+		
+		//print(self.message)
+
 		// Register the table view cell class and its reuse id
 
 		// (optional) include this line if you want to remove the extra empty cell divider lines
