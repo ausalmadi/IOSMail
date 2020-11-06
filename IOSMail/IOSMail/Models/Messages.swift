@@ -8,9 +8,17 @@
 import Foundation
 
 struct Messages {
-	let subject : String
-	let from : String
-	let to : String
-	let body : String
-	let date : String
+	let subject : String?
+	let from : String?
+	let to : String?
+	let body : String?
+	let date : String?
+
+	func getSubject() -> String?{
+		return self.subject!
+	}
+
+	func getBody() -> String?{
+		return self.body!
+	}
 }

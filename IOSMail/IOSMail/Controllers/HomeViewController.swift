@@ -17,12 +17,16 @@ class HomeViewController: MainViewController {
     
 	var messages = [Messages]()
 	var mailManager = MailManager()
+
+	var index : Int = 0
 	
-	let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
-    let date = ["1 Aug","1 Sep","1 Oct","17 Oct","20 Oct","30 Oct"]
-    let subject = ["Subject: 1", "Subject: 2", "Subject: 3", "Subject: 4", "Subject: 5", "Subject: 6"]
+	@IBOutlet var inbox: UITableView!
+
+	//let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
+    //let date = ["1 Aug","1 Sep","1 Oct","17 Oct","20 Oct","30 Oct"]
+   // let subject = ["Subject: 1", "Subject: 2", "Subject: 3", "Subject: 4", "Subject: 5", "Subject: 6"]
     
-	@IBOutlet var textview: UITextView!
+	//@IBOutlet var textview: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +50,49 @@ class HomeViewController: MainViewController {
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
         
     }
-    
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if (segue.identifier == "MainToReader") {
+			let vc = segue.destination as! ReadingViewController
+			//vc.verificationId = messages(self.index).getSubject()
+			//vc.message = messages(self.index).getSubject() as! String
+			vc.setMessage(msg: messages[self.index])
+		}
+	}
 }
 
 //MARK: Tableview delegate and datasource
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+
+
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count
     }
-    
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		//let selectedTrail = trails[indexPath.row]
+		print(indexPath.row)
+		index = indexPath.row
+		performSegue(withIdentifier: "MainToReader", sender: self)
+		/*let viewController:
+			UIViewController = UIStoryboard(
+				name: "Main", bundle: nil
+			)
+			.instantiateViewController(withIdentifier: "Reader") as UIViewController*/
+		// .instantiatViewControllerWithIdentifier() returns AnyObject!
+		// this must be downcast to utilize it
+		//viewController.modalPresentationStyle = .fullScreen
+		//self.present(viewController, animated: false, completion: nil)
+
+		/*if let viewController = storyboard?.instantiateViewController(identifier: "TrailViewController") as? TrailViewController {
+			viewController.trail = selectedTrail
+			navigationController?.pushViewController(viewController, animated: true)
+		}*/
+	}
+
+
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
 			cell.tableLabel.text = self.messages[indexPath.row].subject
@@ -77,7 +114,7 @@ extension HomeViewController: MailManagerDelegate {
 			//self.temperatureLabel.text = weather.temperatureString
 			//self.conditionImageView.image = UIImage(systemName: weather.conditionName)
 			//self.cityLabel.text = weather.cityName
-			self.textview.text = mail.emailAddress
+			//self.textview.text = mail.emailAddress
 		}
 	}
 
