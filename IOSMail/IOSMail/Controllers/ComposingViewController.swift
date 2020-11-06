@@ -14,11 +14,12 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         messageBody.delegate = self
-        messageBody.text = "Type here..."
-        messageBody.textColor = UIColor.lightGray
-        
+        addHint()
     }
     
+    @IBAction func sendPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
@@ -28,9 +29,13 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
-            messageBody.text = "Type here..."
-            messageBody.textColor = UIColor.lightGray
+            addHint()
         }
+    }
+    
+    func addHint() {
+        messageBody.text = "Type here..."
+        messageBody.textColor = UIColor.lightGray
     }
 
     /*
