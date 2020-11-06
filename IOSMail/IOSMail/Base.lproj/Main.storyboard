@@ -548,6 +548,9 @@ Email@address.com</string>
                                         <state key="normal" title="SEND">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="ZYt-K6-SDN" eventType="touchUpInside" id="6y8-gl-kAo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="OMv-ay-c7A"/>
