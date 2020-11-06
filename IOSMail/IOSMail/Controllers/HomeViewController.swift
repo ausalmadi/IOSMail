@@ -30,9 +30,9 @@ class HomeViewController: MainViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		let newMsg = Messages(subject: "re: subject", from: "some@one.com", to: "some@one.else.com", body: "some more text goes here", date: "oct 31 2020")
+		let newMsg = Messages(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
 		messages.append(newMsg)
-		let newMsg1 = Messages(subject: "subject", from: "some@one.com", to: "some@one.else.com", body: "some text goes here", date: "oct 30 2020")
+		let newMsg1 = Messages(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
 
 		messages.append(newMsg1)
 
