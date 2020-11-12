@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
 			//signInButton.isHidden = true
 			//signOutButton.isHidden = false
 			//disconnectButton.isHidden = false
-			print("toggleAuthUI() called. \(GIDSignIn.sharedInstance()?.currentUser?.userID)")
+			print("toggleAuthUI() called. \(String(describing: GIDSignIn.sharedInstance()?.currentUser?.userID))")
 		} else {
 			//signInButton.isHidden = false
 			//signOutButton.isHidden = true
@@ -108,6 +108,7 @@ class MainViewController: UIViewController {
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
 					//mvc.sb.text = userInfo["statusText"]!
+					mvc.inboxText = userInfo["statusText"]!
 					self.present(mvc, animated: true, completion: nil)
 				}
 				print("\(userInfo["statusText"]!)?")
