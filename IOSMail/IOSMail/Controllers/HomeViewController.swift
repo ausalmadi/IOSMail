@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class HomeViewController: MainViewController {
 
@@ -21,15 +22,19 @@ class HomeViewController: MainViewController {
 	var index : Int = 0
 	
 	@IBOutlet var inbox: UITableView!
-
+	@IBOutlet weak var sb: UISearchBar!
+	//FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)
 	//let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
     //let date = ["1 Aug","1 Sep","1 Oct","17 Oct","20 Oct","30 Oct"]
    // let subject = ["Subject: 1", "Subject: 2", "Subject: 3", "Subject: 4", "Subject: 5", "Subject: 6"]
     
 	//@IBOutlet var textview: UITextView!
-
+	deinit {
+		 
+	}
     override func viewDidLoad() {
-        super.viewDidLoad()
+
+		super.viewDidLoad()
 		let newMsg = Messages(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
 		messages.append(newMsg)
 		let newMsg1 = Messages(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
@@ -46,18 +51,40 @@ class HomeViewController: MainViewController {
         
     }
     
-    
-    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
-        
-    }
+	@IBAction func signout(_ sender: Any) {
+		GIDSignIn.sharedInstance()?.signOut()
+		GIDSignIn.sharedInstance()?.disconnect()
+		/*if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? MainViewController {
+			mvc.modalPresentationStyle = .fullScreen
+			self.present(mvc, animated: true, completion: nil)
+		}*/
 
+	}
+	
+
+
+
+
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(true)
+		//GIDSignIn.sharedInstance().disconnect()
+		GIDSignIn.sharedInstance().signOut()
+
+		//dismiss(animated: true, completion: nil)
+		print("dismissed homeview")
+		// [START_EXCLUDE silent]
+		//statusText.text = "Signed out."
+		//toggleAuthUI()
+
+	}
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
-			//vc.verificationId = messages(self.index).getSubject()
-			//vc.message = messages(self.index).getSubject() as! String
+
 			vc.setMessage(msg: messages[self.index])
 		}
+		print(segue.identifier as Any)
 	}
 }
 
