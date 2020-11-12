@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import GoogleSignIn
 
-class HomeViewController: MainViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
@@ -15,13 +16,17 @@ class HomeViewController: MainViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+	@IBOutlet var inboxTitle: UILabel!
+	
 	var messages = [Messages]()
 	var mailManager = MailManager()
+	var inboxText : String = "Inbox"
 
 	var index : Int = 0
 	
 	@IBOutlet var inbox: UITableView!
-
+	@IBOutlet weak var sb: UISearchBar!
+	//FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)
 	//let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
     //let date = ["1 Aug","1 Sep","1 Oct","17 Oct","20 Oct","30 Oct"]
    // let subject = ["Subject: 1", "Subject: 2", "Subject: 3", "Subject: 4", "Subject: 5", "Subject: 6"]
@@ -29,12 +34,17 @@ class HomeViewController: MainViewController {
 	//@IBOutlet var textview: UITextView!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+
+		super.viewDidLoad()
 		let newMsg = Messages(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
 		messages.append(newMsg)
 		let newMsg1 = Messages(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
 
 		messages.append(newMsg1)
+		NotificationCenter.default.addObserver(self,
+											   selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
+											   name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+											   object: nil)
 
         // Do any additional setup after loading the view.
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -43,20 +53,63 @@ class HomeViewController: MainViewController {
         self.tableView.dataSource = self
 
 		mailManager.delegate = self
+		inboxTitle.text = inboxText
         
     }
     
-    
-    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
-        
-    }
+	@IBAction func signout(_ sender: Any) {
+		GIDSignIn.sharedInstance()?.signOut()
+		GIDSignIn.sharedInstance()?.disconnect()
+		if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? MainViewController {
+			mvc.modalPresentationStyle = .fullScreen
+			self.present(mvc, animated: true, completion: nil)
+		}
 
+	}
+
+	deinit {
+		NotificationCenter.default.removeObserver(self,
+												  name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+												  object: nil)
+	}
+
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(true)
+		//GIDSignIn.sharedInstance().disconnect()
+		GIDSignIn.sharedInstance().signOut()
+
+		//dismiss(animated: true, completion: nil)
+		print("dismissed homeview")
+		// [START_EXCLUDE silent]
+		//statusText.text = "Signed out."
+		//toggleAuthUI()
+
+	}
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
-			//vc.verificationId = messages(self.index).getSubject()
-			//vc.message = messages(self.index).getSubject() as! String
+
 			vc.setMessage(msg: messages[self.index])
+		}
+		print(segue.identifier as Any)
+	}
+	
+	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
+		//if notification.name.rawValue == "GetMailNotification" {
+		//	print("Getting mail")
+		//}
+
+		if notification.name.rawValue == "ToggleAuthUINotification" {
+			//self.toggleAuthUI()
+			if notification.userInfo != nil {
+				guard let userInfo = notification.userInfo as? [String:String] else { return }
+				//performSegue(withIdentifier: "HomeView", sender: nil)
+				//print("\(userInfo["statusText"]!)?")
+				inboxTitle.text = userInfo["statusText"]!
+
+				//self.statusText.text = userInfo["statusText"]!
+			}
 		}
 	}
 }
