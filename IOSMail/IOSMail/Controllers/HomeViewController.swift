@@ -8,7 +8,7 @@
 import UIKit
 import GoogleSignIn
 
-class HomeViewController: MainViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
@@ -54,10 +54,10 @@ class HomeViewController: MainViewController {
 	@IBAction func signout(_ sender: Any) {
 		GIDSignIn.sharedInstance()?.signOut()
 		GIDSignIn.sharedInstance()?.disconnect()
-		/*if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? MainViewController {
+		if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? MainViewController {
 			mvc.modalPresentationStyle = .fullScreen
 			self.present(mvc, animated: true, completion: nil)
-		}*/
+		}
 
 	}
 	

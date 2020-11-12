@@ -176,9 +176,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCw-my-Jdg">
-                                <rect key="frame" x="348" y="54" width="46" height="30"/>
+                                <rect key="frame" x="343" y="54" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="SignOut"/>
                                 <connections>
                                     <action selector="signout:" destination="mfG-TN-pZu" eventType="touchUpInside" id="R0j-zG-nA3"/>
                                 </connections>
@@ -305,7 +305,7 @@ FlRlc3RAVGVzdC5jb20
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
-                                <rect key="frame" x="152" y="54" width="110.5" height="35"/>
+                                <rect key="frame" x="154" y="54" width="106" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
