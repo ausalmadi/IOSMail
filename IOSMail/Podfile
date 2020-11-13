@@ -12,6 +12,6 @@ target 'iosMail' do
   pod 'Firebase/Firestore'
   pod "IQKeyboardManager"
 	pod 'GoogleAPIClientForREST'
-	pod 'GoogleAPIClient/Gmail'
+	#pod 'GoogleAPIClient/Gmail'
 	pod 'GoogleSignIn'
 end

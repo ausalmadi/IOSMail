@@ -258,11 +258,6 @@ PODS:
     - "gRPC-C++ (~> 1.28.0)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 2.30906.0)
-  - GoogleAPIClient/Core (1.0.5):
-    - GTMSessionFetcher (~> 1.1)
-  - GoogleAPIClient/Gmail (1.0.5):
-    - GoogleAPIClient/Core
-    - GTMSessionFetcher (~> 1.1)
   - GoogleAPIClientForREST (1.5.1):
     - GoogleAPIClientForREST/Core (= 1.5.1)
     - GTMSessionFetcher (>= 1.1.7)
@@ -334,7 +329,6 @@ DEPENDENCIES:
   - CLTypingLabel
   - Firebase/Auth
   - Firebase/Firestore
-  - GoogleAPIClient/Gmail
   - GoogleAPIClientForREST
   - GoogleSignIn
   - IQKeyboardManager
@@ -350,7 +344,6 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
-    - GoogleAPIClient
     - GoogleAPIClientForREST
     - GoogleDataTransport
     - GoogleSignIn
@@ -374,7 +367,6 @@ SPEC CHECKSUMS:
   FirebaseCore: cf3122185fce1cf71cedbbc498ea84d2b3e7cb69
   FirebaseCoreDiagnostics: 5f4aa04fdb04923693cc704c7ef9158bdf41a48b
   FirebaseFirestore: 969dd448250bee681d0e2d0af89cbb76ef955bb0
-  GoogleAPIClient: 77df755d41d70ee5a99b7b752614fbb439f19438
   GoogleAPIClientForREST: 4bb409633efcc2e1b3f945afe7e35039b5a61db2
   GoogleDataTransport: 6ce8004a961db1b905740d7be106c61ba7e89c21
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
@@ -388,6 +380,6 @@ SPEC CHECKSUMS:
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
 
-PODFILE CHECKSUM: ba6cc69bffb706ddc60f876518e619e0049d1eaf
+PODFILE CHECKSUM: fa8d7f855e410fb9b9e58e4100b4820bc5eeac42
 
 COCOAPODS: 1.10.0
