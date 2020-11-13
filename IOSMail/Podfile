@@ -13,5 +13,6 @@ target 'iosMail' do
   pod "IQKeyboardManager"
 	pod 'GoogleAPIClientForREST'
 	#pod 'GoogleAPIClient/Gmail'
+	pod "GTMSessionFetcher"
 	pod 'GoogleSignIn'
 end
