@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3631151B2559C2E4002A1A11 /* GMailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3631151A2559C2E4002A1A11 /* GMailManager.swift */; };
 		365CF5892551D7D400954DDD /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5882551D7D400954DDD /* Messages.swift */; };
 		365CF5902551EAE400954DDD /* mailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF58F2551EAE400954DDD /* mailData.swift */; };
 		365CF5932551F09F00954DDD /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5922551F09F00954DDD /* MailManager.swift */; };
@@ -37,7 +36,6 @@
 		1D20CB816A692055A1F47403 /* Pods_iosMail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosMail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA67A116F4415878A122D27 /* Pods-iosMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.release.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.release.xcconfig"; sourceTree = "<group>"; };
 		36159F20254B5B1C00C80D97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		3631151A2559C2E4002A1A11 /* GMailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMailManager.swift; sourceTree = "<group>"; };
 		365CF5882551D7D400954DDD /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		365CF58F2551EAE400954DDD /* mailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailData.swift; sourceTree = "<group>"; };
 		365CF5922551F09F00954DDD /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				365CF58F2551EAE400954DDD /* mailData.swift */,
 				365CF5922551F09F00954DDD /* MailManager.swift */,
 				365CF5952551F4C600954DDD /* MailModel.swift */,
-				3631151A2559C2E4002A1A11 /* GMailManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,8 +188,8 @@
 				3F565738253E3673002E5031 /* Sources */,
 				3F565739253E3673002E5031 /* Frameworks */,
 				3F56573A253E3673002E5031 /* Resources */,
-				5A097F88BDBB26108C14728F /* [CP] Embed Pods Frameworks */,
-				4EDDBA8A2FE26BCB48E10686 /* [CP] Copy Pods Resources */,
+				336E47A5A6C5C7686D7266DF /* [CP] Embed Pods Frameworks */,
+				55E2ACB7097F8827CBDB03BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,24 +272,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4EDDBA8A2FE26BCB48E10686 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5A097F88BDBB26108C14728F /* [CP] Embed Pods Frameworks */ = {
+		336E47A5A6C5C7686D7266DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -309,6 +289,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		55E2ACB7097F8827CBDB03BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -316,7 +313,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3631151B2559C2E4002A1A11 /* GMailManager.swift in Sources */,
 				3F565744253E3673002E5031 /* MainViewController.swift in Sources */,
 				3F565740253E3673002E5031 /* AppDelegate.swift in Sources */,
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
