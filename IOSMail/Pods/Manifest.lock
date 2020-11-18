@@ -23,6 +23,11 @@ PODS:
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
   - IQKeyboardManager (6.5.6)
+  - Realm (10.1.4):
+    - Realm/Headers (= 10.1.4)
+  - Realm/Headers (10.1.4)
+  - RealmSwift (10.1.4):
+    - Realm (= 10.1.4)
 
 DEPENDENCIES:
   - CLTypingLabel
@@ -30,6 +35,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - GTMSessionFetcher
   - IQKeyboardManager
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
@@ -40,6 +46,8 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardManager
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -49,7 +57,9 @@ SPEC CHECKSUMS:
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
+  RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
 
-PODFILE CHECKSUM: 5fc1afb7ad8a84d11015677fdf4fdb7004aa2ca6
+PODFILE CHECKSUM: 6500324ec231e956fb116ae0e40f0a63af429be0
 
 COCOAPODS: 1.10.0

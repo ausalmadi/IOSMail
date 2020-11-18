@@ -132,14 +132,10 @@
 			children = (
 				3F56573F253E3673002E5031 /* AppDelegate.swift */,
 				3F565741253E3673002E5031 /* SceneDelegate.swift */,
-				365CF5872551D7AC00954DDD /* Models */,
-				522DEEBF2551B6F30002F4A1 /* Fonts */,
-				3F565745253E3673002E5031 /* Main.storyboard */,
 				3F8D295A2549BC8800434B99 /* View */,
+				365CF5872551D7AC00954DDD /* Models */,
 				3F2671732548AF2400A4DD92 /* Controllers */,
-				3F565748253E3677002E5031 /* Assets.xcassets */,
-				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
-				5203994F2564556B007C9707 /* GoogleService-Info.plist */,
+				5203996F2564574A007C9707 /* Supporting Files */,
 				3F56574D253E3677002E5031 /* Info.plist */,
 			);
 			path = IOSMail;
@@ -148,10 +144,22 @@
 		3F8D295A2549BC8800434B99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F565745253E3673002E5031 /* Main.storyboard */,
 				3F8D295B2549BCD900434B99 /* TableViewCell.swift */,
 				3F8D295C2549BCD900434B99 /* TableViewCell.xib */,
+				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5203996F2564574A007C9707 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5203994F2564556B007C9707 /* GoogleService-Info.plist */,
+				3F565748253E3677002E5031 /* Assets.xcassets */,
+				522DEEBF2551B6F30002F4A1 /* Fonts */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		522DEEBF2551B6F30002F4A1 /* Fonts */ = {
