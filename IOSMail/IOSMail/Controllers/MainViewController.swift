@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
 		GIDSignIn.sharedInstance()?.presentingViewController = self
 
 		// Automatically sign in the user.
-		//GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+		GIDSignIn.sharedInstance()?.restorePreviousSignIn()
 
 
 		// [START_EXCLUDE]
