@@ -18,6 +18,7 @@
 		3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717A2548AFA100A4DD92 /* SentViewController.swift */; };
 		3F26717E2548AFC200A4DD92 /* ComposingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */; };
 		3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26718B2548B1A300A4DD92 /* HomeViewController.swift */; };
+		3F4AD2122565C6CF00EDA628 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AD2112565C6CF00EDA628 /* RealmService.swift */; };
 		3F565740253E3673002E5031 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56573F253E3673002E5031 /* AppDelegate.swift */; };
 		3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F565741253E3673002E5031 /* SceneDelegate.swift */; };
 		3F565744253E3673002E5031 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F565743253E3673002E5031 /* MainViewController.swift */; };
@@ -48,6 +49,7 @@
 		3F26717A2548AFA100A4DD92 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
 		3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposingViewController.swift; sourceTree = "<group>"; };
 		3F26718B2548B1A300A4DD92 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3F4AD2112565C6CF00EDA628 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		3F56573C253E3673002E5031 /* iosMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F56573F253E3673002E5031 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F565741253E3673002E5031 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				365CF58F2551EAE400954DDD /* mailData.swift */,
 				365CF5922551F09F00954DDD /* MailManager.swift */,
 				365CF5952551F4C600954DDD /* MailModel.swift */,
+				3F4AD2112565C6CF00EDA628 /* RealmService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				3F565740253E3673002E5031 /* AppDelegate.swift in Sources */,
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
+				3F4AD2122565C6CF00EDA628 /* RealmService.swift in Sources */,
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
 				367B8F70255DBD1A00BCB58D /* DataModel.xcdatamodeld in Sources */,
 				365CF5902551EAE400954DDD /* mailData.swift in Sources */,
