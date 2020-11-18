@@ -153,11 +153,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
-                                <rect key="frame" x="47" y="101" width="71" height="22"/>
+                                <rect key="frame" x="47" y="100" width="71" height="22"/>
                                 <state key="normal" title="Delete" image="trash" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwD-QI-Se5">
-                                <rect key="frame" x="20" y="101" width="19" height="22"/>
+                                <rect key="frame" x="20" y="100" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCw-my-Jdg">
@@ -169,7 +169,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
-                                <rect key="frame" x="0.0" y="131" width="414" height="617"/>
+                                <rect key="frame" x="0.0" y="130" width="414" height="618"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="wU6-fG-CHd">
@@ -568,6 +568,9 @@ Email@address.com</string>
                                         <state key="normal" title="SEND">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="ZYt-K6-SDN" eventType="touchUpInside" id="6y8-gl-kAo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="OMv-ay-c7A"/>

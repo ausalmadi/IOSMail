@@ -26,6 +26,7 @@
 		3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F56574A253E3677002E5031 /* LaunchScreen.storyboard */; };
 		3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D295B2549BCD900434B99 /* TableViewCell.swift */; };
 		3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D295C2549BCD900434B99 /* TableViewCell.xib */; };
+		520399502564556C007C9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5203994F2564556B007C9707 /* GoogleService-Info.plist */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
 		9C7E62B9782C2ACDEF8A3842 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20CB816A692055A1F47403 /* Pods_iosMail.framework */; };
@@ -57,6 +58,7 @@
 		3F56574D253E3677002E5031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8D295B2549BCD900434B99 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		3F8D295C2549BCD900434B99 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		5203994F2564556B007C9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 				3F2671732548AF2400A4DD92 /* Controllers */,
 				3F565748253E3677002E5031 /* Assets.xcassets */,
 				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
+				5203994F2564556B007C9707 /* GoogleService-Info.plist */,
 				3F56574D253E3677002E5031 /* Info.plist */,
 			);
 			path = IOSMail;
@@ -188,8 +191,8 @@
 				3F565738253E3673002E5031 /* Sources */,
 				3F565739253E3673002E5031 /* Frameworks */,
 				3F56573A253E3673002E5031 /* Resources */,
-				5A097F88BDBB26108C14728F /* [CP] Embed Pods Frameworks */,
-				4EDDBA8A2FE26BCB48E10686 /* [CP] Copy Pods Resources */,
+				336E47A5A6C5C7686D7266DF /* [CP] Embed Pods Frameworks */,
+				55E2ACB7097F8827CBDB03BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3680B25D2548BBED00E15EF2 /* snippets.rtf in Resources */,
+				520399502564556C007C9707 /* GoogleService-Info.plist in Resources */,
 				3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */,
 				3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
@@ -272,24 +276,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4EDDBA8A2FE26BCB48E10686 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5A097F88BDBB26108C14728F /* [CP] Embed Pods Frameworks */ = {
+		336E47A5A6C5C7686D7266DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -304,6 +291,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55E2ACB7097F8827CBDB03BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosMail/Pods-iosMail-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

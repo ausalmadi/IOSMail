@@ -8,11 +8,12 @@ target 'iosMail' do
   # Pods for iosMail
 
   pod 'CLTypingLabel'
-  #pod 'Firebase/Auth'
-  #pod 'Firebase/Firestore'
+  pod 'GoogleSignIn'
   pod "IQKeyboardManager"
 	pod 'GoogleAPIClientForREST'
-	#pod 'GoogleAPIClient/Gmail'
-	pod "GTMSessionFetcher"
-	pod 'GoogleSignIn'
+  
+# 	pod 'GoogleAPIClient/Gmail'
+#  pod 'Firebase/Auth'
+#  pod 'Firebase/Firestore'
+
 end
