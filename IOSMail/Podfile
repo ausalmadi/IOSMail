@@ -10,7 +10,7 @@ target 'iosMail' do
   pod 'CLTypingLabel'
   pod 'GoogleSignIn'
   pod 'IQKeyboardManager'
-  pod 'GoogleAPIClientForREST'
+  pod 'GoogleAPIClientForREST/Gmail'
   pod 'RealmSwift'
   
 # 	pod 'GoogleAPIClient/Gmail'

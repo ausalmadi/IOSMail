@@ -5,10 +5,10 @@ PODS:
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
   - CLTypingLabel (0.4.0)
-  - GoogleAPIClientForREST (1.5.1):
-    - GoogleAPIClientForREST/Core (= 1.5.1)
-    - GTMSessionFetcher (>= 1.1.7)
   - GoogleAPIClientForREST/Core (1.5.1):
+    - GTMSessionFetcher (>= 1.1.7)
+  - GoogleAPIClientForREST/Gmail (1.5.1):
+    - GoogleAPIClientForREST/Core
     - GTMSessionFetcher (>= 1.1.7)
   - GoogleSignIn (5.0.2):
     - AppAuth (~> 1.2)
@@ -31,7 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - CLTypingLabel
-  - GoogleAPIClientForREST
+  - GoogleAPIClientForREST/Gmail
   - GoogleSignIn
   - IQKeyboardManager
   - RealmSwift
@@ -59,6 +59,6 @@ SPEC CHECKSUMS:
   Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
   RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
 
-PODFILE CHECKSUM: 6500324ec231e956fb116ae0e40f0a63af429be0
+PODFILE CHECKSUM: 9ee9b8390e14e0a7bc5c1946cd98ee418575c789
 
 COCOAPODS: 1.10.0
