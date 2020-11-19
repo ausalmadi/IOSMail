@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         self.tableView.dataSource = self
 
 
-		inboxTitle.text = inboxText
+		inboxTitle.text? = inboxText
         
     }
     
@@ -96,7 +96,7 @@ class HomeViewController: UIViewController {
 
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				inboxTitle.text = userInfo["statusText"]!
+				//inboxTitle.text = userInfo["statusText"]!
 
 			}
 		}

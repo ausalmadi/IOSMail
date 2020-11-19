@@ -113,7 +113,7 @@ class MainViewController: UIViewController {
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
 					//mvc.sb.text = userInfo["statusText"]!
-					mvc.inboxText = userInfo["statusText"]!
+					//mvc.inboxText = userInfo["statusText"]!
 					self.present(mvc, animated: true, completion: nil)
 				}
 				print("\(userInfo["statusText"]!)?")
