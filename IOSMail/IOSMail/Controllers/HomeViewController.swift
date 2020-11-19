@@ -42,9 +42,9 @@ class HomeViewController: UIViewController {
 
 		messages.append(newMsg1)
 		NotificationCenter.default.addObserver(self,
-											   selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-											   name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-											   object: nil)
+           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
+           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+           object: nil)
 
         // Do any additional setup after loading the view.
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
