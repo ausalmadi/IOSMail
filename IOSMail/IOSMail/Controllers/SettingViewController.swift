@@ -23,12 +23,8 @@ class SettingViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         settings = realm.objects(Settings.self)
-        print(Settings)
-        
-        
-     
+//        print(Settings.self)
         
     }
     
@@ -41,10 +37,7 @@ class SettingViewController: MainViewController {
         } else {
             addSigLabel.text = "Don't Add Signature to Email"
             stateSwitch.setOn(false, animated:true)
-
         }
-        
-        
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
