@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ComposingViewController: MainViewController, UITextViewDelegate {
 
     @IBOutlet var messageBody: UITextView!
