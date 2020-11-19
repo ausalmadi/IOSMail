@@ -124,23 +124,25 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-yB-azA">
                                 <rect key="frame" x="0.0" y="764" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Reader" id="ql7-pI-RwO" userLabel="Reader">
+                                    <barButtonItem title="Read" id="ql7-pI-RwO" userLabel="Reader">
                                         <connections>
                                             <segue destination="boz-12-v8k" kind="show" identifier="MainToReader" id="fSV-zL-GMD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="6wV-p5-qhk"/>
                                     <barButtonItem title="Sent" id="LxM-QY-eVi">
                                         <connections>
                                             <segue destination="oWm-NH-vdx" kind="show" identifier="MainToSent" id="LMk-nZ-Bmc"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="gUa-PC-Q9W"/>
                                     <barButtonItem title="📝Compose" image="pencil" catalog="system" id="J5s-tU-sUp">
                                         <connections>
                                             <segue destination="ZYt-K6-SDN" kind="show" identifier="MainToCompose" id="yZw-hY-6XE"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1bz-WX-zie"/>
-                                    <barButtonItem title="Settings" id="kfU-xx-Mcv">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gfM-Yh-DKf"/>
+                                    <barButtonItem title="Settings" image="gearshape.fill" catalog="system" id="kfU-xx-Mcv">
                                         <connections>
                                             <segue destination="CGJ-p8-LON" kind="show" identifier="MainToSettings" id="x1z-xI-T0x"/>
                                         </connections>
@@ -628,6 +630,7 @@ Email@address.com</string>
     <resources>
         <image name="btnLogin2" width="111.5" height="36"/>
         <image name="btnSaveMed" width="94.5" height="36"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="sMail_logo" width="60" height="60"/>
         <image name="square" catalog="system" width="128" height="114"/>
