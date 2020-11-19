@@ -6,56 +6,76 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ReadingViewController: MainViewController {
-
-	var verificationId : String = ""
-	var message = Messages(subject: "", from: "", to: "", body: "", date: "")
-
-	@IBOutlet weak var msgBody: UITextView!
-	@IBOutlet weak var msgSubject: UITextField!
-
-	@IBOutlet weak var msgFrom: UITextField!
-	func setMessage(msg : Messages){
-		self.message = msg
-		//print (msg.getBody())
-		//print (msg.getSubject() )
-		
-		//if let _ = msg.body { msgBody.text = msg.body! as String}
-		//if let _ = msg.subject  { msgSubject.text = msg.subject! as String }
-
-	}
-	override func viewDidLoad() {
+    @IBOutlet weak var tableview: UITableView!
+    let realm = RealmService.shared.realm
+    var msg: Results<TMessges>?
+    override func viewDidLoad() {
         super.viewDidLoad()
+         msg = realm.objects(TMessges.self)
+        tableview.delegate = self
+        tableview.dataSource = self
+    }
 
-
-		msgBody.text = message.body! as String
-
-		msgSubject.text = message.subject! as String
-		msgFrom.text = message.from! as String
-
-		
-		//print(self.message)
-
-		// Register the table view cell class and its reuse id
-
-		// (optional) include this line if you want to remove the extra empty cell divider lines
-		// self.tableView.tableFooterView = UIView()
-
-		// This view controller itself will provide the delegate methods and row data for the table view.
-	
-        // Do any additional setup after loading the view.
+    @IBAction func addMessages(_ sender: UIButton) {
+        
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Message", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Message", style: .default) { (action) in
+            
+            
+                let newMessage = TMessges()
+                newMessage.massege = textField.text!
+            
+            
+                RealmService.shared.create(newMessage)
+            
+            self.tableview.reloadData()
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new Message"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
     }
     
+}
 
-    /*
-    // MARK: - Navigation
+extension ReadingViewController: UITableViewDelegate {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if   editingStyle == .delete {
+            guard let message = msg?[indexPath.row] else { return  }
+            RealmService.shared.delete(message)
+        }
+        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
-    */
+   
 
 }
+
+
+extension ReadingViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return msg?.count ?? 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let  cell = tableview.dequeueReusableCell(withIdentifier: "email", for: indexPath)
+        if let massage = msg?[indexPath.row]{
+            cell.textLabel?.text = massage.massege
+        }else{
+            print("no messages ")
+        }
+         return cell
+    }
+}
+

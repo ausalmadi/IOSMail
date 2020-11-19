@@ -90,7 +90,7 @@ class HomeViewController: UIViewController {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
 
-			vc.setMessage(msg: messages[self.index])
+			//vc.setMessage(msg: messages[self.index])
 		}
 		print(segue.identifier as Any)
 	}

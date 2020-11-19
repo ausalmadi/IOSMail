@@ -117,5 +117,9 @@ class MainViewController: UIViewController {
 			}
 		}
 	}
+    
+    @IBAction func goToReader(_ sender: UIButton) {
+        
+    }
 }
 
