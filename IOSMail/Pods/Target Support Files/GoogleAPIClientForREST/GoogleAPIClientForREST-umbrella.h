@@ -22,6 +22,7 @@
 #import "GTLRService.h"
 #import "GTLRUploadParameters.h"
 #import "GTLRBase64.h"
+#import "GTLRFramework 3.h"
 #import "GTLRFramework.h"
 #import "GTLRURITemplate.h"
 #import "GTLRUtilities.h"
