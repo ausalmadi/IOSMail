@@ -122,25 +122,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-yB-azA">
-                                <rect key="frame" x="0.0" y="764" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="Reader" id="ql7-pI-RwO" userLabel="Reader">
+                                    <barButtonItem title="Read" id="ql7-pI-RwO" userLabel="Reader">
                                         <connections>
                                             <segue destination="boz-12-v8k" kind="show" identifier="MainToReader" id="fSV-zL-GMD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="6wV-p5-qhk"/>
                                     <barButtonItem title="Sent" id="LxM-QY-eVi">
                                         <connections>
                                             <segue destination="oWm-NH-vdx" kind="show" identifier="MainToSent" id="LMk-nZ-Bmc"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="gUa-PC-Q9W"/>
                                     <barButtonItem title="📝Compose" image="pencil" catalog="system" id="J5s-tU-sUp">
                                         <connections>
                                             <segue destination="ZYt-K6-SDN" kind="show" identifier="MainToCompose" id="yZw-hY-6XE"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1bz-WX-zie"/>
-                                    <barButtonItem title="Settings" id="kfU-xx-Mcv">
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Z74-Mf-ajM"/>
+                                    <barButtonItem style="plain" id="kmi-v6-e4q">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="QCw-my-Jdg">
+                                            <rect key="frame" x="281.5" y="7" width="56" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="SignOut"/>
+                                            <connections>
+                                                <action selector="signout:" destination="mfG-TN-pZu" eventType="touchUpInside" id="R0j-zG-nA3"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gfM-Yh-DKf"/>
+                                    <barButtonItem title="Settings" image="gearshape.fill" catalog="system" id="kfU-xx-Mcv">
                                         <connections>
                                             <segue destination="CGJ-p8-LON" kind="show" identifier="MainToSettings" id="x1z-xI-T0x"/>
                                         </connections>
@@ -153,11 +166,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
-                                <rect key="frame" x="47" y="100" width="71" height="22"/>
+                                <rect key="frame" x="47" y="101" width="71" height="22"/>
                                 <state key="normal" title="Delete" image="trash" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwD-QI-Se5">
-                                <rect key="frame" x="20" y="100" width="19" height="22"/>
+                                <rect key="frame" x="20" y="101" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
@@ -166,16 +179,8 @@
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCw-my-Jdg">
-                                <rect key="frame" x="343" y="54" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SignOut"/>
-                                <connections>
-                                    <action selector="signout:" destination="mfG-TN-pZu" eventType="touchUpInside" id="R0j-zG-nA3"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
-                                <rect key="frame" x="0.0" y="130" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="622"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="wU6-fG-CHd">
@@ -239,16 +244,16 @@
                                 <rect key="frame" x="20" y="64" width="374" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t07-GR-8bd" userLabel="TheSubjectAndAddresStack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="168"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="474"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="The Place Holder For The Email Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-eC-Zku">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="124"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="430"/>
                                                 <color key="textColor" red="0.10996169295302349" green="0.33106897655684675" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-35-ITq">
-                                                <rect key="frame" x="0.0" y="132" width="172.5" height="36"/>
+                                                <rect key="frame" x="0.0" y="438" width="172.5" height="36"/>
                                                 <string key="placeholder" base64-UTF8="YES">
 FlRlc3RAVGVzdC5jb20
 </string>
@@ -259,7 +264,7 @@ FlRlc3RAVGVzdC5jb20
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-UC-0fb">
-                                        <rect key="frame" x="0.0" y="223" width="374" height="545"/>
+                                        <rect key="frame" x="0.0" y="529" width="374" height="239"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">     Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -357,6 +362,9 @@ Email@address.com</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="btnSaveMed"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="CGJ-p8-LON" eventType="touchUpInside" id="SH2-46-pba"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aSc-c7-vXA"/>
@@ -538,24 +546,29 @@ Email@address.com</string>
                                             <constraint firstItem="d5e-iq-rhi" firstAttribute="top" secondItem="hHd-Vq-isH" secondAttribute="top" constant="90" id="zzo-m2-o01"/>
                                         </constraints>
                                     </stackView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-vv-IH9" userLabel="Body Scroll View">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-vv-IH9" userLabel="Body Scroll View">
                                         <rect key="frame" x="0.0" y="120" width="394" height="579"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="579"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="DZM-HE-Sca"/>
+                                                </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="top" secondItem="KFm-vv-IH9" secondAttribute="top" id="BG1-6g-ryT"/>
-                                            <constraint firstAttribute="trailing" secondItem="fXi-Ra-V1q" secondAttribute="trailing" id="Eoz-P4-z8l"/>
-                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="leading" secondItem="KFm-vv-IH9" secondAttribute="leading" id="Hmr-yX-zfS"/>
-                                            <constraint firstAttribute="bottom" secondItem="fXi-Ra-V1q" secondAttribute="bottom" id="ZWu-5M-19C"/>
-                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="centerY" secondItem="KFm-vv-IH9" secondAttribute="centerY" id="keB-se-4tq"/>
-                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="centerX" secondItem="KFm-vv-IH9" secondAttribute="centerX" id="o8P-Up-6ka"/>
+                                            <constraint firstAttribute="bottom" secondItem="fXi-Ra-V1q" secondAttribute="bottom" id="4u9-H8-NkE"/>
+                                            <constraint firstAttribute="bottom" secondItem="fXi-Ra-V1q" secondAttribute="bottom" id="729-Dy-kSb"/>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="top" secondItem="KFm-vv-IH9" secondAttribute="top" id="AKu-Mo-u7b"/>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="centerY" secondItem="KFm-vv-IH9" secondAttribute="centerY" id="Azz-gr-lWL"/>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="leading" secondItem="KFm-vv-IH9" secondAttribute="leading" id="OLR-ff-cmc"/>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="top" secondItem="KFm-vv-IH9" secondAttribute="top" id="R6w-ie-FFn"/>
+                                            <constraint firstAttribute="trailing" secondItem="fXi-Ra-V1q" secondAttribute="trailing" id="RfY-20-Fps"/>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="centerX" secondItem="KFm-vv-IH9" secondAttribute="centerX" id="Rrv-dA-vnn"/>
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-1B-ieF">
@@ -626,9 +639,11 @@ Email@address.com</string>
             <point key="canvasLocation" x="-527.536231884058" y="-29.464285714285712"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="linkColor"/>
     <resources>
         <image name="btnLogin2" width="111.5" height="36"/>
         <image name="btnSaveMed" width="94.5" height="36"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="sMail_logo" width="60" height="60"/>
         <image name="square" catalog="system" width="128" height="114"/>

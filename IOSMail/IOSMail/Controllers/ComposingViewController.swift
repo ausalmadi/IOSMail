@@ -75,7 +75,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
 
         let rawMessage = "" +
             "Date: \(todayString)\r\n" +
-            "From: <fazeli.mojtaba@gmail.com>\r\n" +
+            "From: <>\r\n" +
             "To: username <\(toField.text ?? "")>\r\n" +
             "Subject: \(subjectField.text ?? "")\r\n\r\n" +
             "\(bodyField.text ?? "")"
