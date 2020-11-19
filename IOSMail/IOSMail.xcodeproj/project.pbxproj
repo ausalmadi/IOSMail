@@ -27,6 +27,7 @@
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
 		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
+		8D5A7EDF2567019500245027 /* Draft.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5A7EDE2567019500245027 /* Draft.storyboard */; };
 		9C7E62B9782C2ACDEF8A3842 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20CB816A692055A1F47403 /* Pods_iosMail.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
 		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		8D5A7EDE2567019500245027 /* Draft.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Draft.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				3F8D295B2549BCD900434B99 /* TableViewCell.swift */,
 				3F8D295C2549BCD900434B99 /* TableViewCell.xib */,
 				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
+				8D5A7EDE2567019500245027 /* Draft.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
 				522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */,
+				8D5A7EDF2567019500245027 /* Draft.storyboard in Resources */,
 				52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */,
 				3F565747253E3673002E5031 /* Main.storyboard in Resources */,
 			);
