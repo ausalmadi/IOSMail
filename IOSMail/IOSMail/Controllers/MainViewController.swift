@@ -9,7 +9,6 @@ import UIKit
 import GoogleSignIn
 import RealmSwift
 import GoogleAPIClientForREST
-//import GoogleSignIn
 import GTMSessionFetcher
 
 class MainViewController: UIViewController {
@@ -42,13 +41,13 @@ class MainViewController: UIViewController {
 
 		// [START_EXCLUDE]
 		NotificationCenter.default.addObserver(self,
-											   selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-											   name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-											   object: nil)
+           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
+           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+           object: nil)
 		NotificationCenter.default.addObserver(self,
-											   selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-											   name: NSNotification.Name(rawValue: "GetMailNotification"),
-											   object: nil)
+           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
+           name: NSNotification.Name(rawValue: "GetMailNotification"),
+           object: nil)
 
 		//statusText.text = "Initialized Swift app..."
 		//toggleAuthUI()
@@ -137,7 +136,7 @@ class MainViewController: UIViewController {
 
         gmailService.authorizer = authorizer
         //gmailService.shouldFetchNextPages = true
-        listQuery.maxResults = 10
+        listQuery.maxResults = 1
         
         gmailService.executeQuery(listQuery) { (ticket, response, error) in
             if response != nil {

@@ -18,27 +18,23 @@ class HomeViewController: UIViewController {
     
 	@IBOutlet var inboxTitle: UILabel!
 	
-	var messages = [Messages]()
-	var mailManager = MailManager()
+	var messages = [MailData]()
+//	var mailManager = MailManager()
 	var inboxText : String = "Inbox"
 
 	var index : Int = 0
 	
 	@IBOutlet var inbox: UITableView!
 	@IBOutlet weak var sb: UISearchBar!
-	//FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)
-	//let data = ["From: ABC", "From: DFG","From: ROAA","From: 123", "From: CLASS","From: ABC"]
-    //let date = ["1 Aug","1 Sep","1 Oct","17 Oct","20 Oct","30 Oct"]
-   // let subject = ["Subject: 1", "Subject: 2", "Subject: 3", "Subject: 4", "Subject: 5", "Subject: 6"]
     
 	//@IBOutlet var textview: UITextView!
 
     override func viewDidLoad() {
 
 		super.viewDidLoad()
-		let newMsg = Messages(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
+		let newMsg = MailData(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
 		messages.append(newMsg)
-		let newMsg1 = Messages(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
+		let newMsg1 = MailData(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
 
 		messages.append(newMsg1)
 		NotificationCenter.default.addObserver(self,
@@ -52,7 +48,7 @@ class HomeViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-		mailManager.delegate = self
+
 		inboxTitle.text = inboxText
         
     }
@@ -69,21 +65,19 @@ class HomeViewController: UIViewController {
 
 	deinit {
 		NotificationCenter.default.removeObserver(self,
-												  name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-												  object: nil)
-	}
+          name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+          object: nil)
+}
 
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
-		//GIDSignIn.sharedInstance().disconnect()
+
 		GIDSignIn.sharedInstance().signOut()
 
-		//dismiss(animated: true, completion: nil)
+
 		print("dismissed homeview")
-		// [START_EXCLUDE silent]
-		//statusText.text = "Signed out."
-		//toggleAuthUI()
+
 
 	}
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,19 +90,14 @@ class HomeViewController: UIViewController {
 	}
 	
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-		//if notification.name.rawValue == "GetMailNotification" {
-		//	print("Getting mail")
-		//}
+
 
 		if notification.name.rawValue == "ToggleAuthUINotification" {
-			//self.toggleAuthUI()
+
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				//performSegue(withIdentifier: "HomeView", sender: nil)
-				//print("\(userInfo["statusText"]!)?")
 				inboxTitle.text = userInfo["statusText"]!
 
-				//self.statusText.text = userInfo["statusText"]!
 			}
 		}
 	}
@@ -129,31 +118,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 		print(indexPath.row)
 		index = indexPath.row
 		performSegue(withIdentifier: "MainToReader", sender: self)
-		/*let viewController:
-			UIViewController = UIStoryboard(
-				name: "Main", bundle: nil
-			)
-			.instantiateViewController(withIdentifier: "Reader") as UIViewController*/
-		// .instantiatViewControllerWithIdentifier() returns AnyObject!
-		// this must be downcast to utilize it
-		//viewController.modalPresentationStyle = .fullScreen
-		//self.present(viewController, animated: false, completion: nil)
 
-		/*if let viewController = storyboard?.instantiateViewController(identifier: "TrailViewController") as? TrailViewController {
-			viewController.trail = selectedTrail
-			navigationController?.pushViewController(viewController, animated: true)
-		}*/
 	}
 
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
 			cell.tableLabel.text = self.messages[indexPath.row].subject
-				//self.data[indexPath.row]
 			cell.tableDateLabel.text = self.messages[indexPath.row].date
-				//self.date[indexPath.row]
 			cell.tableSubjectLabel.text = self.messages[indexPath.row].body
-				//self.subject[indexPath.row]
+
             return cell
         }
         return UITableViewCell()
@@ -161,17 +135,3 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
 }
 
-extension HomeViewController: MailManagerDelegate {
-	func didUpdateMail(_ mailManager: MailManager, mail: MailModel) {
-		DispatchQueue.main.async {
-			//self.temperatureLabel.text = weather.temperatureString
-			//self.conditionImageView.image = UIImage(systemName: weather.conditionName)
-			//self.cityLabel.text = weather.cityName
-			//self.textview.text = mail.emailAddress
-		}
-	}
-
-	func didFailWithError(error: Error) {
-		print(error)
-	}
-}
