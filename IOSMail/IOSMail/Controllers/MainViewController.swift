@@ -8,13 +8,17 @@
 import UIKit
 import GoogleSignIn
 import RealmSwift
+import GoogleAPIClientForREST
+//import GoogleSignIn
+import GTMSessionFetcher
 
 class MainViewController: UIViewController {
-
+    let gmailService = GTLRGmailService.init()
+    var messageList = [GTLRGmail_Message]()
 	@IBOutlet weak var signInButton: GIDSignInButton!
 	@IBAction func signInBut(_ sender: Any) {
-
-		//GIDSignIn.sharedInstance().signIn()
+       
+		GIDSignIn.sharedInstance().signIn()
 		/*if ((GIDSignIn.sharedInstance()?.hasPreviousSignIn()) != nil) {
 			GIDSignIn.sharedInstance()?.restorePreviousSignIn()*/
 			if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? HomeViewController {
@@ -24,6 +28,7 @@ class MainViewController: UIViewController {
 		/*} else {
 			GIDSignIn.sharedInstance()?.signIn()
 		}*/
+        
 	}
 
 	override func viewDidLoad() {
@@ -113,10 +118,85 @@ class MainViewController: UIViewController {
 					self.present(mvc, animated: true, completion: nil)
 				}
 				print("\(userInfo["statusText"]!)?")
-				
+                listInboxMessages()
 				//self.statusText.text = userInfo["statusText"]!
 			}
 		}
 	}
+    
+    
+    
+    //for test
+    
+    func listInboxMessages() {
+       
+        let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
+        listQuery.labelIds = ["INBOX"]
+
+        let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+
+        gmailService.authorizer = authorizer
+        //gmailService.shouldFetchNextPages = true
+        listQuery.maxResults = 10
+        
+        gmailService.executeQuery(listQuery) { (ticket, response, error) in
+            if response != nil {
+//                print("Response: ")
+//                print(response)
+                self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
+            } else {
+                print("Error: ")
+                print(error)
+            }
+        }
+    }
+    
+    func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
+        let messagesResponse = response as GTLRGmail_ListMessagesResponse
+        print("Latest Message: ")
+        print(messagesResponse.messages!.count as Any)
+        do {
+            try print(messagesResponse.messages!.forEach({ (msg) in
+                let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
+                gmailService.executeQuery(query) { [self] (ticket, response, error) in
+                    if response != nil {
+//                        print(response)
+                        self.messageList.append(response as! GTLRGmail_Message)
+                        print("Message: ")
+                        self.messageList.forEach { (message) in
+                            //get the body of the email and decode it
+                            guard let message2 = message.payload!.parts?[0] else
+                            {return }
+                            let mail = self.base64urlToBase64(base64url: message2.body!.data!)
+                            if let data = Data(base64Encoded: mail) {
+                                print(String(data: data, encoding: .utf8)!)
+                            }
+                        }
+                        
+                    } else {
+                        print("Error: ")
+                        print(error)
+                    }
+                }
+//                print(msg.raw)
+                
+            }))
+        } catch{
+            print("error \(error)")
+        }
+             //identifier)
+    }
+    
+    func base64urlToBase64(base64url: String) -> String {
+        var base64 = base64url
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+        if base64.count % 4 != 0 {
+            base64.append(String(repeating: "=", count: 4 - base64.count % 4))
+        }
+        return base64
+    }
+    
+    
 }
 
