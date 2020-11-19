@@ -99,7 +99,7 @@ class MainViewController: UIViewController {
 												  name: NSNotification.Name(rawValue: "GetMailNotification"),
 												  object: nil)
 	}
-
+//MARK: notification functions
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
 		//if notification.name.rawValue == "GetMailNotification" {
 		//	print("Getting mail")
