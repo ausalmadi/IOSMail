@@ -124,23 +124,36 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-yB-azA">
                                 <rect key="frame" x="0.0" y="764" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Reader" id="ql7-pI-RwO" userLabel="Reader">
+                                    <barButtonItem title="Read" id="ql7-pI-RwO" userLabel="Reader">
                                         <connections>
                                             <segue destination="boz-12-v8k" kind="show" identifier="MainToReader" id="fSV-zL-GMD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="6wV-p5-qhk"/>
                                     <barButtonItem title="Sent" id="LxM-QY-eVi">
                                         <connections>
                                             <segue destination="oWm-NH-vdx" kind="show" identifier="MainToSent" id="LMk-nZ-Bmc"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="gUa-PC-Q9W"/>
                                     <barButtonItem title="📝Compose" image="pencil" catalog="system" id="J5s-tU-sUp">
                                         <connections>
                                             <segue destination="ZYt-K6-SDN" kind="show" identifier="MainToCompose" id="yZw-hY-6XE"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1bz-WX-zie"/>
-                                    <barButtonItem title="Settings" id="kfU-xx-Mcv">
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Z74-Mf-ajM"/>
+                                    <barButtonItem style="plain" id="kmi-v6-e4q">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="QCw-my-Jdg">
+                                            <rect key="frame" x="281.5" y="12" width="56" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="SignOut"/>
+                                            <connections>
+                                                <action selector="signout:" destination="mfG-TN-pZu" eventType="touchUpInside" id="R0j-zG-nA3"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gfM-Yh-DKf"/>
+                                    <barButtonItem title="Settings" image="gearshape.fill" catalog="system" id="kfU-xx-Mcv">
                                         <connections>
                                             <segue destination="CGJ-p8-LON" kind="show" identifier="MainToSettings" id="x1z-xI-T0x"/>
                                         </connections>
@@ -153,23 +166,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
-                                <rect key="frame" x="47" y="100" width="71" height="22"/>
+                                <rect key="frame" x="47" y="101" width="71" height="22"/>
                                 <state key="normal" title="Delete" image="trash" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwD-QI-Se5">
-                                <rect key="frame" x="20" y="100" width="19" height="22"/>
+                                <rect key="frame" x="20" y="101" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCw-my-Jdg">
-                                <rect key="frame" x="343" y="54" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SignOut"/>
-                                <connections>
-                                    <action selector="signout:" destination="mfG-TN-pZu" eventType="touchUpInside" id="R0j-zG-nA3"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
+                                <rect key="frame" x="158" y="36" width="85" height="53"/>
+                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                <color key="textColor" systemColor="linkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
-                                <rect key="frame" x="0.0" y="130" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="wU6-fG-CHd">
@@ -357,6 +368,9 @@ Email@address.com</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="btnSaveMed"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="CGJ-p8-LON" eventType="touchUpInside" id="SH2-46-pba"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aSc-c7-vXA"/>
@@ -625,6 +639,7 @@ Email@address.com</string>
     <resources>
         <image name="btnLogin2" width="111.5" height="36"/>
         <image name="btnSaveMed" width="94.5" height="36"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="sMail_logo" width="60" height="60"/>
         <image name="square" catalog="system" width="128" height="114"/>

@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SettingViewController: MainViewController {
+    
+    let realm = try! Realm()
+    var settings = Results<Settings>?.self
 
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var signatureTextView: UITextView!
@@ -23,14 +27,8 @@ class SettingViewController: MainViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        
     }
-    */
-
+    
 }

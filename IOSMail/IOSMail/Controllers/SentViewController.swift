@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SentViewController: MainViewController {
 
@@ -23,6 +24,8 @@ class SentViewController: MainViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        listInboxMessages()
     }
     
 
@@ -36,6 +39,7 @@ class SentViewController: MainViewController {
     }
     */
 
+    
 }
 
 //MARK: Tableview delegate and datasource
@@ -56,3 +60,5 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
     }
 
 }
+
+
