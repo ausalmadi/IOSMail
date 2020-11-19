@@ -13,7 +13,7 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
-    let realm = try! Realm()
+    let realm = RealmService.shared.realm
     
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
