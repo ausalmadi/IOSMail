@@ -28,6 +28,7 @@
 		3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D295C2549BCD900434B99 /* TableViewCell.xib */; };
 		520399502564556C007C9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5203994F2564556B007C9707 /* GoogleService-Info.plist */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
+		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
 		9C7E62B9782C2ACDEF8A3842 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20CB816A692055A1F47403 /* Pods_iosMail.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		3F8D295C2549BCD900434B99 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		5203994F2564556B007C9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
+		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 				365CF58F2551EAE400954DDD /* mailData.swift */,
 				365CF5922551F09F00954DDD /* MailManager.swift */,
 				365CF5952551F4C600954DDD /* MailModel.swift */,
+				52E37FC12566A14300101A46 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				365CF5902551EAE400954DDD /* mailData.swift in Sources */,
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
 				3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */,
+				52E37FC22566A14300101A46 /* Settings.swift in Sources */,
 				365CF5892551D7D400954DDD /* Messages.swift in Sources */,
 				365CF5962551F4C600954DDD /* MailModel.swift in Sources */,
 				3F26717E2548AFC200A4DD92 /* ComposingViewController.swift in Sources */,

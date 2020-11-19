@@ -12,6 +12,9 @@ import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
+    let realm = try! Realm()
+    
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
 		if let error = error { 
