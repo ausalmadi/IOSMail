@@ -2,7 +2,7 @@
 //  SettingViewController.swift
 //  iosMail
 //
-//  Created by student on 2020-10-27.
+//  Created by Gervan on 2020-10-27.
 //
 
 import UIKit
@@ -23,7 +23,7 @@ class SettingViewController: MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settings = realm.objects(Settings.self)
+        loadSettings()
 //        print(Settings.self)
         
     }
@@ -42,6 +42,14 @@ class SettingViewController: MainViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
+        createSettings()
+        
+        dismiss(animated: true, completion: nil)
+        }
+    
+    //MARK: - Setting functions & options
+    
+    func createSettings() {
         let newSettings = Settings()
         newSettings.emailReply = emailAddress.text!
         newSettings.dateUpdated = Date()
@@ -49,8 +57,27 @@ class SettingViewController: MainViewController {
         newSettings.useSignature = stateSwitch.isOn
         
         RealmService.shared.create(newSettings)
+    }
+    
+    func updateSettings(){
         
-        dismiss(animated: true, completion: nil)
-        }
-
+    }
+    
+    func loadSettings() {
+        settings = realm.objects(Settings.self)
+        settings = settings?.sorted(byKeyPath: "dateUpdated", ascending: true)
+        let loadSet = Settings()
+        emailAddress.text! = loadSet.emailReply.self
+        signatureTextView.text! = loadSet.signatureLine.self
+        stateSwitch.isOn = loadSet.useSignature.self
+        print(loadSet)
+    }
+    
+    func deleteSettings() {
+        let oldSettings = Settings()
+        RealmService.shared.delete(oldSettings)
+    }
 }
+
+
+
