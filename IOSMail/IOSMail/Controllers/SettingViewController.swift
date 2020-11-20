@@ -14,7 +14,6 @@ class SettingViewController: MainViewController {
     let realm = RealmService.shared.realm
     var settings: Results<Settings>?
     
-
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var signatureTextView: UITextView!
     @IBOutlet weak var stateSwitch: UISwitch!
@@ -24,8 +23,6 @@ class SettingViewController: MainViewController {
         super.viewDidLoad()
         
         loadSettings()
-//        print(Settings.self)
-        
     }
     
     @IBAction func signatureOn(_ sender: UISwitch) {
@@ -55,12 +52,11 @@ class SettingViewController: MainViewController {
         newSettings.dateUpdated = Date()
         newSettings.signatureLine = signatureTextView.text!
         newSettings.useSignature = stateSwitch.isOn
-        
+
         RealmService.shared.create(newSettings)
     }
     
     func updateSettings(){
-        
     }
     
     func loadSettings() {
@@ -78,6 +74,3 @@ class SettingViewController: MainViewController {
         RealmService.shared.delete(oldSettings)
     }
 }
-
-
-

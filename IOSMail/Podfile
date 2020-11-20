@@ -1,8 +1,7 @@
-# Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
 target 'iosMail' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  
   use_frameworks!
 
   # Pods for iosMail
@@ -13,8 +12,4 @@ target 'iosMail' do
   pod 'GoogleAPIClientForREST/Gmail'
   pod 'RealmSwift'
   
-# 	pod 'GoogleAPIClient/Gmail'
-#  pod 'Firebase/Auth'
-#  pod 'Firebase/Firestore'
-
 end
