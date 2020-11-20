@@ -161,32 +161,38 @@
                                 </items>
                                 <color key="tintColor" name="MenuBar"/>
                             </toolbar>
-                            <searchBar contentMode="redraw" misplaced="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="NN0-0E-gBO">
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="NN0-0E-gBO">
                                 <rect key="frame" x="0.0" y="78" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
-                                <rect key="frame" x="47" y="100" width="71" height="22"/>
+                                <rect key="frame" x="47" y="139" width="71" height="22"/>
                                 <state key="normal" title="Delete" image="trash" catalog="system"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwD-QI-Se5">
-                                <rect key="frame" x="20" y="100" width="19" height="22"/>
+                                <rect key="frame" x="20" y="139" width="19" height="22"/>
                                 <state key="normal" title="checkBox" image="square" catalog="system"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
-                                <rect key="frame" x="158" y="36" width="85" height="53"/>
-                                <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
-                                <color key="textColor" systemColor="linkColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
-                                <rect key="frame" x="0.0" y="205" width="414" height="543"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
+                                <rect key="frame" x="0.0" y="169" width="414" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="wU6-fG-CHd">
-                                <rect key="frame" x="117" y="43" width="40" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="e8D-Tz-VUI">
+                                <rect key="frame" x="139" y="36" width="116" height="36"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="wU6-fG-CHd">
+                                        <rect key="frame" x="0.0" y="3" width="27" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
+                                        <rect key="frame" x="27" y="0.0" width="89" height="36"/>
+                                        <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I7e-qi-zj1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -195,25 +201,23 @@
                             <constraint firstItem="Ydi-R1-rWG" firstAttribute="top" secondItem="OwD-QI-Se5" secondAttribute="bottom" constant="8" symbolic="YES" id="2GS-Ec-Sj8"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="top" secondItem="Ydi-R1-rWG" secondAttribute="bottom" constant="16" id="4zl-0j-B27"/>
                             <constraint firstItem="Ydi-R1-rWG" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" id="6a9-e3-f6e"/>
-                            <constraint firstItem="NN0-0E-gBO" firstAttribute="top" secondItem="wU6-fG-CHd" secondAttribute="bottom" constant="1" id="93m-Nd-OMu"/>
-                            <constraint firstItem="wU6-fG-CHd" firstAttribute="top" secondItem="I7e-qi-zj1" secondAttribute="top" constant="10" id="E34-52-ojI"/>
-                            <constraint firstItem="PEI-Md-saM" firstAttribute="top" secondItem="I7e-qi-zj1" secondAttribute="top" constant="10" id="HOY-f2-ZXh"/>
+                            <constraint firstItem="e8D-Tz-VUI" firstAttribute="top" secondItem="lIE-lD-cEg" secondAttribute="top" constant="36" id="Lh6-It-RMp"/>
                             <constraint firstItem="8cP-2l-Fcf" firstAttribute="leading" secondItem="OwD-QI-Se5" secondAttribute="trailing" constant="8" symbolic="YES" id="OMG-Rv-Pkm"/>
                             <constraint firstItem="8cP-2l-Fcf" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="47" id="WO2-C8-jfe"/>
-                            <constraint firstItem="PEI-Md-saM" firstAttribute="leading" secondItem="wU6-fG-CHd" secondAttribute="trailing" constant="5" id="afH-Lt-uuA"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" id="bXM-Ae-mx9"/>
+                            <constraint firstItem="NN0-0E-gBO" firstAttribute="top" secondItem="e8D-Tz-VUI" secondAttribute="bottom" constant="6" id="bZL-BT-UyM"/>
                             <constraint firstItem="Ydi-R1-rWG" firstAttribute="top" secondItem="8cP-2l-Fcf" secondAttribute="bottom" constant="8" symbolic="YES" id="ca1-zt-WFn"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="trailing" secondItem="I7e-qi-zj1" secondAttribute="trailing" id="eqd-5r-NSI"/>
                             <constraint firstItem="Ydi-R1-rWG" firstAttribute="trailing" secondItem="I7e-qi-zj1" secondAttribute="trailing" id="eyz-cW-dMF"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="bottom" secondItem="I7e-qi-zj1" secondAttribute="bottom" id="h5s-Jp-Glw"/>
-                            <constraint firstItem="NN0-0E-gBO" firstAttribute="top" secondItem="PEI-Md-saM" secondAttribute="bottom" constant="-50" id="hEs-1F-cdg"/>
+                            <constraint firstItem="I7e-qi-zj1" firstAttribute="trailing" secondItem="e8D-Tz-VUI" secondAttribute="trailing" constant="159" id="hHO-fb-e6W"/>
                             <constraint firstItem="NN0-0E-gBO" firstAttribute="trailing" secondItem="I7e-qi-zj1" secondAttribute="trailing" id="iZK-uw-Id5"/>
                             <constraint firstItem="NN0-0E-gBO" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" id="is8-YU-UGt"/>
                             <constraint firstItem="WAi-yB-azA" firstAttribute="top" secondItem="Ydi-R1-rWG" secondAttribute="bottom" constant="16" id="j9V-tL-pvp"/>
                             <constraint firstItem="I7e-qi-zj1" firstAttribute="trailing" secondItem="8cP-2l-Fcf" secondAttribute="trailing" constant="296" id="kGE-6s-mbU"/>
+                            <constraint firstItem="e8D-Tz-VUI" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="139" id="mxp-q7-R85"/>
                             <constraint firstItem="OwD-QI-Se5" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="20" id="o7E-hB-cvY"/>
                             <constraint firstItem="OwD-QI-Se5" firstAttribute="top" secondItem="NN0-0E-gBO" secondAttribute="bottom" constant="5" id="pAZ-nR-d5t"/>
-                            <constraint firstItem="wU6-fG-CHd" firstAttribute="leading" secondItem="I7e-qi-zj1" secondAttribute="leading" constant="127" id="poX-qu-IWr"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
