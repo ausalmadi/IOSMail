@@ -14,16 +14,22 @@ import GTMSessionFetcher
 class MainViewController: UIViewController {
     let gmailService = GTLRGmailService.init()
     var messageList = [GTLRGmail_Message]()
+	var messages = [MailData]()
+	//let mailManager = MailManager.shared
+
+	var mvc : HomeViewController?
+
 	@IBOutlet weak var signInButton: GIDSignInButton!
 	@IBAction func signInBut(_ sender: Any) {
        
 		GIDSignIn.sharedInstance().signIn()
 		/*if ((GIDSignIn.sharedInstance()?.hasPreviousSignIn()) != nil) {
 			GIDSignIn.sharedInstance()?.restorePreviousSignIn()*/
-			if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? HomeViewController {
-				mvc.modalPresentationStyle = .fullScreen
-			self.present(mvc, animated: true, completion: nil)
-			}
+		/*if mvc == UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? HomeViewController {
+				mvc?.modalPresentationStyle = .fullScreen
+
+				self.present(mvc!, animated: true, completion: nil)
+			}*/
 		/*} else {
 			GIDSignIn.sharedInstance()?.signIn()
 		}*/
@@ -101,24 +107,15 @@ class MainViewController: UIViewController {
 	}
 //MARK: notification functions
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-		//if notification.name.rawValue == "GetMailNotification" {
-		//	print("Getting mail")
-		//}
-
 		if notification.name.rawValue == "ToggleAuthUINotification" {
-			//self.toggleAuthUI()
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				//performSegue(withIdentifier: "HomeView", sender: nil)
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
 					//mvc.sb.text = userInfo["statusText"]!
 					//mvc.inboxText = userInfo["statusText"]!
 					self.present(mvc, animated: true, completion: nil)
 				}
-				print("\(userInfo["statusText"]!)?")
-                listInboxMessages()
-				//self.statusText.text = userInfo["statusText"]!
 			}
 		}
 	}
@@ -126,11 +123,11 @@ class MainViewController: UIViewController {
     
     
     //for test
-    
+    /*
     func listInboxMessages() {
        
         let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
-        listQuery.labelIds = ["INBOX"]
+        listQuery.labelIds = ["SENT"]
 
         let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
 
@@ -145,7 +142,7 @@ class MainViewController: UIViewController {
                 self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
             } else {
                 print("Error: ")
-                print(error)
+                print(error as Any)
             }
         }
     }
@@ -168,13 +165,16 @@ class MainViewController: UIViewController {
                             {return }
                             let mail = self.base64urlToBase64(base64url: message2.body!.data!)
                             if let data = Data(base64Encoded: mail) {
+								let m = MailData(subject: "", from: "", to: "", body:String(data: data, encoding: .utf8)!, date: "")
+								self.messages.append(m)
                                 print(String(data: data, encoding: .utf8)!)
                             }
                         }
+
                         
                     } else {
                         print("Error: ")
-                        print(error)
+						print(error as Any)
                     }
                 }
 //                print(msg.raw)
@@ -184,7 +184,37 @@ class MainViewController: UIViewController {
             print("error \(error)")
         }
              //identifier)
-    }
+    }*/
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		print(segue.identifier as Any)
+		return
+		//print("prepare()")
+		//if (segue.identifier == "MainToReader") {
+			//let vc = segue.destination as! HomeViewController
+
+			//vc.setMessage(msg: messages[self.index])
+		//vc.messages = messageList// as [MailData]
+		//listInboxMessages()
+		//mvc.sb.text = userInfo["statusText"]!
+		//					mvc.inboxText = userInfo["statusText"]!
+		//for segue: mvc, sender: self)
+		//segue.setMessages(msg: self.messages)
+		print(messages.count)
+		self.messages.forEach { (message) in
+			//guard let message2 = message.payload!.parts?[0] else
+			//{return }
+			//let mail = self.base64urlToBase64(base64url: message2.body!.data!)
+			//let mail = self.base64urlToBase64(base64url: message2.headers![0].jsonString())
+			//if let data = Data(base64Encoded: mail) {
+				print(message)
+			//}
+		}
+
+		//messageList[0].
+		//}
+
+	}
     
     func base64urlToBase64(base64url: String) -> String {
         var base64 = base64url

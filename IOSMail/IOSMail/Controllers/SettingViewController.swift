@@ -10,7 +10,7 @@ import RealmSwift
 
 class SettingViewController: MainViewController {
     
-    let realm = try! Realm()
+    let realm = RealmService.shared.realm
     var settings = Results<Settings>?.self
 
     @IBOutlet weak var emailAddress: UITextField!

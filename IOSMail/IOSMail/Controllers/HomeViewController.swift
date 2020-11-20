@@ -7,8 +7,16 @@
 
 import UIKit
 import GoogleSignIn
+import RealmSwift
+import GoogleAPIClientForREST
 
 class HomeViewController: UIViewController {
+
+	
+	var messages = [MailData]()
+	let gmailService = GTLRGmailService.init()
+	var messageList = [GTLRGmail_Message]()
+	//let mailManager = MailManager.shared
 
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
@@ -18,7 +26,6 @@ class HomeViewController: UIViewController {
     
 	@IBOutlet var inboxTitle: UILabel!
 	
-	var messages = [MailData]()
 //	var mailManager = MailManager()
 	var inboxText : String = "Inbox"
 
@@ -29,14 +36,25 @@ class HomeViewController: UIViewController {
     
 	//@IBOutlet var textview: UITextView!
 
+	func setMessages(msg : [MailData]){
+		print("setMessages() message count = \(msg.count)")
+		//messages = msg
+		
+	}
+
+
+	override func viewWillAppear(_ animated: Bool) {
+		listInboxMessages()
+	}
     override func viewDidLoad() {
 
 		super.viewDidLoad()
-		let newMsg = MailData(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
-		messages.append(newMsg)
-		let newMsg1 = MailData(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
+//		presentedViewController?.parent.
+		//let newMsg = MailData(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
+		//messages.append(newMsg)
+		//let newMsg1 = MailData(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
 
-		messages.append(newMsg1)
+		//messages.append(newMsg1)
 		NotificationCenter.default.addObserver(self,
            selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
            name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
@@ -110,7 +128,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count
+		return self.messages.count
     }
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -132,6 +150,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
+
 
 }
 
