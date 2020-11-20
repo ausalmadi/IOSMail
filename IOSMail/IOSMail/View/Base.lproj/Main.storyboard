@@ -621,6 +621,16 @@ Email@address.com</string>
             </objects>
             <point key="canvasLocation" x="2096" y="376"/>
         </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="DAA-mU-nP1">
+            <objects>
+                <viewControllerPlaceholder id="3Q3-Fb-nYw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dAi-aH-LlQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yFY-qs-da6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3778" y="171"/>
+        </scene>
         <!--Navigation-->
         <scene sceneID="nha-wu-LJT">
             <objects>
@@ -758,7 +768,7 @@ Email@address.com</string>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6e-aj-vMK" userLabel="Body Scroll View">
                                         <rect key="frame" x="0.0" y="120" width="394" height="573"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-mV-QzJ">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-mV-QzJ" userLabel="Save Draft">
                                                 <rect key="frame" x="324" y="11" width="60" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" backgroundImage="btnSaveSml"/>
@@ -808,11 +818,22 @@ Email@address.com</string>
                     <navigationItem key="navigationItem" title="Compose" largeTitleDisplayMode="always" id="dpn-sg-K5p"/>
                     <connections>
                         <outlet property="messageBody" destination="NoW-dF-56A" id="3dO-m1-9kq"/>
+                        <segue destination="Huq-6s-RmO" kind="show" id="wLn-Vn-FV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0T-aL-Y8o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2096" y="376"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Vf0-vJ-F1f">
+            <objects>
+                <viewControllerPlaceholder id="Huq-6s-RmO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9Rd-FE-GnX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1CB-oT-kYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3778" y="367"/>
         </scene>
         <!--Sent View Controller-->
         <scene sceneID="XxZ-8I-Xwu">
