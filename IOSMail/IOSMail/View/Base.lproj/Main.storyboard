@@ -437,7 +437,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfe-3s-bFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2912" y="-102"/>
+            <point key="canvasLocation" x="3067" y="-415"/>
         </scene>
         <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
@@ -861,7 +861,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGE-7R-2Es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3776.811594202899" y="366.96428571428572"/>
+            <point key="canvasLocation" x="3067" y="376"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="linkColor"/>
