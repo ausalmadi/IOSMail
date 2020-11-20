@@ -556,8 +556,7 @@ Email@address.com</string>
                                         <rect key="frame" x="0.0" y="118" width="394" height="581"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="1212"/>
-                                                <color key="backgroundColor" red="1" green="0.2463548186" blue="0.21834818389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="787"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="787" id="bG3-nt-vOt"/>
                                                 </constraints>
