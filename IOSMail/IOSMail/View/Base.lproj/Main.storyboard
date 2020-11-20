@@ -178,15 +178,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="e8D-Tz-VUI">
-                                <rect key="frame" x="139" y="36" width="116" height="36"/>
+                                <rect key="frame" x="139" y="36" width="512.5" height="36"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="wU6-fG-CHd">
-                                        <rect key="frame" x="0.0" y="3" width="27" height="30"/>
+                                        <rect key="frame" x="0.0" y="3" width="119.5" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
-                                        <rect key="frame" x="27" y="0.0" width="89" height="36"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="393" height="36"/>
                                         <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
@@ -248,16 +248,16 @@
                                 <rect key="frame" x="20" y="64" width="374" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t07-GR-8bd" userLabel="TheSubjectAndAddresStack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="168"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="474"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="The Place Holder For The Email Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-eC-Zku">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="124"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="430"/>
                                                 <color key="textColor" red="0.10996169295302349" green="0.33106897655684675" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-35-ITq">
-                                                <rect key="frame" x="0.0" y="132" width="172.5" height="36"/>
+                                                <rect key="frame" x="0.0" y="438" width="172.5" height="36"/>
                                                 <string key="placeholder" base64-UTF8="YES">
 FlRlc3RAVGVzdC5jb20
 </string>
@@ -268,7 +268,7 @@ FlRlc3RAVGVzdC5jb20
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-UC-0fb">
-                                        <rect key="frame" x="0.0" y="223" width="374" height="545"/>
+                                        <rect key="frame" x="0.0" y="529" width="374" height="239"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">     Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -552,23 +552,27 @@ Email@address.com</string>
                                             <constraint firstItem="d5e-iq-rhi" firstAttribute="top" secondItem="hHd-Vq-isH" secondAttribute="top" constant="90" id="zzo-m2-o01"/>
                                         </constraints>
                                     </stackView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-vv-IH9" userLabel="Body Scroll View">
-                                        <rect key="frame" x="0.0" y="118" width="394" height="576"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-vv-IH9" userLabel="Body Scroll View">
+                                        <rect key="frame" x="0.0" y="118" width="394" height="581"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pj-zB-ra3">
-                                                <rect key="frame" x="324" y="11" width="60" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" backgroundImage="btnSaveSml"/>
-                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="787"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="787" id="bG3-nt-vOt"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="centerX" secondItem="KFm-vv-IH9" secondAttribute="centerX" id="QpR-t7-Fz8"/>
+                                            <constraint firstAttribute="trailing" secondItem="fXi-Ra-V1q" secondAttribute="trailing" id="bZS-hu-Hdh"/>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="leading" secondItem="KFm-vv-IH9" secondAttribute="leading" id="c32-c2-uey"/>
+                                            <constraint firstItem="fXi-Ra-V1q" firstAttribute="top" secondItem="KFm-vv-IH9" secondAttribute="top" id="jcl-eM-Bpr"/>
+                                            <constraint firstAttribute="bottom" secondItem="fXi-Ra-V1q" secondAttribute="bottom" id="zCZ-1d-AjP"/>
+                                        </constraints>
                                     </scrollView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
-                                        <rect key="frame" x="0.0" y="699" width="394" height="0.0"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-1B-ieF">
                                         <rect key="frame" x="0.0" y="704" width="394" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
@@ -589,7 +593,9 @@ Email@address.com</string>
                                     <constraint firstItem="cRk-1B-ieF" firstAttribute="leading" secondItem="0y9-tX-0EM" secondAttribute="leading" id="Clg-gP-irz"/>
                                     <constraint firstAttribute="trailing" secondItem="cRk-1B-ieF" secondAttribute="trailing" id="E9g-Bx-W1L"/>
                                     <constraint firstItem="cRk-1B-ieF" firstAttribute="centerX" secondItem="0y9-tX-0EM" secondAttribute="centerX" id="LsS-r8-ZUn"/>
+                                    <constraint firstItem="KFm-vv-IH9" firstAttribute="centerX" secondItem="0y9-tX-0EM" secondAttribute="centerX" id="bkE-zv-qT2"/>
                                     <constraint firstItem="cRk-1B-ieF" firstAttribute="bottom" secondItem="0y9-tX-0EM" secondAttribute="bottom" id="brE-qM-8z7"/>
+                                    <constraint firstItem="KFm-vv-IH9" firstAttribute="top" secondItem="0y9-tX-0EM" secondAttribute="top" constant="118" id="mIe-u5-Ayd"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -604,7 +610,11 @@ Email@address.com</string>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" largeTitleDisplayMode="always" id="zAr-hf-5Cx"/>
                     <connections>
-                        <outlet property="messageBody" destination="fXi-Ra-V1q" id="8yo-cu-Qh0"/>
+                        <outlet property="bccField" destination="EA5-b5-iFb" id="nbS-IK-lT1"/>
+                        <outlet property="bodyField" destination="fXi-Ra-V1q" id="pnA-G1-eY4"/>
+                        <outlet property="ccField" destination="ZqB-Ci-3RC" id="Haf-jk-wg1"/>
+                        <outlet property="subjectField" destination="a55-8O-faY" id="Vek-Tf-wvI"/>
+                        <outlet property="toField" destination="50z-te-eUU" id="cD4-2U-N9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9V-6y-dQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -644,7 +654,7 @@ Email@address.com</string>
                                 <rect key="frame" x="10" y="59" width="394" height="793"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="mOj-6t-ejW" userLabel="Header View">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="113"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="115"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9mM-Pr-ZdH" userLabel="To View">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="23"/>
@@ -716,23 +726,23 @@ Email@address.com</string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sad-8d-EP4" userLabel="Subject View">
-                                                <rect key="frame" x="0.0" y="90" width="394" height="19"/>
+                                                <rect key="frame" x="0.0" y="90" width="394" height="21"/>
                                                 <subviews>
                                                     <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="subjectLabel" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12L-wK-CBi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="16"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Yx-JW-g6k">
-                                                        <rect key="frame" x="64" y="0.0" width="330" height="19"/>
+                                                        <rect key="frame" x="64" y="0.0" width="330" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-jN-1kg" userLabel="Fourth Divider">
-                                                <rect key="frame" x="0.0" y="112" width="394" height="1"/>
+                                                <rect key="frame" x="0.0" y="114" width="394" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Dsp-ni-Jzq"/>
@@ -746,7 +756,7 @@ Email@address.com</string>
                                         </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6e-aj-vMK" userLabel="Body Scroll View">
-                                        <rect key="frame" x="0.0" y="118" width="394" height="576"/>
+                                        <rect key="frame" x="0.0" y="120" width="394" height="573"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-mV-QzJ">
                                                 <rect key="frame" x="324" y="11" width="60" height="24"/>
@@ -756,7 +766,7 @@ Email@address.com</string>
                                         </subviews>
                                     </scrollView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NoW-dF-56A">
-                                        <rect key="frame" x="0.0" y="699" width="394" height="49"/>
+                                        <rect key="frame" x="0.0" y="698" width="394" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
