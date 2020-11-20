@@ -25,7 +25,6 @@ class SentViewController: MainViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        listInboxMessages()
     }
     
 

@@ -7,8 +7,16 @@
 
 import UIKit
 import GoogleSignIn
+import RealmSwift
+import GoogleAPIClientForREST
 
 class HomeViewController: UIViewController {
+
+	
+	var messages = [MailData]()
+	let gmailService = GTLRGmailService.init()
+	var messageList = [GTLRGmail_Message]()
+	//let mailManager = MailManager.shared
 
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
@@ -18,7 +26,6 @@ class HomeViewController: UIViewController {
     
 	@IBOutlet var inboxTitle: UILabel!
 	
-	var messages = [MailData]()
 //	var mailManager = MailManager()
 	var inboxText : String = "Inbox"
 
@@ -29,14 +36,25 @@ class HomeViewController: UIViewController {
     
 	//@IBOutlet var textview: UITextView!
 
+	func setMessages(msg : [MailData]){
+		print("setMessages() message count = \(msg.count)")
+		//messages = msg
+		
+	}
+
+
+	override func viewWillAppear(_ animated: Bool) {
+		listInboxMessages()
+	}
     override func viewDidLoad() {
 
 		super.viewDidLoad()
-		let newMsg = MailData(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
-		messages.append(newMsg)
-		let newMsg1 = MailData(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
+//		presentedViewController?.parent.
+		//let newMsg = MailData(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
+		//messages.append(newMsg)
+		//let newMsg1 = MailData(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
 
-		messages.append(newMsg1)
+		//messages.append(newMsg1)
 		NotificationCenter.default.addObserver(self,
            selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
            name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
@@ -50,6 +68,11 @@ class HomeViewController: UIViewController {
 
 
 		inboxTitle.text = inboxText
+
+
+
+		//tableView.reloadData()
+		//prepareMessages()
         
     }
     
@@ -101,6 +124,89 @@ class HomeViewController: UIViewController {
 			}
 		}
 	}
+
+	//for test
+
+	func listInboxMessages() {
+		//print("List inbox \(GIDSignIn.sharedInstance()?.currentUser?.profile?.email)")
+		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: (GIDSignIn.sharedInstance()?.currentUser?.userID)!)
+		listQuery.labelIds = ["SENT"]
+
+		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+
+		gmailService.authorizer = authorizer
+		//gmailService.shouldFetchNextPages = true
+		listQuery.maxResults = 2
+
+		gmailService.executeQuery(listQuery) { (ticket, response, error) in
+			if response != nil {
+				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
+			} else {
+				print("Error: ")
+				print(error as Any)
+			}
+			
+		}
+
+	}
+
+	func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
+		let messagesResponse = response as GTLRGmail_ListMessagesResponse
+		//print("Latest Message: ")
+		//print(messagesResponse.messages!.count as Any)
+		do {
+			try print(messagesResponse.messages!.forEach({ (msg) in
+				let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId:(GIDSignIn.sharedInstance()?.currentUser?.userID)!, identifier: msg.identifier!)
+				gmailService.executeQuery(query) { [self] (ticket, response, error) in
+					if response != nil {
+						//                        print(response)
+						self.messageList.append(response as! GTLRGmail_Message)
+						//print("Message: ")
+						self.messageList.forEach { (message) in
+							//get the body of the email and decode it
+							guard let message2 = message.payload!.parts?[0] else
+							{return }
+							let mail = self.base64urlToBase64(base64url: message2.body!.data!)
+							if let data = Data(base64Encoded: mail) {
+								let m = MailData(subject: "", from: "", to: "", body:String(data: data, encoding: .utf8)!, date: "")
+								self.messages.append(m)
+							}
+								//print(m.body)
+								//print(String(data: data, encoding: .utf8)!)
+
+
+						}
+
+						tableView.reloadData()
+						print("total messages: \(self.messageList.count)")
+
+
+					} else {
+						print("Error: ")
+						print(error as Any)
+					}
+				}
+				//                print(msg.raw)
+
+			}))
+		} catch{
+			print("error \(error)")
+		}
+		//identifier)
+	}
+
+	func base64urlToBase64(base64url: String) -> String {
+		var base64 = base64url
+			.replacingOccurrences(of: "-", with: "+")
+			.replacingOccurrences(of: "_", with: "/")
+		if base64.count % 4 != 0 {
+			base64.append(String(repeating: "=", count: 4 - base64.count % 4))
+		}
+		return base64
+	}
+	
+
+	
 }
 
 //MARK: Tableview delegate and datasource
@@ -110,7 +216,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count
+		return self.messages.count
     }
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -132,6 +238,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
+
 
 }
 
