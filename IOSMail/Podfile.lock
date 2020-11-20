@@ -33,7 +33,6 @@ DEPENDENCIES:
   - CLTypingLabel
   - GoogleAPIClientForREST/Gmail
   - GoogleSignIn
-  - GTMSessionFetcher
   - IQKeyboardManager
   - RealmSwift
 
