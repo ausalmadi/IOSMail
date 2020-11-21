@@ -49,12 +49,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
 
 		super.viewDidLoad()
-//		presentedViewController?.parent.
-		//let newMsg = MailData(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
-		//messages.append(newMsg)
-		//let newMsg1 = MailData(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
 
-		//messages.append(newMsg1)
 		NotificationCenter.default.addObserver(self,
            selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
            name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
@@ -85,19 +80,14 @@ class HomeViewController: UIViewController {
 		NotificationCenter.default.removeObserver(self,
           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
           object: nil)
-}
-
+	}
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
 
 		GIDSignIn.sharedInstance().signOut()
-
-
-		print("dismissed homeview")
-
-
 	}
+
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
@@ -107,9 +97,8 @@ class HomeViewController: UIViewController {
 		print(segue.identifier as Any)
 	}
 	
+//MARK: Notification method
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-
-
 		if notification.name.rawValue == "ToggleAuthUINotification" {
 
 			if notification.userInfo != nil {
@@ -120,20 +109,21 @@ class HomeViewController: UIViewController {
 		}
 	}
 
+//MARK: Getting messages into inbox view controller
 	//for test
 
 	func listInboxMessages() {
 
-	let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
-	listQuery.labelIds = ["SENT"]
+		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
+		listQuery.labelIds = ["INBOX"]
 
-	let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
 
-	gmailService.authorizer = authorizer
+		gmailService.authorizer = authorizer
 	//gmailService.shouldFetchNextPages = true
-	listQuery.maxResults = 1
+		listQuery.maxResults = 5
 
-	gmailService.executeQuery(listQuery) { (ticket, response, error) in
+		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 	if response != nil {
 	//                print("Response: ")
 	//                print(response)
@@ -146,26 +136,59 @@ class HomeViewController: UIViewController {
 	}
 
 	func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
+		var from : String = ""
+		var to : String = ""
+		var date : String = ""
+		var subject : String = ""
 	let messagesResponse = response as GTLRGmail_ListMessagesResponse
-	print("Latest Message: ")
-	print(messagesResponse.messages!.count as Any)
-	do {
-	try messagesResponse.messages!.forEach({ (msg) in
-	let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
-	gmailService.executeQuery(query) { [self] (ticket, response, error) in
-	if response != nil {
+	//print("Latest Message: ")
+	//print(messagesResponse.messages!.count as Any)
+//	do {
+//		try
+			messagesResponse.messages!.forEach({ (msg) in
+		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
+		gmailService.executeQuery(query) { [self] (ticket, response, error) in
+
+		if response != nil {
 	//                        print(response)
-	self.messageList.append(response as! GTLRGmail_Message)
-	print("Message: ")
-	self.messageList.forEach { (message) in
+			self.messageList.append(response as! GTLRGmail_Message)
+			//print("Message: ")
+		self.messageList.forEach { (message) in
 	//get the body of the email and decode it
+		message.payload!.headers?.forEach {( head) in
+
+		if head.name=="Date" {
+//			print(self.base64urlToBase64(base64url: head.name ?? "default name"))
+//			print(self.base64urlToBase64(base64url: head.value ?? "default value"))
+			date = self.base64urlToBase64(base64url: head.value ?? "default value")
+		}
+		if head.name=="Subject" {
+//			print(self.base64urlToBase64(base64url: head.name ?? "default name"))
+//			print(self.base64urlToBase64(base64url: head.value ?? "default value"))
+			subject = self.base64urlToBase64(base64url: head.value ?? "default value")
+		}
+		if head.name=="From" {
+//			print(self.base64urlToBase64(base64url: head.name ?? "default name"))
+//			print(self.base64urlToBase64(base64url: head.value ?? "default value"))
+			from = self.base64urlToBase64(base64url: head.value ?? "default value")
+		}
+		if head.name=="To" {
+//			print(self.base64urlToBase64(base64url: head.name ?? "default name"))
+//			print(self.base64urlToBase64(base64url: head.value ?? "default value"))
+			to = self.base64urlToBase64(base64url: head.value ?? "default value")
+		}
+	}
+		//print(message.payload!.jsonString())
+
 	guard let message2 = message.payload!.parts?[0] else
 	{return }
 	let mail = self.base64urlToBase64(base64url: message2.body!.data!)
+	
+
 	if let data = Data(base64Encoded: mail) {
-	let m = MailData(subject: "", from: "", to: "", body:String(data: data, encoding: .utf8)!, date: "")
+	let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date)
 	self.messages.append(m)
-	print(String(data: data, encoding: .utf8)!)
+	//print(String(data: data, encoding: .utf8)!)
 	}
 	}
 
@@ -177,10 +200,9 @@ class HomeViewController: UIViewController {
 	}
 
 	})
-	} catch{
-	print("error \(error)")
-	}
-
+//	} catch{
+//	print("error \(error)")
+//	}
 
 }
 

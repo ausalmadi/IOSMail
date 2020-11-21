@@ -188,7 +188,7 @@ class MainViewController: UIViewController {
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		print(segue.identifier as Any)
-		return
+		//return
 		//print("prepare()")
 		//if (segue.identifier == "MainToReader") {
 			//let vc = segue.destination as! HomeViewController
@@ -200,16 +200,16 @@ class MainViewController: UIViewController {
 		//					mvc.inboxText = userInfo["statusText"]!
 		//for segue: mvc, sender: self)
 		//segue.setMessages(msg: self.messages)
-		print(messages.count)
-		self.messages.forEach { (message) in
+		//print(messages.count)
+		//self.messages.forEach { (message) in
 			//guard let message2 = message.payload!.parts?[0] else
 			//{return }
 			//let mail = self.base64urlToBase64(base64url: message2.body!.data!)
 			//let mail = self.base64urlToBase64(base64url: message2.headers![0].jsonString())
 			//if let data = Data(base64Encoded: mail) {
-				print(message)
+				//print(message)
 			//}
-		}
+		//}
 
 		//messageList[0].
 		//}
