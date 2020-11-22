@@ -30,23 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			return
 		}
 		// Perform any operations on signed in user here.
-//		let userId = user.userID                  // For client-side use only!
-//		let idToken = user.authentication.idToken // Safe to send to the server
-		let fullName = user.profile.name
-//		let givenName = user.profile.givenName
-//		let familyName = user.profile.familyName
-//		let email = user.profile.email
-//		// [START_EXCLUDE]
+//		
 		NotificationCenter.default.post(
 			name: Notification.Name(rawValue: "ToggleAuthUINotification"),
 			object: nil,
-			userInfo: ["statusText": "\(fullName!)"])
-		// [END_EXCLUDE]
-        
-        
+			userInfo: ["statusText": "nothing"])
+		
 	}
-	// [END signin_handler]
-
+	
 	// [START disconnect_handler]
 	func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
 			  withError error: Error!) {
@@ -69,8 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		GIDSignIn.sharedInstance().clientID = "662449896826-13dpc48tgddtki7f7ad1pilpq13u8hnh.apps.googleusercontent.com"
 		GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.scopes = scopes
-        
-		print(Realm.Configuration.defaultConfiguration.fileURL as Any)
+      
         do {
             let _ = try Realm()
         } catch {
