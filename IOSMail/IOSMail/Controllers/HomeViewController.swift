@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 	@IBOutlet var inboxTitle: UILabel!
 
-	var messages = [MailData]()
 	var inboxText : String = "Inbox"
 	var index : Int = 0
 	
