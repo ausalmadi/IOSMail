@@ -19,21 +19,16 @@ class HomeViewController: UIViewController {
 	
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
 	@IBOutlet var inboxTitle: UILabel!
-	
-//	var mailManager = MailManager()
-	var inboxText : String = "Inbox"
 
+	var messages = [MailData]()
+	var inboxText : String = "Inbox"
 	var index : Int = 0
 	
 	@IBOutlet var inbox: UITableView!
 	@IBOutlet weak var sb: UISearchBar!
-    
-	//@IBOutlet var textview: UITextView!
 
 	func setMessages(msg : [MailData]){
 		print("setMessages() message count = \(msg.count)")
@@ -54,12 +49,11 @@ class HomeViewController: UIViewController {
            name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
            object: nil)
 
-        // Do any additional setup after loading the view.
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-		inboxTitle.text? = inboxText
+		inboxTitle.text = inboxText
+
     }
     
 	@IBAction func signout(_ sender: Any) {
@@ -75,13 +69,15 @@ class HomeViewController: UIViewController {
 		NotificationCenter.default.removeObserver(self,
           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
           object: nil)
-	}
+    }
+
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
 
 		GIDSignIn.sharedInstance().signOut()
 	}
+
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
@@ -162,16 +158,15 @@ class HomeViewController: UIViewController {
 	let mail = self.base64urlToBase64(base64url: message2.body!.data!)
 
 	if let data = Data(base64Encoded: mail) {
-	let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date)
-	self.messages.append(m)
+	  let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date)
+	  self.messages.append(m)
+	 }
 	}
-	}
-
 		tableView.reloadData()
-	} else {
-	print("Error: ")
-	print(error as Any)
-	}
+	 } else {
+	  print("Error: ")
+	  print(error as Any)
+	 }
 	}
 
 	})
@@ -201,7 +196,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 		print(indexPath.row)
 		index = indexPath.row
 		performSegue(withIdentifier: "MainToReader", sender: self)
-
 	}
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -215,4 +209,3 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         return UITableViewCell()
     }
 }
-

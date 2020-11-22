@@ -1,0 +1,34 @@
+
+/* Class = "UIViewController"; title = "Login"; ObjectID = "DfM-ck-gft"; */
+"DfM-ck-gft.title" = "Login";
+
+/* Class = "UIBarButtonItem"; title = "Compose"; ObjectID = "J5s-tU-sUp"; */
+"J5s-tU-sUp.title" = "Compose";
+
+/* Class = "UIBarButtonItem"; title = "Sent"; ObjectID = "LxM-QY-eVi"; */
+"LxM-QY-eVi.title" = "Sent";
+
+/* Class = "UILabel"; text = "login eMail Label"; ObjectID = "MTR-2B-lTw"; */
+"MTR-2B-lTw.text" = "eMail Address";
+
+/* Class = "UILabel"; text = "Reader"; ObjectID = "Q3D-na-RjJ"; */
+"Q3D-na-RjJ.text" = "Reader";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "caZ-hc-4oK"; */
+"caZ-hc-4oK.text" = "Settings";
+
+/* Class = "UILabel"; text = "Sent"; ObjectID = "ck6-UT-xvg"; */
+"ck6-UT-xvg.text" = "Sent";
+
+/* Class = "UILabel"; text = "Compose"; ObjectID = "dYv-bt-5oI"; */
+"dYv-bt-5oI.text" = "Compose";
+
+/* Class = "UITextField"; text = "Text"; ObjectID = "g5I-d2-aOv"; */
+"g5I-d2-aOv.text" = "Text";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "kfU-xx-Mcv"; */
+"kfU-xx-Mcv.title" = "Settings";
+
+/* Class = "UIBarButtonItem"; title = "Reader"; ObjectID = "ql7-pI-RwO"; */
+"ql7-pI-RwO.title" = "Reader";
+
