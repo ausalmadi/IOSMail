@@ -109,7 +109,7 @@ class HomeViewController: UIViewController {
 
 		gmailService.authorizer = authorizer
 	//gmailService.shouldFetchNextPages = true
-		listQuery.maxResults = 5
+		listQuery.maxResults = 1
 
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 	if response != nil {
