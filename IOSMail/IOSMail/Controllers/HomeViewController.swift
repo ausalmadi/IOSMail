@@ -109,7 +109,7 @@ class HomeViewController: UIViewController {
 
 		gmailService.authorizer = authorizer
 	//gmailService.shouldFetchNextPages = true
-		listQuery.maxResults = 1
+		listQuery.maxResults = 5
 
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 	if response != nil {
@@ -134,7 +134,9 @@ class HomeViewController: UIViewController {
 
 		if response != nil {
 			self.messageList.append(response as! GTLRGmail_Message)
-		self.messageList.forEach { (message) in
+
+			do {
+				try self.messageList.forEach { (message) in
 	//get the body of the email and decode it
 		message.payload!.headers?.forEach {( head) in
 
@@ -157,10 +159,17 @@ class HomeViewController: UIViewController {
 	let mail = self.base64urlToBase64(base64url: message2.body!.data!)
 
 	if let data = Data(base64Encoded: mail) {
+		 //var htmlData = try NSAttributedString(data: data, documentAttributes: nil)
+		//htmlData.data()
+		//print(htmlData)
 	  let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date)
 	  self.messages.append(m)
 	 }
 	}
+			}catch {
+				print(error as Any)
+			}
+
 		tableView.reloadData()
 	 } else {
 	  print("Error: ")
@@ -172,6 +181,7 @@ class HomeViewController: UIViewController {
 
 }
 
+	
 func base64urlToBase64(base64url: String) -> String {
 	var base64 = base64url
 		.replacingOccurrences(of: "-", with: "+")
