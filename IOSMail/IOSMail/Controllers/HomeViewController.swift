@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 	@IBOutlet var inboxTitle: UILabel!
 
-	var messages = [MailData]()
 	var inboxText : String = "Inbox"
 	var index : Int = 0
 	
@@ -110,7 +109,7 @@ class HomeViewController: UIViewController {
 
 		gmailService.authorizer = authorizer
 	//gmailService.shouldFetchNextPages = true
-		listQuery.maxResults = 5
+		listQuery.maxResults = 1
 
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 	if response != nil {
