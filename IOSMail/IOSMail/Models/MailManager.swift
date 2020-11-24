@@ -15,73 +15,90 @@ class MailManager{
 	private init(){}
 
 	/*var messages = [MailData]()
-	static let shared = MailManager()
+	static let shared = MailManager() // Setting up shared instance of Singleton class
 
 	let gmailService = GTLRGmailService.init()
 	var messageList = [GTLRGmail_Message]()
-	//for test
 
 	func listInboxMessages() {
 
-		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
-		listQuery.labelIds = ["SENT"]
+	let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
+	listQuery.labelIds = ["INBOX"]
 
-		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+	let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
 
-		gmailService.authorizer = authorizer
-		//gmailService.shouldFetchNextPages = true
-		listQuery.maxResults = 1
+	gmailService.authorizer = authorizer
+	//gmailService.shouldFetchNextPages = true
+	//listQuery.maxResults = 5
 
-		gmailService.executeQuery(listQuery) { (ticket, response, error) in
-			if response != nil {
-				//                print("Response: ")
-				//                print(response)
-				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
-			} else {
-				print("Error: ")
-				print(error as Any)
-			}
-		}
+	gmailService.executeQuery(listQuery) { (ticket, response, error) in
+	if response != nil {
+	self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
+	} else {
+	print("Error: ")
+	print(error as Any)
+	}
+	}
 	}
 
 	func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
-		let messagesResponse = response as GTLRGmail_ListMessagesResponse
-		print("Latest Message: ")
-		print(messagesResponse.messages!.count as Any)
-		do {
-			try print(messagesResponse.messages!.forEach({ (msg) in
-				let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
-				gmailService.executeQuery(query) { [self] (ticket, response, error) in
-					if response != nil {
-						//                        print(response)
-						self.messageList.append(response as! GTLRGmail_Message)
-						print("Message: ")
-						self.messageList.forEach { (message) in
-							//get the body of the email and decode it
-							guard let message2 = message.payload!.parts?[0] else
-							{return }
-							let mail = self.base64urlToBase64(base64url: message2.body!.data!)
-							if let data = Data(base64Encoded: mail) {
-								let m = MailData(subject: "", from: "", to: "", body:String(data: data, encoding: .utf8)!, date: "")
-								self.messages.append(m)
-								print(String(data: data, encoding: .utf8)!)
-							}
-							
-						}
+	var from : String = ""
+	var to : String = ""
+	var date : String = ""
+	var subject : String = ""
+	let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
+	messagesResponse.messages!.forEach({ (msg) in
+	let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
+	gmailService.executeQuery(query) { [self] (ticket, response, error) in
 
-					} else {
-						print("Error: ")
-						print(error as Any)
-					}
-				}
-				//                print(msg.raw)
+	if response != nil {
+	self.messageList.append(response as! GTLRGmail_Message)
 
-			}))
-		} catch{
-			print("error \(error)")
-		}
-		//identifier)
+	do {
+	try self.messageList.forEach { (message) in
+	//get the body of the email and decode it
+	message.payload!.headers?.forEach {( head) in
+
+	if head.name=="Date" {
+	date = self.base64urlToBase64(base64url: head.value ?? "default value")
+	}
+	if head.name=="Subject" {
+	subject = self.base64urlToBase64(base64url: head.value ?? "default value")
+	}
+	if head.name=="From" {
+	from = self.base64urlToBase64(base64url: head.value ?? "default value")
+	}
+	if head.name=="To" {
+	to = self.base64urlToBase64(base64url: head.value ?? "default value")
+	}
+	}
+
+	guard let message2 = message.payload!.parts?[0] else
+	{return }
+	let mail = self.base64urlToBase64(base64url: message2.body!.data!)
+
+	if let data = Data(base64Encoded: mail) {
+	//var htmlData = try NSAttributedString(data: data, documentAttributes: nil)
+	//htmlData.data()
+	//print(htmlData)
+	let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date)
+	self.messages.append(m)
+	}
+	}
+	}catch {
+	print(error as Any)
+	}
+
+	tableView.reloadData()
+	} else {
+	print("Error: ")
+	print(error as Any)
+	}
+	}
+
+	})
+
 	}
 
 	func base64urlToBase64(base64url: String) -> String {
