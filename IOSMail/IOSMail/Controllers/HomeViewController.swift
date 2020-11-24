@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
 	@IBOutlet var inbox: UITableView!
 	@IBOutlet weak var sb: UISearchBar!
 
+
     override func viewDidLoad() {
 
 		super.viewDidLoad()
@@ -102,6 +103,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
+
 			cell.tableLabel.text = self.messages[indexPath.row].subject
 			cell.tableDateLabel.text = self.messages[indexPath.row].date
 			cell.tableSubjectLabel.text = self.messages[indexPath.row].body
