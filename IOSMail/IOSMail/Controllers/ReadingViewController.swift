@@ -17,15 +17,14 @@ class ReadingViewController: MainViewController {
 	@IBOutlet weak var msgFrom: UITextField!
     @IBOutlet weak var msgDate: UITextField!
 
-	func setMessage(msg : MailData){
-    
     @IBAction func ForwardButtonPressed(_ sender: UIBarButtonItem) {
-        
+       
         self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
     }
     @IBAction func ReplyButtonPressed(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
     }
+
     func setMessage(msg : MailData){
 		self.message = msg
 	}
