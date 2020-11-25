@@ -2,7 +2,7 @@
 //  RealmService.swift
 //  iosMail
 //
-//  Created by student on 2020-11-19.
+//  Created by Aus on 2020-11-19.
 //
 
 import Foundation

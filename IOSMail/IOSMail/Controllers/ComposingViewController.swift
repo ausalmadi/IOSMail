@@ -10,7 +10,6 @@ import GoogleAPIClientForREST
 import GoogleSignIn
 import GTMSessionFetcher
 
-
 class ComposingViewController: MainViewController, UITextViewDelegate {
 
     @IBOutlet var toField: UITextField!
@@ -59,7 +58,6 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         
         
         service.authorizer = authorizer
-        
         service.executeQuery(query, completionHandler: { (ticket, response, error) -> Void in
             print("ticket \(String(describing: ticket))")
             print("response \(String(describing: response))")
@@ -72,33 +70,18 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"; //RFC2822-Format
         let todayString:String = dateFormatter.string(from: NSDate() as Date)
-
         let rawMessage = "" +
             "Date: \(todayString)\r\n" +
             "From: <>\r\n" +
             "To: username <\(toField.text ?? "")>\r\n" +
             "Subject: \(subjectField.text ?? "")\r\n\r\n" +
             "\(bodyField.text ?? "")"
-
         let utf8str = rawMessage.data(using: .utf8)
-       
         let utf8Data = rawMessage.data
         let base64EncodedString = utf8Data.base64EncodedString()
         
         return base64EncodedString
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
 }
 
 extension String {

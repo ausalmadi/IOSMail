@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6ZW-xI-pvY" userLabel="Data Stack View">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6ZW-xI-pvY" userLabel="Data Stack View">
                                 <rect key="frame" x="107" y="94" width="200" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eMail Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-2B-lTw">
@@ -60,18 +60,18 @@
                                     <constraint firstAttribute="width" constant="200" id="f5a-9b-aKf"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ucx-sC-Zpy" userLabel="Button Stack View">
-                                <rect key="frame" x="127" y="476" width="160" height="174"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ucx-sC-Zpy" userLabel="Button Stack View">
+                                <rect key="frame" x="127" y="443.5" width="160" height="239"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_logo" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-MB-a5A">
-                                        <rect key="frame" x="30" y="0.0" width="100" height="100"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_no_bkgrd" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-MB-a5A">
+                                        <rect key="frame" x="5" y="0.0" width="150" height="150"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="GX3-2X-XZb"/>
-                                            <constraint firstAttribute="width" constant="100" id="aWi-VR-Pgl"/>
+                                            <constraint firstAttribute="height" constant="150" id="GX3-2X-XZb"/>
+                                            <constraint firstAttribute="width" constant="150" id="aWi-VR-Pgl"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="AIS-I0-Dmt" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="125" width="160" height="49"/>
+                                        <rect key="frame" x="0.0" y="190" width="160" height="49"/>
                                         <color key="backgroundColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="JQ3-kS-ftU"/>
@@ -79,7 +79,7 @@
                                         </constraints>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
-                                        <rect key="frame" x="5" y="174" width="150" height="50"/>
+                                        <rect key="frame" x="5" y="239" width="150" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="COQ-yp-lgG"/>
                                             <constraint firstAttribute="width" constant="150" id="r2e-gY-ReQ"/>
@@ -94,13 +94,18 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sMail_name" translatesAutoresizingMaskIntoConstraints="NO" id="bql-g4-fVQ">
+                                <rect key="frame" x="82" y="321" width="250" height="150"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qge-1I-pKp"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" red="0.36078431372549019" green="0.81176470588235294" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ucx-sC-Zpy" firstAttribute="top" secondItem="bql-g4-fVQ" secondAttribute="bottom" id="4fV-Z1-EXk"/>
                             <constraint firstItem="6ZW-xI-pvY" firstAttribute="top" secondItem="Qge-1I-pKp" secondAttribute="top" constant="50" id="7KA-uZ-LLW"/>
                             <constraint firstItem="6ZW-xI-pvY" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="adV-hk-1Yf"/>
                             <constraint firstItem="ucx-sC-Zpy" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="fyo-6W-jja"/>
+                            <constraint firstItem="bql-g4-fVQ" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="h4l-Ol-fbB"/>
                             <constraint firstItem="ucx-sC-Zpy" firstAttribute="centerY" secondItem="wTy-bP-pLd" secondAttribute="centerY" constant="115" id="tXq-7h-Goe"/>
                         </constraints>
                     </view>
@@ -310,7 +315,7 @@ FlRlc3RAVGVzdC5jb20
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
-                                <rect key="frame" x="154" y="54" width="106" height="36"/>
+                                <rect key="frame" x="152" y="54" width="110.5" height="35"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -399,20 +404,20 @@ Email@address.com</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck6-UT-xvg">
-                                <rect key="frame" x="177.5" y="54" width="59.5" height="36"/>
+                                <rect key="frame" x="176" y="54" width="62" height="35"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IOW-OX-DE8">
-                                <rect key="frame" x="4" y="97" width="414" height="44"/>
+                                <rect key="frame" x="4" y="96" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="JJu-80-ocB"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pim-6Y-sRy">
-                                <rect key="frame" x="9" y="183" width="404" height="692"/>
+                                <rect key="frame" x="9" y="182" width="404" height="693"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -437,7 +442,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfe-3s-bFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2912" y="-102"/>
+            <point key="canvasLocation" x="3067" y="-415"/>
         </scene>
         <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
@@ -620,16 +625,6 @@ Email@address.com</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9V-6y-dQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2096" y="376"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="DAA-mU-nP1">
-            <objects>
-                <viewControllerPlaceholder id="3Q3-Fb-nYw" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="dAi-aH-LlQ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yFY-qs-da6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3778" y="171"/>
         </scene>
         <!--Navigation-->
         <scene sceneID="nha-wu-LJT">
@@ -844,13 +839,13 @@ Email@address.com</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drafts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsA-U9-rqy" userLabel="Drafts">
-                                <rect key="frame" x="165.5" y="54" width="83" height="36"/>
+                                <rect key="frame" x="166.5" y="54" width="81" height="35"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rnT-f2-uD0">
-                                <rect key="frame" x="4" y="97" width="414" height="44"/>
+                                <rect key="frame" x="4" y="96" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hcE-ZT-bcN"/>
                                 </constraints>
@@ -882,7 +877,7 @@ Email@address.com</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGE-7R-2Es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3776.811594202899" y="366.96428571428572"/>
+            <point key="canvasLocation" x="3067" y="376"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="linkColor"/>
@@ -892,7 +887,8 @@ Email@address.com</string>
         <image name="btnSaveSml" width="59.5" height="24"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="sMail_logo" width="60" height="60"/>
+        <image name="sMail_name" width="250" height="250"/>
+        <image name="sMail_no_bkgrd" width="500" height="500"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
@@ -916,9 +912,6 @@ Email@address.com</string>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
