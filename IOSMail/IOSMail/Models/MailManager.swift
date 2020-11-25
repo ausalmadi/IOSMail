@@ -12,30 +12,45 @@ import GoogleAPIClientForREST
 
 class MailManager{
 
-	private init(){}
+	let INBOX = "INBOX" // Constants for default mail folders
+	let SENT = "SENT"
+	let DRAFT = "DRAFT"
 
-	/*var messages = [MailData]()
-	static let shared = MailManager()
+	var messages = [MailData]() // Messages array
+	static let shared = MailManager() // Setting up shared instance of Singleton class
 
-	let gmailService = GTLRGmailService.init()
+	private init(){
+
+	}
+
+	let gmailService = GTLRGmailService.init() // initialize mail service
 	var messageList = [GTLRGmail_Message]()
-	//for test
+	var tbview : UITableView? = nil
 
-	func listInboxMessages() {
+	func setMessages(msg : [MailData]){
+		print("setMessages() message count = \(msg.count)")
+		messages = msg
+	}
 
+	func settbView(_tbview : UITableView) {
+		self.tbview? = _tbview
+	}
+	
+	func listInboxMessages(tableview:UITableView, folder : String) {
+		tbview = tableview
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
-		listQuery.labelIds = ["SENT"]
+		listQuery.labelIds = [folder] // folder to view
 
+		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
 
+		// set mail service authorizer
 		gmailService.authorizer = authorizer
 		//gmailService.shouldFetchNextPages = true
-		listQuery.maxResults = 1
+		//listQuery.maxResults = 5 // set max results to return
 
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
-				//                print("Response: ")
-				//                print(response)
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
 			} else {
 				print("Error: ")
@@ -45,43 +60,71 @@ class MailManager{
 	}
 
 	func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
+		var from : String = ""
+		var to : String = ""
+		var date : String = ""
+		var subject : String = ""
+		var msgtime : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
-		print("Latest Message: ")
-		print(messagesResponse.messages!.count as Any)
-		do {
-			try print(messagesResponse.messages!.forEach({ (msg) in
-				let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
-				gmailService.executeQuery(query) { [self] (ticket, response, error) in
-					if response != nil {
-						//                        print(response)
-						self.messageList.append(response as! GTLRGmail_Message)
-						print("Message: ")
-						self.messageList.forEach { (message) in
-							//get the body of the email and decode it
-							guard let message2 = message.payload!.parts?[0] else
-							{return }
-							let mail = self.base64urlToBase64(base64url: message2.body!.data!)
-							if let data = Data(base64Encoded: mail) {
-								let m = MailData(subject: "", from: "", to: "", body:String(data: data, encoding: .utf8)!, date: "")
-								self.messages.append(m)
-								print(String(data: data, encoding: .utf8)!)
+
+		messagesResponse.messages!.forEach({ (msg) in
+		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
+		gmailService.executeQuery(query) { [self] (ticket, response, error) in
+			if response != nil {
+				self.messageList.append(response as! GTLRGmail_Message)
+
+				do {
+					try self.messageList.forEach { (message) in
+						//get the body of the email and decode it
+						message.payload!.headers?.forEach {( head) in
+
+							if head.name=="Date" {
+								let tempdate = self.base64urlToBase64(base64url: head.value ?? "default value")
+								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
+								date = tempdate.substring(to: index)
+								msgtime = tempdate.substring(from: index)
+								//print (date.substring(to: index))
 							}
-							
-						}
-
-
-					} else {
-						print("Error: ")
-						print(error as Any)
+							if head.name=="Subject" {
+								subject = self.base64urlToBase64(base64url: head.value ?? "default value")
+							}
+							if head.name=="From" {
+						from = self.base64urlToBase64(base64url: head.value ?? "default value")
+					}
+					if head.name=="To" {
+						to = self.base64urlToBase64(base64url: head.value ?? "default value")
 					}
 				}
-				//                print(msg.raw)
 
-			}))
-		} catch{
-			print("error \(error)")
+						guard let message2 = message.payload!.parts?[0] else
+						{return }
+						if (message2.body!.data != nil) {
+						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
+
+						if let data = Data(base64Encoded: mail) {
+							//var htmlData = try NSAttributedString(data: data, documentAttributes: nil)
+							//htmlData.data()
+							//print(htmlData)
+							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
+							self.messages.append(m)
+						}
+						} else { return }
+
+					}
+
+				}catch {
+					print(error as Any)
+				}
+
+				tbview!.reloadData()
+			} else {
+				print("Error: ")
+				print(error as Any)
+			}
 		}
-		//identifier)
+
+		})
+
 	}
 
 	func base64urlToBase64(base64url: String) -> String {
@@ -93,6 +136,6 @@ class MailManager{
 		}
 		return base64
 	}
-	*/
+
 }
 

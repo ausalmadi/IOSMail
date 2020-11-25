@@ -6,19 +6,31 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct MailData {
-	var subject : String?
-	var from : String?
-	var to : String?
-	var body : String?
-    let date : String?
+	let subject : String?
+	let from : String?
+	let to : String?
+	let body : String?
+	let date : String?
+	let time : String?
 
-    func getSubject() -> String?{
-        return self.subject!
-    }
+	func getSubject() -> String?{
+		return self.subject!
+	}
 
-    func getBody() -> String?{
-        return self.body!
-    }
+	func getBody() -> String?{
+		return self.body!
+	}
+}
+
+class newMailData: Object {
+	@objc dynamic var mailSubject: String = ""
+	@objc dynamic var fromSender: String = ""
+	@objc dynamic var toRecepiant: String = ""
+	@objc dynamic var emailBody: String?
+	@objc dynamic var emailDate: Date?
+	//@objc dynamic var emailTime: String?
+	@objc dynamic var sendDate: Date = Date()
 }
