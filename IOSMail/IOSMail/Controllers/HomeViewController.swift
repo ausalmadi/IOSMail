@@ -32,17 +32,9 @@ class HomeViewController: UIViewController {
 	@IBOutlet var inbox: UITableView!
 	@IBOutlet weak var sb: UISearchBar!
 
-//	func setMessages(msg : [MailData]){
-//		print("setMessages() message count = \(msg.count)")
-//		//messages = msg
-//
-//	}
-
-
 	override func viewWillAppear(_ animated: Bool) {
-		//manager.settbView(_tbview: tableView)
-
 	}
+
     override func viewDidLoad() {
 
 		super.viewDidLoad()
@@ -103,60 +95,7 @@ class HomeViewController: UIViewController {
 		}
 	}
 
-//MARK: Getting messages into inbox view controller
-	//for test
 
-	func listInboxMessages() {
-
-		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
-		listQuery.labelIds = ["INBOX"]
-
-		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
-
-		gmailService.authorizer = authorizer
-	//gmailService.shouldFetchNextPages = true
-		listQuery.maxResults = 1
-
-		gmailService.executeQuery(listQuery) { (ticket, response, error) in
-	if response != nil {
-	self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
-	} else {
-	print("Error: ")
-	print(error as Any)
-	}
-	}
-	}
-
-	func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
-		var from : String = ""
-		var to : String = ""
-		var date : String = ""
-		var subject : String = ""
-	let messagesResponse = response as GTLRGmail_ListMessagesResponse
-		
-		messagesResponse.messages!.forEach({ (msg) in
-		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
-		gmailService.executeQuery(query) { [self] (ticket, response, error) in
-
-		if response != nil {
-			self.messageList.append(response as! GTLRGmail_Message)
-		self.messageList.forEach { (message) in
-	//get the body of the email and decode it
-		message.payload!.headers?.forEach {( head) in
-
-		if head.name=="Date" {
-			date = self.base64urlToBase64(base64url: head.value ?? "default value")
-		}
-		if head.name=="Subject" {
-			subject = self.base64urlToBase64(base64url: head.value ?? "default value")
-		}
-		if head.name=="From" {
-			from = self.base64urlToBase64(base64url: head.value ?? "default value")
-		}
-		if head.name=="To" {
-			to = self.base64urlToBase64(base64url: head.value ?? "default value")
-		}
-	}
 }
 
 //MARK: Tableview delegate and datasource
