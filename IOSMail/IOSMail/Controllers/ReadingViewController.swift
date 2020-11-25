@@ -10,7 +10,7 @@ import UIKit
 class ReadingViewController: MainViewController {
 
 	var verificationId : String = ""
-	var message = MailData(subject: "", from: "", to: "", body: "",  date: "")
+	var message = MailData(subject: "", from: "", to: "", body: "",  date: "", time: "")
 
 	@IBOutlet weak var msgBody: UITextView!
 	@IBOutlet weak var msgSubject: UITextField!

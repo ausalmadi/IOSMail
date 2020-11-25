@@ -12,13 +12,13 @@ import GoogleAPIClientForREST
 
 class MailManager{
 
-	let INBOX = "INBOX"
+	let INBOX = "INBOX" // Constants for default mail folders
 	let SENT = "SENT"
 	let DRAFT = "DRAFT"
+
 	var messages = [MailData]() // Messages array
 	static let shared = MailManager() // Setting up shared instance of Singleton class
 
-	//var what : String
 	private init(){
 
 	}
@@ -64,6 +64,7 @@ class MailManager{
 		var to : String = ""
 		var date : String = ""
 		var subject : String = ""
+		var msgtime : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages!.forEach({ (msg) in
@@ -78,7 +79,11 @@ class MailManager{
 						message.payload!.headers?.forEach {( head) in
 
 							if head.name=="Date" {
-								date = self.base64urlToBase64(base64url: head.value ?? "default value")
+								let tempdate = self.base64urlToBase64(base64url: head.value ?? "default value")
+								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
+								date = tempdate.substring(to: index)
+								msgtime = tempdate.substring(from: index)
+								//print (date.substring(to: index))
 							}
 							if head.name=="Subject" {
 								subject = self.base64urlToBase64(base64url: head.value ?? "default value")
@@ -100,7 +105,7 @@ class MailManager{
 							//var htmlData = try NSAttributedString(data: data, documentAttributes: nil)
 							//htmlData.data()
 							//print(htmlData)
-							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date)
+							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
 							self.messages.append(m)
 						}
 						} else { return }
