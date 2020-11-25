@@ -254,7 +254,7 @@
                                 <rect key="frame" x="20" y="64" width="374" height="768"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjo-dh-biu">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="339"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="295"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <items>
                                             <barButtonItem title="Reply" image="arrowshape.turn.up.left" catalog="system" id="md3-jW-zsu">
@@ -283,7 +283,7 @@
                                         <color key="barTintColor" systemColor="systemBackgroundColor"/>
                                     </toolbar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t07-GR-8bd" userLabel="TheSubjectAndAddresStack View">
-                                        <rect key="frame" x="0.0" y="394" width="374" height="80"/>
+                                        <rect key="frame" x="0.0" y="350" width="374" height="124"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="The Place Holder For The Email Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-eC-Zku">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
@@ -299,6 +299,18 @@ FlRlc3RAVGVzdC5jb20
                                                 <color key="textColor" red="0.051992215219999999" green="0.2398941517" blue="0.26065564159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyX-tJ-83A">
+                                                <rect key="frame" x="0.0" y="88" width="172.5" height="36"/>
+                                                <string key="placeholder" base64-UTF8="YES">
+FlRlc3RAVGVzdC5jb20
+</string>
+                                                <color key="textColor" red="0.051992215219999999" green="0.2398941517" blue="0.26065564159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <string key="userLabel" base64-UTF8="YES">
+Fk1zZyBEYXRlA
+</string>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -328,6 +340,7 @@ FlRlc3RAVGVzdC5jb20
                     <navigationItem key="navigationItem" id="fi9-9W-Qtd"/>
                     <connections>
                         <outlet property="msgBody" destination="jhM-UC-0fb" id="dLF-W0-eyV"/>
+                        <outlet property="msgDate" destination="oyX-tJ-83A" id="ZyJ-ye-zw5"/>
                         <outlet property="msgFrom" destination="inV-35-ITq" id="edj-Gd-Tx1"/>
                         <outlet property="msgSubject" destination="OhR-eC-Zku" id="ElY-Jd-3xJ"/>
                         <segue destination="ZYt-K6-SDN" kind="show" identifier="ReaderToCompose" id="axQ-uO-rOZ"/>
