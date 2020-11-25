@@ -14,6 +14,7 @@ struct MailData {
 	let to : String?
 	let body : String?
 	let date : String?
+	let time : String?
 
 	func getSubject() -> String?{
 		return self.subject!
@@ -30,5 +31,6 @@ class newMailData: Object {
 	@objc dynamic var toRecepiant: String = ""
 	@objc dynamic var emailBody: String?
 	@objc dynamic var emailDate: Date?
+	//@objc dynamic var emailTime: String?
 	@objc dynamic var sendDate: Date = Date()
 }
