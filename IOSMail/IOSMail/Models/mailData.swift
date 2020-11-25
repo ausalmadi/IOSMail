@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 struct MailData {
 	let subject : String?

@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "80.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "120.png",
+      "filename" : "sMail_name.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "180.png",
+      "filename" : "button_l-o-g-i-n 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

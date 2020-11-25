@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "sMail_bkgrd.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "button_l-o-g-i-n.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
