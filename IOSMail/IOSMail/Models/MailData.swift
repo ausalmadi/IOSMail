@@ -8,10 +8,10 @@
 import Foundation
 
 struct MailData {
-    let subject : String?
-    let from : String?
-    let to : String?
-    let body : String?
+	var subject : String?
+	var from : String?
+	var to : String?
+	var body : String?
     let date : String?
 
     func getSubject() -> String?{
