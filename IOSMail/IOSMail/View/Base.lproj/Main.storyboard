@@ -393,14 +393,14 @@ Fk1zZyBEYXRlA
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAc-iJ-PL9">
-                                <rect key="frame" x="20" y="275" width="73" height="21"/>
+                                <rect key="frame" x="20" y="325" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8xC-Gx-4pf" userLabel="Signature Text View">
-                                <rect key="frame" x="20" y="304" width="363" height="100"/>
+                                <rect key="frame" x="20" y="354" width="363" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">First &amp;Last Names
@@ -411,7 +411,7 @@ Email@address.com</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axA-OA-GBm">
-                                <rect key="frame" x="163" y="440" width="95" height="36"/>
+                                <rect key="frame" x="154" y="743" width="95" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="btnSaveMed"/>
@@ -419,6 +419,27 @@ Email@address.com</string>
                                     <action selector="saveButtonPressed:" destination="CGJ-p8-LON" eventType="touchUpInside" id="SH2-46-pba"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many emails to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-qq-Lrm">
+                                <rect key="frame" x="20" y="276" width="211" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nKd-eY-ntJ">
+                                <rect key="frame" x="291" y="270" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepperCount:" destination="CGJ-p8-LON" eventType="valueChanged" id="Lzi-0V-YHb"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-sJ-g6I">
+                                <rect key="frame" x="241" y="275" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="MenuBar"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aSc-c7-vXA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -431,8 +452,10 @@ Email@address.com</string>
                     <connections>
                         <outlet property="addSigLabel" destination="nKc-z6-xus" id="AB4-eC-Ah4"/>
                         <outlet property="emailAddress" destination="qup-bt-eT8" id="Zpk-5F-UhT"/>
+                        <outlet property="emailStepper" destination="nKd-eY-ntJ" id="M6v-3v-f1r"/>
                         <outlet property="signatureTextView" destination="8xC-Gx-4pf" id="HWR-ca-no9"/>
                         <outlet property="stateSwitch" destination="bPX-aw-9Ox" id="r9T-1r-Fhz"/>
+                        <outlet property="stepperLabel" destination="Xi8-sJ-g6I" id="bt9-kk-Lnn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgZ-xg-Wjh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

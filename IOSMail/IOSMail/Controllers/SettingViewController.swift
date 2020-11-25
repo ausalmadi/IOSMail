@@ -13,14 +13,19 @@ class SettingViewController: MainViewController {
     
     let realm = RealmService.shared.realm
     var settings: Results<Settings>?
+    var noOfEmails: Int = 1
+    
     
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var signatureTextView: UITextView!
     @IBOutlet weak var stateSwitch: UISwitch!
     @IBOutlet weak var addSigLabel: UILabel!
+    @IBOutlet weak var stepperLabel: UILabel!
+    @IBOutlet weak var emailStepper: UIStepper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        stepperLabel.text! = "1"
         
         loadSettings()
     }
@@ -44,6 +49,12 @@ class SettingViewController: MainViewController {
         dismiss(animated: true, completion: nil)
         }
     
+    @IBAction func stepperCount(_ sender: UIStepper) {
+        stepperLabel.text = String(format: "%.0f", sender.value)
+        noOfEmails = Int(sender.value)
+    }
+    
+    
     //MARK: - Setting functions & options
     
     func createSettings() {
@@ -52,6 +63,7 @@ class SettingViewController: MainViewController {
         newSettings.dateUpdated = Date()
         newSettings.signatureLine = signatureTextView.text!
         newSettings.useSignature = stateSwitch.isOn
+        newSettings.emailCount = Int(stepperLabel.text!) ?? 1
 
         RealmService.shared.create(newSettings)
     }
@@ -66,6 +78,7 @@ class SettingViewController: MainViewController {
         emailAddress.text! = loadSet.emailReply.self
         signatureTextView.text! = loadSet.signatureLine.self
         stateSwitch.isOn = loadSet.useSignature.self
+        stepperLabel.text! = String(loadSet.emailCount.self)
         print(loadSet)
     }
     
