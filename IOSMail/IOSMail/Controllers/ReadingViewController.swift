@@ -18,6 +18,15 @@ class ReadingViewController: MainViewController {
     @IBOutlet weak var msgDate: UITextField!
 
 	func setMessage(msg : MailData){
+    
+    @IBAction func ForwardButtonPressed(_ sender: UIBarButtonItem) {
+        
+        self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
+    }
+    @IBAction func ReplyButtonPressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
+    }
+    func setMessage(msg : MailData){
 		self.message = msg
 	}
     
@@ -35,5 +44,11 @@ class ReadingViewController: MainViewController {
 		msgSubject.text = message.subject! as String
 		msgFrom.text = message.from! as String
 		msgDate.text = message.date! as String
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = segue.destination as! ComposingViewController
+        vc.FromReaderEmail = message.from! as String
+
     }
 }
