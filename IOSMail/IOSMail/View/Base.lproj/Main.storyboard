@@ -178,15 +178,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="e8D-Tz-VUI">
-                                <rect key="frame" x="139" y="36" width="512.5" height="36"/>
+                                <rect key="frame" x="139" y="36" width="513.5" height="36"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="wU6-fG-CHd">
-                                        <rect key="frame" x="0.0" y="3" width="119.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="3" width="118.5" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEI-Md-saM">
-                                        <rect key="frame" x="119.5" y="0.0" width="393" height="36"/>
+                                        <rect key="frame" x="118.5" y="0.0" width="395" height="36"/>
                                         <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
