@@ -27,6 +27,7 @@ class SettingViewController: MainViewController {
         super.viewDidLoad()
         stepperLabel.text! = "0"
         loadSettings()
+        signatureOn(stateSwitch)
 
     }
     
@@ -58,13 +59,12 @@ class SettingViewController: MainViewController {
     func createSettings() {
         let newSettings = Settings()
         newSettings.emailReply = emailAddress.text!
-        newSettings.dateUpdated = Date()
         newSettings.signatureLine = signatureTextView.text!
         newSettings.useSignature = stateSwitch.isOn
         newSettings.emailCount = Int(stepperLabel.text!) ?? 1
 
         RealmService.shared.create(newSettings)
-        deleteSettings()
+
     }
     
     func updateSettings(){
