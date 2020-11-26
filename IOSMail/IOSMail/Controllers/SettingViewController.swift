@@ -25,9 +25,9 @@ class SettingViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        stepperLabel.text! = "1"
-        
+        stepperLabel.text! = "0"
         loadSettings()
+
     }
     
     @IBAction func signatureOn(_ sender: UISwitch) {
@@ -43,9 +43,7 @@ class SettingViewController: MainViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
         createSettings()
-        
         dismiss(animated: true, completion: nil)
         }
     
@@ -66,20 +64,24 @@ class SettingViewController: MainViewController {
         newSettings.emailCount = Int(stepperLabel.text!) ?? 1
 
         RealmService.shared.create(newSettings)
+        deleteSettings()
     }
     
     func updateSettings(){
     }
     
     func loadSettings() {
+        
         settings = realm.objects(Settings.self)
-        settings = settings?.sorted(byKeyPath: "dateUpdated", ascending: true)
-        let loadSet = Settings()
-        emailAddress.text! = loadSet.emailReply.self
-        signatureTextView.text! = loadSet.signatureLine.self
-        stateSwitch.isOn = loadSet.useSignature.self
-        stepperLabel.text! = String(loadSet.emailCount.self)
-        print(loadSet)
+        settings = settings?.sorted(byKeyPath: "dateUpdated", ascending: false)
+        
+        let loadSet = settings
+        emailAddress.text! = loadSet?.first?.emailReply.self ?? ""
+        signatureTextView.text! = loadSet?.first?.signatureLine.self ?? ""
+        stateSwitch.isOn = loadSet?.first?.useSignature.self ?? false
+        let step = loadSet?.first?.emailCount.self
+        stepperLabel.text! = String(step!)
+        print(loadSet!)
     }
     
     func deleteSettings() {
