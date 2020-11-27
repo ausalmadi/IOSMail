@@ -33,6 +33,8 @@ class MailboxTableViewController: UITableViewController {
     // MARK: - Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        //index = indexPath.row
         performSegue(withIdentifier: "emailDetails", sender: self)
     }
 
@@ -44,12 +46,5 @@ class MailboxTableViewController: UITableViewController {
             destinationVC.selectedMailBox = mailBox
         }
     }
-
-
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print(indexPath.row)
-		//index = indexPath.row
-		performSegue(withIdentifier: "emailDetails", sender: self)
-	}
 
 }
