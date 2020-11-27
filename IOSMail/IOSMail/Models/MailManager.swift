@@ -16,7 +16,7 @@ class MailManager{
 //	let SENT = "SENT"
 //	let DRAFT = "DRAFT"
     
-    var mailBox = "SENT"
+    var mailBox = "INBOX"
     
 
 	var messages = [MailData]() // Messages array
