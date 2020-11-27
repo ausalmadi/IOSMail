@@ -18,13 +18,17 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     @IBOutlet var subjectField: UITextField!
     @IBOutlet var bodyField: UITextView!
     
+    var isForwardButtonPressed: Bool = false
+    var fromReaderEmail = ""
+    var subjectFromReader = ""
+    var msgBodyFromReader = ""
     
-    var FromReaderEmail = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         bodyField.delegate = self
         addHint()
-        print(FromReaderEmail)
+        print(fromReaderEmail)
+        print(isForwardButtonPressed)
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {

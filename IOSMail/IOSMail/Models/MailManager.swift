@@ -12,9 +12,12 @@ import GoogleAPIClientForREST
 
 class MailManager{
 
-	let INBOX = "INBOX" // Constants for default mail folders
-	let SENT = "SENT"
-	let DRAFT = "DRAFT"
+//	let INBOX = "INBOX" // Constants for default mail folders
+//	let SENT = "SENT"
+//	let DRAFT = "DRAFT"
+    
+    var mailBox = "INBOX"
+    
 
 	var messages = [MailData]() // Messages array
 	static let shared = MailManager() // Setting up shared instance of Singleton class

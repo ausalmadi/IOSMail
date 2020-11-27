@@ -28,6 +28,7 @@ class SettingViewController: MainViewController {
         stepperLabel.text! = "0"
         loadSettings()
         signatureOn(stateSwitch)
+        
 
     }
     
@@ -47,6 +48,7 @@ class SettingViewController: MainViewController {
         createSettings()
         dismiss(animated: true, completion: nil)
         }
+    
     
     @IBAction func stepperCount(_ sender: UIStepper) {
         stepperLabel.text = String(format: "%.0f", sender.value)
@@ -81,7 +83,7 @@ class SettingViewController: MainViewController {
         stateSwitch.isOn = loadSet?.first?.useSignature.self ?? false
         let step = loadSet?.first?.emailCount.self
         stepperLabel.text! = String(step!)
-        print(loadSet!)
+//        print(loadSet!)
     }
     
     func deleteSettings() {

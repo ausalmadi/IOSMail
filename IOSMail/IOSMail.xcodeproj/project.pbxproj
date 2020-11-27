@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		362444D6256C56C500838B12 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362444D5256C56C500838B12 /* UIColor.swift */; };
 		362444DA256C56E300838B12 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362444D9256C56E300838B12 /* String.swift */; };
 		365CF5902551EAE400954DDD /* MailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF58F2551EAE400954DDD /* MailData.swift */; };
 		365CF5932551F09F00954DDD /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5922551F09F00954DDD /* MailManager.swift */; };
-		367B8F70255DBD1A00BCB58D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 367B8F6E255DBD1A00BCB58D /* DataModel.xcdatamodeld */; };
 		36A50CAE2567679800D2F0A2 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A50CAD2567679800D2F0A2 /* Singleton.swift */; };
 		3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */; };
 		3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671772548AF8C00A4DD92 /* SettingViewController.swift */; };
@@ -38,11 +36,9 @@
 /* Begin PBXFileReference section */
 		191EC92E51B8C9755BC8D40C /* Pods-iosMail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.debug.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.debug.xcconfig"; sourceTree = "<group>"; };
 		36159F20254B5B1C00C80D97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		362444D5256C56C500838B12 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		362444D9256C56E300838B12 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		365CF58F2551EAE400954DDD /* MailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailData.swift; sourceTree = "<group>"; };
 		365CF5922551F09F00954DDD /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
-		367B8F6F255DBD1A00BCB58D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		36A50CAD2567679800D2F0A2 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		3F2671772548AF8C00A4DD92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +80,6 @@
 		362444D4256C56AA00838B12 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				362444D5256C56C500838B12 /* UIColor.swift */,
 				362444D9256C56E300838B12 /* String.swift */,
 			);
 			path = Extensions;
@@ -119,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				362444D4256C56AA00838B12 /* Extensions */,
-				367B8F6E255DBD1A00BCB58D /* DataModel.xcdatamodeld */,
 				3F56573E253E3673002E5031 /* IOSMail */,
 				3F56573D253E3673002E5031 /* Products */,
 				CA0BE086621AA883DFBA4CA0 /* Pods */,
@@ -339,8 +333,6 @@
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
-				362444D6256C56C500838B12 /* UIColor.swift in Sources */,
-				367B8F70255DBD1A00BCB58D /* DataModel.xcdatamodeld in Sources */,
 				365CF5902551EAE400954DDD /* MailData.swift in Sources */,
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
 				3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */,
@@ -561,19 +553,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		367B8F6E255DBD1A00BCB58D /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				367B8F6F255DBD1A00BCB58D /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 367B8F6F255DBD1A00BCB58D /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3F565734253E3673002E5031 /* Project object */;
 }
