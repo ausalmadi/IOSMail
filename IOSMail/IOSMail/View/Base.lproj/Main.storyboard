@@ -160,7 +160,7 @@
                             <barButtonItem title="Settings" image="gearshape.fill" catalog="system" largeContentSizeImage="gearshape.fill" id="ONh-h1-PWg">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="CGJ-p8-LON" kind="show" identifier="MainToSettings" id="xRg-fR-U9i"/>
+                                    <segue destination="Fjm-4g-lRS" kind="show" id="LYr-8k-e7K"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -335,11 +335,11 @@ Fk1zZyBEYXRlA
             <objects>
                 <viewController id="CGJ-p8-LON" userLabel="Setting View Controller" customClass="SettingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHU-gg-A8V">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
-                                <rect key="frame" x="154" y="10" width="106" height="36"/>
+                                <rect key="frame" x="154" y="54" width="106" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -830,7 +830,7 @@ Email@address.com</string>
             <objects>
                 <tableViewController title="Settings View Controller" id="Fjm-4g-lRS" userLabel="Settings View Controller" customClass="SettingsTableViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="f1v-Zu-SVS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -940,6 +940,9 @@ Email@address.com</string>
                                                 </label>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="73r-AS-0ZK" userLabel="emailStepper">
                                                     <rect key="frame" x="300" y="5" width="94" height="32"/>
+                                                    <connections>
+                                                        <action selector="stepperCount:" destination="Fjm-4g-lRS" eventType="valueChanged" id="D6f-XW-1Vr"/>
+                                                    </connections>
                                                 </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmg-GU-MUi" userLabel="emailLabel">
                                                     <rect key="frame" x="260" y="10" width="30" height="22"/>
@@ -1059,7 +1062,7 @@ Email@address.com</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IB3-hT-Rct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1894" y="824"/>
+            <point key="canvasLocation" x="-1517" y="759"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
