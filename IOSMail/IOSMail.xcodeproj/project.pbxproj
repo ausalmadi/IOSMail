@@ -30,6 +30,8 @@
 		520399502564556C007C9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5203994F2564556B007C9707 /* GoogleService-Info.plist */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
 		52AE6D16257060030080D25C /* MailboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE6D15257060030080D25C /* MailboxTableViewController.swift */; };
+		52AE6D24257132450080D25C /* EmailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE6D22257132450080D25C /* EmailTableViewController.swift */; };
+		52AE6D25257132450080D25C /* EmailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AE6D23257132450080D25C /* EmailTableViewController.xib */; };
 		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
 		D211F649441BDF5D62650573 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B84B75AAAB9A27E87DD8D /* Pods_iosMail.framework */; };
@@ -63,6 +65,8 @@
 		5203994F2564556B007C9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
 		52AE6D15257060030080D25C /* MailboxTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailboxTableViewController.swift; sourceTree = "<group>"; };
+		52AE6D22257132450080D25C /* EmailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTableViewController.swift; sourceTree = "<group>"; };
+		52AE6D23257132450080D25C /* EmailTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailTableViewController.xib; sourceTree = "<group>"; };
 		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		6B18959A1C8B74B8F3CB6828 /* Pods-iosMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.release.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
 				3F26718B2548B1A300A4DD92 /* HomeViewController.swift */,
 				52AE6D15257060030080D25C /* MailboxTableViewController.swift */,
+				52AE6D22257132450080D25C /* EmailTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				3F565745253E3673002E5031 /* Main.storyboard */,
 				3F8D295B2549BCD900434B99 /* TableViewCell.swift */,
 				3F8D295C2549BCD900434B99 /* TableViewCell.xib */,
+				52AE6D23257132450080D25C /* EmailTableViewController.xib */,
 				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -261,6 +267,7 @@
 				3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */,
 				3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
+				52AE6D25257132450080D25C /* EmailTableViewController.xib in Resources */,
 				522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */,
 				52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */,
 				3F565747253E3673002E5031 /* Main.storyboard in Resources */,
@@ -344,6 +351,7 @@
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
 				3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */,
 				3FB7FED42566F798002F4E20 /* RealmService.swift in Sources */,
+				52AE6D24257132450080D25C /* EmailTableViewController.swift in Sources */,
 				52E37FC22566A14300101A46 /* Settings.swift in Sources */,
 				3F26717E2548AFC200A4DD92 /* ComposingViewController.swift in Sources */,
 				365CF5932551F09F00954DDD /* MailManager.swift in Sources */,
