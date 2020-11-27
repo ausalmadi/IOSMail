@@ -10,6 +10,7 @@ import UIKit
 class MailboxTableViewController: UITableViewController {
     
     let mailBoxesArray = ["INBOX", "SENT", "DRAFT"]
+    var mailBox = "INBOX"
 
     override func viewDidLoad() {
         super.viewDidLoad()
