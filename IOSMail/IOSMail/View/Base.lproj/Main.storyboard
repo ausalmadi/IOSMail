@@ -825,6 +825,242 @@ Email@address.com</string>
             </objects>
             <point key="canvasLocation" x="1368" y="-29"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="gub-NX-2pf">
+            <objects>
+                <tableViewController title="Settings View Controller" id="Fjm-4g-lRS" userLabel="Settings View Controller" customClass="SettingsTableViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="f1v-Zu-SVS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="User Info" footerTitle="Your Current Log In Details" id="hKx-SZ-KAw">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZqE-SN-xO5">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZqE-SN-xO5" id="LOV-cV-mnw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DqF-LA-qMu">
+                                                    <rect key="frame" x="20" y="11" width="86" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qc7-yM-POv">
+                                                    <rect key="frame" x="127" y="11" width="266" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                    <color key="textColor" name="MenuBar"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DqF-LA-qMu" firstAttribute="leading" secondItem="LOV-cV-mnw" secondAttribute="leading" constant="20" symbolic="YES" id="GYi-VW-64R"/>
+                                                <constraint firstItem="qc7-yM-POv" firstAttribute="leading" secondItem="DqF-LA-qMu" secondAttribute="trailing" constant="22" id="LVN-fJ-8DR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="UTb-Hg-ngA">
+                                        <rect key="frame" x="0.0" y="99" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UTb-Hg-ngA" id="1UO-F9-Wji">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gmail ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nfU-t2-X9p">
+                                                    <rect key="frame" x="20" y="11" width="64" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="emailLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EjN-wh-VfE">
+                                                    <rect key="frame" x="127" y="10" width="266" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                    <color key="textColor" name="MenuBar"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EjN-wh-VfE" firstAttribute="leading" secondItem="nfU-t2-X9p" secondAttribute="trailing" constant="44" id="1LE-cB-qHW"/>
+                                                <constraint firstItem="nfU-t2-X9p" firstAttribute="leading" secondItem="1UO-F9-Wji" secondAttribute="leading" constant="20" symbolic="YES" id="h4M-s9-XH6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="eMail Setting" id="d1i-zl-G9N">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="K7P-kM-M1h">
+                                        <rect key="frame" x="0.0" y="210.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K7P-kM-M1h" id="JRx-tg-vCQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return eMail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mZ2-kp-9pJ">
+                                                    <rect key="frame" x="20" y="11" width="96" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="sQs-pW-xb2">
+                                                    <rect key="frame" x="135" y="5" width="256" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" name="MenuBar"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sQs-pW-xb2" firstAttribute="leading" secondItem="mZ2-kp-9pJ" secondAttribute="trailing" constant="20" id="HWG-Hj-7Bn"/>
+                                                <constraint firstItem="mZ2-kp-9pJ" firstAttribute="leading" secondItem="JRx-tg-vCQ" secondAttribute="leading" constant="20" symbolic="YES" id="s5k-aO-oGp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="y6y-xO-fdR">
+                                        <rect key="frame" x="0.0" y="254" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y6y-xO-fdR" id="Sdy-Xk-scj">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No. of emails to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2PL-pC-kW0">
+                                                    <rect key="frame" x="20" y="11" width="181" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="73r-AS-0ZK" userLabel="emailStepper">
+                                                    <rect key="frame" x="300" y="5" width="94" height="32"/>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmg-GU-MUi" userLabel="emailLabel">
+                                                    <rect key="frame" x="260" y="10" width="30" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="MenuBar"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2PL-pC-kW0" firstAttribute="leading" secondItem="Sdy-Xk-scj" secondAttribute="leading" constant="20" symbolic="YES" id="7gC-n1-8d4"/>
+                                                <constraint firstItem="73r-AS-0ZK" firstAttribute="leading" secondItem="hmg-GU-MUi" secondAttribute="trailing" constant="10" id="lLI-XC-ckH"/>
+                                                <constraint firstAttribute="trailing" secondItem="73r-AS-0ZK" secondAttribute="trailing" constant="20" id="pse-FH-UmU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Z04-0h-mFy">
+                                        <rect key="frame" x="0.0" y="297.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z04-0h-mFy" id="Lko-7z-Z1E">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Signature to emails" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ul5-OH-ii7">
+                                                    <rect key="frame" x="20" y="11" width="181" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="hPh-x0-htk">
+                                                    <rect key="frame" x="346" y="6" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="signatureOn:" destination="Fjm-4g-lRS" eventType="valueChanged" id="lDF-9t-l6k"/>
+                                                        <action selector="useSignature:" destination="Fjm-4g-lRS" eventType="valueChanged" id="JVt-xi-UXe"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hPh-x0-htk" secondAttribute="trailing" constant="20" symbolic="YES" id="oC9-ee-1Kt"/>
+                                                <constraint firstItem="ul5-OH-ii7" firstAttribute="leading" secondItem="Lko-7z-Z1E" secondAttribute="leading" constant="20" symbolic="YES" id="x0I-bx-FXx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Signature" footerTitle="Set your sMail options" id="e5x-wP-3uL">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iZe-Go-9pR">
+                                        <rect key="frame" x="0.0" y="404.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iZe-Go-9pR" id="8zU-hM-bCt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="signature text" minimumFontSize="17" clearButtonMode="whileEditing" id="tv3-zy-od7">
+                                                    <rect key="frame" x="20" y="5" width="374" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" name="MenuBar"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tv3-zy-od7" firstAttribute="leading" secondItem="8zU-hM-bCt" secondAttribute="leading" constant="20" symbolic="YES" id="v8t-K0-y8W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Update" footerTitle="Press to Save your current settings" id="LTZ-IL-R1f">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CH9-FK-7I6">
+                                        <rect key="frame" x="0.0" y="523.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CH9-FK-7I6" id="cYc-cg-0kb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xed-OK-YPD">
+                                                    <rect key="frame" x="155" y="7" width="104" height="30"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Save Changes"/>
+                                                    <connections>
+                                                        <action selector="saveButtonPressed:" destination="Fjm-4g-lRS" eventType="touchUpInside" id="mmO-dH-IP1"/>
+                                                        <action selector="saveSettings:" destination="Fjm-4g-lRS" eventType="touchUpInside" id="BIj-KN-dJk"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xed-OK-YPD" firstAttribute="centerX" secondItem="cYc-cg-0kb" secondAttribute="centerX" id="PUt-yd-rnA"/>
+                                                <constraint firstItem="Xed-OK-YPD" firstAttribute="centerY" secondItem="cYc-cg-0kb" secondAttribute="centerY" id="ay1-Vh-LNO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Fjm-4g-lRS" id="wiA-Nk-08N"/>
+                            <outlet property="delegate" destination="Fjm-4g-lRS" id="GIN-hW-usB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="FET-9Q-KJE"/>
+                    <connections>
+                        <outlet property="addSigLabel" destination="ul5-OH-ii7" id="YPl-sh-2G7"/>
+                        <outlet property="emailAddress" destination="sQs-pW-xb2" id="XFq-H6-ACU"/>
+                        <outlet property="emailStepper" destination="73r-AS-0ZK" id="EDN-Wq-QZE"/>
+                        <outlet property="sendEmail" destination="sQs-pW-xb2" id="3Bh-RJ-oc2"/>
+                        <outlet property="signatureLineOne" destination="tv3-zy-od7" id="hWI-zE-boY"/>
+                        <outlet property="signatureTextView" destination="tv3-zy-od7" id="8SF-L6-B3x"/>
+                        <outlet property="signedInAs" destination="qc7-yM-POv" id="TOd-ts-91Z"/>
+                        <outlet property="signedInEmail" destination="EjN-wh-VfE" id="Wbu-Ri-2NX"/>
+                        <outlet property="stateSwitch" destination="hPh-x0-htk" id="aDZ-gc-gLv"/>
+                        <outlet property="stepperLabel" destination="hmg-GU-MUi" id="zHV-fm-amX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IB3-hT-Rct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1894" y="824"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Lw9-aW-xDS"/>
