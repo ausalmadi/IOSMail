@@ -40,6 +40,8 @@ class MailManager{
 	
 	func listInboxMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
+		let q = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
+		//print(q.)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
 
@@ -51,6 +53,15 @@ class MailManager{
 		//gmailService.shouldFetchNextPages = true
 		//listQuery.maxResults = 5 // set max results to return
 
+		gmailService.executeQuery(q) { (ticket, response, error) in
+			if response != nil {
+			print(response as! GTLRGmail_ListLabelsResponse)
+				//self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
+			} else {
+				print("Error: ")
+				print(error as Any)
+			}
+		}
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
