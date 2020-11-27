@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? MailboxTableViewController {
-					mvc.modalPresentationStyle = .none
+					mvc.modalPresentationStyle = .fullScreen
 
 					self.present(mvc, animated: true, completion: nil)
 				}
