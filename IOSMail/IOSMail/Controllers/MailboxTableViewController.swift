@@ -30,6 +30,22 @@ class MailboxTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: - Tableview Delegate Methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "emailDetails", sender: self)
+    }
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! EmailTableViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedMailBox = mailBox
+        }
+    }
+
 
 
 }

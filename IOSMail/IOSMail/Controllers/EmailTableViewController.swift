@@ -10,11 +10,20 @@ import UIKit
 class EmailTableViewController: UITableViewController {
     
     let emailList = ["Inbox", "Sent", "Draft"]
+    var selectedMailBox = "INBOX" {
+        didSet {
+            // load emails based on selected mailBox above - passed from Mailbox table view
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//    title = 
     }
 
     // MARK: - Table view data source
