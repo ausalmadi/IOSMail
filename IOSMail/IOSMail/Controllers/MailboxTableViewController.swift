@@ -11,6 +11,7 @@ class MailboxTableViewController: UITableViewController {
     
     let mailBoxesArray = ["INBOX", "SENT", "DRAFT"]
     var mailBox = "INBOX"
+	let manager = MailManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class MailboxTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+		self.mailBox = mailBoxesArray[indexPath.row]
         //index = indexPath.row
         performSegue(withIdentifier: "emailDetails", sender: self)
     }
@@ -43,7 +45,8 @@ class MailboxTableViewController: UITableViewController {
         let destinationVC = segue.destination as! EmailTableViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedMailBox = mailBox
+			manager.mailBox = self.mailBox
+			//destinationVC.selectedMailBox = mailBox
         }
     }
 

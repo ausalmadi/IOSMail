@@ -215,6 +215,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="BXm-Dt-P1P" id="ZWe-9D-WsY"/>
                         <segue destination="boz-12-v8k" kind="show" identifier="readDetails" id="5yq-7g-Y9G"/>
                     </connections>
                 </tableViewController>

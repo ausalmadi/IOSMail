@@ -38,7 +38,7 @@ class MailManager{
 		self.tbview? = _tbview
 	}
 	
-	func listInboxMessages(tableview:UITableView, folder : String) {
+	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
 		let q = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
 		//print(q.)
@@ -55,7 +55,7 @@ class MailManager{
 
 		gmailService.executeQuery(q) { (ticket, response, error) in
 			if response != nil {
-			print(response as! GTLRGmail_ListLabelsResponse)
+				print(response)// as! GTLRGmail_ListLabelsResponse)
 				//self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
 			} else {
 				print("Error: ")

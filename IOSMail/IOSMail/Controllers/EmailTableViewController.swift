@@ -10,7 +10,11 @@ import UIKit
 class EmailTableViewController: UITableViewController {
     
     let emailList = ["Inbox", "Sent", "Draft"]
-    var selectedMailBox = "INBOX" {
+	var manager = MailManager.shared
+
+	@IBOutlet weak var tbView: UITableView!
+
+	var selectedMailBox = "INBOX" {
         didSet {
             // load emails based on selected mailBox above - passed from Mailbox table view
         }
@@ -18,8 +22,12 @@ class EmailTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+		print(manager.mailBox)
+		self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+		//self.tableView.delegate = self
+		//self.tableView.dataSource = self
+		
+		manager.listMessages(tableview: tbView, folder: manager.mailBox)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,8 +40,8 @@ class EmailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+        return self.manager.messages.count
+	}
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
