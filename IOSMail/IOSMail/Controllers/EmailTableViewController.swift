@@ -12,7 +12,7 @@ class EmailTableViewController: UITableViewController {
     let emailList = ["Inbox", "Sent", "Draft"]
 	var manager = MailManager.shared
 
-	@IBOutlet weak var tbView: UITableView!
+	@IBOutlet var tbView: UITableView!
 
 	var selectedMailBox = "INBOX" {
         didSet {
@@ -26,11 +26,12 @@ class EmailTableViewController: UITableViewController {
 		self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
 		//self.tableView.delegate = self
 		//self.tableView.dataSource = self
-		
-		manager.listMessages(tableview: tbView, folder: manager.mailBox)
+		tbView.reloadData()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
+		manager.listMessages(tableview: tbView, folder: manager.mailBox)
 //    title = 
     }
 

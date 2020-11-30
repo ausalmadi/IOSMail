@@ -35,7 +35,8 @@ class MailboxTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-		self.mailBox = mailBoxesArray[indexPath.row]
+		//self.mailBox =  =
+		manager.mailBox = mailBoxesArray[indexPath.row]
         //index = indexPath.row
         performSegue(withIdentifier: "emailDetails", sender: self)
     }
@@ -44,10 +45,10 @@ class MailboxTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! EmailTableViewController
         
-        if let indexPath = tableView.indexPathForSelectedRow {
+       /* if let indexPath = tableView.indexPathForSelectedRow {
 			manager.mailBox = self.mailBox
 			//destinationVC.selectedMailBox = mailBox
-        }
+        }*/
     }
 
 }
