@@ -19,6 +19,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     @IBOutlet var bodyField: UITextView!
     
     var isForwardButtonPressed: Bool = false
+    var isReplyButtonPressed: Bool = false
     var fromReaderEmail = ""
     var subjectFromReader = ""
     var msgBodyFromReader = ""
@@ -26,9 +27,18 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         bodyField.delegate = self
-        addHint()
-        print(fromReaderEmail)
-        print(isForwardButtonPressed)
+        bodyField.textColor = UIColor.black
+        if isReplyButtonPressed {
+            toField.text = fromReaderEmail
+            subjectField.text = "Re: " + subjectFromReader
+            bodyField.text = msgBodyFromReader
+        } else if isForwardButtonPressed {
+            subjectField.text = "FWD: " + subjectFromReader
+            bodyField.text = msgBodyFromReader
+        } else {
+            addHint()
+        }
+        
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
@@ -39,7 +49,9 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
-            textView.text = nil
+            if !isReplyButtonPressed && !isForwardButtonPressed {
+                textView.text = nil
+            }
             textView.textColor = UIColor.black
         }
     }
