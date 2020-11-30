@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
 
 		super.viewDidLoad()
 
-		manager.listInboxMessages(tableview: tableView, folder: "Inbox") //manager.INBOX)
+		manager.listInboxMessages(tableview: tableView, folder: "INBOX") //manager.INBOX)
 
 		NotificationCenter.default.addObserver(self,
            selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
