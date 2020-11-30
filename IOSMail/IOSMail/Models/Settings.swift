@@ -12,5 +12,6 @@ class Settings: Object {
     @objc dynamic var emailReply: String = ""
     @objc dynamic var useSignature: Bool = false
     @objc dynamic var signatureLine: String = ""
-    @objc dynamic var dateUpdated: Date?
+    @objc dynamic var dateUpdated: Date? = Date()
+    @objc dynamic var emailCount: Int = 1
 }

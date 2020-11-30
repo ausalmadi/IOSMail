@@ -49,7 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		GIDSignIn.sharedInstance().clientID = "662449896826-13dpc48tgddtki7f7ad1pilpq13u8hnh.apps.googleusercontent.com"
 		GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.scopes = scopes
-      
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
         do {
             let _ = try Realm()
         } catch {
