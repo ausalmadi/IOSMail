@@ -12,9 +12,13 @@ import GoogleAPIClientForREST
 
 class MailManager{
 
-	let INBOX = "INBOX" // Constants for default mail folders
-	let SENT = "SENT"
-	let DRAFT = "DRAFT"
+//	let INBOX = "INBOX" // Constants for default mail folders
+//	let SENT = "SENT"
+//	let DRAFT = "DRAFT"
+    
+    var mailBox = "SENT"
+    //let realm = RealmService.shared.realm
+    
 
 	var messages = [MailData]() // Messages array
 	static let shared = MailManager() // Setting up shared instance of Singleton class
@@ -59,7 +63,36 @@ class MailManager{
 		}
 	}
 
-	func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
+     func dataFilling(_ emailData: EmailData, _ m: MailData) {
+        emailData.emailSubject = m.subject ?? ""
+        emailData.fromSender = m.from ?? ""
+        emailData.toRecepiant = m.to ?? ""
+        emailData.emailBody = m.body ?? ""
+        emailData.emailDate = m.date ?? ""
+        emailData.emaiTime = m.time ?? ""
+        RealmService.shared.create(emailData)
+    }
+    
+   func dataFactory(_ m: MailData) {
+        let emailData = EmailData()
+        emailData.mBox = mailBox
+        
+        
+        if (emailData.mBox == "SENT"){
+            
+            dataFilling(emailData, m)
+            
+        } else if (emailData.mBox == "INBOX"){
+            
+            dataFilling(emailData, m)
+        }else if (emailData.mBox == "DRAFT" ){
+            
+            dataFilling(emailData, m)
+        }
+    }
+    
+    func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
+        
 		var from : String = ""
 		var to : String = ""
 		var date : String = ""
@@ -106,7 +139,9 @@ class MailManager{
 							//htmlData.data()
 							//print(htmlData)
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
-							self.messages.append(m)
+                            
+                            dataFactory(m)
+							   
 						}
 						} else { return }
 
