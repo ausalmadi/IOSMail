@@ -11,7 +11,7 @@ import GoogleSignIn
 import GTMSessionFetcher
 
 class ComposingViewController: MainViewController, UITextViewDelegate {
-
+    
     @IBOutlet var toField: UITextField!
     @IBOutlet var ccField: UITextField!
     @IBOutlet var bccField: UITextField!
@@ -19,27 +19,43 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     @IBOutlet var bodyField: UITextView!
     
     var isForwardButtonPressed: Bool = false
+    var isReplyButtonPressed: Bool = false
     var fromReaderEmail = ""
     var subjectFromReader = ""
     var msgBodyFromReader = ""
+    var sendButtonPressed: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bodyField.delegate = self
-        addHint()
-        print(fromReaderEmail)
-        print(isForwardButtonPressed)
+        bodyField.textColor = UIColor.black
+        if isReplyButtonPressed {
+            toField.text = fromReaderEmail
+            subjectField.text = "Re: " + subjectFromReader
+            bodyField.text = msgBodyFromReader
+        } else if isForwardButtonPressed {
+            subjectField.text = "FWD: " + subjectFromReader
+            bodyField.text = msgBodyFromReader
+        } else {
+            addHint()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if !sendButtonPressed {
+            saveDraft()
+        }
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-        
         sendEmail()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
-            textView.text = nil
+            if !isReplyButtonPressed && !isForwardButtonPressed {
+                textView.text = nil
+            }
             textView.textColor = UIColor.black
         }
     }
@@ -55,7 +71,26 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         bodyField.textColor = UIColor.lightGray
     }
     
+    func saveDraft() {
+        let service = GTLRGmailService()
+        let gtlDraft = GTLRGmail_Draft()
+        let message = GTLRGmail_Message()
+        message.raw = self.generateRawString()
+        gtlDraft.message = message
+        let query =
+            GTLRGmailQuery_UsersDraftsCreate.query(withObject: gtlDraft, userId: "me", uploadParameters: nil)
+        let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+        
+        
+        service.authorizer = authorizer
+        service.executeQuery(query, completionHandler: { (ticket, response, error) -> Void in
+            print("error: \(error)")
+        })
+        
+    }
+    
     func sendEmail() {
+        sendButtonPressed = true
         let service = GTLRGmailService()
         let gtlMessage = GTLRGmail_Message()
         gtlMessage.raw = self.generateRawString()
@@ -66,21 +101,23 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         
         service.authorizer = authorizer
         service.executeQuery(query, completionHandler: { (ticket, response, error) -> Void in
-            print("ticket \(String(describing: ticket))")
-            print("response \(String(describing: response))")
-            print("error \(String(describing: error))")
+            let alert = UIAlertController(title: "", message: "Message has been sent successfuly.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true)
         })
     }
-
+    
     func generateRawString() -> String {
-
+        
         let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"; //RFC2822-Format
         let todayString:String = dateFormatter.string(from: NSDate() as Date)
         let rawMessage = "" +
             "Date: \(todayString)\r\n" +
             "From: <>\r\n" +
-            "To: username <\(toField.text ?? "")>\r\n" +
+            "To: <\(toField.text ?? "")>\r\n" +
             "Subject: \(subjectField.text ?? "")\r\n\r\n" +
             "\(bodyField.text ?? "")"
         let utf8str = rawMessage.data(using: .utf8)

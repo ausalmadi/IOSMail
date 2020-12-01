@@ -11,6 +11,7 @@ class ReadingViewController: MainViewController {
 
 	var verificationId : String = ""
     var  isForward: Bool = false
+    var  isReply: Bool = false
 	var message = MailData(subject: "", from: "", to: "", body: "",  date: "", time: "")
 
 	@IBOutlet weak var msgBody: UITextView!
@@ -24,6 +25,7 @@ class ReadingViewController: MainViewController {
     }
     @IBAction func ReplyButtonPressed(_ sender: UIBarButtonItem) {
         isForward = false
+        isReply = true
         self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
     }
 
@@ -51,6 +53,7 @@ class ReadingViewController: MainViewController {
         var vc = segue.destination as! ComposingViewController
         vc.fromReaderEmail = message.from! as String
         vc.isForwardButtonPressed = isForward
+        vc.isReplyButtonPressed = isReply
         vc.subjectFromReader = message.subject! as String
         vc.msgBodyFromReader = message.body! as String
 
