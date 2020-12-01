@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     let realm = RealmService.shared.realm
     
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
 		if let error = error { 
 			if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
