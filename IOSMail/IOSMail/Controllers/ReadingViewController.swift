@@ -46,6 +46,7 @@ class ReadingViewController: MainViewController {
 		//msgBody.attributedText = message.body!.htmlAttributedString(size: 18, color: UIColor.red)
 		msgSubject.text = message.subject! as String
 		msgFrom.text = message.from! as String
+        print(message.from! as String)
 		msgDate.text = message.date! as String
     }
     
