@@ -28,7 +28,7 @@ class MailManager{
 	}
 
 	let gmailService = GTLRGmailService.init() // initialize mail service
-	var messageList = [GTLRGmail_Message]()
+
 	var tbview : UITableView? = nil
 
 	func setMessages(msg : [MailData]){
@@ -42,6 +42,8 @@ class MailManager{
 	
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
+		//messages = []
+
 		//let q = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
 		//print(q.)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
@@ -67,15 +69,18 @@ class MailManager{
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
+				self.tbview!.reloadData()
 			} else {
 				print("Error: ")
 				print(error as Any)
 			}
+
 		}
 	}
 
 	func listLabels(tableview:UITableView) {
 		tbview = tableview
+		//labels = []
 		let listQuery = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
 		//print(q.)
 		//let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
@@ -106,6 +111,7 @@ class MailManager{
 				print("Error: ")
 				print(error as Any)
 			}
+
 		}
 	}
 
@@ -116,16 +122,16 @@ class MailManager{
 		var subject : String = ""
 		var msgtime : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
-
+		var messageList = [GTLRGmail_Message]()
 		if messagesResponse.messages == nil { return }
 		messagesResponse.messages!.forEach({ (msg) in
 		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
 		gmailService.executeQuery(query) { [self] (ticket, response, error) in
 			if response != nil {
-				self.messageList.append(response as! GTLRGmail_Message)
+				messageList.append(response as! GTLRGmail_Message)
 
 				do {
-					try self.messageList.forEach { (message) in
+					try messageList.forEach { (message) in
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 
@@ -167,7 +173,7 @@ class MailManager{
 					print(error as Any)
 				}
 
-				tbview!.reloadData()
+
 			} else {
 				print("Error: ")
 				print(error as Any)
@@ -193,7 +199,7 @@ class MailManager{
 				if response != nil {
 					//print(response as! GTLRGmail_Label)
 					labelList.append(response as! GTLRGmail_Label)
-					print(labelList[labelList.endIndex - 1].identifier)
+					print(labelList[labelList.endIndex - 1].identifier ?? "")
 					labels.append(labelList[labelList.endIndex - 1].identifier! as String)
 					//self.messageList.append(response as! GTLRGmail_Message)
 
@@ -202,8 +208,9 @@ class MailManager{
 			}
 		}
 
-			)
 
+			)
+		tbview?.reloadData()
 
 
 	}

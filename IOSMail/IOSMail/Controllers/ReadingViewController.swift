@@ -46,7 +46,7 @@ class ReadingViewController: MainViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var vc = segue.destination as! ComposingViewController
+        let vc = segue.destination as! ComposingViewController
         vc.FromReaderEmail = message.from! as String
 
     }
