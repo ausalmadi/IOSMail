@@ -27,42 +27,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6ZW-xI-pvY" userLabel="Data Stack View">
-                                <rect key="frame" x="107" y="50" width="200" height="170"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eMail Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-2B-lTw">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="36"/>
-                                        <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g5I-d2-aOv" userLabel="Email Text Field">
-                                        <rect key="frame" x="0.0" y="46" width="200" height="34"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" systemColor="systemBlueColor"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hco-l5-Adc">
-                                        <rect key="frame" x="0.0" y="90" width="200" height="36"/>
-                                        <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Ks-6I-aWE" userLabel="Password Text Field">
-                                        <rect key="frame" x="0.0" y="136" width="200" height="34"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" systemColor="systemBlueColor"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="f5a-9b-aKf"/>
-                                </constraints>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_name" id="bql-g4-fVQ">
+                                <rect key="frame" x="82" y="212" width="250" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ucx-sC-Zpy" userLabel="Button Stack View">
-                                <rect key="frame" x="127" y="399.5" width="160" height="239"/>
+                                <rect key="frame" x="127" y="384.5" width="160" height="239"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_no_bkgrd" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-MB-a5A">
                                         <rect key="frame" x="5" y="0.0" width="150" height="150"/>
@@ -79,26 +49,9 @@
                                             <constraint firstAttribute="width" secondItem="AIS-I0-Dmt" secondAttribute="height" multiplier="160:49" id="b0G-kd-H2I"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-x0-dYe">
-                                        <rect key="frame" x="5" y="239" width="150" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="COQ-yp-lgG"/>
-                                            <constraint firstAttribute="width" constant="150" id="r2e-gY-ReQ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="20"/>
-                                        <state key="normal" backgroundImage="btnLogin2">
-                                            <color key="titleColor" systemColor="systemRedColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signInBut:" destination="DfM-ck-gft" eventType="touchUpInside" id="zt1-hz-egd"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sMail_name" translatesAutoresizingMaskIntoConstraints="NO" id="bql-g4-fVQ">
-                                <rect key="frame" x="82" y="321" width="250" height="150"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXw-Id-bgs">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXw-Id-bgs">
                                 <rect key="frame" x="181" y="695" width="53" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Mailbox"/>
@@ -111,18 +64,12 @@
                         <viewLayoutGuide key="safeArea" id="Qge-1I-pKp"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
-                            <constraint firstItem="ucx-sC-Zpy" firstAttribute="top" secondItem="bql-g4-fVQ" secondAttribute="bottom" id="4fV-Z1-EXk"/>
-                            <constraint firstItem="6ZW-xI-pvY" firstAttribute="top" secondItem="Qge-1I-pKp" secondAttribute="top" constant="50" id="7KA-uZ-LLW"/>
-                            <constraint firstItem="6ZW-xI-pvY" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="adV-hk-1Yf"/>
                             <constraint firstItem="ucx-sC-Zpy" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="fyo-6W-jja"/>
                             <constraint firstItem="bql-g4-fVQ" firstAttribute="centerX" secondItem="wTy-bP-pLd" secondAttribute="centerX" id="h4l-Ol-fbB"/>
-                            <constraint firstItem="ucx-sC-Zpy" firstAttribute="centerY" secondItem="wTy-bP-pLd" secondAttribute="centerY" constant="115" id="tXq-7h-Goe"/>
+                            <constraint firstItem="ucx-sC-Zpy" firstAttribute="centerY" secondItem="wTy-bP-pLd" secondAttribute="centerY" constant="100" id="tXq-7h-Goe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iqW-s8-Riz"/>
-                    <connections>
-                        <outlet property="signInButton" destination="sXS-x0-dYe" id="3uZ-AV-Zbn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixe-eL-NQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,13 +101,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Mailboxes" id="Hda-YO-k9q">
                         <rightBarButtonItems>
-                            <barButtonItem style="plain" systemItem="stop" id="e8R-vh-ZXp">
+                            <barButtonItem style="done" systemItem="stop" id="e8R-vh-ZXp">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </barButtonItem>
                             <barButtonItem title="Settings" image="gearshape.fill" catalog="system" largeContentSizeImage="gearshape.fill" id="ONh-h1-PWg">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="Fjm-4g-lRS" kind="show" id="LYr-8k-e7K"/>
+                                    <action selector="settingsPressed:" destination="57q-eJ-SBS" id="kzx-6f-FEo"/>
+                                    <segue destination="Fjm-4g-lRS" kind="show" identifier="showSettings" id="UiB-X7-xgl"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -178,7 +126,7 @@
         <scene sceneID="kWQ-Ad-0Af">
             <objects>
                 <tableViewController id="lFu-1b-gbr" userLabel="Email Table View Controller" customClass="EmailTableViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableViewCell" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BXm-Dt-P1P">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableViewCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BXm-Dt-P1P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -760,23 +708,9 @@ Email@address.com</string>
                                             <constraint firstItem="g65-LC-ndh" firstAttribute="top" secondItem="mOj-6t-ejW" secondAttribute="top" constant="30" id="jh8-0a-8CO"/>
                                         </constraints>
                                     </stackView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" ambiguous="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6e-aj-vMK" userLabel="Body Scroll View">
-                                        <rect key="frame" x="0.0" y="120" width="394" height="573"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-mV-QzJ" userLabel="Save Draft">
-                                                <rect key="frame" x="324" y="11" width="60" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button" backgroundImage="btnSaveSml"/>
-                                            </button>
-                                        </subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6e-aj-vMK" userLabel="Body Scroll View">
+                                        <rect key="frame" x="0.0" y="120" width="394" height="628"/>
                                     </scrollView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NoW-dF-56A">
-                                        <rect key="frame" x="0.0" y="698" width="394" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u1-ho-iWt">
                                         <rect key="frame" x="0.0" y="753" width="394" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
@@ -811,9 +745,6 @@ Email@address.com</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" largeTitleDisplayMode="always" id="dpn-sg-K5p"/>
-                    <connections>
-                        <outlet property="messageBody" destination="NoW-dF-56A" id="3dO-m1-9kq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0T-aL-Y8o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -932,8 +863,8 @@ Email@address.com</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="73r-AS-0ZK" userLabel="emailStepper">
-                                                    <rect key="frame" x="300" y="5" width="94" height="32"/>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="73r-AS-0ZK" userLabel="emailStepper">
+                                                    <rect key="frame" x="300" y="6" width="94" height="32"/>
                                                     <connections>
                                                         <action selector="stepperCount:" destination="Fjm-4g-lRS" eventType="valueChanged" id="D6f-XW-1Vr"/>
                                                     </connections>
@@ -947,6 +878,7 @@ Email@address.com</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2PL-pC-kW0" firstAttribute="leading" secondItem="Sdy-Xk-scj" secondAttribute="leading" constant="20" symbolic="YES" id="7gC-n1-8d4"/>
+                                                <constraint firstItem="73r-AS-0ZK" firstAttribute="centerY" secondItem="Sdy-Xk-scj" secondAttribute="centerY" id="9FH-L6-TIS"/>
                                                 <constraint firstItem="73r-AS-0ZK" firstAttribute="leading" secondItem="hmg-GU-MUi" secondAttribute="trailing" constant="10" id="lLI-XC-ckH"/>
                                                 <constraint firstAttribute="trailing" secondItem="73r-AS-0ZK" secondAttribute="trailing" constant="20" id="pse-FH-UmU"/>
                                             </constraints>
@@ -1040,7 +972,7 @@ Email@address.com</string>
                             <outlet property="delegate" destination="Fjm-4g-lRS" id="GIN-hW-usB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FET-9Q-KJE"/>
+                    <navigationItem key="navigationItem" title="Settings" id="FET-9Q-KJE"/>
                     <connections>
                         <outlet property="addSigLabel" destination="ul5-OH-ii7" id="YPl-sh-2G7"/>
                         <outlet property="emailAddress" destination="sQs-pW-xb2" id="XFq-H6-ACU"/>
@@ -1066,9 +998,7 @@ Email@address.com</string>
     <resources>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
-        <image name="btnLogin2" width="111.5" height="36"/>
         <image name="btnSaveMed" width="94.5" height="36"/>
-        <image name="btnSaveSml" width="59.5" height="24"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="sMail_name" width="250" height="250"/>
         <image name="sMail_no_bkgrd" width="500" height="500"/>
@@ -1089,9 +1019,6 @@ Email@address.com</string>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

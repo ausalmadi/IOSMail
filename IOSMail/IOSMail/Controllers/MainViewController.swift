@@ -56,9 +56,9 @@ class MainViewController: UIViewController {
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return UIStatusBarStyle.lightContent
 	}
-    @IBAction func jumpToMailbox(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "signInToMailbox", sender: self)
-    }
+//    @IBAction func jumpToMailbox(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "signInToMailbox", sender: self)
+//    }
     
 	deinit {
 		NotificationCenter.default.removeObserver(self,

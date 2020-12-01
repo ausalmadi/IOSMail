@@ -33,6 +33,12 @@ class MailboxTableViewController: UITableViewController {
         return cell
     }
     
+    //MARK: - Navigation buttons
+    
+    @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showSettings", sender: self)
+    }
+    
     // MARK: - Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -52,5 +58,8 @@ class MailboxTableViewController: UITableViewController {
 			//destinationVC.selectedMailBox = mailBox
         }*/
     }
+    
+   
+    
 
 }
