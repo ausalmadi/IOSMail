@@ -21,17 +21,18 @@ class EmailTableViewController: UITableViewController {
     }
         
     override func viewDidLoad() {
-        super.viewDidLoad()
+		manager.listMessages(tableview: tbView, folder: manager.mailBox)
+		super.viewDidLoad()
 		print(manager.mailBox)
 		self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-		//self.tableView.delegate = self
-		//self.tableView.dataSource = self
+		self.tableView.delegate = self
+		self.tableView.dataSource = self
 		tbView.reloadData()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-		manager.listMessages(tableview: tbView, folder: manager.mailBox)
+
 //    title = 
     }
 
@@ -44,15 +45,24 @@ class EmailTableViewController: UITableViewController {
         return self.manager.messages.count
 	}
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
+		//if
+			let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell// {
+			cell!.tableLabel.text = self.manager.messages[indexPath.row].subject
+			cell!.tableDateLabel.text = self.manager.messages[indexPath.row].date
+			cell!.tableSubjectLabel.text = self.manager.messages[indexPath.row].body
 
-        return cell
+			//return cell
+		//}
+		//return UITableViewCell()
+
+        return cell!
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

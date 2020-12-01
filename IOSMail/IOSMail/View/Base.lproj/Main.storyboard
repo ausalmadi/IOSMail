@@ -166,6 +166,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="labels" destination="1U2-SZ-DCL" id="I63-nL-MVo"/>
                         <segue destination="lFu-1b-gbr" kind="show" identifier="emailDetails" id="eHL-0Z-pm4"/>
                     </connections>
                 </tableViewController>

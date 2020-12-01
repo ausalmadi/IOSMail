@@ -9,13 +9,15 @@ import UIKit
 
 class MailboxTableViewController: UITableViewController {
     
-    let mailBoxesArray = ["INBOX", "SENT", "DRAFT"]
+    var mailBoxesArray = ["INBOX", "SENT", "DRAFT"]
     var mailBox = "INBOX"
 	let manager = MailManager.shared
-
-    override func viewDidLoad() {
+	
+	@IBOutlet var labels: UITableView!
+	override func viewDidLoad() {
         super.viewDidLoad()
-
+		manager.listLabels(tableview: labels)
+		mailBoxesArray = manager.labels
     }
 
 
@@ -35,8 +37,7 @@ class MailboxTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-		//self.mailBox =  =
-		manager.mailBox = mailBoxesArray[indexPath.row]
+		self.mailBox = mailBoxesArray[indexPath.row]
         //index = indexPath.row
         performSegue(withIdentifier: "emailDetails", sender: self)
     }
@@ -44,7 +45,8 @@ class MailboxTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! EmailTableViewController
-        
+		manager.mailBox = self.mailBox
+		destinationVC.selectedMailBox = mailBox
        /* if let indexPath = tableView.indexPathForSelectedRow {
 			manager.mailBox = self.mailBox
 			//destinationVC.selectedMailBox = mailBox
