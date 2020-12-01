@@ -221,13 +221,17 @@
                                                     <action selector="ReplyButtonPressed:" destination="boz-12-v8k" id="soQ-eC-OsK"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0U1-n2-clX"/>
+                                            <barButtonItem title="Reply" width="42" style="plain" id="0U1-n2-clX">
+                                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                            </barButtonItem>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Q0x-gd-oda"/>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="lOF-eE-NkI"/>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="MSE-Ew-axI"/>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="JiO-YO-1pd"/>
                                             <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="PO1-uw-02P"/>
-                                            <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="tGe-xP-osG"/>
+                                            <barButtonItem title="Forward" width="42" style="plain" id="tGe-xP-osG">
+                                                <color key="tintColor" systemColor="systemBlueColor"/>
+                                            </barButtonItem>
                                             <barButtonItem title="Forward" width="138" id="QDS-Hi-3bE">
                                                 <imageReference key="image" image="arrowshape.turn.up.right" catalog="system" symbolScale="large"/>
                                                 <inset key="largeContentSizeImageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="0.0"/>
