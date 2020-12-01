@@ -24,4 +24,5 @@ class EmailData: Object {
     @objc dynamic var sendDate: String? = ""
     @objc dynamic var emailRead: Bool = false
     @objc dynamic var emailSent: Bool = false
+    @objc dynamic var attachment: Array? = []
 }
