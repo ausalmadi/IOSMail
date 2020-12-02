@@ -16,7 +16,7 @@ class MailManager{
 //	let SENT = "SENT"
 //	let DRAFT = "DRAFT"
     
-    var mailBox = "INBOX"
+    var mailBox = "SENT"
     //let realm = RealmService.shared.realm
     
 
