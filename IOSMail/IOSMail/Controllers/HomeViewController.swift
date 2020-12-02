@@ -34,11 +34,13 @@ class HomeViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 	}
+    let realm = RealmService.shared.realm
+  var  mail: Results<EmailData>?
 
     override func viewDidLoad() {
 
 		super.viewDidLoad()
-
+        mail = realm.objects(EmailData.self)
         manager.listInboxMessages(tableview: tableView, folder: manager.mailBox)
 
 		NotificationCenter.default.addObserver(self,
