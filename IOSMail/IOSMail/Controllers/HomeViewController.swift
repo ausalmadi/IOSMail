@@ -81,24 +81,24 @@ class HomeViewController: UIViewController {
 	}
 
 
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if (segue.identifier == "MainToReader") {
-			let vc = segue.destination as! ReadingViewController
-
-			vc.setMessage(msg: self.manager.messages[self.index])
-		}
-		print(segue.identifier as Any)
-	}
+//	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//		if (segue.identifier == "MainToReader") {
+//			let vc = segue.destination as! ReadingViewController
+//
+//			vc.setMessage(msg: self.manager.messages[self.index])
+//		}
+//		print(segue.identifier as Any)
+//	}
 	
 //MARK: Notification method
-	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-		if notification.name.rawValue == "ToggleAuthUINotification" {
-
-			if notification.userInfo != nil {
-				guard let userInfo = notification.userInfo as? [String:String] else { return }
-			}
-		}
-	}
+//	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
+//		if notification.name.rawValue == "ToggleAuthUINotification" {
+//
+//			if notification.userInfo != nil {
+//				guard let userInfo = notification.userInfo as? [String:String] else { return }
+//			}
+//		}
+//	}
 
 
 }
@@ -108,7 +108,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-	//	return self.manager.messages.count
+
        return mail?.count ?? 1
         
     }
@@ -125,9 +125,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let massage = mail?[indexPath.row]{
          
-              cell!.textLabel?.text = massage.emailSubject
-              cell!.tableDateLabel.text = massage.emailDate
-              cell!.tableSubjectLabel.text = massage.emailBody
+             cell?.textLabel?.text = massage.emailSubject
+              cell?.tableDateLabel.text = massage.emailDate
+              cell?.tableSubjectLabel.text = massage.emailBody
         }else{
             print("error")
         }

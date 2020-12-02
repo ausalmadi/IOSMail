@@ -29,8 +29,8 @@ class ReadingViewController: MainViewController {
         self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
     }
 
-    func setMessage(msg : MailData){
-		self.message = msg
+    func setMessage(mail : MailData){
+		self.message = mail
 	}
     
 	override func viewDidLoad() {
