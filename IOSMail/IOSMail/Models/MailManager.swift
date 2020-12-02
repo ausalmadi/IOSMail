@@ -114,7 +114,7 @@ class MailManager{
 		var msgtime : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
-		messagesResponse.messages!.forEach({ (msg) in
+		messagesResponse.messages?.forEach({ (msg) in
 		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
 		gmailService.executeQuery(query) { [self] (ticket, response, error) in
 			if response != nil {
