@@ -25,9 +25,9 @@ class SettingViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stepperLabel.text! = "0"
-        loadSettings()
+        stepperLabel.text! = "1"
         signatureOn(stateSwitch)
+        loadSettings()
         
 
     }
@@ -81,8 +81,15 @@ class SettingViewController: MainViewController {
         emailAddress.text! = loadSet?.first?.emailReply.self ?? ""
         signatureTextView.text! = loadSet?.first?.signatureLine.self ?? ""
         stateSwitch.isOn = loadSet?.first?.useSignature.self ?? false
-        let step = loadSet?.first?.emailCount.self
-        stepperLabel.text! = String(step!)
+        if let step = loadSet?.first?.emailCount.self {
+            do {
+                try self.stepperLabel.text! = String(step)
+            } catch {
+                self.stepperLabel.text! = String(noOfEmails)
+            }
+        }
+            
+        
 //        print(loadSet!)
     }
     
