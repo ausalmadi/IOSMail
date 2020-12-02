@@ -15,8 +15,8 @@ class MailManager{
 //	let INBOX = "INBOX" // Constants for default mail folders
 //	let SENT = "SENT"
 //	let DRAFT = "DRAFT"
-    
-    var mailBox = "INBOX"
+   
+    var mailBox = "SENT"
     //let realm = RealmService.shared.realm
     
 
@@ -64,13 +64,27 @@ class MailManager{
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
-        emailData.emailSubject = m.subject ?? ""
-        emailData.fromSender = m.from ?? ""
-        emailData.toRecepiant = m.to ?? ""
-        emailData.emailBody = m.body ?? ""
-        emailData.emailDate = m.date ?? ""
-        emailData.emaiTime = m.time ?? ""
-        RealmService.shared.create(emailData)
+    
+      
+            //RealmService.shared.delete(emailData)
+            
+          if (m.subject != emailData.emailSubject){
+            emailData.emailSubject = m.subject ?? ""
+            emailData.fromSender = m.from ?? ""
+            emailData.toRecepiant = m.to ?? ""
+            emailData.emailBody = m.body ?? ""
+            emailData.emailDate = m.date ?? ""
+            emailData.emaiTime = m.time ?? ""
+            RealmService.shared.create(emailData)
+           
+        } else{
+          
+          
+          }
+       
+           
+
+      
     }
     
    func dataFactory(_ m: MailData) {
@@ -139,8 +153,9 @@ class MailManager{
 							//htmlData.data()
 							//print(htmlData)
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
-                            
                             dataFactory(m)
+                            
+                           
 							   
 						}
 						} else { return }
