@@ -122,17 +122,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             
         }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let massage = mail?[indexPath.row]{
-           // print("\(massage.emailSubject)")
-            //cell.textLabel?.text = massage.
-//            cell.tableLabel.text = massage.emailSubject
-//            cell.tableDateLabel.text = massage.emailDate
-//            cell.tableSubjectLabel.text = massage.emailBody
+         
+              cell!.textLabel?.text = massage.emailSubject
+              cell!.tableDateLabel.text = massage.emailDate
+              cell!.tableSubjectLabel.text = massage.emailBody
         }else{
             print("error")
         }
-        return cell
+        return cell!
     }
 
 

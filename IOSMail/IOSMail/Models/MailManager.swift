@@ -15,8 +15,8 @@ class MailManager{
 //	let INBOX = "INBOX" // Constants for default mail folders
 //	let SENT = "SENT"
 //	let DRAFT = "DRAFT"
-
-    var mailBox = "SENT"
+   
+    var mailBox = "DRAFT"
     //let realm = RealmService.shared.realm
     
 
