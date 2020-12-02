@@ -42,10 +42,9 @@ class MailManager{
 	
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
-		//messages = []
+		messages.removeAll()
+		print(self.mailBox)
 
-		//let q = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
-		//print(q.)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
 
@@ -57,30 +56,21 @@ class MailManager{
 		//gmailService.shouldFetchNextPages = true
 		//listQuery.maxResults = 5 // set max results to return
 
-		/*gmailService.executeQuery(q) { (ticket, response, error) in
-			if response != nil {
-				print(response as! GTLRGmail_ListLabelsResponse)
-				//self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
-			} else {
-				print("Error: ")
-				print(error as Any)
-			}
-		}*/
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
-				self.tbview!.reloadData()
+
 			} else {
 				print("Error: ")
 				print(error as Any)
 			}
-
+			self.tbview!.reloadData()
 		}
 	}
 
 	func listLabels(tableview:UITableView) {
 		tbview = tableview
-		//labels = []
+		labels.removeAll()
 		let listQuery = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
 		//print(q.)
 		//let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
@@ -94,25 +84,17 @@ class MailManager{
 		//gmailService.shouldFetchNextPages = true
 		//listQuery.maxResults = 5 // set max results to return
 
-		/*gmailService.executeQuery(q) { (ticket, response, error) in
-			if response != nil {
-				print(response as! GTLRGmail_ListLabelsResponse)
-				//self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
-			} else {
-				print("Error: ")
-				print(error as Any)
-			}
-		}*/
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getLabels(response: response as! GTLRGmail_ListLabelsResponse)
-				self.tbview!.reloadData()
+
 			} else {
 				print("Error: ")
 				print(error as Any)
 			}
-
+			self.tbview!.reloadData()
 		}
+
 	}
 
 	func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
@@ -164,9 +146,11 @@ class MailManager{
 							//print(htmlData)
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
 							self.messages.append(m)
-						}
-						} else { return }
 
+						}
+
+						} else { return }
+						tbview?.reloadData()
 					}
 
 				}catch {
@@ -199,18 +183,19 @@ class MailManager{
 				if response != nil {
 					//print(response as! GTLRGmail_Label)
 					labelList.append(response as! GTLRGmail_Label)
-					print(labelList[labelList.endIndex - 1].identifier ?? "")
+					//print(labelList[labelList.endIndex - 1].identifier ?? "")
 					labels.append(labelList[labelList.endIndex - 1].identifier! as String)
 					//self.messageList.append(response as! GTLRGmail_Message)
 
 				}
 
 			}
+			tbview?.reloadData()
 		}
 
 
 			)
-		tbview?.reloadData()
+
 
 
 	}
