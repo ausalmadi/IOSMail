@@ -15,8 +15,8 @@ class MailManager{
 //	let INBOX = "INBOX" // Constants for default mail folders
 //	let SENT = "SENT"
 //	let DRAFT = "DRAFT"
-    
-    var mailBox = "SENT"
+   
+    var mailBox = "DRAFT"
     //let realm = RealmService.shared.realm
     
 
@@ -64,13 +64,27 @@ class MailManager{
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
-        emailData.emailSubject = m.subject ?? ""
-        emailData.fromSender = m.from ?? ""
-        emailData.toRecepiant = m.to ?? ""
-        emailData.emailBody = m.body ?? ""
-        emailData.emailDate = m.date ?? ""
-        emailData.emaiTime = m.time ?? ""
-        RealmService.shared.create(emailData)
+    
+      
+            //RealmService.shared.delete(emailData)
+            
+          if (m.subject != emailData.emailSubject){
+            emailData.emailSubject = m.subject ?? ""
+            emailData.fromSender = m.from ?? ""
+            emailData.toRecepiant = m.to ?? ""
+            emailData.emailBody = m.body ?? ""
+            emailData.emailDate = m.date ?? ""
+            emailData.emaiTime = m.time ?? ""
+            RealmService.shared.create(emailData)
+           
+        } else{
+          
+          
+          }
+       
+           
+
+      
     }
     
    func dataFactory(_ m: MailData) {
@@ -100,7 +114,7 @@ class MailManager{
 		var msgtime : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
-		messagesResponse.messages!.forEach({ (msg) in
+		messagesResponse.messages?.forEach({ (msg) in
 		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
 		gmailService.executeQuery(query) { [self] (ticket, response, error) in
 			if response != nil {
@@ -139,8 +153,9 @@ class MailManager{
 							//htmlData.data()
 							//print(htmlData)
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
-                            
                             dataFactory(m)
+                            
+                           
 							   
 						}
 						} else { return }
