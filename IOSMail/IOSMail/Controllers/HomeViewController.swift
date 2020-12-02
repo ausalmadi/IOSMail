@@ -32,10 +32,14 @@ class HomeViewController: UIViewController {
 	@IBOutlet var inbox: UITableView!
 	@IBOutlet weak var sb: UISearchBar!
 
+
 //	override func viewWillAppear(_ animated: Bool) {
 //	}
     let realm = RealmService.shared.realm
        var mail: Results<EmailData>?
+
+
+
     override func viewDidLoad() {
 
 		super.viewDidLoad()
