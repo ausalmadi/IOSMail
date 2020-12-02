@@ -2,11 +2,12 @@
 //  RealmService.swift
 //  iosMail
 //
-//  Created by student on 2020-11-18.
+//  Created by Aus on 2020-11-19.
 //
 
 import Foundation
-import RealmSwift 
+import RealmSwift
+
 class RealmService {
     
     private init(){}
@@ -17,6 +18,7 @@ class RealmService {
     func create<T:Object>(_ object: T)  {
         do {
              try realm.write{
+                
                 realm.add(object)
             }
         } catch {
@@ -45,21 +47,4 @@ class RealmService {
             print(error)
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

@@ -2,8 +2,7 @@
 /* Class = "UIViewController"; title = "Login"; ObjectID = "DfM-ck-gft"; */
 "DfM-ck-gft.title" = "Login";
 
-/* Class = "UIBarButtonItem"; title = "Compose"; ObjectID = "J5s-tU-sUp"; */
-"J5s-tU-sUp.title" = "Compose";
+
 
 /* Class = "UIBarButtonItem"; title = "Sent"; ObjectID = "LxM-QY-eVi"; */
 "LxM-QY-eVi.title" = "Sent";
@@ -12,7 +11,7 @@
 "MTR-2B-lTw.text" = "eMail Address";
 
 /* Class = "UILabel"; text = "Reader"; ObjectID = "Q3D-na-RjJ"; */
-"Q3D-na-RjJ.text" = "Reader";
+"Q3D-na-RjJ.text" = "Draft";
 
 /* Class = "UILabel"; text = "Settings"; ObjectID = "caZ-hc-4oK"; */
 "caZ-hc-4oK.text" = "Settings";
@@ -30,5 +29,8 @@
 "kfU-xx-Mcv.title" = "Settings";
 
 /* Class = "UIBarButtonItem"; title = "Reader"; ObjectID = "ql7-pI-RwO"; */
-"ql7-pI-RwO.title" = "Reader";
+"ql7-pI-RwO.title" = "Drafts";
+
+/* Class = "UIBarButtonItem"; title = "Compose"; ObjectID = "J5s-tU-sUp"; */
+"J5s-tU-sUp.title" = "Compose";
 

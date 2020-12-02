@@ -6,68 +6,186 @@
 //
 
 import Foundation
+import GoogleSignIn
+import RealmSwift
+import GoogleAPIClientForREST
 
-protocol MailManagerDelegate {
-	func didUpdateMail(_ mailManager: MailManager, mail: MailModel)
-	func didFailWithError(error: Error)
-}
+class MailManager{
 
-struct MailManager {
-	let userId = "burningman2k9@gmail.com"
-	let apiKey = ""
-	let mailURL = "https://gmail.googleapis.com/gmail/v1/users/"
+//	let INBOX = "INBOX" // Constants for default mail folders
+//	let SENT = "SENT"
+//	let DRAFT = "DRAFT"
+   
+    var mailBox = "SENT"
+    //let realm = RealmService.shared.realm
+    
 
-	/*GET https://gmail.googleapis.com/gmail/v1/users/burningman2k9%40gmail.com/profile?key=[YOUR_API_KEY] HTTP/1.1
+	var messages = [MailData]() // Messages array
+	static let shared = MailManager() // Setting up shared instance of Singleton class
 
-	Authorization: Bearer [YOUR_ACCESS_TOKEN]
-	Accept: application/json*/
+	private init(){
 
-		//"https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
-
-	var delegate: MailManagerDelegate?
-
-	func fetchMail(cityName: String) {
-		let urlString = "\(self.userId)/profile/\(self.apiKey)"
-		performRequest(with: urlString)
 	}
 
+	let gmailService = GTLRGmailService.init() // initialize mail service
+	var messageList = [GTLRGmail_Message]()
+	var tbview : UITableView? = nil
 
-	func performRequest(with urlString: String) {
-		if let url = URL(string: urlString) {
-			let session = URLSession(configuration: .default)
-			let task = session.dataTask(with: url) { (data, response, error) in
-				if error != nil {
-					self.delegate?.didFailWithError(error: error!)
-					return
-				}
-				if let safeData = data {
-					if let _mail = self.parseJSON(safeData) {
-						self.delegate?.didUpdateMail(self, mail: _mail)
+	func setMessages(msg : [MailData]){
+		print("setMessages() message count = \(msg.count)")
+		messages = msg
+	}
+
+	func settbView(_tbview : UITableView) {
+		self.tbview? = _tbview
+	}
+	
+	func listInboxMessages(tableview:UITableView, folder : String) {
+		tbview = tableview
+		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
+		listQuery.labelIds = [folder] // folder to view
+
+		// get authorized user
+		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+
+		// set mail service authorizer
+		gmailService.authorizer = authorizer
+		//gmailService.shouldFetchNextPages = true
+		//listQuery.maxResults = 5 // set max results to return
+
+		gmailService.executeQuery(listQuery) { (ticket, response, error) in
+			if response != nil {
+				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
+			} else {
+				print("Error: ")
+				print(error as Any)
+			}
+		}
+	}
+
+     func dataFilling(_ emailData: EmailData, _ m: MailData) {
+    
+      
+            //RealmService.shared.delete(emailData)
+            
+          if (m.subject != emailData.emailSubject){
+            emailData.emailSubject = m.subject ?? ""
+            emailData.fromSender = m.from ?? ""
+            emailData.toRecepiant = m.to ?? ""
+            emailData.emailBody = m.body ?? ""
+            emailData.emailDate = m.date ?? ""
+            emailData.emaiTime = m.time ?? ""
+            RealmService.shared.create(emailData)
+           
+        } else{
+          
+          
+          }
+       
+           
+
+      
+    }
+    
+   func dataFactory(_ m: MailData) {
+        let emailData = EmailData()
+        emailData.mBox = mailBox
+        
+        
+        if (emailData.mBox == "SENT"){
+            
+            dataFilling(emailData, m)
+            
+        } else if (emailData.mBox == "INBOX"){
+            
+            dataFilling(emailData, m)
+        }else if (emailData.mBox == "DRAFT" ){
+            
+            dataFilling(emailData, m)
+        }
+    }
+    
+    func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
+        
+		var from : String = ""
+		var to : String = ""
+		var date : String = ""
+		var subject : String = ""
+		var msgtime : String = ""
+		let messagesResponse = response as GTLRGmail_ListMessagesResponse
+
+		messagesResponse.messages!.forEach({ (msg) in
+		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
+		gmailService.executeQuery(query) { [self] (ticket, response, error) in
+			if response != nil {
+				self.messageList.append(response as! GTLRGmail_Message)
+
+				do {
+					try self.messageList.forEach { (message) in
+						//get the body of the email and decode it
+						message.payload!.headers?.forEach {( head) in
+
+							if head.name=="Date" {
+								let tempdate = self.base64urlToBase64(base64url: head.value ?? "default value")
+								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
+								date = tempdate.substring(to: index)
+								msgtime = tempdate.substring(from: index)
+								//print (date.substring(to: index))
+							}
+							if head.name=="Subject" {
+								subject = self.base64urlToBase64(base64url: head.value ?? "default value")
+							}
+							if head.name=="From" {
+						from = self.base64urlToBase64(base64url: head.value ?? "default value")
+					}
+					if head.name=="To" {
+						to = self.base64urlToBase64(base64url: head.value ?? "default value")
 					}
 				}
+
+						guard let message2 = message.payload!.parts?[0] else
+						{return }
+						if (message2.body!.data != nil) {
+						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
+
+						if let data = Data(base64Encoded: mail) {
+							//var htmlData = try NSAttributedString(data: data, documentAttributes: nil)
+							//htmlData.data()
+							//print(htmlData)
+							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
+                            dataFactory(m)
+                            
+                           
+							   
+						}
+						} else { return }
+
+					}
+
+				}catch {
+					print(error as Any)
+				}
+
+				tbview!.reloadData()
+			} else {
+				print("Error: ")
+				print(error as Any)
 			}
-			task.resume()
 		}
+
+		})
+
 	}
 
-	func parseJSON(_ maildata: Data) -> MailModel? {
-		let decoder = JSONDecoder()
-		do {
-			let decodedData = try decoder.decode(mailData.self, from: maildata)
-			//let id = decodedData.weather[0].id
-			//let temp = decodedData.main.temp
-			//let name = decodedData.name
-
-			//let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
-			let mail = MailModel(emailAddress: decodedData.emailAddress) //_id : "id01")
-			return mail
-
-		} catch {
-			delegate?.didFailWithError(error: error)
-			return nil
+	func base64urlToBase64(base64url: String) -> String {
+		var base64 = base64url
+			.replacingOccurrences(of: "-", with: "+")
+			.replacingOccurrences(of: "_", with: "/")
+		if base64.count % 4 != 0 {
+			base64.append(String(repeating: "=", count: 4 - base64.count % 4))
 		}
+		return base64
 	}
-
-
 
 }
+

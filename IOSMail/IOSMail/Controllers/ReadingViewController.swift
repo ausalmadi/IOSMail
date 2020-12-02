@@ -6,76 +6,57 @@
 //
 
 import UIKit
-import RealmSwift
 
 class ReadingViewController: MainViewController {
-    @IBOutlet weak var tableview: UITableView!
-    let realm = RealmService.shared.realm
-    var msg: Results<TMessges>?
-    override func viewDidLoad() {
+
+	var verificationId : String = ""
+    var  isForward: Bool = false
+    var  isReply: Bool = false
+	var message = MailData(subject: "", from: "", to: "", body: "",  date: "", time: "")
+
+	@IBOutlet weak var msgBody: UITextView!
+	@IBOutlet weak var msgSubject: UITextField!
+	@IBOutlet weak var msgFrom: UITextField!
+    @IBOutlet weak var msgDate: UITextField!
+
+    @IBAction func ForwardButtonPressed(_ sender: UIBarButtonItem) {
+        isForward = true
+        self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
+    }
+    @IBAction func ReplyButtonPressed(_ sender: UIBarButtonItem) {
+        isForward = false
+        isReply = true
+        self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
+    }
+
+    func setMessage(msg : MailData){
+		self.message = msg
+	}
+    
+	override func viewDidLoad() {
         super.viewDidLoad()
-         msg = realm.objects(TMessges.self)
-        tableview.delegate = self
-        tableview.dataSource = self
-    }
 
-    @IBAction func addMessages(_ sender: UIButton) {
-        
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Message", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add Message", style: .default) { (action) in
-            
-            
-                let newMessage = TMessges()
-                newMessage.massege = textField.text!
-            
-            
-                RealmService.shared.create(newMessage)
-            
-            self.tableview.reloadData()
-        }
-        
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new Message"
-            textField = alertTextField
-        }
-        
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-        
+//		let htmlData = NSString(string: message.body!).data(using: String.Encoding.utf16.rawValue)
+//
+//		let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+//		let attributedString = try! NSAttributedString(data: htmlData!,
+//													   options: options,
+//													   documentAttributes: nil)
+		msgBody.text = message.body! as String
+		//msgBody.attributedText = message.body!.htmlAttributedString(size: 18, color: UIColor.red)
+		msgSubject.text = message.subject! as String
+		msgFrom.text = message.from! as String
+        print(message.from! as String)
+		msgDate.text = message.date! as String
     }
     
-}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = segue.destination as! ComposingViewController
+        vc.fromReaderEmail = message.from! as String
+        vc.isForwardButtonPressed = isForward
+        vc.isReplyButtonPressed = isReply
+        vc.subjectFromReader = message.subject! as String
+        vc.msgBodyFromReader = message.body! as String
 
-extension ReadingViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if   editingStyle == .delete {
-            guard let message = msg?[indexPath.row] else { return  }
-            RealmService.shared.delete(message)
-        }
-        tableView.reloadData()
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
-   
-
-}
-
-
-extension ReadingViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return msg?.count ?? 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let  cell = tableview.dequeueReusableCell(withIdentifier: "email", for: indexPath)
-        if let massage = msg?[indexPath.row]{
-            cell.textLabel?.text = massage.massege
-        }else{
-            print("no messages ")
-        }
-         return cell
     }
 }
-

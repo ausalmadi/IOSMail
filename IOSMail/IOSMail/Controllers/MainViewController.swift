@@ -7,22 +7,22 @@
 
 import UIKit
 import GoogleSignIn
+import RealmSwift
+import GoogleAPIClientForREST
+import GTMSessionFetcher
 
 class MainViewController: UIViewController {
+    let gmailService = GTLRGmailService.init()
+    var messageList = [GTLRGmail_Message]()
+	var messages = [MailData]()
+
+	var mvc : HomeViewController?
 
 	@IBOutlet weak var signInButton: GIDSignInButton!
 	@IBAction func signInBut(_ sender: Any) {
-
-		//GIDSignIn.sharedInstance().signIn()
-		/*if ((GIDSignIn.sharedInstance()?.hasPreviousSignIn()) != nil) {
-			GIDSignIn.sharedInstance()?.restorePreviousSignIn()*/
-			if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainView") as? HomeViewController {
-				mvc.modalPresentationStyle = .fullScreen
-			self.present(mvc, animated: true, completion: nil)
-			}
-		/*} else {
-			GIDSignIn.sharedInstance()?.signIn()
-		}*/
+       
+		GIDSignIn.sharedInstance().signIn()
+	       
 	}
 
 	override func viewDidLoad() {
@@ -31,56 +31,27 @@ class MainViewController: UIViewController {
 		GIDSignIn.sharedInstance()?.presentingViewController = self
 
 		// Automatically sign in the user.
-		//GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+		GIDSignIn.sharedInstance()?.restorePreviousSignIn()
 
-
-		// [START_EXCLUDE]
 		NotificationCenter.default.addObserver(self,
-											   selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-											   name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-											   object: nil)
+           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
+           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+           object: nil)
 		NotificationCenter.default.addObserver(self,
-											   selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-											   name: NSNotification.Name(rawValue: "GetMailNotification"),
-											   object: nil)
-
-		//statusText.text = "Initialized Swift app..."
-		//toggleAuthUI()
+           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
+           name: NSNotification.Name(rawValue: "GetMailNotification"),
+           object: nil)
     }
 
 	// [START disconnect_tapped]
 	@IBAction func didTapDisconnect(_ sender: AnyObject) {
 		GIDSignIn.sharedInstance().disconnect()
-		// [START_EXCLUDE silent]
-		//statusText.text = "Disconnecting."
-		// [END_EXCLUDE]
 	}
 	// [END disconnect_tapped]
 
 	@IBAction func didTapSignOut(_ sender: Any) {
 		GIDSignIn.sharedInstance().signOut()
-		// [START_EXCLUDE silent]
-		//statusText.text = "Signed out."
-		//toggleAuthUI()
-		// [END_EXCLUDE]
 	}
-
-	func toggleAuthUI() {
-		if let _ = GIDSignIn.sharedInstance()?.currentUser?.authentication {
-			// Signed in
-			//signInButton.isHidden = true
-			//signOutButton.isHidden = false
-			//disconnectButton.isHidden = false
-			print("toggleAuthUI() called. \(String(describing: GIDSignIn.sharedInstance()?.currentUser?.userID))")
-		} else {
-			//signInButton.isHidden = false
-			//signOutButton.isHidden = true
-			//disconnectButton.isHidden = true
-			//statusText.text = "Google Sign in\niOS Demo"
-		}
-	}
-	// [END toggle_auth]
-
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return UIStatusBarStyle.lightContent
@@ -94,32 +65,29 @@ class MainViewController: UIViewController {
 												  name: NSNotification.Name(rawValue: "GetMailNotification"),
 												  object: nil)
 	}
-
+//MARK: notification functions
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-		//if notification.name.rawValue == "GetMailNotification" {
-		//	print("Getting mail")
-		//}
-
 		if notification.name.rawValue == "ToggleAuthUINotification" {
-			//self.toggleAuthUI()
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				//performSegue(withIdentifier: "HomeView", sender: nil)
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
-					//mvc.sb.text = userInfo["statusText"]!
-					mvc.inboxText = userInfo["statusText"]!
+
 					self.present(mvc, animated: true, completion: nil)
 				}
-				print("\(userInfo["statusText"]!)?")
-				
-				//self.statusText.text = userInfo["statusText"]!
+
 			}
 		}
 	}
     
-    @IBAction func goToReader(_ sender: UIButton) {
-        
+ 
+    func base64urlToBase64(base64url: String) -> String {
+        var base64 = base64url
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+        if base64.count % 4 != 0 {
+            base64.append(String(repeating: "=", count: 4 - base64.count % 4))
+        }
+        return base64
     }
 }
-
