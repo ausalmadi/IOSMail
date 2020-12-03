@@ -10,7 +10,6 @@
 		362444DA256C56E300838B12 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362444D9256C56E300838B12 /* String.swift */; };
 		365CF5902551EAE400954DDD /* MailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF58F2551EAE400954DDD /* MailData.swift */; };
 		365CF5932551F09F00954DDD /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5922551F09F00954DDD /* MailManager.swift */; };
-		36A50CAE2567679800D2F0A2 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A50CAD2567679800D2F0A2 /* Singleton.swift */; };
 		3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */; };
 		3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671772548AF8C00A4DD92 /* SettingViewController.swift */; };
 		3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717A2548AFA100A4DD92 /* SentViewController.swift */; };
@@ -40,7 +39,6 @@
 		362444D9256C56E300838B12 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		365CF58F2551EAE400954DDD /* MailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailData.swift; sourceTree = "<group>"; };
 		365CF5922551F09F00954DDD /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
-		36A50CAD2567679800D2F0A2 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		3F2671772548AF8C00A4DD92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3F26717A2548AFA100A4DD92 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 				365CF5922551F09F00954DDD /* MailManager.swift */,
 				52E37FC12566A14300101A46 /* Settings.swift */,
 				3FB7FED32566F798002F4E20 /* RealmService.swift */,
-				36A50CAD2567679800D2F0A2 /* Singleton.swift */,
 				3F661D9D2575AAD4007E0DD9 /* EmailData.swift */,
 			);
 			path = Models;
@@ -345,7 +342,6 @@
 				365CF5932551F09F00954DDD /* MailManager.swift in Sources */,
 				3F661D9E2575AAD4007E0DD9 /* EmailData.swift in Sources */,
 				362444DA256C56E300838B12 /* String.swift in Sources */,
-				36A50CAE2567679800D2F0A2 /* Singleton.swift in Sources */,
 				3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

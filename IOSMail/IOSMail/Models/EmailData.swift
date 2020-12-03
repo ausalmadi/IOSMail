@@ -14,7 +14,7 @@ class EmailData: Object {
     @objc dynamic var emailDate: String? = ""
     @objc dynamic var emaiTime: String? = ""
     @objc dynamic var emailSubject: String = ""
-    @objc dynamic var emailBody: String?
+    @objc dynamic var emailBody: String? = ""
     @objc dynamic var emailReply: String?
     @objc dynamic var emailCrUp: Date?
     @objc dynamic var fromSender: String = ""
@@ -24,5 +24,4 @@ class EmailData: Object {
     @objc dynamic var sendDate: String? = ""
     @objc dynamic var emailRead: Bool = false
     @objc dynamic var emailSent: Bool = false
-//    @objc dynamic var attachment: Array? = []
 }
