@@ -1,5 +1,5 @@
 //
-//  SentViewController.swift
+//  DraftViewController.swift
 //  iosMail
 //
 //  Created by Gervan on 2020-12-04.
