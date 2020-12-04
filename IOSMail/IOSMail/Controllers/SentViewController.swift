@@ -6,25 +6,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SentViewController: MainViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     let data = ["To: ABC", "To: CDF","To: GBHDG","To: ABC", "To: CDF","To: GBHDG"]
-    let date = ["1 Aug","12 Aug","16 Aug","17 Aug","20 Aug","1 Sep"]
-    let lineOne = ["Subject: This is the 1st line", "Subject: Happy Holidays!", "Subject: Have I got something for you", "Subject: This is the best email program ever!", "Subject: What's Up ?", "Subject: Christmas is coming ..."]
+
+    let date = ["Aug 1, 2020","Aug 12, 2020","Aug 16, 2020","Aug 17, 2020","Aug 20, 2020","Sep 1, 2020"]
+    let subject = ["Subject: A", "Subject: B", "Subject: C", "Subject: D", "Subject: E", "Subject: F"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        // Do any additional setup after loading the view.
+        
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        listInboxMessages()
     }
-    
+
 }
 
 //MARK: Tableview delegate and datasource
@@ -38,10 +41,10 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
             cell.tableLabel.text = self.data[indexPath.row]
             cell.tableDateLabel.text = self.date[indexPath.row]
-            cell.tableLineLabel.text = self.lineOne[indexPath.row]
+            cell.tableSubjectLabel.text = self.subject[indexPath.row]
+
             return cell
         }
         return UITableViewCell()
     }
-
 }

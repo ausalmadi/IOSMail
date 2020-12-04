@@ -1,0 +1,15 @@
+platform :ios, '13.0'
+
+target 'iosMail' do
+  
+  use_frameworks!
+
+  # Pods for iosMail
+
+  pod 'CLTypingLabel'
+  pod 'GoogleSignIn'
+  pod 'IQKeyboardManager'
+  pod 'GoogleAPIClientForREST/Gmail'
+  pod 'RealmSwift'
+  
+end
