@@ -12,7 +12,8 @@ class ReadingViewController: MainViewController {
 	var verificationId : String = ""
     var  isForward: Bool = false
     var  isReply: Bool = false
-	var message = MailData(subject: "", from: "", to: "", body: "",  date: "", time: "")
+	var message = EmailData()
+	//var message = MailData(subject: "", from: "", to: "", body: "",  date: "", time: "")
 
 	@IBOutlet weak var msgBody: UITextView!
 	@IBOutlet weak var msgSubject: UITextField!
@@ -29,7 +30,10 @@ class ReadingViewController: MainViewController {
         self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
     }
 
-    func setMessage(msg : MailData){
+    /*func setMessage(msg : MailData){
+		self.message = msg
+	}*/
+	func setMessage(msg : EmailData){
 		self.message = msg
 	}
     
@@ -42,21 +46,25 @@ class ReadingViewController: MainViewController {
 //		let attributedString = try! NSAttributedString(data: htmlData!,
 //													   options: options,
 //													   documentAttributes: nil)
-		msgBody.text = message.body! as String
+		//msgBody.text = message.body! as String
+		msgBody.text = message.emailBody
 		//msgBody.attributedText = message.body!.htmlAttributedString(size: 18, color: UIColor.red)
-		msgSubject.text = message.subject! as String
-		msgFrom.text = message.from! as String
-        print(message.from! as String)
-		msgDate.text = message.date! as String
+		//msgSubject.text = message.subject! as String
+		msgSubject.text = message.emailSubject
+		//msgFrom.text = message.from! as String
+		msgFrom.text = message.fromSender
+        //print(message.from! as String)
+		//msgDate.text = message.date! as String
+		msgDate.text = message.emailDate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var vc = segue.destination as! ComposingViewController
-        vc.fromReaderEmail = message.from! as String
+		let vc = segue.destination as! ComposingViewController
+		vc.fromReaderEmail = message.fromSender as String
         vc.isForwardButtonPressed = isForward
         vc.isReplyButtonPressed = isReply
-        vc.subjectFromReader = message.subject! as String
-        vc.msgBodyFromReader = message.body! as String
+        vc.subjectFromReader = message.emailSubject as String
+		vc.msgBodyFromReader = message.emailBody! as String
 
     }
 }
