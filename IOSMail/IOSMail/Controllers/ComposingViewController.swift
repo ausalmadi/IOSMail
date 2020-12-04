@@ -84,7 +84,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         
         service.authorizer = authorizer
         service.executeQuery(query, completionHandler: { (ticket, response, error) -> Void in
-            print("error: \(error)")
+            print("error: \(String(describing: error))")
         })
         
     }
@@ -120,7 +120,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
             "To: <\(toField.text ?? "")>\r\n" +
             "Subject: \(subjectField.text ?? "")\r\n\r\n" +
             "\(bodyField.text ?? "")"
-        let utf8str = rawMessage.data(using: .utf8)
+        _ = rawMessage.data(using: .utf8)
         let utf8Data = rawMessage.data
         let base64EncodedString = utf8Data.base64EncodedString()
         

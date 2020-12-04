@@ -28,8 +28,6 @@ class SettingViewController: MainViewController {
         stepperLabel.text! = "1"
         signatureOn(stateSwitch)
         loadSettings()
-        
-
     }
     
     @IBAction func signatureOn(_ sender: UISwitch) {
@@ -37,7 +35,6 @@ class SettingViewController: MainViewController {
         if stateSwitch.isOn {
             addSigLabel.text = "Add Signature to eMail"
             stateSwitch.setOn(true, animated:true)
-
         } else {
             addSigLabel.text = "Don't Add Signature to Email"
             stateSwitch.setOn(false, animated:true)
@@ -55,7 +52,6 @@ class SettingViewController: MainViewController {
         noOfEmails = Int(sender.value)
     }
     
-    
     //MARK: - Setting functions & options
     
     func createSettings() {
@@ -64,9 +60,7 @@ class SettingViewController: MainViewController {
         newSettings.signatureLine = signatureTextView.text!
         newSettings.useSignature = stateSwitch.isOn
         newSettings.emailCount = Int(stepperLabel.text!) ?? 1
-
         RealmService.shared.create(newSettings)
-
     }
     
     func updateSettings(){
@@ -76,7 +70,6 @@ class SettingViewController: MainViewController {
         
         settings = realm.objects(Settings.self)
         settings = settings?.sorted(byKeyPath: "dateUpdated", ascending: false)
-        
         let loadSet = settings
         emailAddress.text! = loadSet?.first?.emailReply.self ?? ""
         signatureTextView.text! = loadSet?.first?.signatureLine.self ?? ""
@@ -88,9 +81,6 @@ class SettingViewController: MainViewController {
                 self.stepperLabel.text! = String(noOfEmails)
             }
         }
-            
-        
-//        print(loadSet!)
     }
     
     func deleteSettings() {

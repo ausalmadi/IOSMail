@@ -11,45 +11,30 @@ import RealmSwift
 import GoogleAPIClientForREST
 
 class HomeViewController: UIViewController {
-
 	
 	var messages = [MailData]()
-	let gmailService = GTLRGmailService.init()
 	var messageList = [GTLRGmail_Message]()
-
 	var manager = MailManager.shared
+    var inboxText : String = "Inbox"
+    var index : Int = 0
+    let gmailService = GTLRGmailService.init()
 
-	
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 	@IBOutlet var inboxTitle: UILabel!
 
-	var inboxText : String = "Inbox"
-	var index : Int = 0
-	
 	@IBOutlet var inbox: UITableView!
 	@IBOutlet weak var sb: UISearchBar!
 
-
-//	override func viewWillAppear(_ animated: Bool) {
-//	}
     let realm = RealmService.shared.realm
        var mail: Results<EmailData>?
 
-
-
     override func viewDidLoad() {
-
 		super.viewDidLoad()
         mail = realm.objects(EmailData.self)
         manager.listInboxMessages(tableview: tableView, folder: manager.mailBox)
-
-//		NotificationCenter.default.addObserver(self,
-//           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-//           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-//           object: nil)
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
@@ -84,11 +69,7 @@ class HomeViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
-
-			//print(mail?.count)
-			//print(index)
 			guard let message = mail?[index] else { return  }
-
 			vc.setMessage(msg: message)
 		}
 		print(segue.identifier as Any)
@@ -97,14 +78,11 @@ class HomeViewController: UIViewController {
 //MARK: Notification method
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
 		if notification.name.rawValue == "ToggleAuthUINotification" {
-
 			if notification.userInfo != nil {
-				guard let userInfo = notification.userInfo as? [String:String] else { return }
+                guard (notification.userInfo as? [String:String]) != nil else { return }
 			}
 		}
 	}
-
-
 }
 
 //MARK: Tableview delegate and datasource
@@ -137,18 +115,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         return cell!
     }
-
-
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//            let  cell = tableview.dequeueReusableCell(withIdentifier: "email", for: indexPath)
-//            if let massage = mail?[indexPath.row]{
-//                cell.textLabel?.text = massage.massege
-//            }else{
-//                print("no messages ")
-//            }
-//             return cell
-//        }
-
     
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //		print(indexPath.row)
@@ -156,25 +122,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 		performSegue(withIdentifier: "MainToReader", sender: self)
 	}
 
-//    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let  cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//               if let massage = mail?[indexPath.row]{
-//                   cell.textLabel?.text = massage.massege
-//               }else{
-//                   print("no messages ")
-//               }
-//                return cell
-//           }
-
-//        if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
-//            let emailData = EmailData()
-//
-//            cell.tableLabel.text = emailData.emailSubject
-//			cell.tableDateLabel.text = emailData.emailDate
-//            cell.tableSubjectLabel.text = emailData.emailBody
-//
-//            return cell
-//        }
-//        return UITableViewCell()
 }
     

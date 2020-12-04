@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 		GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.scopes = scopes
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL ?? "file:")
         
         do {
             let _ = try Realm()
