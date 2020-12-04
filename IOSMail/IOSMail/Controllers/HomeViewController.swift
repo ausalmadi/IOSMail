@@ -85,7 +85,11 @@ class HomeViewController: UIViewController {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
 
-			vc.setMessage(msg: self.manager.messages[self.index])
+			//print(mail?.count)
+			//print(index)
+			guard let message = mail?[index] else { return  }
+
+			vc.setMessage(msg: message)
 		}
 		print(segue.identifier as Any)
 	}
@@ -146,11 +150,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 //        }
 
     
-//	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////		print(indexPath.row)
-////		index = indexPath.row
-////		performSegue(withIdentifier: "MainToReader", sender: self)
-//	}
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//		print(indexPath.row)
+		index = indexPath.row
+		performSegue(withIdentifier: "MainToReader", sender: self)
+	}
 
 //    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let  cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

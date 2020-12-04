@@ -56,7 +56,10 @@ class MainViewController: UIViewController {
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return UIStatusBarStyle.lightContent
 	}
-
+//    @IBAction func jumpToMailbox(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "signInToMailbox", sender: self)
+//    }
+    
 	deinit {
 		NotificationCenter.default.removeObserver(self,
 												  name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
@@ -70,13 +73,12 @@ class MainViewController: UIViewController {
 		if notification.name.rawValue == "ToggleAuthUINotification" {
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				print(userInfo)
-				print(GIDSignIn.sharedInstance()?.currentUser)
-				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
-					mvc.modalPresentationStyle = .fullScreen
-
-					self.present(mvc, animated: true, completion: nil)
-				}
+//				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? MailboxTableViewController {
+//					mvc.modalPresentationStyle = .fullScreen
+//
+//					self.present(mvc, animated: true, completion: nil)
+//				}
+				self.performSegue(withIdentifier: "signInToMailbox", sender: self)
 
 			}
 		}
