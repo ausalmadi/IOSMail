@@ -37,6 +37,7 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
             cell.tableLabel.text = self.data[indexPath.row]
             cell.tableDateLabel.text = self.date[indexPath.row]
             cell.tableSubjectLabel.text = self.subject[indexPath.row]
+
             return cell
         }
         return UITableViewCell()

@@ -24,9 +24,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var deletePressed: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-	@IBOutlet var inboxTitle: UILabel!
-	@IBOutlet var inbox: UITableView!
-	@IBOutlet weak var sb: UISearchBar!
+  	@IBOutlet var inboxTitle: UILabel!
+	  @IBOutlet var inbox: UITableView!
+	  @IBOutlet weak var sb: UISearchBar!
 
     let realm = RealmService.shared.realm
        var mail: Results<EmailData>?
@@ -118,4 +118,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 		index = indexPath.row
 		performSegue(withIdentifier: "MainToReader", sender: self)
 	}
+
 }
