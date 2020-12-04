@@ -15,12 +15,10 @@ class MainViewController: UIViewController {
     let gmailService = GTLRGmailService.init()
     var messageList = [GTLRGmail_Message]()
 	var messages = [MailData]()
-
 	var mvc : HomeViewController?
 
 	@IBOutlet weak var signInButton: GIDSignInButton!
 	@IBAction func signInBut(_ sender: Any) {
-       
 		GIDSignIn.sharedInstance().signIn()
 	       
 	}
@@ -82,14 +80,13 @@ class MainViewController: UIViewController {
 		}
 	}
     
- 
-    func base64urlToBase64(base64url: String) -> String {
-        var base64 = base64url
-            .replacingOccurrences(of: "-", with: "+")
-            .replacingOccurrences(of: "_", with: "/")
-        if base64.count % 4 != 0 {
-            base64.append(String(repeating: "=", count: 4 - base64.count % 4))
-        }
-        return base64
-    }
+//    func base64urlToBase64(base64url: String) -> String {
+//        var base64 = base64url
+//            .replacingOccurrences(of: "-", with: "+")
+//            .replacingOccurrences(of: "_", with: "/")
+//        if base64.count % 4 != 0 {
+//            base64.append(String(repeating: "=", count: 4 - base64.count % 4))
+//        }
+//        return base64
+//    }
 }

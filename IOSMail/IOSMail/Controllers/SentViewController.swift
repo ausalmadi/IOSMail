@@ -22,7 +22,6 @@ class SentViewController: MainViewController {
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
     }
 }
 

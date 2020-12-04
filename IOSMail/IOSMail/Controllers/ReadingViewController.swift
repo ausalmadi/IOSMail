@@ -23,6 +23,7 @@ class ReadingViewController: MainViewController {
         isForward = true
         self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
     }
+    
     @IBAction func ReplyButtonPressed(_ sender: UIBarButtonItem) {
         isForward = false
         isReply = true

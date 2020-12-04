@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
 	var manager = MailManager.shared
     var inboxText : String = "Inbox"
     var index : Int = 0
+    
     let gmailService = GTLRGmailService.init()
 
     @IBOutlet weak var checkBox: UIButton!
@@ -24,7 +25,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 	@IBOutlet var inboxTitle: UILabel!
-
 	@IBOutlet var inbox: UITableView!
 	@IBOutlet weak var sb: UISearchBar!
 
@@ -58,13 +58,11 @@ class HomeViewController: UIViewController {
           object: nil)
     }
 
-
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
 
 		GIDSignIn.sharedInstance().signOut()
 	}
-
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
@@ -90,19 +88,19 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-	//	return self.manager.messages.count
        return mail?.count ?? 1
-        
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if   editingStyle == .delete {
                 guard let message = mail?[indexPath.row] else { return  }
                 RealmService.shared.delete(message)
             }
+        
             tableView.reloadData()
             tableView.deselectRow(at: indexPath, animated: true)
-            
         }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
@@ -117,10 +115,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		print(indexPath.row)
 		index = indexPath.row
 		performSegue(withIdentifier: "MainToReader", sender: self)
 	}
-
 }
-    

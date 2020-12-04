@@ -125,9 +125,6 @@ class MailManager{
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
-							//var htmlData = try NSAttributedString(data: data, documentAttributes: nil)
-							//htmlData.data()
-							//print(htmlData)
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
                             dataFactory(m)
 						}
@@ -151,11 +148,7 @@ class MailManager{
 		var base64 = base64url
 			.replacingOccurrences(of: "-", with: "+")
 			.replacingOccurrences(of: "_", with: "/")
-		if base64.count % 4 != 0 {
-			base64.append(String(repeating: "=", count: 4 - base64.count % 4))
-		}
 		return base64
 	}
-
 }
 

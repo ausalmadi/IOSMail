@@ -81,12 +81,10 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
             GTLRGmailQuery_UsersDraftsCreate.query(withObject: gtlDraft, userId: "me", uploadParameters: nil)
         let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
         
-        
         service.authorizer = authorizer
         service.executeQuery(query, completionHandler: { (ticket, response, error) -> Void in
             print("error: \(String(describing: error))")
         })
-        
     }
     
     func sendEmail() {
@@ -97,7 +95,6 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         let query =
             GTLRGmailQuery_UsersMessagesSend.query(withObject: gtlMessage, userId: "me", uploadParameters: nil)
         let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
-        
         
         service.authorizer = authorizer
         service.executeQuery(query, completionHandler: { (ticket, response, error) -> Void in
