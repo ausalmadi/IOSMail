@@ -1,0 +1,6 @@
+framework module Pods_iosMail {
+  umbrella header "Pods-iosMail-umbrella.h"
+
+  export *
+  module * { export * }
+}
