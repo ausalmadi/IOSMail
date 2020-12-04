@@ -27,6 +27,7 @@
 		3FB7FED42566F798002F4E20 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7FED32566F798002F4E20 /* RealmService.swift */; };
 		520399502564556C007C9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5203994F2564556B007C9707 /* GoogleService-Info.plist */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
+		52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF3AC257AA5C000222E17 /* DraftViewController.swift */; };
 		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
 		8D5A7EDF2567019500245027 /* Draft.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5A7EDE2567019500245027 /* Draft.storyboard */; };
@@ -58,6 +59,7 @@
 		3FB7FED32566F798002F4E20 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		5203994F2564556B007C9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
+		52DEF3AC257AA5C000222E17 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		6B18959A1C8B74B8F3CB6828 /* Pods-iosMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.release.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,11 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				3F565743253E3673002E5031 /* MainViewController.swift */,
-				3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */,
-				3F2671772548AF8C00A4DD92 /* SettingViewController.swift */,
-				3F26717A2548AFA100A4DD92 /* SentViewController.swift */,
-				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
 				3F26718B2548B1A300A4DD92 /* HomeViewController.swift */,
+				3F26717A2548AFA100A4DD92 /* SentViewController.swift */,
+				52DEF3AC257AA5C000222E17 /* DraftViewController.swift */,
+				3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */,
+				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
+				3F2671772548AF8C00A4DD92 /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				3F565740253E3673002E5031 /* AppDelegate.swift in Sources */,
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
+				52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */,
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
 				365CF5902551EAE400954DDD /* MailData.swift in Sources */,
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,

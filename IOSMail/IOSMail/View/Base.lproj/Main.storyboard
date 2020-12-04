@@ -870,7 +870,7 @@ Email@address.com</string>
         <!--Draft View Controller-->
         <scene sceneID="XxZ-8I-Xwu">
             <objects>
-                <viewController id="95R-bE-BCH" userLabel="Draft View Controller" customClass="SentViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="95R-bE-BCH" userLabel="Draft View Controller" customClass="DraftViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YFV-cU-O1h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
