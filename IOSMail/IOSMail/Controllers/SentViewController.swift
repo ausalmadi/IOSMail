@@ -22,7 +22,6 @@ class SentViewController: MainViewController {
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
     }
 }
 
@@ -38,6 +37,7 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
             cell.tableLabel.text = self.data[indexPath.row]
             cell.tableDateLabel.text = self.date[indexPath.row]
             cell.tableSubjectLabel.text = self.subject[indexPath.row]
+
             return cell
         }
         return UITableViewCell()

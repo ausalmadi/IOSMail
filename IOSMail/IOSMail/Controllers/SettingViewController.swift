@@ -15,7 +15,6 @@ class SettingViewController: MainViewController {
     var settings: Results<Settings>?
     var noOfEmails: Int = 1
     
-    
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var signatureTextView: UITextView!
     @IBOutlet weak var stateSwitch: UISwitch!
@@ -44,8 +43,7 @@ class SettingViewController: MainViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         createSettings()
         dismiss(animated: true, completion: nil)
-        }
-    
+    }
     
     @IBAction func stepperCount(_ sender: UIStepper) {
         stepperLabel.text = String(format: "%.0f", sender.value)
