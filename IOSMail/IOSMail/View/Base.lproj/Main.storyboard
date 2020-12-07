@@ -439,7 +439,7 @@ Email@address.com</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ck6-UT-xvg">
-                                <rect key="frame" x="147" y="25" width="120" height="36"/>
+                                <rect key="frame" x="147" y="10" width="120" height="36"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -468,7 +468,7 @@ Email@address.com</string>
                             <constraint firstItem="ck6-UT-xvg" firstAttribute="leading" secondItem="Js0-Ol-acr" secondAttribute="leading" constant="177" id="rDQ-7f-GOb"/>
                             <constraint firstItem="QWR-mH-241" firstAttribute="trailing" secondItem="Js0-Ol-acr" secondAttribute="trailing" id="vEV-QT-wyJ"/>
                             <constraint firstItem="ck6-UT-xvg" firstAttribute="top" secondItem="Js0-Ol-acr" secondAttribute="top" constant="10" id="wYg-Fu-N9K"/>
-                            <constraint firstItem="QWR-mH-241" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" id="y72-Zm-LBh"/>
+                            <constraint firstItem="QWR-mH-241" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" constant="10" id="y72-Zm-LBh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nrj-E3-IHw"/>
@@ -703,7 +703,7 @@ Email@address.com</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rnT-f2-uD0">
-                                <rect key="frame" x="0.0" y="61" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="44"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hcE-ZT-bcN"/>
@@ -712,11 +712,11 @@ Email@address.com</string>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="draftsTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C9L-gx-Ywe">
-                                <rect key="frame" x="0.0" y="105" width="414" height="708"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drafts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsA-U9-rqy" userLabel="Drafts">
-                                <rect key="frame" x="137" y="25" width="140" height="36"/>
+                                <rect key="frame" x="137" y="10" width="140" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -728,9 +728,9 @@ Email@address.com</string>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="top" secondItem="rnT-f2-uD0" secondAttribute="bottom" id="8fB-Oe-rUd"/>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="leading" secondItem="lWT-zA-XOH" secondAttribute="leading" id="BKR-KM-5VI"/>
                             <constraint firstItem="lWT-zA-XOH" firstAttribute="trailing" secondItem="GsA-U9-rqy" secondAttribute="trailing" constant="137" id="HQz-QF-jYn"/>
-                            <constraint firstItem="GsA-U9-rqy" firstAttribute="top" secondItem="YFV-cU-O1h" secondAttribute="top" constant="25" id="J4H-a7-ABE"/>
+                            <constraint firstItem="GsA-U9-rqy" firstAttribute="top" secondItem="YFV-cU-O1h" secondAttribute="top" constant="10" id="J4H-a7-ABE"/>
                             <constraint firstItem="rnT-f2-uD0" firstAttribute="trailing" secondItem="lWT-zA-XOH" secondAttribute="trailing" id="Mpz-xH-N9o"/>
-                            <constraint firstItem="rnT-f2-uD0" firstAttribute="top" secondItem="GsA-U9-rqy" secondAttribute="bottom" id="N2V-Da-fWe"/>
+                            <constraint firstItem="rnT-f2-uD0" firstAttribute="top" secondItem="GsA-U9-rqy" secondAttribute="bottom" constant="10" id="N2V-Da-fWe"/>
                             <constraint firstItem="rnT-f2-uD0" firstAttribute="leading" secondItem="lWT-zA-XOH" secondAttribute="leading" id="Zq5-h1-r8g"/>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="bottom" secondItem="lWT-zA-XOH" secondAttribute="bottom" id="hrK-WA-B8q"/>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="trailing" secondItem="lWT-zA-XOH" secondAttribute="trailing" id="rem-cK-ZOb"/>
