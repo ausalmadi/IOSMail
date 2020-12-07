@@ -144,13 +144,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tray.and.arrow.down" catalog="system" id="wU6-fG-CHd">
-                                        <rect key="frame" x="0.0" y="2.5" width="34.5" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="34" height="30.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PEI-Md-saM">
-                                        <rect key="frame" x="34.5" y="0.0" width="90.5" height="36"/>
+                                        <rect key="frame" x="34" y="0.0" width="91" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -438,20 +438,23 @@ Email@address.com</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ck6-UT-xvg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ck6-UT-xvg">
                                 <rect key="frame" x="147" y="25" width="120" height="36"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="sentTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pim-6Y-sRy">
-                                <rect key="frame" x="0.0" y="105" width="414" height="708"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="sentTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pim-6Y-sRy">
+                                <rect key="frame" x="0.0" y="134" width="414" height="679"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWR-mH-241">
-                                <rect key="frame" x="0.0" y="61" width="414" height="44"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QWR-mH-241">
+                                <rect key="frame" x="0.0" y="90" width="414" height="44"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="I2N-Ty-ksl"/>
+                                </constraints>
                                 <color key="barTintColor" systemColor="systemTealColor"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -459,16 +462,16 @@ Email@address.com</string>
                         <viewLayoutGuide key="safeArea" id="Js0-Ol-acr"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
-                            <constraint firstItem="pim-6Y-sRy" firstAttribute="bottom" secondItem="Js0-Ol-acr" secondAttribute="bottom" id="4Qt-Om-WKL"/>
+                            <constraint firstItem="QWR-mH-241" firstAttribute="centerX" secondItem="ck6-UT-xvg" secondAttribute="centerX" id="8JO-Fr-gkx"/>
                             <constraint firstItem="pim-6Y-sRy" firstAttribute="trailing" secondItem="Js0-Ol-acr" secondAttribute="trailing" id="CjY-hH-IRK"/>
                             <constraint firstItem="pim-6Y-sRy" firstAttribute="leading" secondItem="Js0-Ol-acr" secondAttribute="leading" id="MxX-cs-U1x"/>
-                            <constraint firstItem="pim-6Y-sRy" firstAttribute="top" secondItem="QWR-mH-241" secondAttribute="bottom" id="OXS-fN-3fN"/>
                             <constraint firstItem="Js0-Ol-acr" firstAttribute="trailing" secondItem="ck6-UT-xvg" secondAttribute="trailing" constant="177" id="PBH-nJ-H8g"/>
+                            <constraint firstItem="pim-6Y-sRy" firstAttribute="bottom" secondItem="Js0-Ol-acr" secondAttribute="bottom" id="aLj-je-zGt"/>
+                            <constraint firstItem="QWR-mH-241" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" constant="29" id="k2Q-9S-Zob"/>
                             <constraint firstItem="QWR-mH-241" firstAttribute="leading" secondItem="Js0-Ol-acr" secondAttribute="leading" id="oFR-zl-Eih"/>
                             <constraint firstItem="ck6-UT-xvg" firstAttribute="leading" secondItem="Js0-Ol-acr" secondAttribute="leading" constant="177" id="rDQ-7f-GOb"/>
                             <constraint firstItem="QWR-mH-241" firstAttribute="trailing" secondItem="Js0-Ol-acr" secondAttribute="trailing" id="vEV-QT-wyJ"/>
-                            <constraint firstItem="ck6-UT-xvg" firstAttribute="top" secondItem="Js0-Ol-acr" secondAttribute="top" constant="10" id="wYg-Fu-N9K"/>
-                            <constraint firstItem="QWR-mH-241" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" id="y72-Zm-LBh"/>
+                            <constraint firstItem="pim-6Y-sRy" firstAttribute="top" secondItem="QWR-mH-241" secondAttribute="bottom" id="xcu-zW-7hM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nrj-E3-IHw"/>

@@ -29,7 +29,7 @@ class MailManager{
 		self.tbview? = _tbview
 	}
 	
-	func listInboxMessages(tableview:UITableView, folder : String) {
+	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
@@ -58,6 +58,7 @@ class MailManager{
             emailData.emailBody = m.body ?? ""
             emailData.emailDate = m.date ?? ""
             emailData.emaiTime = m.time ?? ""
+			emailData.messageID = m.messageID ?? ""
             RealmService.shared.create(emailData)
            
         } else{
@@ -90,6 +91,7 @@ class MailManager{
 		var date : String = ""
 		var subject : String = ""
 		var msgtime : String = ""
+		var mID : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages?.forEach({ (msg) in
@@ -99,8 +101,10 @@ class MailManager{
 				self.messageList.append(response as! GTLRGmail_Message)
 				do {
 					try self.messageList.forEach { (message) in
+						print(message.jsonString())
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
+
 							if head.name=="Date" {
 								let tempdate = self.base64urlToBase64(base64url: head.value ?? "default value")
 								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
@@ -125,7 +129,7 @@ class MailManager{
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
-							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
+							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: "")
                             dataFactory(m)
 						}
 						} else { return }

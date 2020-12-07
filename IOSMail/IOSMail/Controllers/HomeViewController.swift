@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
 	var messages = [MailData]()
 	var messageList = [GTLRGmail_Message]()
 	var manager = MailManager.shared
-    var inboxText : String = "Inbox"
+    var inboxText : String = "Draft"
     var index : Int = 0
     
     let gmailService = GTLRGmailService.init()
@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
 		super.viewDidLoad()
         mail = realm.objects(EmailData.self)
-        manager.listInboxMessages(tableview: tableView, folder: manager.mailBox)
+        manager.listMessages(tableview: tableView, folder: "DRAFT") // manager.mailBox)
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
