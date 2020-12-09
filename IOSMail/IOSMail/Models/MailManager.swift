@@ -60,7 +60,7 @@ class MailManager{
             emailData.emaiTime = m.time ?? ""
             RealmService.shared.create(emailData)
            
-        } else{
+          } else {
           
           }
     }
