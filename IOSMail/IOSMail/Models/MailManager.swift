@@ -18,6 +18,10 @@ class MailManager{
     var tbview : UITableView? = nil
     let gmailService = GTLRGmailService.init() // initialize mail service
 	static let shared = MailManager() // Setting up shared instance of Singleton class
+
+	let realm = RealmService.shared.realm
+	var mail: Results<EmailData>?
+	
 	private init(){ }
 
 	func setMessages(msg : [MailData]){
@@ -31,6 +35,7 @@ class MailManager{
 	
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
+		mail = realm.objects(EmailData.self)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
 
@@ -50,8 +55,12 @@ class MailManager{
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
-            
-          if (m.subject != emailData.emailSubject){
+		//print(emailData.messageID)
+		//print(m.messageID)
+		//print(emailData.contains { $0.messageID.isSubset(of:m.messageID) })
+		if (emailData.messageID.range(of: m.messageID!) != nil){
+		//if (m.messageID != emailData.messageID) {
+		//if (m.subject != emailData.emailSubject){
             emailData.emailSubject = m.subject ?? ""
             emailData.fromSender = m.from ?? ""
             emailData.toRecepiant = m.to ?? ""
@@ -101,7 +110,9 @@ class MailManager{
 				self.messageList.append(response as! GTLRGmail_Message)
 				do {
 					try self.messageList.forEach { (message) in
-						print(message.jsonString())
+						//print(message.jsonString())
+						//print(message.identifier)
+						mID = message.identifier!
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 
@@ -129,8 +140,18 @@ class MailManager{
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
-							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: "")
-                            dataFactory(m)
+							let make = self.messages.contains {$0.messageID == mID}
+							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+							if make == false{
+
+								self.messages.append(m)
+								dataFactory(m)
+							} else {
+								//self.messages.appe
+								//print("message id does not exist")
+								//print(m)
+								//dataFactory(m)
+							}
 						}
 						} else { return }
 					}
@@ -138,8 +159,18 @@ class MailManager{
 				}catch {
 					print(error as Any)
 				}
+				//print("msglist1")
+				messages.forEach { (msg ) in
 
-				tbview!.reloadData()
+					print("1 -> \(msg.messageID)")
+				}
+				//print("msglist2")
+				mail?.forEach({ (msg2) in
+					print("2 -> \(msg2.messageID)")
+
+				})
+				//tbview!.reloadData()
+				tbview!.reloadInputViews()
 			} else {
 				print("Error: ")
 				print(error as Any)

@@ -68,8 +68,8 @@ class MainViewController: UIViewController {
 		if notification.name.rawValue == "ToggleAuthUINotification" {
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				print(userInfo)
-                print(GIDSignIn.sharedInstance()?.currentUser)
+				//print(userInfo)
+                //print(GIDSignIn.sharedInstance()?.currentUser)
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
 
