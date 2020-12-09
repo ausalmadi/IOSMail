@@ -44,12 +44,10 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
-			cell.tableLabel.text = self.mail?[indexPath.row].emailSubject
-			//cell.tableDateLabel.text = self.manager.messages[indexPath.row].date
-			//cell.tableSubjectLabel.text = self.manager.messages[indexPath.row].getSubject()
-            //cell.tableLabel.text = self.data[indexPath.row]
-            //cell.tableDateLabel.text = self.date[indexPath.row]
-            //cell.tableSubjectLabel.text = self.subject[indexPath.row]
+            cell.tableLabel.text = self.data[indexPath.row]
+            cell.tableDateLabel.text = self.date[indexPath.row]
+            cell.tableSubjectLabel.text = self.subject[indexPath.row]
+
             return cell
         }
         return TableViewCell()

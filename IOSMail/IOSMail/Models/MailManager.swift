@@ -70,7 +70,7 @@ class MailManager{
 			emailData.messageID = m.messageID ?? ""
             RealmService.shared.create(emailData)
            
-        } else{
+          } else {
           
           }
     }

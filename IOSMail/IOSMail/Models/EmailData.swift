@@ -2,7 +2,7 @@
 //  EmailData.swift
 //  iosMail
 //
-//  Created by student on 2020-11-30.
+//  Created by Aus on 2020-11-30.
 //
 
 import Foundation
