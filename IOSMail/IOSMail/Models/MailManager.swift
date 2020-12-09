@@ -11,25 +11,14 @@ import RealmSwift
 import GoogleAPIClientForREST
 
 class MailManager{
-
-//	let INBOX = "INBOX" // Constants for default mail folders
-//	let SENT = "SENT"
-//	let DRAFT = "DRAFT"
    
-    var mailBox = "SENT"
-    //let realm = RealmService.shared.realm
-    
-
+    var mailBox = "DRAFT"
 	var messages = [MailData]() // Messages array
+    var messageList = [GTLRGmail_Message]()
+    var tbview : UITableView? = nil
+    let gmailService = GTLRGmailService.init() // initialize mail service
 	static let shared = MailManager() // Setting up shared instance of Singleton class
-
-	private init(){
-
-	}
-
-	let gmailService = GTLRGmailService.init() // initialize mail service
-	var messageList = [GTLRGmail_Message]()
-	var tbview : UITableView? = nil
+	private init(){ }
 
 	func setMessages(msg : [MailData]){
 		print("setMessages() message count = \(msg.count)")
@@ -50,9 +39,6 @@ class MailManager{
 
 		// set mail service authorizer
 		gmailService.authorizer = authorizer
-		//gmailService.shouldFetchNextPages = true
-		//listQuery.maxResults = 5 // set max results to return
-
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
@@ -64,9 +50,6 @@ class MailManager{
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
-    
-      
-            //RealmService.shared.delete(emailData)
             
           if (m.subject != emailData.emailSubject){
             emailData.emailSubject = m.subject ?? ""
@@ -77,14 +60,9 @@ class MailManager{
             emailData.emaiTime = m.time ?? ""
             RealmService.shared.create(emailData)
            
-        } else{
-          
+          } else {
           
           }
-       
-           
-
-      
     }
     
    func dataFactory(_ m: MailData) {
@@ -114,17 +92,15 @@ class MailManager{
 		var msgtime : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
-		messagesResponse.messages!.forEach({ (msg) in
+		messagesResponse.messages?.forEach({ (msg) in
 		let query = GTLRGmailQuery_UsersMessagesGet.query(withUserId: "me", identifier: msg.identifier!)
 		gmailService.executeQuery(query) { [self] (ticket, response, error) in
 			if response != nil {
 				self.messageList.append(response as! GTLRGmail_Message)
-
 				do {
 					try self.messageList.forEach { (message) in
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
-
 							if head.name=="Date" {
 								let tempdate = self.base64urlToBase64(base64url: head.value ?? "default value")
 								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
@@ -149,17 +125,10 @@ class MailManager{
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
-							//var htmlData = try NSAttributedString(data: data, documentAttributes: nil)
-							//htmlData.data()
-							//print(htmlData)
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
                             dataFactory(m)
-                            
-                           
-							   
 						}
 						} else { return }
-
 					}
 
 				}catch {
@@ -172,20 +141,14 @@ class MailManager{
 				print(error as Any)
 			}
 		}
-
 		})
-
 	}
 
 	func base64urlToBase64(base64url: String) -> String {
 		var base64 = base64url
 			.replacingOccurrences(of: "-", with: "+")
 			.replacingOccurrences(of: "_", with: "/")
-		if base64.count % 4 != 0 {
-			base64.append(String(repeating: "=", count: 4 - base64.count % 4))
-		}
 		return base64
 	}
-
 }
 

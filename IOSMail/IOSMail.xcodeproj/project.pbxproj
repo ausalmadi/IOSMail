@@ -10,7 +10,6 @@
 		362444DA256C56E300838B12 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362444D9256C56E300838B12 /* String.swift */; };
 		365CF5902551EAE400954DDD /* MailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF58F2551EAE400954DDD /* MailData.swift */; };
 		365CF5932551F09F00954DDD /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5922551F09F00954DDD /* MailManager.swift */; };
-		36A50CAE2567679800D2F0A2 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A50CAD2567679800D2F0A2 /* Singleton.swift */; };
 		3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */; };
 		3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671772548AF8C00A4DD92 /* SettingViewController.swift */; };
 		3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717A2548AFA100A4DD92 /* SentViewController.swift */; };
@@ -28,10 +27,12 @@
 		3FB7FED42566F798002F4E20 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7FED32566F798002F4E20 /* RealmService.swift */; };
 		520399502564556C007C9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5203994F2564556B007C9707 /* GoogleService-Info.plist */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
+		52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF3AC257AA5C000222E17 /* DraftViewController.swift */; };
 		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
 		8D5A7EDF2567019500245027 /* Draft.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5A7EDE2567019500245027 /* Draft.storyboard */; };
 		D211F649441BDF5D62650573 /* Pods_iosMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19B84B75AAAB9A27E87DD8D /* Pods_iosMail.framework */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,6 @@
 		362444D9256C56E300838B12 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		365CF58F2551EAE400954DDD /* MailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailData.swift; sourceTree = "<group>"; };
 		365CF5922551F09F00954DDD /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
-		36A50CAD2567679800D2F0A2 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		3F2671772548AF8C00A4DD92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3F26717A2548AFA100A4DD92 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -57,14 +57,17 @@
 		3F661D9D2575AAD4007E0DD9 /* EmailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailData.swift; sourceTree = "<group>"; };
 		3F8D295B2549BCD900434B99 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		3F8D295C2549BCD900434B99 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+
 		3FB7FED32566F798002F4E20 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		5203994F2564556B007C9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
+		52DEF3AC257AA5C000222E17 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		6B18959A1C8B74B8F3CB6828 /* Pods-iosMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.release.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.release.xcconfig"; sourceTree = "<group>"; };
 		8D5A7EDE2567019500245027 /* Draft.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Draft.storyboard; sourceTree = "<group>"; };
 		A19B84B75AAAB9A27E87DD8D /* Pods_iosMail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosMail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				D211F649441BDF5D62650573 /* Pods_iosMail.framework in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +99,6 @@
 				365CF5922551F09F00954DDD /* MailManager.swift */,
 				52E37FC12566A14300101A46 /* Settings.swift */,
 				3FB7FED32566F798002F4E20 /* RealmService.swift */,
-				36A50CAD2567679800D2F0A2 /* Singleton.swift */,
 				3F661D9D2575AAD4007E0DD9 /* EmailData.swift */,
 			);
 			path = Models;
@@ -104,11 +108,12 @@
 			isa = PBXGroup;
 			children = (
 				3F565743253E3673002E5031 /* MainViewController.swift */,
-				3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */,
-				3F2671772548AF8C00A4DD92 /* SettingViewController.swift */,
-				3F26717A2548AFA100A4DD92 /* SentViewController.swift */,
-				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
 				3F26718B2548B1A300A4DD92 /* HomeViewController.swift */,
+				3F26717A2548AFA100A4DD92 /* SentViewController.swift */,
+				52DEF3AC257AA5C000222E17 /* DraftViewController.swift */,
+				3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */,
+				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
+				3F2671772548AF8C00A4DD92 /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,8 +124,10 @@
 				362444D4256C56AA00838B12 /* Extensions */,
 				3F56573E253E3673002E5031 /* IOSMail */,
 				3F56573D253E3673002E5031 /* Products */,
+
 				CA0BE086621AA883DFBA4CA0 /* Pods */,
 				F6D75FC7493308860679C143 /* Frameworks */,
+
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +142,7 @@
 		3F56573E253E3673002E5031 /* IOSMail */ = {
 			isa = PBXGroup;
 			children = (
+
 				3F56573F253E3673002E5031 /* AppDelegate.swift */,
 				3F565741253E3673002E5031 /* SceneDelegate.swift */,
 				3F8D295A2549BC8800434B99 /* View */,
@@ -158,6 +166,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+
 		5203996F2564574A007C9707 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +201,7 @@
 				A19B84B75AAAB9A27E87DD8D /* Pods_iosMail.framework */,
 			);
 			name = Frameworks;
+
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,12 +211,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F565750253E3677002E5031 /* Build configuration list for PBXNativeTarget "iosMail" */;
 			buildPhases = (
+
 				F596E2BB5E73D953ED9E7917 /* [CP] Check Pods Manifest.lock */,
 				3F565738253E3673002E5031 /* Sources */,
 				3F565739253E3673002E5031 /* Frameworks */,
 				3F56573A253E3673002E5031 /* Resources */,
 				226F6268139DCDE6B6888C1E /* [CP] Embed Pods Frameworks */,
 				A61766E27B44862D248DBBE5 /* [CP] Copy Pods Resources */,
+
 			);
 			buildRules = (
 			);
@@ -261,6 +273,7 @@
 				522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */,
 				8D5A7EDF2567019500245027 /* Draft.storyboard in Resources */,
 				52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */,
+
 				3F565747253E3673002E5031 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +281,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
 		226F6268139DCDE6B6888C1E /* [CP] Embed Pods Frameworks */ = {
+
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -335,6 +350,7 @@
 				3F565740253E3673002E5031 /* AppDelegate.swift in Sources */,
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
+				52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */,
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
 				365CF5902551EAE400954DDD /* MailData.swift in Sources */,
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
@@ -345,7 +361,6 @@
 				365CF5932551F09F00954DDD /* MailManager.swift in Sources */,
 				3F661D9E2575AAD4007E0DD9 /* EmailData.swift in Sources */,
 				362444DA256C56E300838B12 /* String.swift in Sources */,
-				36A50CAE2567679800D2F0A2 /* Singleton.swift in Sources */,
 				3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,6 @@ class SettingViewController: MainViewController {
     var settings: Results<Settings>?
     var noOfEmails: Int = 1
     
-    
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var signatureTextView: UITextView!
     @IBOutlet weak var stateSwitch: UISwitch!
@@ -25,11 +24,9 @@ class SettingViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stepperLabel.text! = "0"
-        loadSettings()
+        stepperLabel.text! = "1"
         signatureOn(stateSwitch)
-        
-
+        loadSettings()
     }
     
     @IBAction func signatureOn(_ sender: UISwitch) {
@@ -37,7 +34,6 @@ class SettingViewController: MainViewController {
         if stateSwitch.isOn {
             addSigLabel.text = "Add Signature to eMail"
             stateSwitch.setOn(true, animated:true)
-
         } else {
             addSigLabel.text = "Don't Add Signature to Email"
             stateSwitch.setOn(false, animated:true)
@@ -47,14 +43,12 @@ class SettingViewController: MainViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         createSettings()
         dismiss(animated: true, completion: nil)
-        }
-    
+    }
     
     @IBAction func stepperCount(_ sender: UIStepper) {
         stepperLabel.text = String(format: "%.0f", sender.value)
         noOfEmails = Int(sender.value)
     }
-    
     
     //MARK: - Setting functions & options
     
@@ -64,9 +58,7 @@ class SettingViewController: MainViewController {
         newSettings.signatureLine = signatureTextView.text!
         newSettings.useSignature = stateSwitch.isOn
         newSettings.emailCount = Int(stepperLabel.text!) ?? 1
-
         RealmService.shared.create(newSettings)
-
     }
     
     func updateSettings(){
@@ -76,14 +68,17 @@ class SettingViewController: MainViewController {
         
         settings = realm.objects(Settings.self)
         settings = settings?.sorted(byKeyPath: "dateUpdated", ascending: false)
-        
         let loadSet = settings
         emailAddress.text! = loadSet?.first?.emailReply.self ?? ""
         signatureTextView.text! = loadSet?.first?.signatureLine.self ?? ""
         stateSwitch.isOn = loadSet?.first?.useSignature.self ?? false
-        let step = loadSet?.first?.emailCount.self
-        stepperLabel.text! = String(step!)
-//        print(loadSet!)
+        if let step = loadSet?.first?.emailCount.self {
+            do {
+                try self.stepperLabel.text! = String(step)
+            } catch {
+                self.stepperLabel.text! = String(noOfEmails)
+            }
+        }
     }
     
     func deleteSettings() {

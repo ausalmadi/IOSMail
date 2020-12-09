@@ -24,5 +24,3 @@ struct MailData {
         return self.body!
     }
 }
-
-

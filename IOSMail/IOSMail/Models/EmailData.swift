@@ -2,7 +2,7 @@
 //  EmailData.swift
 //  iosMail
 //
-//  Created by student on 2020-11-30.
+//  Created by Aus on 2020-11-30.
 //
 
 import Foundation
@@ -24,5 +24,4 @@ class EmailData: Object {
     @objc dynamic var sendDate: String? = ""
     @objc dynamic var emailRead: Bool = false
     @objc dynamic var emailSent: Bool = false
-  
 }
