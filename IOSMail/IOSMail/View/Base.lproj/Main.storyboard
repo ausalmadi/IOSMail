@@ -143,7 +143,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="eMails" id="oik-u9-JlX">
                         <rightBarButtonItems>
-                            <barButtonItem style="plain" systemItem="stop" id="kmi-v6-e4q">
+                            <barButtonItem systemItem="stop" id="kmi-v6-e4q">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </barButtonItem>
                             <barButtonItem systemItem="compose" id="qde-fn-OUn">
@@ -341,7 +341,7 @@ Email@address.com</string>
                                     <action selector="saveButtonPressed:" destination="CGJ-p8-LON" eventType="touchUpInside" id="SH2-46-pba"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many emails to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-qq-Lrm">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many emails to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-qq-Lrm">
                                 <rect key="frame" x="20" y="276" width="211" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -869,8 +869,8 @@ Email@address.com</string>
                                                         <action selector="stepperCount:" destination="Fjm-4g-lRS" eventType="valueChanged" id="D6f-XW-1Vr"/>
                                                     </connections>
                                                 </stepper>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmg-GU-MUi" userLabel="emailLabel">
-                                                    <rect key="frame" x="260" y="10" width="30" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmg-GU-MUi" userLabel="emailLabel">
+                                                    <rect key="frame" x="260" y="10" width="30" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="MenuBar"/>
                                                     <nil key="highlightedColor"/>
@@ -879,8 +879,11 @@ Email@address.com</string>
                                             <constraints>
                                                 <constraint firstItem="2PL-pC-kW0" firstAttribute="leading" secondItem="Sdy-Xk-scj" secondAttribute="leading" constant="20" symbolic="YES" id="7gC-n1-8d4"/>
                                                 <constraint firstItem="73r-AS-0ZK" firstAttribute="centerY" secondItem="Sdy-Xk-scj" secondAttribute="centerY" id="9FH-L6-TIS"/>
+                                                <constraint firstItem="hmg-GU-MUi" firstAttribute="centerY" secondItem="Sdy-Xk-scj" secondAttribute="centerY" id="Es6-oS-ejf"/>
+                                                <constraint firstItem="hmg-GU-MUi" firstAttribute="top" secondItem="Sdy-Xk-scj" secondAttribute="topMargin" constant="-1" id="UY9-bw-YS4"/>
                                                 <constraint firstItem="73r-AS-0ZK" firstAttribute="leading" secondItem="hmg-GU-MUi" secondAttribute="trailing" constant="10" id="lLI-XC-ckH"/>
                                                 <constraint firstAttribute="trailing" secondItem="73r-AS-0ZK" secondAttribute="trailing" constant="20" id="pse-FH-UmU"/>
+                                                <constraint firstItem="hmg-GU-MUi" firstAttribute="leading" secondItem="2PL-pC-kW0" secondAttribute="trailing" constant="59" id="ucY-g9-kxg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
