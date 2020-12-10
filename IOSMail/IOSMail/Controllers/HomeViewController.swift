@@ -31,10 +31,13 @@ class HomeViewController: UIViewController {
     let realm = RealmService.shared.realm
        var mail: Results<EmailData>?
 
-    override func viewDidLoad() {
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		manager.listMessages(tableview: tableView, folder: "INBOX") // manager.mailBox)
+	}
+	override func viewDidLoad() {
 		super.viewDidLoad()
         mail = realm.objects(EmailData.self)
-        manager.listMessages(tableview: tableView, folder: "DRAFT") // manager.mailBox)
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
@@ -89,7 +92,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return mail?.count ?? 1
+       return mail?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

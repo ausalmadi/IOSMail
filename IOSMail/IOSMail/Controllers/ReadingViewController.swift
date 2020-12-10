@@ -39,7 +39,7 @@ class ReadingViewController: MainViewController {
 		msgBody.text = message.emailBody
 		msgSubject.text = message.emailSubject
 		msgFrom.text = message.fromSender
-		msgDate.text = message.emailDate
+		//msgDate.text = message.emailDate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
