@@ -141,13 +141,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tray.and.arrow.down" catalog="system" id="wU6-fG-CHd">
-                                        <rect key="frame" x="0.0" y="2.5" width="34.5" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="34" height="30.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PEI-Md-saM">
-                                        <rect key="frame" x="34.5" y="0.0" width="90.5" height="36"/>
+                                        <rect key="frame" x="34" y="0.0" width="91" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -209,8 +209,11 @@
                                 <rect key="frame" x="20" y="64" width="374" height="768"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjo-dh-biu">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="351"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="193"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="193" id="t47-LK-7FS"/>
+                                        </constraints>
                                         <items>
                                             <barButtonItem title="Reply" image="arrowshape.turn.up.left" catalog="system" id="md3-jW-zsu">
                                                 <color key="tintColor" systemColor="systemBlueColor"/>
@@ -248,16 +251,16 @@
                                         <color key="barTintColor" systemColor="systemBackgroundColor"/>
                                     </toolbar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t07-GR-8bd" userLabel="TheSubjectAndAddresStack View">
-                                        <rect key="frame" x="0.0" y="381" width="374" height="118"/>
+                                        <rect key="frame" x="0.0" y="223" width="374" height="276"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="The Place Holder For The Email Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-eC-Zku">
-                                                <rect key="frame" x="0.0" y="0.0" width="361.5" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="The Place Holder For The Email Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-eC-Zku">
+                                                <rect key="frame" x="0.0" y="0.0" width="361.5" height="192"/>
                                                 <color key="textColor" red="0.10996169295302349" green="0.33106897655684675" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-35-ITq">
-                                                <rect key="frame" x="0.0" y="42" width="157.5" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-35-ITq">
+                                                <rect key="frame" x="0.0" y="200" width="157.5" height="34"/>
                                                 <string key="placeholder" base64-UTF8="YES">
 FlRlc3RAVGVzdC5jb20
 </string>
@@ -265,8 +268,8 @@ FlRlc3RAVGVzdC5jb20
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyX-tJ-83A">
-                                                <rect key="frame" x="0.0" y="84" width="157.5" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyX-tJ-83A">
+                                                <rect key="frame" x="0.0" y="242" width="157.5" height="34"/>
                                                 <string key="placeholder" base64-UTF8="YES">
 FlRlc3RAVGVzdC5jb20
 </string>
@@ -282,12 +285,34 @@ Fk1zZyBEYXRlA
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-UC-0fb">
                                         <rect key="frame" x="0.0" y="529" width="374" height="239"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="239" id="2Yd-4z-bAf"/>
+                                        </constraints>
                                         <string key="text">     Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbq-XZ-hOP">
+                                        <rect key="frame" x="0.0" y="640" width="374" height="128"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="nIv-te-xie"/>
+                                        </constraints>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="jhM-UC-0fb" firstAttribute="top" secondItem="t07-GR-8bd" secondAttribute="bottom" constant="30" id="Fyt-IS-LZb"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="vbq-XZ-hOP"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1vh-Om-QkV"/>
@@ -305,10 +330,9 @@ Fk1zZyBEYXRlA
                     <navigationItem key="navigationItem" id="fi9-9W-Qtd"/>
                     <connections>
                         <outlet property="msgBody" destination="jhM-UC-0fb" id="dLF-W0-eyV"/>
-                        <outlet property="msgDate" destination="oyX-tJ-83A" id="ZyJ-ye-zw5"/>
+                        <outlet property="msgBodyHTML" destination="vbq-XZ-hOP" id="KCO-b1-bGl"/>
                         <outlet property="msgFrom" destination="inV-35-ITq" id="edj-Gd-Tx1"/>
                         <outlet property="msgSubject" destination="OhR-eC-Zku" id="ElY-Jd-3xJ"/>
-                        <segue destination="ZYt-K6-SDN" kind="show" identifier="ReaderToCompose" id="axQ-uO-rOZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c73-Id-g3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -358,14 +382,14 @@ Fk1zZyBEYXRlA
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAc-iJ-PL9">
-                                <rect key="frame" x="20" y="325" width="73" height="21"/>
+                                <rect key="frame" x="20" y="275" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8xC-Gx-4pf" userLabel="Signature Text View">
-                                <rect key="frame" x="20" y="354" width="363" height="100"/>
+                                <rect key="frame" x="20" y="304" width="363" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">First &amp;Last Names
@@ -805,9 +829,6 @@ Email@address.com</string>
             <point key="canvasLocation" x="4833" y="-29"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="yZw-hY-6XE"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>

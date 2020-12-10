@@ -15,6 +15,7 @@ struct MailData {
     let body : String?
     let date : String?
     let time : String?
+	let messageID : String?
 
     func getSubject() -> String?{
         return self.subject!
