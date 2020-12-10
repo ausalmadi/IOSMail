@@ -25,12 +25,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
   	@IBOutlet var inboxTitle: UILabel!
-	  @IBOutlet var inbox: UITableView!
-	  @IBOutlet weak var sb: UISearchBar!
+	@IBOutlet var inbox: UITableView!
+	@IBOutlet weak var sb: UISearchBar!
 
-    let realm = RealmService.shared.realm
-       var mail: Results<EmailData>?
+	// to access realm database instance
+	let realm = RealmService.shared.realm
+	var mail: Results<EmailData>?
 
+	// Load messages before screen actually appears
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
 		manager.listMessages(tableview: tableView, folder: "INBOX") // manager.mailBox)
@@ -61,12 +63,14 @@ class HomeViewController: UIViewController {
           object: nil)
     }
 
+	// Override closing method to sign out user from google servers
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
 
 		GIDSignIn.sharedInstance().signOut()
 	}
 
+	// prepare next View Controller before Segue to it
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
@@ -76,7 +80,7 @@ class HomeViewController: UIViewController {
 		print(segue.identifier as Any)
 	}
 	
-//MARK: Notification method
+//MARK: Notification methods
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
 		if notification.name.rawValue == "ToggleAuthUINotification" {
 			if notification.userInfo != nil {
@@ -87,7 +91,6 @@ class HomeViewController: UIViewController {
 }
 
 //MARK: Tableview delegate and datasource
-
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
