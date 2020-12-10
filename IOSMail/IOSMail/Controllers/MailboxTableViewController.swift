@@ -16,13 +16,14 @@ class MailboxTableViewController: UITableViewController {
 	@IBOutlet var labels: UITableView!
 
 	override func viewWillAppear(_ animated: Bool) {
-		manager.listLabels(tableview: labels)
 	}
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		mailBoxesArray = manager.labels
-		labels.reloadData()
+		manager.listLabels(tableview: labels)
+		labels.reloadData() // Reload tableview data for Labels/Folders
     }
 
 

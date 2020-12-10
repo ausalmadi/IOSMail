@@ -29,7 +29,7 @@ class MailManager{
 
 	let gmailService = GTLRGmailService.init() // initialize mail service
 
-	var tbview : UITableView? = nil
+	var tbview : UITableView?// = nil
 
 	func setMessages(msg : [MailData]){
 		print("setMessages() message count = \(msg.count)")
@@ -54,11 +54,12 @@ class MailManager{
 		// set mail service authorizer
 		gmailService.authorizer = authorizer
 		//gmailService.shouldFetchNextPages = true
-		//listQuery.maxResults = 5 // set max results to return
+		listQuery.maxResults = 1 // set max results to return
 
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
+				self.tbview?.reloadData()
 
 			} else {
 				print("Error: ")
@@ -87,12 +88,12 @@ class MailManager{
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getLabels(response: response as! GTLRGmail_ListLabelsResponse)
-
+				self.tbview!.reloadData()
 			} else {
 				print("Error: ")
 				print(error as Any)
 			}
-			self.tbview!.reloadData()
+
 		}
 
 	}
@@ -115,6 +116,7 @@ class MailManager{
 				do {
 					try messageList.forEach { (message) in
 						//get the body of the email and decode it
+						print(message.payload!.jsonString())
 						message.payload!.headers?.forEach {( head) in
 
 							if head.name=="Date" {
@@ -146,11 +148,11 @@ class MailManager{
 							//print(htmlData)
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
 							self.messages.append(m)
-
+							
 						}
 
 						} else { return }
-						tbview?.reloadData()
+						//
 					}
 
 				}catch {
@@ -190,11 +192,11 @@ class MailManager{
 				}
 
 			}
-			tbview?.reloadData()
+			//
 		}
 
-
 			)
+		tbview?.reloadData()
 
 
 

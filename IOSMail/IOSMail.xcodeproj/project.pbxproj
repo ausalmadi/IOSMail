@@ -37,7 +37,6 @@
 
 /* Begin PBXFileReference section */
 		191EC92E51B8C9755BC8D40C /* Pods-iosMail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.debug.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.debug.xcconfig"; sourceTree = "<group>"; };
-		36159F20254B5B1C00C80D97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		362444D9256C56E300838B12 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		365CF58F2551EAE400954DDD /* MailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailData.swift; sourceTree = "<group>"; };
 		365CF5922551F09F00954DDD /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
@@ -361,7 +360,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F565746253E3673002E5031 /* Base */,
-				36159F20254B5B1C00C80D97 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
