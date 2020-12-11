@@ -35,14 +35,33 @@ class MailManager{
 	func settbView(_tbview : UITableView) {
 		self.tbview? = _tbview
 	}
-	
+
+	/*
+	DESCRIPTION:
+	listMessages(tableview)
+
+	Parameters:
+	tableview -> UITableView object to add items to
+	*/
+	func listMessages(tableview :UITableView){
+		listMessages(tableview: tableview, folder: mailBox)
+	}
+
+	/*
+	DESCRIPTION:
+	listMessages(tableview, folder)
+
+	Parameters:
+	tableview -> UITableView object to add items to
+	folder -> String with folder to grab items from
+	*/
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
 		messages.removeAll()
 		mail = realm.objects(EmailData.self)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		//listQuery.maxResults = 10
+		listQuery.maxResults = 20
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -190,17 +209,17 @@ class MailManager{
 
 	func checkForDuplicates(data: MailData){
 		if mail!.count == 0 {
-			print("adding message")
+			//print("adding message")
 			self.dataFactory(data)
 			return
 		}
 		//mail?.forEach { (msg) in
 			if self.mail!.contains(where: {$0.messageID == data.messageID}) {
 			//if msg.messageID == data.messageID {
-				print("Duplicate message \(data.messageID!)")
+				//print("Duplicate message \(data.messageID!)")
 				return
 			} else {
-				print("added message \(data.messageID!)")
+				//print("added message \(data.messageID!)")
 				self.dataFactory(data)
 			}
 
