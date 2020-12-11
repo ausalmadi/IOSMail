@@ -141,13 +141,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tray.and.arrow.down" catalog="system" id="wU6-fG-CHd">
-                                        <rect key="frame" x="0.0" y="2.5" width="34" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="34.5" height="30.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PEI-Md-saM">
-                                        <rect key="frame" x="34" y="0.0" width="91" height="36"/>
+                                        <rect key="frame" x="34.5" y="0.0" width="90.5" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -333,12 +333,12 @@ Fk1zZyBEYXRlA
                         <outlet property="msgBodyHTML" destination="vbq-XZ-hOP" id="KCO-b1-bGl"/>
                         <outlet property="msgFrom" destination="inV-35-ITq" id="edj-Gd-Tx1"/>
                         <outlet property="msgSubject" destination="OhR-eC-Zku" id="ElY-Jd-3xJ"/>
-                        <segue destination="ZYt-K6-SDN" kind="show" identifier="ReaderToCompose" id="9mP-HR-ymX"/>
+                        <segue destination="ZYt-K6-SDN" kind="show" identifier="ReaderToCompose" id="7dH-hI-oUV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c73-Id-g3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="-311"/>
+            <point key="canvasLocation" x="2095.6521739130435" y="-415.17857142857139"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Fwb-go-SRW">
@@ -505,7 +505,7 @@ Email@address.com</string>
         <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
             <objects>
-                <viewController storyboardIdentifier="ReaderToCompose" id="ZYt-K6-SDN" userLabel="Composing View Controller" customClass="ComposingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZYt-K6-SDN" userLabel="Composing View Controller" customClass="ComposingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ouc-XD-tq2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -831,7 +831,7 @@ Email@address.com</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9mP-HR-ymX"/>
+        <segue reference="7dH-hI-oUV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
