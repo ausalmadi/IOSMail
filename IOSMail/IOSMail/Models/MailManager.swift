@@ -68,6 +68,8 @@ class MailManager{
 
 		// set mail service authorizer
 		gmailService.authorizer = authorizer
+
+		// execute the search of gmail messages
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
@@ -77,7 +79,6 @@ class MailManager{
 			}
 
 		}
-		//self.checkForDuplicates()
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
@@ -168,18 +169,10 @@ class MailManager{
 						if let data = Data(base64Encoded: mail) {
 
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
-							//if make == false{
 
-								self.messages.append(m)
+							self.messages.append(m)
 							checkForDuplicates(data: m)
-							//	dataFactory(m)
-							//} else {
-								//self.messages.appe
-								//print("message id does not exist")
-								//print(m)
-								//dataFactory(m)
-							//}
-						}
+													}
 
 						} else { return }
 					}
@@ -187,18 +180,8 @@ class MailManager{
 				}catch {
 					print(error as Any)
 				}
-				//print("msglist1")
-//				messages.forEach { (msg ) in
-//
-//					print("1 -> \(msg.messageID)")
-//				}
-//				//print("msglist2")
-//				mail?.forEach({ (msg2) in
-//					print("2 -> \(msg2.messageID)")
-//
-//				})
+
 				self.tbview!.reloadData()
-				//tbview!.reloadInputViews()
 			} else {
 				print("Error: ")
 				print(error as Any)
@@ -206,6 +189,13 @@ class MailManager{
 		}
 		})
 	}
+
+	/**
+		checkForDuplicates(data: MailData)
+
+	Parameters:
+	'data'  instance of MailData class to check
+	*/
 
 	func checkForDuplicates(data: MailData){
 		if mail!.count == 0 {
