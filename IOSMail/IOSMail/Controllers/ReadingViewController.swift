@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 class ReadingViewController: MainViewController {
 
@@ -14,6 +15,7 @@ class ReadingViewController: MainViewController {
     var  isReply: Bool = false
 	var message = EmailData()
 
+	@IBOutlet weak var msgBodyHTML: WKWebView!
 	@IBOutlet weak var msgBody: UITextView!
 	@IBOutlet weak var msgSubject: UITextField!
 	@IBOutlet weak var msgFrom: UITextField!
@@ -31,6 +33,7 @@ class ReadingViewController: MainViewController {
     }
 
 	func setMessage(msg : EmailData){
+		// sets local message from previous View controller
 		self.message = msg
 	}
     
@@ -39,7 +42,9 @@ class ReadingViewController: MainViewController {
 		msgBody.text = message.emailBody
 		msgSubject.text = message.emailSubject
 		msgFrom.text = message.fromSender
-		msgDate.text = message.emailDate
+		//msgBodyHTML.loadHTMLString(message.emailBody!, baseURL: nil)
+		//TODO: something seems to be missing this data below, as it keeps crashing app
+		//msgDate.text = message.emailDate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

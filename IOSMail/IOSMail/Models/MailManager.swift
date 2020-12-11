@@ -18,6 +18,10 @@ class MailManager{
     var tbview : UITableView? = nil
     let gmailService = GTLRGmailService.init() // initialize mail service
 	static let shared = MailManager() // Setting up shared instance of Singleton class
+
+	let realm = RealmService.shared.realm
+	var mail: Results<EmailData>?
+	
 	private init(){ }
 
 	func setMessages(msg : [MailData]){
@@ -29,10 +33,12 @@ class MailManager{
 		self.tbview? = _tbview
 	}
 	
-	func listInboxMessages(tableview:UITableView, folder : String) {
+	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
+		mail = realm.objects(EmailData.self)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
+		//listQuery.maxResults = 2
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -46,23 +52,29 @@ class MailManager{
 				print("Error: ")
 				print(error as Any)
 			}
+
 		}
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
-            
-          if (m.subject != emailData.emailSubject){
+		//print(emailData.messageID)
+		//print(m.messageID)
+		//print(emailData.messageID { $0.messageID.isSubset(of:m.messageID) })
+		//if (emailData.messageID.range(of: m.messageID!) != nil){
+		//if (m.messageID != emailData.messageID) {
+		//if (m.subject != emailData.emailSubject){
             emailData.emailSubject = m.subject ?? ""
             emailData.fromSender = m.from ?? ""
             emailData.toRecepiant = m.to ?? ""
             emailData.emailBody = m.body ?? ""
             emailData.emailDate = m.date ?? ""
             emailData.emaiTime = m.time ?? ""
+			emailData.messageID = m.messageID ?? ""
             RealmService.shared.create(emailData)
            
-          } else {
+          //} else {
           
-          }
+          //}
     }
     
    func dataFactory(_ m: MailData) {
@@ -84,12 +96,13 @@ class MailManager{
     }
     
     func getFirstMessageIdFromMessages(response: GTLRGmail_ListMessagesResponse) {
-        
+		//print(response.jsonString())
 		var from : String = ""
 		var to : String = ""
 		var date : String = ""
 		var subject : String = ""
 		var msgtime : String = ""
+		var mID : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages?.forEach({ (msg) in
@@ -99,8 +112,12 @@ class MailManager{
 				self.messageList.append(response as! GTLRGmail_Message)
 				do {
 					try self.messageList.forEach { (message) in
+						//print(message.jsonString())
+						print(message.identifier!)
+						mID = message.identifier!
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
+
 							if head.name=="Date" {
 								let tempdate = self.base64urlToBase64(base64url: head.value ?? "default value")
 								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
@@ -119,23 +136,44 @@ class MailManager{
 					}
 				}
 
-						guard let message2 = message.payload!.parts?[0] else
+						guard let message2 = message.payload!.parts?[1] else
 						{return }
 						if (message2.body!.data != nil) {
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
-							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime)
-                            dataFactory(m)
+							//let make = self.messages.contains {$0.messageID == mID}
+							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+							//if make == false{
+
+								self.messages.append(m)
+								dataFactory(m)
+							//} else {
+								//self.messages.appe
+								//print("message id does not exist")
+								//print(m)
+								//dataFactory(m)
+							//}
 						}
+
 						} else { return }
 					}
-
+					//self.tbview!.reloadData()
 				}catch {
 					print(error as Any)
 				}
-
-				tbview!.reloadData()
+				//print("msglist1")
+//				messages.forEach { (msg ) in
+//
+//					print("1 -> \(msg.messageID)")
+//				}
+//				//print("msglist2")
+//				mail?.forEach({ (msg2) in
+//					print("2 -> \(msg2.messageID)")
+//
+//				})
+				self.tbview!.reloadData()
+				//tbview!.reloadInputViews()
 			} else {
 				print("Error: ")
 				print(error as Any)
@@ -145,7 +183,7 @@ class MailManager{
 	}
 
 	func base64urlToBase64(base64url: String) -> String {
-		var base64 = base64url
+		let base64 = base64url
 			.replacingOccurrences(of: "-", with: "+")
 			.replacingOccurrences(of: "_", with: "/")
 		return base64

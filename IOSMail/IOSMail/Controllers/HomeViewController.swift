@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
 	var messages = [MailData]()
 	var messageList = [GTLRGmail_Message]()
 	var manager = MailManager.shared
-    var inboxText : String = "Inbox"
+    var inboxText : String = "Draft"
     var index : Int = 0
     
     let gmailService = GTLRGmailService.init()
@@ -25,16 +25,21 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
   	@IBOutlet var inboxTitle: UILabel!
-	  @IBOutlet var inbox: UITableView!
-	  @IBOutlet weak var sb: UISearchBar!
+	@IBOutlet var inbox: UITableView!
+	@IBOutlet weak var sb: UISearchBar!
 
-    let realm = RealmService.shared.realm
-       var mail: Results<EmailData>?
+	// to access realm database instance
+	let realm = RealmService.shared.realm
+	var mail: Results<EmailData>?
 
-    override func viewDidLoad() {
+	// Load messages before screen actually appears
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		manager.listMessages(tableview: tableView, folder: "INBOX") // manager.mailBox)
+	}
+	override func viewDidLoad() {
 		super.viewDidLoad()
         mail = realm.objects(EmailData.self)
-        manager.listInboxMessages(tableview: tableView, folder: manager.mailBox)
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
@@ -58,12 +63,14 @@ class HomeViewController: UIViewController {
           object: nil)
     }
 
+	// Override closing method to sign out user from google servers
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
 
 		GIDSignIn.sharedInstance().signOut()
 	}
 
+	// prepare next View Controller before Segue to it
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
@@ -73,7 +80,7 @@ class HomeViewController: UIViewController {
 		print(segue.identifier as Any)
 	}
 	
-//MARK: Notification method
+//MARK: Notification methods
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
 		if notification.name.rawValue == "ToggleAuthUINotification" {
 			if notification.userInfo != nil {
@@ -88,7 +95,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return mail?.count ?? 1
+       return mail?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
