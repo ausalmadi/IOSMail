@@ -11,7 +11,10 @@ import RealmSwift
 import GoogleAPIClientForREST
 
 class MailManager{
-   
+
+	let HTMLMessage = 1
+	let PlainMessage = 0
+	 
     var mailBox = "DRAFT"
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
@@ -136,7 +139,7 @@ class MailManager{
 					}
 				}
 
-						guard let message2 = message.payload!.parts?[1] else
+						guard let message2 = message.payload!.parts?[self.HTMLMessage] else
 						{return }
 						if (message2.body!.data != nil) {
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
