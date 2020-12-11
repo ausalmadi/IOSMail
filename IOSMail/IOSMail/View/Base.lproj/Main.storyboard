@@ -333,11 +333,12 @@ Fk1zZyBEYXRlA
                         <outlet property="msgBodyHTML" destination="vbq-XZ-hOP" id="KCO-b1-bGl"/>
                         <outlet property="msgFrom" destination="inV-35-ITq" id="edj-Gd-Tx1"/>
                         <outlet property="msgSubject" destination="OhR-eC-Zku" id="ElY-Jd-3xJ"/>
+                        <segue destination="ZYt-K6-SDN" kind="show" identifier="ReaderToCompose" id="9mP-HR-ymX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c73-Id-g3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095.6521739130435" y="-415.17857142857139"/>
+            <point key="canvasLocation" x="2096" y="-311"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Fwb-go-SRW">
@@ -504,7 +505,7 @@ Email@address.com</string>
         <!--Composing View Controller-->
         <scene sceneID="WrO-ac-1VT">
             <objects>
-                <viewController id="ZYt-K6-SDN" userLabel="Composing View Controller" customClass="ComposingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReaderToCompose" id="ZYt-K6-SDN" userLabel="Composing View Controller" customClass="ComposingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ouc-XD-tq2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -829,6 +830,9 @@ Email@address.com</string>
             <point key="canvasLocation" x="4833" y="-29"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9mP-HR-ymX"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
