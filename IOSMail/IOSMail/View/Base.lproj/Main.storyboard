@@ -102,7 +102,11 @@
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="GNa-kt-oPS"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="QBg-nI-RDm"/>
-                                    <barButtonItem style="plain" systemItem="stop" id="kmi-v6-e4q"/>
+                                    <barButtonItem style="plain" systemItem="stop" id="kmi-v6-e4q">
+                                        <connections>
+                                            <action selector="signout:" destination="mfG-TN-pZu" id="BLM-UV-hbX"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="P4a-gg-zaP"/>
                                     <barButtonItem title="Settings" image="gearshape.fill" catalog="system" id="kfU-xx-Mcv">
                                         <connections>
@@ -831,7 +835,7 @@ Email@address.com</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7dH-hI-oUV"/>
+        <segue reference="yZw-hY-6XE"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
     <resources>
