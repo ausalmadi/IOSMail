@@ -39,7 +39,7 @@ class ReadingViewController: MainViewController {
     
 	override func viewDidLoad() {
         super.viewDidLoad()
-		msgBody.text = message.emailBody
+        msgBody.attributedText = message.emailBody!.htmlToAttributedString
 		msgSubject.text = message.emailSubject
 		msgFrom.text = message.fromSender
 		//msgBodyHTML.loadHTMLString(message.emailBody!, baseURL: nil)
@@ -55,5 +55,20 @@ class ReadingViewController: MainViewController {
         vc.subjectFromReader = message.emailSubject as String
 		vc.msgBodyFromReader = message.emailBody! as String
 
+    }
+
+}
+
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return nil
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
     }
 }
