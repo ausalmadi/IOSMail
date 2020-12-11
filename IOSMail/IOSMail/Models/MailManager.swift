@@ -11,7 +11,10 @@ import RealmSwift
 import GoogleAPIClientForREST
 
 class MailManager{
-   
+
+	let HTMLMessage = 1
+	let PlainMessage = 0
+	 
     var mailBox = "DRAFT"
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
@@ -32,13 +35,33 @@ class MailManager{
 	func settbView(_tbview : UITableView) {
 		self.tbview? = _tbview
 	}
-	
+
+	/*
+	DESCRIPTION:
+	listMessages(tableview)
+
+	Parameters:
+	tableview -> UITableView object to add items to
+	*/
+	func listMessages(tableview :UITableView){
+		listMessages(tableview: tableview, folder: mailBox)
+	}
+
+	/*
+	DESCRIPTION:
+	listMessages(tableview, folder)
+
+	Parameters:
+	tableview -> UITableView object to add items to
+	folder -> String with folder to grab items from
+	*/
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
+		messages.removeAll()
 		mail = realm.objects(EmailData.self)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		//listQuery.maxResults = 2
+		listQuery.maxResults = 20
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -54,6 +77,7 @@ class MailManager{
 			}
 
 		}
+		//self.checkForDuplicates()
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
@@ -113,7 +137,7 @@ class MailManager{
 				do {
 					try self.messageList.forEach { (message) in
 						//print(message.jsonString())
-						print(message.identifier!)
+						//print(message.identifier!)
 						mID = message.identifier!
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
@@ -136,18 +160,19 @@ class MailManager{
 					}
 				}
 
-						guard let message2 = message.payload!.parts?[1] else
+						guard let message2 = message.payload!.parts?[self.HTMLMessage] else
 						{return }
 						if (message2.body!.data != nil) {
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
-							//let make = self.messages.contains {$0.messageID == mID}
+
 							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
 							//if make == false{
 
 								self.messages.append(m)
-								dataFactory(m)
+							checkForDuplicates(data: m)
+							//	dataFactory(m)
 							//} else {
 								//self.messages.appe
 								//print("message id does not exist")
@@ -180,6 +205,26 @@ class MailManager{
 			}
 		}
 		})
+	}
+
+	func checkForDuplicates(data: MailData){
+		if mail!.count == 0 {
+			//print("adding message")
+			self.dataFactory(data)
+			return
+		}
+		//mail?.forEach { (msg) in
+			if self.mail!.contains(where: {$0.messageID == data.messageID}) {
+			//if msg.messageID == data.messageID {
+				//print("Duplicate message \(data.messageID!)")
+				return
+			} else {
+				//print("added message \(data.messageID!)")
+				self.dataFactory(data)
+			}
+
+		//}
+		//print("nothing added")
 	}
 
 	func base64urlToBase64(base64url: String) -> String {
