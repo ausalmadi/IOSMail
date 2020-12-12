@@ -32,7 +32,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         if isReplyButtonPressed {
             toField.text = fromReaderEmail
             subjectField.text = "Re: " + subjectFromReader
-            bodyField.text = msgBodyFromReader
+            bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
         } else if isForwardButtonPressed {
             subjectField.text = "FWD: " + subjectFromReader
             bodyField.text = msgBodyFromReader
@@ -129,9 +129,11 @@ extension String {
     var data: Data { Data(utf8) }
     var base64Encoded: Data { data.base64EncodedData() }
     var base64Decoded: Data? { Data(base64Encoded: self) }
+
 }
 
 extension Data {
     var base64Decoded: Data? { Data(base64Encoded: self) }
     var string: String? { String(data: self, encoding: .utf8) }
 }
+
