@@ -23,6 +23,7 @@ class ReadingViewController: MainViewController {
 
     @IBAction func ForwardButtonPressed(_ sender: UIBarButtonItem) {
         isForward = true
+        isReply = false
         self.performSegue(withIdentifier: "ReaderToCompose", sender: self)
     }
     
@@ -53,8 +54,7 @@ class ReadingViewController: MainViewController {
         vc.isForwardButtonPressed = isForward
         vc.isReplyButtonPressed = isReply
         vc.subjectFromReader = message.emailSubject as String
-		vc.msgBodyFromReader = message.emailBody! as String
-
+        vc.msgBodyFromReader = "<br><br><br><div style='color:gray'><p>Original email:</p>\(message.emailBody! as String)</div>"
     }
 
 }
