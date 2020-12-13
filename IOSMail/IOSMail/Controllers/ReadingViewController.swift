@@ -54,9 +54,7 @@ class ReadingViewController: MainViewController {
         vc.isForwardButtonPressed = isForward
         vc.isReplyButtonPressed = isReply
         vc.subjectFromReader = message.emailSubject as String
-		vc.msgBodyFromReader = message.emailBody! as String
-        print("Forward: ", isForward, "Reply: ", isReply)
-
+        vc.msgBodyFromReader = "<br><br><br><div style='color:gray'><p>Original email:</p>\(message.emailBody! as String)</div>"
     }
 
 }

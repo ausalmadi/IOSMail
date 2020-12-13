@@ -130,7 +130,6 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         _ = rawMessage.data(using: .utf8)
         let utf8Data = rawMessage.data
         let base64EncodedString = utf8Data.base64EncodedString()
-        
         return base64EncodedString
     }
 }
