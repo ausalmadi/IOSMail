@@ -114,7 +114,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         let rawMessage = "" +
             "Date: \(todayString)\r\n" +
             "From: <>\r\n" +
-            "To: <\(toField.text ?? "")>\r\n" +
+            "To: \(toField.text ?? "")\r\n" +
             "Subject: \(subjectField.text ?? "")\r\n\r\n" +
             "\(bodyField.text ?? "")"
         _ = rawMessage.data(using: .utf8)
