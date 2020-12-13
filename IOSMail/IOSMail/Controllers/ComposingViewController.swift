@@ -35,7 +35,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
             bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
         } else if isForwardButtonPressed {
             subjectField.text = "FWD: " + subjectFromReader
-            bodyField.text = msgBodyFromReader
+            bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
         } else {
             addHint()
         }
