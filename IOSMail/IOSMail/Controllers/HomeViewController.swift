@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
 	var messages = [MailData]()
 	var messageList = [GTLRGmail_Message]()
 	var manager = MailManager.shared
-    var inboxText : String = "Draft"
+    var inboxText : String = "Inbox"
     var index : Int = 0
     
     let gmailService = GTLRGmailService.init()
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
 	// Load messages before screen actually appears
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		manager.listMessages(tableview: tableView, folder: "INBOX") // manager.mailBox)
+		manager.listMessages(tableview: tableView, folder: "") // manager.mailBox)
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()

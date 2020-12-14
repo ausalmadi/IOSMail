@@ -15,7 +15,7 @@ class MailManager{
 	let HTMLMessage = 1
 	let PlainMessage = 0
 	 
-    var mailBox = "DRAFT"
+    var mailBox = ""
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
     var tbview : UITableView? = nil
@@ -58,10 +58,12 @@ class MailManager{
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
 		messages.removeAll()
+		messageList.removeAll()
 		mail = realm.objects(EmailData.self)
+		gmailService.shouldFetchNextPages = true
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		listQuery.maxResults = 20
+		//listQuery.maxResults = 2
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -138,7 +140,7 @@ class MailManager{
 				do {
 					// loops thru each message in list
 					try self.messageList.forEach { (message) in
-						//print(message.jsonString())
+						print(message.jsonString())
 						mID = message.identifier! // messageID
 						//get header info and the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
