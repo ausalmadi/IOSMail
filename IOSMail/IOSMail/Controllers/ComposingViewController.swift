@@ -35,7 +35,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
             bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
         } else if isForwardButtonPressed {
             subjectField.text = "FWD: " + subjectFromReader
-            bodyField.text = msgBodyFromReader
+            bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
         } else {
             addHint()
         }
@@ -98,11 +98,21 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         
         service.authorizer = authorizer
         service.executeQuery(query, completionHandler: { (ticket, response, error) -> Void in
-            let alert = UIAlertController(title: "", message: "Message has been sent successfuly.", preferredStyle: .alert)
+            var status = ""
+            var title = ""
+            if(error == nil) {
+                status = "Message has been sent."
+                title = "Successful!"
+            } else {
+                status = "Message has not been sent."
+                title = "Failed!"
+            }
+            let alert = UIAlertController(title: title, message: status, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true)
+           
         })
     }
     
@@ -114,13 +124,12 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         let rawMessage = "" +
             "Date: \(todayString)\r\n" +
             "From: <>\r\n" +
-            "To: <\(toField.text ?? "")>\r\n" +
+            "To: \(toField.text ?? "")\r\n" +
             "Subject: \(subjectField.text ?? "")\r\n\r\n" +
             "\(bodyField.text ?? "")"
         _ = rawMessage.data(using: .utf8)
         let utf8Data = rawMessage.data
         let base64EncodedString = utf8Data.base64EncodedString()
-        
         return base64EncodedString
     }
 }
