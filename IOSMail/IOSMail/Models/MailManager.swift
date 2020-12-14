@@ -136,11 +136,11 @@ class MailManager{
 			if response != nil {
 				self.messageList.append(response as! GTLRGmail_Message)
 				do {
+					// loops thru each message in list
 					try self.messageList.forEach { (message) in
 						//print(message.jsonString())
-						//print(message.identifier!)
-						mID = message.identifier!
-						//get the body of the email and decode it
+						mID = message.identifier! // messageID
+						//get header info and the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 
 							if head.name=="Date" {
@@ -160,7 +160,7 @@ class MailManager{
 						to = self.base64urlToBase64(base64url: head.value ?? "default value")
 					}
 				}
-
+						// gets HTML part of message
 						guard let message2 = message.payload!.parts?[self.HTMLMessage] else
 						{return }
 						if (message2.body!.data != nil) {
@@ -176,11 +176,10 @@ class MailManager{
 
 						} else { return }
 					}
-					//self.tbview!.reloadData()
 				}catch {
 					print(error as Any)
 				}
-
+				// make sure table view gets loaded with new data
 				self.tbview!.reloadData()
 			} else {
 				print("Error: ")
@@ -204,6 +203,7 @@ class MailManager{
 			return
 		}
 		//mail?.forEach { (msg) in
+		// contains method used to check for duplicates of messageID
 			if self.mail!.contains(where: {$0.messageID == data.messageID}) {
 			//if msg.messageID == data.messageID {
 				//print("Duplicate message \(data.messageID!)")
@@ -212,9 +212,6 @@ class MailManager{
 				//print("added message \(data.messageID!)")
 				self.dataFactory(data)
 			}
-
-		//}
-		//print("nothing added")
 	}
 
 	func base64urlToBase64(base64url: String) -> String {
