@@ -14,8 +14,12 @@ class MailManager{
 
 	let HTMLMessage = 1
 	let PlainMessage = 0
-	 
-    var mailBox = "DRAFT"
+    
+  
+    var mailBox = "INBOX"
+    var mailBox1 = "DRAFT"
+    var mailBox2 = "SENT"
+    
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
     var tbview : UITableView? = nil
@@ -45,6 +49,8 @@ class MailManager{
 	*/
 	func listMessages(tableview :UITableView){
 		listMessages(tableview: tableview, folder: mailBox)
+        listMessages(tableview: tableview, folder: mailBox1)
+        listMessages(tableview: tableview, folder: mailBox2)
 	}
 
 	/*
@@ -81,12 +87,7 @@ class MailManager{
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
-		//print(emailData.messageID)
-		//print(m.messageID)
-		//print(emailData.messageID { $0.messageID.isSubset(of:m.messageID) })
-		//if (emailData.messageID.range(of: m.messageID!) != nil){
-		//if (m.messageID != emailData.messageID) {
-		//if (m.subject != emailData.emailSubject){
+		
             emailData.emailSubject = m.subject ?? ""
             emailData.fromSender = m.from ?? ""
             emailData.toRecepiant = m.to ?? ""
@@ -96,24 +97,24 @@ class MailManager{
 			emailData.messageID = m.messageID ?? ""
             RealmService.shared.create(emailData)
            
-          //} else {
-          
-          //}
+         
     }
     
    func dataFactory(_ m: MailData) {
         let emailData = EmailData()
         emailData.mBox = mailBox
+        emailData.mBox1 = mailBox1
+        emailData.mBox2 = mailBox2
         
         
-        if (emailData.mBox == "SENT"){
+        if (emailData.mBox == "INBOX"){
             
             dataFilling(emailData, m)
             
-        } else if (emailData.mBox == "INBOX"){
+        } else if (emailData.mBox1 == "DRAFT"){
             
             dataFilling(emailData, m)
-        }else if (emailData.mBox == "DRAFT" ){
+        }else if (emailData.mBox2 == "SENT" ){
             
             dataFilling(emailData, m)
         }

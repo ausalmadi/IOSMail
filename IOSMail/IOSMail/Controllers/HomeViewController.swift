@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
 	// Load messages before screen actually appears
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-		manager.listMessages(tableview: tableView, folder: "INBOX") // manager.mailBox)
+        manager.listMessages(tableview: tableView, folder: manager.mailBox)
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -69,6 +69,11 @@ class HomeViewController: UIViewController {
 
 		GIDSignIn.sharedInstance().signOut()
 	}
+    // IB action for setting the title of the button to the mailbox
+    @IBAction func pressedSelection(_ sender: UIBarButtonItem) {
+        manager.mailBox = sender.title ?? "INBOX"
+        manager.listMessages(tableview: tableView, folder: manager.mailBox)
+    }
 
 	// prepare next View Controller before Segue to it
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
