@@ -26,6 +26,8 @@
 		3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D295C2549BCD900434B99 /* TableViewCell.xib */; };
 		3FB7FED42566F798002F4E20 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7FED32566F798002F4E20 /* RealmService.swift */; };
 		520399502564556C007C9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5203994F2564556B007C9707 /* GoogleService-Info.plist */; };
+		521B47A225895F8900CC38BC /* FolderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B47A125895F8900CC38BC /* FolderViewCell.xib */; };
+		521B47A5258960DD00CC38BC /* FolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B47A4258960DD00CC38BC /* FolderViewCell.swift */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
 		52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF3AC257AA5C000222E17 /* DraftViewController.swift */; };
 		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
@@ -56,6 +58,8 @@
 		3F8D295C2549BCD900434B99 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		3FB7FED32566F798002F4E20 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		5203994F2564556B007C9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		521B47A125895F8900CC38BC /* FolderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderViewCell.xib; sourceTree = "<group>"; };
+		521B47A4258960DD00CC38BC /* FolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCell.swift; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
 		52DEF3AC257AA5C000222E17 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				3F8D295B2549BCD900434B99 /* TableViewCell.swift */,
 				3F8D295C2549BCD900434B99 /* TableViewCell.xib */,
 				3F56574A253E3677002E5031 /* LaunchScreen.storyboard */,
+				521B47A4258960DD00CC38BC /* FolderViewCell.swift */,
+				521B47A125895F8900CC38BC /* FolderViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 			files = (
 				520399502564556C007C9707 /* GoogleService-Info.plist in Resources */,
 				3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */,
+				521B47A225895F8900CC38BC /* FolderViewCell.xib in Resources */,
 				3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
 				522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */,
@@ -336,6 +343,7 @@
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
 				3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */,
 				3FB7FED42566F798002F4E20 /* RealmService.swift in Sources */,
+				521B47A5258960DD00CC38BC /* FolderViewCell.swift in Sources */,
 				52E37FC22566A14300101A46 /* Settings.swift in Sources */,
 				3F26717E2548AFC200A4DD92 /* ComposingViewController.swift in Sources */,
 				365CF5932551F09F00954DDD /* MailManager.swift in Sources */,
