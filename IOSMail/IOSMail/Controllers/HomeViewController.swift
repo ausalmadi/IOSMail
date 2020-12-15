@@ -40,7 +40,8 @@ class HomeViewController: UIViewController {
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        mail = realm.objects(EmailData.self)
+		let box = "mBox == '\(manager.mailBox)'"
+		mail = realm.objects(EmailData.self).filter(box)
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self

@@ -15,10 +15,8 @@ class MailManager{
 	let HTMLMessage = 1
 	let PlainMessage = 0
 
-    var mailBox = ""
-//    var mailBox1 = "DRAFT"
-//    var mailBox2 = "SENT"
-    
+    var mailBox = "INBOX"
+
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
 
@@ -34,7 +32,7 @@ class MailManager{
 	private init(){ }
 
 	func setMessages(msg : [MailData]){
-		print("setMessages() message count = \(msg.count)")
+		//print("setMessages() message count = \(msg.count)")
 		messages = msg
 	}
 
@@ -47,10 +45,6 @@ class MailManager{
 		tbview = tableview
 		labels.removeAll()
 		let listQuery = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
-		//print(q.)
-		//let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
-		//listQuery.labelIds = [folder] // folder to view
-
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
 
@@ -112,8 +106,6 @@ class MailManager{
 	*/
 	func listMessages(tableview :UITableView){
 		listMessages(tableview: tableview, folder: mailBox)
-//        listMessages(tableview: tableview, folder: mailBox1)
-//        listMessages(tableview: tableview, folder: mailBox2)
 	}
 
 	/*
@@ -169,10 +161,7 @@ class MailManager{
    func dataFactory(_ m: MailData) {
         let emailData = EmailData()
         emailData.mBox = mailBox
-//        emailData.mBox1 = mailBox1
-//        emailData.mBox2 = mailBox2
-        
-        
+
         if (emailData.mBox == "INBOX"){
             
             dataFilling(emailData, m)
@@ -194,6 +183,7 @@ class MailManager{
 		var subject : String = ""
 		var msgtime : String = ""
 		var mID : String = ""
+		var snippet : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages?.forEach({ (msg) in
@@ -205,9 +195,13 @@ class MailManager{
 					// loops thru each message in list
 					try self.messageList.forEach { (message) in
 						//print(message.jsonString())
+
 						//print( message.additionalJSONKeys())
 						mID = message.identifier! // messageID
 						//get header info and the body of the email and decode it
+
+						snippet = message.snippet!
+						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 
 							if head.name=="Date" {
@@ -230,12 +224,13 @@ class MailManager{
 						// gets HTML part of message
 						guard let message2 = message.payload!.parts?[self.HTMLMessage] else
 						{return }
+
 						if (message2.body!.data != nil) {
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
 
-							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+							let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
 
 							self.messages.append(m)
 							checkForDuplicates(data: m)
