@@ -27,7 +27,7 @@ class SentViewController: MainViewController {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        mail = realm.objects(EmailData.self)
+        mail = realm.objects(EmailData.self).filter("mBox == 'SENT'")
         self.tableView.delegate = self
         self.tableView.dataSource = self
 		tableView.reloadData()
