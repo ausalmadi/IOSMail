@@ -58,7 +58,7 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
          
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
-              cell!.tableSubjectLabel?.text = message.emailBody
+              cell!.tableSubjectLabel?.text = message.emailSnippet
         }else{
             print("error")
         }

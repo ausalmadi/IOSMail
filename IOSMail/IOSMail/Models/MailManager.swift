@@ -17,9 +17,6 @@ class MailManager{
     
   
     var mailBox = ""
-//    var mailBox1 = "DRAFT"
-//    var mailBox2 = "SENT"
-    
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
     var tbview : UITableView? = nil
@@ -49,8 +46,6 @@ class MailManager{
 	*/
 	func listMessages(tableview :UITableView){
 		listMessages(tableview: tableview, folder: mailBox)
-//        listMessages(tableview: tableview, folder: mailBox1)
-//        listMessages(tableview: tableview, folder: mailBox2)
 	}
 
 	/*
@@ -89,6 +84,7 @@ class MailManager{
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
 		
             emailData.emailSubject = m.subject ?? ""
+            emailData.emailSnippet = m.snippet ?? ""
             emailData.fromSender = m.from ?? ""
             emailData.toRecepiant = m.to ?? ""
             emailData.emailBody = m.body ?? ""
@@ -128,6 +124,7 @@ class MailManager{
 		var subject : String = ""
 		var msgtime : String = ""
 		var mID : String = ""
+        var snippet : String = ""
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages?.forEach({ (msg) in
@@ -137,9 +134,8 @@ class MailManager{
 				self.messageList.append(response as! GTLRGmail_Message)
 				do {
 					try self.messageList.forEach { (message) in
-						//print(message.jsonString())
-						//print(message.identifier!)
 						mID = message.identifier!
+                        snippet = message.snippet!
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 
@@ -168,7 +164,7 @@ class MailManager{
 
 						if let data = Data(base64Encoded: mail) {
 
-							let m = MailData(subject: subject, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+                            let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
 							//if make == false{
 
 								self.messages.append(m)
