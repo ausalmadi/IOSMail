@@ -18,6 +18,9 @@ class MailManager{
     var mailBox = ""
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
+
+	var labels = [String]()
+
     var tbview : UITableView? = nil
     let gmailService = GTLRGmailService.init() // initialize mail service
 	static let shared = MailManager() // Setting up shared instance of Singleton class
@@ -36,6 +39,67 @@ class MailManager{
 		self.tbview? = _tbview
 	}
 
+
+	func listLabels(tableview:UITableView) {
+		tbview = tableview
+		labels.removeAll()
+		let listQuery = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
+		//print(q.)
+		//let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
+		//listQuery.labelIds = [folder] // folder to view
+
+		// get authorized user
+		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+
+		// set mail service authorizer
+		gmailService.authorizer = authorizer
+		//gmailService.shouldFetchNextPages = true
+		//listQuery.maxResults = 5 // set max results to return
+
+		gmailService.executeQuery(listQuery) { (ticket, response, error) in
+			if response != nil {
+				self.getLabels(response: response as! GTLRGmail_ListLabelsResponse)
+				self.tbview!.reloadData()
+			} else {
+				print("Error: ")
+				print(error as Any)
+			}
+
+		}
+
+	}
+
+	func getLabels(response: GTLRGmail_ListLabelsResponse) {
+		/*var from : String = ""
+		var to : String = ""
+		var date : String = ""
+		var subject : String = ""
+		var msgtime : String = ""*/
+		var labelList = [GTLRGmail_Label]()
+		let messagesResponse = response as GTLRGmail_ListLabelsResponse
+
+		messagesResponse.labels!.forEach({ (msg) in
+			let query = GTLRGmailQuery_UsersLabelsGet.query(withUserId: "me", identifier: msg.identifier!)
+			gmailService.executeQuery(query) { [self] (ticket, response, error) in
+				if response != nil {
+					//print(response as! GTLRGmail_Label)
+					labelList.append(response as! GTLRGmail_Label)
+					//print(labelList[labelList.endIndex - 1].identifier ?? "")
+					labels.append(labelList[labelList.endIndex - 1].identifier! as String)
+					//self.messageList.append(response as! GTLRGmail_Message)
+
+				}
+
+			}
+			//
+		}
+
+		)
+		tbview?.reloadData()
+
+
+
+	}
 	/*
 	DESCRIPTION:
 	listMessages(tableview)
