@@ -54,10 +54,11 @@ extension DraftViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-         
+			if message.mBox == manager.mailBox {
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
               cell!.tableSubjectLabel?.text = message.emailBody
+			}
         }else{
             print("error")
         }

@@ -129,7 +129,7 @@ class MailManager{
 		messages.removeAll()
 		messageList.removeAll()
 		mail = realm.objects(EmailData.self)
-		gmailService.shouldFetchNextPages = true
+		gmailService.shouldFetchNextPages = false
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
 		listQuery.maxResults = 50
@@ -204,7 +204,8 @@ class MailManager{
 				do {
 					// loops thru each message in list
 					try self.messageList.forEach { (message) in
-						print(message.jsonString())
+						//print(message.jsonString())
+						//print( message.additionalJSONKeys())
 						mID = message.identifier! // messageID
 						//get header info and the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in

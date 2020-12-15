@@ -96,7 +96,7 @@ class HomeViewController: UIViewController {
 	}
 }
 
-//MARK: Tableview delegate and datasource
+//MARK: - Tableview delegate and datasource
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
@@ -115,12 +115,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-         
+			if message.mBox == manager.mailBox {
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
               cell!.tableSubjectLabel?.text = message.emailBody
+			}
         }else{
             print("error")
         }
