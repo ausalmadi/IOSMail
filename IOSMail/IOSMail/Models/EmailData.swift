@@ -11,8 +11,6 @@ import RealmSwift
 class EmailData: Object {
     @objc dynamic var messageID: String = ""
     @objc dynamic var mBox: String? = "" // INBOX, SENT, DRAFT
-    @objc dynamic var mBox1: String? = "" // INBOX, SENT, DRAFT
-    @objc dynamic var mBox2: String? = "" // INBOX, SENT, DRAFT
     @objc dynamic var emailDate: String? = ""
     @objc dynamic var emaiTime: String? = ""
     @objc dynamic var emailSubject: String = ""

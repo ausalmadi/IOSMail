@@ -67,7 +67,7 @@ class MailManager{
 		mail = realm.objects(EmailData.self)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		listQuery.maxResults = 50
+		listQuery.maxResults = 3
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
