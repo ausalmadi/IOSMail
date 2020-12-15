@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
 	// Load messages before screen actually appears
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
+        manager.mailBox = "INBOX"
         manager.listMessages(tableview: tableView, folder: manager.mailBox)
 	}
 	override func viewDidLoad() {

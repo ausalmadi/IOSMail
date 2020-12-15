@@ -19,7 +19,9 @@ class SentViewController: MainViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-        manager.listMessages(tableview: tableView, folder: manager.mailBox2)
+        manager.mailBox = "SENT"
+        manager.listMessages(tableview: tableView, folder: manager.mailBox)
+//        manager.listMessages(tableview: tableView, folder: manager.mailBox2)
 	}
     override func viewDidLoad() {
         super.viewDidLoad()

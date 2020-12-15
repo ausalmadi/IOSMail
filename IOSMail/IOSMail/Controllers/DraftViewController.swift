@@ -19,7 +19,9 @@ class DraftViewController: MainViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        manager.listMessages(tableview: tableView, folder: manager.mailBox1)
+        manager.mailBox = "DRAFT"
+        manager.listMessages(tableview: tableView, folder: manager.mailBox)
+//        manager.listMessages(tableview: tableView, folder:manager.mailBox1 )
     }
     override func viewDidLoad() {
         super.viewDidLoad()

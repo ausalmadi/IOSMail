@@ -16,9 +16,9 @@ class MailManager{
 	let PlainMessage = 0
     
   
-    var mailBox = "INBOX"
-    var mailBox1 = "DRAFT"
-    var mailBox2 = "SENT"
+    var mailBox = ""
+//    var mailBox1 = "DRAFT"
+//    var mailBox2 = "SENT"
     
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
@@ -49,8 +49,8 @@ class MailManager{
 	*/
 	func listMessages(tableview :UITableView){
 		listMessages(tableview: tableview, folder: mailBox)
-        listMessages(tableview: tableview, folder: mailBox1)
-        listMessages(tableview: tableview, folder: mailBox2)
+//        listMessages(tableview: tableview, folder: mailBox1)
+//        listMessages(tableview: tableview, folder: mailBox2)
 	}
 
 	/*
@@ -67,7 +67,7 @@ class MailManager{
 		mail = realm.objects(EmailData.self)
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		listQuery.maxResults = 20
+		listQuery.maxResults = 50
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -103,18 +103,18 @@ class MailManager{
    func dataFactory(_ m: MailData) {
         let emailData = EmailData()
         emailData.mBox = mailBox
-        emailData.mBox1 = mailBox1
-        emailData.mBox2 = mailBox2
+//        emailData.mBox1 = mailBox1
+//        emailData.mBox2 = mailBox2
         
         
         if (emailData.mBox == "INBOX"){
             
             dataFilling(emailData, m)
             
-        } else if (emailData.mBox1 == "DRAFT"){
+        } else if (emailData.mBox == "DRAFT"){
             
             dataFilling(emailData, m)
-        }else if (emailData.mBox2 == "SENT" ){
+        }else if (emailData.mBox == "SENT" ){
             
             dataFilling(emailData, m)
         }
