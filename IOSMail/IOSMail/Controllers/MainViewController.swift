@@ -68,8 +68,6 @@ class MainViewController: UIViewController {
 		if notification.name.rawValue == "ToggleAuthUINotification" {
 			if notification.userInfo != nil {
 				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				//print(userInfo)
-                //print(GIDSignIn.sharedInstance()?.currentUser)
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
 
@@ -80,13 +78,4 @@ class MainViewController: UIViewController {
 		}
 	}
     
-//    func base64urlToBase64(base64url: String) -> String {
-//        var base64 = base64url
-//            .replacingOccurrences(of: "-", with: "+")
-//            .replacingOccurrences(of: "_", with: "/")
-//        if base64.count % 4 != 0 {
-//            base64.append(String(repeating: "=", count: 4 - base64.count % 4))
-//        }
-//        return base64
-//    }
 }

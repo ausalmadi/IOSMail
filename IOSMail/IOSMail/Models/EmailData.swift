@@ -13,8 +13,10 @@ class EmailData: Object {
     @objc dynamic var mBox: String? = "" // INBOX, SENT, DRAFT
     @objc dynamic var emailDate: String? = ""
     @objc dynamic var emaiTime: String? = ""
-    @objc dynamic var emailSubject: String = ""
-	@objc dynamic var emailSnippet: String = ""
+
+    @objc dynamic var emailSubject: String? = ""
+    @objc dynamic var emailSnippet: String? = ""
+
     @objc dynamic var emailBody: String? = ""
     @objc dynamic var emailReply: String?
     @objc dynamic var emailCrUp: Date?

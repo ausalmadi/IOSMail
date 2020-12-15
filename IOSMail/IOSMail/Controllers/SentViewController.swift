@@ -12,24 +12,24 @@ class SentViewController: MainViewController {
 
     @IBOutlet weak var tableView: UITableView!
 	let manager = MailManager.shared
-
+    var mailboxText : String = "SENT"  // Used to set the title of the mailbox, the folder in listMessages & the filter for emails
 	let realm = RealmService.shared.realm
 	var mail: Results<EmailData>?
     
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-        manager.mailBox = "SENT"
+        manager.mailBox = mailboxText
         manager.listMessages(tableview: tableView, folder: manager.mailBox)
-//        manager.listMessages(tableview: tableView, folder: manager.mailBox2)
+
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-		manager.mailBox = "SENT"
-		let box = "mBox == '\(manager.mailBox)'"
-		mail = realm.objects(EmailData.self).filter(box)
+
+        mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
 		tableView.reloadData()
@@ -60,7 +60,7 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
          
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
-              cell!.tableSubjectLabel?.text = message.emailBody
+              cell!.tableSubjectLabel?.text = message.emailSnippet
         }else{
             print("error")
         }

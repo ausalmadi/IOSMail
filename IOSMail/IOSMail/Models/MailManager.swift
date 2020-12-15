@@ -14,8 +14,9 @@ class MailManager{
 
 	let HTMLMessage = 1
 	let PlainMessage = 0
-
-    var mailBox = "INBOX"
+   
+  
+    var mailBox = ""
 
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
@@ -124,7 +125,7 @@ class MailManager{
 		gmailService.shouldFetchNextPages = false
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		listQuery.maxResults = 50
+		listQuery.maxResults = 3
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -147,6 +148,7 @@ class MailManager{
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
 		
             emailData.emailSubject = m.subject ?? ""
+            emailData.emailSnippet = m.snippet ?? ""
             emailData.fromSender = m.from ?? ""
             emailData.toRecepiant = m.to ?? ""
             emailData.emailBody = m.body ?? ""
@@ -183,7 +185,9 @@ class MailManager{
 		var subject : String = ""
 		var msgtime : String = ""
 		var mID : String = ""
-		var snippet : String = ""
+
+        var snippet : String = ""
+
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages?.forEach({ (msg) in
@@ -194,13 +198,9 @@ class MailManager{
 				do {
 					// loops thru each message in list
 					try self.messageList.forEach { (message) in
-						//print(message.jsonString())
+						mID = message.identifier!
+                        snippet = message.snippet!
 
-						//print( message.additionalJSONKeys())
-						mID = message.identifier! // messageID
-						//get header info and the body of the email and decode it
-
-						snippet = message.snippet!
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 
@@ -230,7 +230,9 @@ class MailManager{
 
 						if let data = Data(base64Encoded: mail) {
 
-							let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+
+                            let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+
 
 							self.messages.append(m)
 							checkForDuplicates(data: m)

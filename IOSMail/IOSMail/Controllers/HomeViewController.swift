@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
 	var messages = [MailData]()
 	var messageList = [GTLRGmail_Message]()
 	var manager = MailManager.shared
-    var inboxText : String = "Inbox"
+
+    var mailboxText : String = "INBOX"  // Used to set the title of the mailbox, the folder in listMessages & the filter for emails
     var index : Int = 0
     
     let gmailService = GTLRGmailService.init()
@@ -35,18 +36,19 @@ class HomeViewController: UIViewController {
 	// Load messages before screen actually appears
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
-        manager.mailBox = "INBOX"
+        manager.mailBox = mailboxText
         manager.listMessages(tableview: tableView, folder: manager.mailBox)
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let box = "mBox == '\(manager.mailBox)'"
-		mail = realm.objects(EmailData.self).filter(box)
+
+        mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
+
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-		inboxTitle.text = inboxText
+		inboxTitle.text = mailboxText
 		tableView.reloadData()
     }
     
@@ -118,11 +120,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-			if message.mBox == manager.mailBox {
+			//if message.mBox == manager.mailBox {
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
-              cell!.tableSubjectLabel?.text = message.emailBody
-			}
+			//}
+
+              cell!.tableSubjectLabel?.text = message.emailSnippet
+
         }else{
             print("error")
         }

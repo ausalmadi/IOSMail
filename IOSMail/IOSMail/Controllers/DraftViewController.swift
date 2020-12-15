@@ -12,24 +12,23 @@ class DraftViewController: MainViewController {
 
     @IBOutlet weak var tableView: UITableView!
     let manager = MailManager.shared
-
+    var mailboxText : String = "DRAFT"  // Used to set the title of the mailbox, the folder in listMessages & the filter for emails
     let realm = RealmService.shared.realm
     var mail: Results<EmailData>?
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        manager.mailBox = "DRAFT"
+        manager.mailBox = mailboxText
         manager.listMessages(tableview: tableView, folder: manager.mailBox)
-//        manager.listMessages(tableview: tableView, folder:manager.mailBox1 )
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-		manager.mailBox = "DRAFT"
-		let box = "mBox == '\(manager.mailBox)'"
-		mail = realm.objects(EmailData.self).filter(box)
+
+        mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -56,11 +55,12 @@ extension DraftViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-			if message.mBox == manager.mailBox {
+			//if message.mBox == manager.mailBox {
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
-              cell!.tableSubjectLabel?.text = message.emailBody
-			}
+              cell!.tableSubjectLabel?.text = message.emailSnippet
+		//}
+
         }else{
             print("error")
         }

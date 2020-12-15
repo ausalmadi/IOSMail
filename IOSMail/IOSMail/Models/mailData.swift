@@ -10,7 +10,9 @@ import RealmSwift
 
 struct MailData {
     let subject : String?
-	let snippet : String?
+
+    let snippet : String?
+
     let from : String?
     let to : String?
     let body : String?
