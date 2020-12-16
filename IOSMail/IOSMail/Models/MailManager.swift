@@ -14,11 +14,15 @@ class MailManager{
 
 	let HTMLMessage = 1
 	let PlainMessage = 0
-    
-  
+
+	//var homeController = HomeViewController()
     var mailBox = ""
+
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
+
+	var labels = [String]()
+
     var tbview : UITableView? = nil
     let gmailService = GTLRGmailService.init() // initialize mail service
 	static let shared = MailManager() // Setting up shared instance of Singleton class
@@ -29,7 +33,7 @@ class MailManager{
 	private init(){ }
 
 	func setMessages(msg : [MailData]){
-		print("setMessages() message count = \(msg.count)")
+		//print("setMessages() message count = \(msg.count)")
 		messages = msg
 	}
 
@@ -37,6 +41,63 @@ class MailManager{
 		self.tbview? = _tbview
 	}
 
+
+	func listLabels(tableview:UITableView) {
+		tbview = tableview
+		labels.removeAll()
+		let listQuery = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
+		// get authorized user
+		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
+
+		// set mail service authorizer
+		gmailService.authorizer = authorizer
+		//gmailService.shouldFetchNextPages = true
+		//listQuery.maxResults = 5 // set max results to return
+
+		gmailService.executeQuery(listQuery) { (ticket, response, error) in
+			if response != nil {
+				self.getLabels(response: response as! GTLRGmail_ListLabelsResponse)
+			} else {
+				print("Error: ")
+				print(error as Any)
+			}
+
+		}
+
+	}
+
+	func getLabels(response: GTLRGmail_ListLabelsResponse) {
+		/*var from : String = ""
+		var to : String = ""
+		var date : String = ""
+		var subject : String = ""
+		var msgtime : String = ""*/
+		var labelList = [GTLRGmail_Label]()
+		let messagesResponse = response as GTLRGmail_ListLabelsResponse
+
+		messagesResponse.labels!.forEach({ (msg) in
+			let query = GTLRGmailQuery_UsersLabelsGet.query(withUserId: "me", identifier: msg.identifier!)
+			gmailService.executeQuery(query) { [self] (ticket, response, error) in
+				if response != nil {
+					//print(response as! GTLRGmail_Label)
+					labelList.append(response as! GTLRGmail_Label)
+					//print(labelList[labelList.endIndex - 1].identifier ?? "")
+					labels.append(labelList[labelList.endIndex - 1].identifier! as String)
+					//self.messageList.append(response as! GTLRGmail_Message)
+
+				}
+				self.tbview!.reloadData()
+
+			}
+			//
+		}
+
+		)
+		tbview?.reloadData()
+
+
+
+	}
 	/*
 	DESCRIPTION:
 	listMessages(tableview)
@@ -59,7 +120,9 @@ class MailManager{
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview
 		messages.removeAll()
+		messageList.removeAll()
 		mail = realm.objects(EmailData.self)
+		gmailService.shouldFetchNextPages = false
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
 		listQuery.maxResults = 3
@@ -69,6 +132,8 @@ class MailManager{
 
 		// set mail service authorizer
 		gmailService.authorizer = authorizer
+
+		// execute the search of gmail messages
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getFirstMessageIdFromMessages(response: response as! GTLRGmail_ListMessagesResponse)
@@ -78,7 +143,6 @@ class MailManager{
 			}
 
 		}
-		//self.checkForDuplicates()
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
@@ -99,10 +163,7 @@ class MailManager{
    func dataFactory(_ m: MailData) {
         let emailData = EmailData()
         emailData.mBox = mailBox
-//        emailData.mBox1 = mailBox1
-//        emailData.mBox2 = mailBox2
-        
-        
+
         if (emailData.mBox == "INBOX"){
             
             dataFilling(emailData, m)
@@ -124,7 +185,9 @@ class MailManager{
 		var subject : String = ""
 		var msgtime : String = ""
 		var mID : String = ""
+
         var snippet : String = ""
+
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages?.forEach({ (msg) in
@@ -133,9 +196,11 @@ class MailManager{
 			if response != nil {
 				self.messageList.append(response as! GTLRGmail_Message)
 				do {
+					// loops thru each message in list
 					try self.messageList.forEach { (message) in
 						mID = message.identifier!
                         snippet = message.snippet!
+
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 
@@ -156,46 +221,30 @@ class MailManager{
 						to = self.base64urlToBase64(base64url: head.value ?? "default value")
 					}
 				}
-
+						// gets HTML part of message
 						guard let message2 = message.payload!.parts?[self.HTMLMessage] else
 						{return }
+
 						if (message2.body!.data != nil) {
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
 						if let data = Data(base64Encoded: mail) {
 
-                            let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
-							//if make == false{
 
-								self.messages.append(m)
+                            let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+
+
+							self.messages.append(m)
 							checkForDuplicates(data: m)
-							//	dataFactory(m)
-							//} else {
-								//self.messages.appe
-								//print("message id does not exist")
-								//print(m)
-								//dataFactory(m)
-							//}
-						}
+													}
 
 						} else { return }
 					}
-					//self.tbview!.reloadData()
 				}catch {
 					print(error as Any)
 				}
-				//print("msglist1")
-//				messages.forEach { (msg ) in
-//
-//					print("1 -> \(msg.messageID)")
-//				}
-//				//print("msglist2")
-//				mail?.forEach({ (msg2) in
-//					print("2 -> \(msg2.messageID)")
-//
-//				})
+				// make sure table view gets loaded with new data
 				self.tbview!.reloadData()
-				//tbview!.reloadInputViews()
 			} else {
 				print("Error: ")
 				print(error as Any)
@@ -204,6 +253,13 @@ class MailManager{
 		})
 	}
 
+	/**
+		checkForDuplicates(data: MailData)
+
+	Parameters:
+	'data'  instance of MailData class to check
+	*/
+
 	func checkForDuplicates(data: MailData){
 		if mail!.count == 0 {
 			//print("adding message")
@@ -211,6 +267,7 @@ class MailManager{
 			return
 		}
 		//mail?.forEach { (msg) in
+		// contains method used to check for duplicates of messageID
 			if self.mail!.contains(where: {$0.messageID == data.messageID}) {
 			//if msg.messageID == data.messageID {
 				//print("Duplicate message \(data.messageID!)")
@@ -219,9 +276,6 @@ class MailManager{
 				//print("added message \(data.messageID!)")
 				self.dataFactory(data)
 			}
-
-		//}
-		//print("nothing added")
 	}
 
 	func base64urlToBase64(base64url: String) -> String {

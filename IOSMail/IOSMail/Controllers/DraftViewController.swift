@@ -22,14 +22,17 @@ class DraftViewController: MainViewController {
         manager.mailBox = mailboxText
         manager.listMessages(tableview: tableView, folder: manager.mailBox)
     }
-    override func viewDidLoad() {
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+
         mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+		tableView.reloadData()
     }
 }
 
@@ -53,10 +56,12 @@ extension DraftViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-         
+			//if message.mBox == manager.mailBox {
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
               cell!.tableSubjectLabel?.text = message.emailSnippet
+		//}
+
         }else{
             print("error")
         }

@@ -29,6 +29,9 @@
 		521B47A225895F8900CC38BC /* FolderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B47A125895F8900CC38BC /* FolderViewCell.xib */; };
 		521B47A5258960DD00CC38BC /* FolderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B47A4258960DD00CC38BC /* FolderViewCell.swift */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
+		52B0E5D425899BAD00685F83 /* FolderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0E5D325899BAD00685F83 /* FolderTableViewController.swift */; };
+		52B0E5DF25899EDF00685F83 /* FolderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0E5DE25899EDF00685F83 /* FolderData.swift */; };
+		52B0E5E22589A29900685F83 /* GenericTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0E5E12589A29900685F83 /* GenericTableViewController.swift */; };
 		52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF3AC257AA5C000222E17 /* DraftViewController.swift */; };
 		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
@@ -61,6 +64,9 @@
 		521B47A125895F8900CC38BC /* FolderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderViewCell.xib; sourceTree = "<group>"; };
 		521B47A4258960DD00CC38BC /* FolderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCell.swift; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
+		52B0E5D325899BAD00685F83 /* FolderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewController.swift; sourceTree = "<group>"; };
+		52B0E5DE25899EDF00685F83 /* FolderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderData.swift; sourceTree = "<group>"; };
+		52B0E5E12589A29900685F83 /* GenericTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewController.swift; sourceTree = "<group>"; };
 		52DEF3AC257AA5C000222E17 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 				52E37FC12566A14300101A46 /* Settings.swift */,
 				3FB7FED32566F798002F4E20 /* RealmService.swift */,
 				3F661D9D2575AAD4007E0DD9 /* EmailData.swift */,
+				52B0E5DE25899EDF00685F83 /* FolderData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,6 +117,8 @@
 				3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */,
 				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
 				3F2671772548AF8C00A4DD92 /* SettingViewController.swift */,
+				52B0E5D325899BAD00685F83 /* FolderTableViewController.swift */,
+				52B0E5E12589A29900685F83 /* GenericTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F565744253E3673002E5031 /* MainViewController.swift in Sources */,
+				52B0E5D425899BAD00685F83 /* FolderTableViewController.swift in Sources */,
 				3F565740253E3673002E5031 /* AppDelegate.swift in Sources */,
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
@@ -341,6 +351,8 @@
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
 				365CF5902551EAE400954DDD /* MailData.swift in Sources */,
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
+				52B0E5DF25899EDF00685F83 /* FolderData.swift in Sources */,
+				52B0E5E22589A29900685F83 /* GenericTableViewController.swift in Sources */,
 				3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */,
 				3FB7FED42566F798002F4E20 /* RealmService.swift in Sources */,
 				521B47A5258960DD00CC38BC /* FolderViewCell.swift in Sources */,
