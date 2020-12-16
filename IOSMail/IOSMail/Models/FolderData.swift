@@ -11,6 +11,7 @@ import RealmSwift
 
 class FolderData: Object {
     @objc dynamic var folderID: String = ""
-    @objc dynamic var label: String? = "" // INBOX, SENT, DRAFT
-    @objc dynamic var labelDisplay: Bool = true
+    @objc dynamic var folderLabel: String? = "" // INBOX, SENT, DRAFT
+    @objc dynamic var folderCount: Int = 0
+    @objc dynamic var folderDisplay: Bool = true
 }
