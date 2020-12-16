@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="folderCell" rowHeight="70" id="zrX-oM-SBR" customClass="FolderViewCell" customModule="iosMail" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="folderViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="folderCell" rowHeight="70" id="zrX-oM-SBR" customClass="FolderViewCell" customModule="iosMail" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="515" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zrX-oM-SBR" id="CG9-Zu-diq" customClass="FolderViewCell" customModule="iosMail" customModuleProvider="target">
@@ -22,14 +22,15 @@
                         <rect key="frame" x="0.0" y="1" width="70" height="67.5"/>
                         <color key="tintColor" systemColor="systemTealColor"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSl-2j-58p" userLabel="Folder Label">
-                        <rect key="frame" x="78" y="25" width="367" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="folderName" text="Folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSl-2j-58p" userLabel="Folder Label">
+                        <rect key="frame" x="78" y="25" width="330" height="26.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <color key="textColor" name="MenuBar"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="folderCell" text="Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUa-Os-NrW" userLabel="Count Label">
-                        <rect key="frame" x="444" y="25" width="66" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="folderCell" text="Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUa-Os-NrW" userLabel="Count Label">
+                        <rect key="frame" x="432" y="25" width="78" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -40,8 +41,6 @@
                     <constraint firstItem="fSl-2j-58p" firstAttribute="top" secondItem="CG9-Zu-diq" secondAttribute="top" constant="25" id="Cj6-f9-awH"/>
                     <constraint firstAttribute="bottom" secondItem="72U-Js-HKT" secondAttribute="bottom" id="Fae-hO-7FP"/>
                     <constraint firstItem="72U-Js-HKT" firstAttribute="leading" secondItem="CG9-Zu-diq" secondAttribute="leading" id="Gwd-Qh-9fQ"/>
-                    <constraint firstItem="MUa-Os-NrW" firstAttribute="top" secondItem="CG9-Zu-diq" secondAttribute="top" constant="25" id="RNa-Bb-7PK"/>
-                    <constraint firstAttribute="trailing" secondItem="MUa-Os-NrW" secondAttribute="trailing" constant="5" id="YyS-xw-Xun"/>
                     <constraint firstItem="72U-Js-HKT" firstAttribute="top" secondItem="CG9-Zu-diq" secondAttribute="top" id="d0Z-pH-c0D"/>
                     <constraint firstAttribute="trailing" secondItem="fSl-2j-58p" secondAttribute="trailing" constant="70" id="yny-X7-rCW"/>
                 </constraints>

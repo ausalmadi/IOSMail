@@ -35,12 +35,27 @@ class HomeViewController: UIViewController {
 
 	// Load messages before screen actually appears
 	override func viewWillAppear(_ animated: Bool) {
+		print("viewWillAppear()")
 		super.viewWillAppear(true)
         manager.mailBox = mailboxText
         manager.listMessages(tableview: tableView, folder: manager.mailBox)
 	}
+
+//	init(){
+//		super.init(nibName:nil, bundle: nil)
+//	}
+//
+//	required init?(coder: NSCoder) {
+//		fatalError("init(coder:) has not been implemented")
+//	}
+	
+	func unWindMe(){
+		//print(unwindSegue.identifier!)
+		print("unwind()")
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		//manager.homeController = self as HomeViewController
 
         mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
 

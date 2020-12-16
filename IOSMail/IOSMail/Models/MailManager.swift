@@ -14,8 +14,8 @@ class MailManager{
 
 	let HTMLMessage = 1
 	let PlainMessage = 0
-   
-  
+
+	//var homeController = HomeViewController()
     var mailBox = ""
 
 	var messages = [MailData]() // Messages array
@@ -57,7 +57,6 @@ class MailManager{
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getLabels(response: response as! GTLRGmail_ListLabelsResponse)
-				self.tbview!.reloadData()
 			} else {
 				print("Error: ")
 				print(error as Any)
@@ -87,6 +86,7 @@ class MailManager{
 					//self.messageList.append(response as! GTLRGmail_Message)
 
 				}
+				self.tbview!.reloadData()
 
 			}
 			//
