@@ -7,41 +7,40 @@
 
 import UIKit
 import GoogleSignIn
+import RealmSwift
+import GoogleAPIClientForREST
 
 class HomeViewController: UIViewController {
+	
+	var messages = [MailData]()
+	var messageList = [GTLRGmail_Message]()
+	var manager = MailManager.shared
+    var inboxText : String = "Inbox"
+    var index : Int = 0
+    
+    let gmailService = GTLRGmailService.init()
 
     @IBOutlet weak var checkBox: UIButton!
     @IBOutlet weak var deletePressed: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-	@IBOutlet var inboxTitle: UILabel!
-	
-	var messages = [MailData]()
-	var inboxText : String = "Inbox"
-	var index : Int = 0
-	
-	@IBOutlet var inbox: UITableView!
-	@IBOutlet weak var sb: UISearchBar!
+  	@IBOutlet var inboxTitle: UILabel!
+	  @IBOutlet var inbox: UITableView!
+	  @IBOutlet weak var sb: UISearchBar!
 
+    let realm = RealmService.shared.realm
+       var mail: Results<EmailData>?
 
     override func viewDidLoad() {
-
 		super.viewDidLoad()
-		let newMsg = MailData(subject: "Re: Subject", from: "some@one.com", to: "some@one.else.com", body: "Some more text goes here", date: "Oct 31, 2020")
-		messages.append(newMsg)
-		let newMsg1 = MailData(subject: "Subject", from: "some@one.com", to: "some@one.else.com", body: "Some text goes here", date: "Oct 30, 2020")
-
-		messages.append(newMsg1)
-		NotificationCenter.default.addObserver(self,
-           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-           object: nil)
+        mail = realm.objects(EmailData.self)
+        manager.listInboxMessages(tableview: tableView, folder: manager.mailBox)
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
 		inboxTitle.text = inboxText
+		tableView.reloadData()
     }
     
 	@IBAction func signout(_ sender: Any) {
@@ -63,25 +62,22 @@ class HomeViewController: UIViewController {
 		super.viewWillDisappear(true)
 
 		GIDSignIn.sharedInstance().signOut()
-
-		print("dismissed homeview")
 	}
-    
+
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
-
-			vc.setMessage(msg: messages[self.index])
+			guard let message = mail?[index] else { return  }
+			vc.setMessage(msg: message)
 		}
 		print(segue.identifier as Any)
 	}
 	
+//MARK: Notification method
 	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-
 		if notification.name.rawValue == "ToggleAuthUINotification" {
-
 			if notification.userInfo != nil {
-				guard let userInfo = notification.userInfo as? [String:String] else { return }
+                guard (notification.userInfo as? [String:String]) != nil else { return }
 			}
 		}
 	}
@@ -92,24 +88,35 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count
+       return mail?.count ?? 1
     }
-
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if   editingStyle == .delete {
+                guard let message = mail?[indexPath.row] else { return  }
+                RealmService.shared.delete(message)
+            }
+        
+            tableView.reloadData()
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
+        if let message = mail?[indexPath.row]{
+         
+              cell!.tableLabel?.text = message.emailSubject
+              cell!.tableDateLabel?.text = message.emailDate
+              cell!.tableSubjectLabel?.text = message.emailBody
+        }else{
+            print("error")
+        }
+        return cell!
+    }
+    
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		print(indexPath.row)
 		index = indexPath.row
 		performSegue(withIdentifier: "MainToReader", sender: self)
 	}
 
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
-
-			cell.tableLabel.text = self.messages[indexPath.row].subject
-			cell.tableDateLabel.text = self.messages[indexPath.row].date
-			cell.tableSubjectLabel.text = self.messages[indexPath.row].body
-
-            return cell
-        }
-        return UITableViewCell()
-    }
 }

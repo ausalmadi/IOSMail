@@ -18,6 +18,7 @@ class RealmService {
     func create<T:Object>(_ object: T)  {
         do {
              try realm.write{
+                
                 realm.add(object)
             }
         } catch {

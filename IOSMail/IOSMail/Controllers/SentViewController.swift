@@ -12,8 +12,7 @@ class SentViewController: MainViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let data = ["To: ABC", "To: CDF","To: GBHDG","To: ABC", "To: CDF","To: GBHDG"]
-
+    let data = ["To: ABC", "To: CDF","To: GBHDG","To: HIG", "To: Jack","To: Class"]
     let date = ["Aug 1, 2020","Aug 12, 2020","Aug 16, 2020","Aug 17, 2020","Aug 20, 2020","Sep 1, 2020"]
     let subject = ["Subject: A", "Subject: B", "Subject: C", "Subject: D", "Subject: E", "Subject: F"]
     
@@ -21,13 +20,9 @@ class SentViewController: MainViewController {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        listInboxMessages()
     }
-
 }
 
 //MARK: Tableview delegate and datasource

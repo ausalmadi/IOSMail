@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362444DA256C56E300838B12 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362444D9256C56E300838B12 /* String.swift */; };
 		365CF5902551EAE400954DDD /* MailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF58F2551EAE400954DDD /* MailData.swift */; };
 		365CF5932551F09F00954DDD /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CF5922551F09F00954DDD /* MailManager.swift */; };
-		367B8F70255DBD1A00BCB58D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 367B8F6E255DBD1A00BCB58D /* DataModel.xcdatamodeld */; };
 		3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */; };
 		3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2671772548AF8C00A4DD92 /* SettingViewController.swift */; };
 		3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717A2548AFA100A4DD92 /* SentViewController.swift */; };
@@ -21,11 +21,13 @@
 		3F565747253E3673002E5031 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F565745253E3673002E5031 /* Main.storyboard */; };
 		3F565749253E3677002E5031 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F565748253E3677002E5031 /* Assets.xcassets */; };
 		3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F56574A253E3677002E5031 /* LaunchScreen.storyboard */; };
+		3F661D9E2575AAD4007E0DD9 /* EmailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F661D9D2575AAD4007E0DD9 /* EmailData.swift */; };
 		3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D295B2549BCD900434B99 /* TableViewCell.swift */; };
 		3F8D295E2549BCD900434B99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D295C2549BCD900434B99 /* TableViewCell.xib */; };
 		3FB7FED42566F798002F4E20 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7FED32566F798002F4E20 /* RealmService.swift */; };
 		520399502564556C007C9707 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5203994F2564556B007C9707 /* GoogleService-Info.plist */; };
 		522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */; };
+		52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEF3AC257AA5C000222E17 /* DraftViewController.swift */; };
 		52E37FC22566A14300101A46 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E37FC12566A14300101A46 /* Settings.swift */; };
 		52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52E578262551CE1C0028539E /* Roboto-Light.ttf */; };
 		8D5A7EDF2567019500245027 /* Draft.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5A7EDE2567019500245027 /* Draft.storyboard */; };
@@ -36,9 +38,9 @@
 /* Begin PBXFileReference section */
 		191EC92E51B8C9755BC8D40C /* Pods-iosMail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.debug.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.debug.xcconfig"; sourceTree = "<group>"; };
 		36159F20254B5B1C00C80D97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		362444D9256C56E300838B12 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		365CF58F2551EAE400954DDD /* MailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailData.swift; sourceTree = "<group>"; };
 		365CF5922551F09F00954DDD /* MailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
-		367B8F6F255DBD1A00BCB58D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		3F2671772548AF8C00A4DD92 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3F26717A2548AFA100A4DD92 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
@@ -52,12 +54,14 @@
 		3F565748253E3677002E5031 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F56574B253E3677002E5031 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F56574D253E3677002E5031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F661D9D2575AAD4007E0DD9 /* EmailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailData.swift; sourceTree = "<group>"; };
 		3F8D295B2549BCD900434B99 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		3F8D295C2549BCD900434B99 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 
 		3FB7FED32566F798002F4E20 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		5203994F2564556B007C9707 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		522DEEC02551B71D0002F4A1 /* Itim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Itim-Regular.ttf"; sourceTree = "<group>"; };
+		52DEF3AC257AA5C000222E17 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		52E37FC12566A14300101A46 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52E578262551CE1C0028539E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		6B18959A1C8B74B8F3CB6828 /* Pods-iosMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosMail.release.xcconfig"; path = "Target Support Files/Pods-iosMail/Pods-iosMail.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		362444D4256C56AA00838B12 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				362444D9256C56E300838B12 /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		365CF5872551D7AC00954DDD /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +99,7 @@
 				365CF5922551F09F00954DDD /* MailManager.swift */,
 				52E37FC12566A14300101A46 /* Settings.swift */,
 				3FB7FED32566F798002F4E20 /* RealmService.swift */,
+				3F661D9D2575AAD4007E0DD9 /* EmailData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -95,11 +108,12 @@
 			isa = PBXGroup;
 			children = (
 				3F565743253E3673002E5031 /* MainViewController.swift */,
-				3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */,
-				3F2671772548AF8C00A4DD92 /* SettingViewController.swift */,
-				3F26717A2548AFA100A4DD92 /* SentViewController.swift */,
-				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
 				3F26718B2548B1A300A4DD92 /* HomeViewController.swift */,
+				3F26717A2548AFA100A4DD92 /* SentViewController.swift */,
+				52DEF3AC257AA5C000222E17 /* DraftViewController.swift */,
+				3F2671742548AF4E00A4DD92 /* ReadingViewController.swift */,
+				3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */,
+				3F2671772548AF8C00A4DD92 /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,7 +121,7 @@
 		3F565733253E3673002E5031 = {
 			isa = PBXGroup;
 			children = (
-				367B8F6E255DBD1A00BCB58D /* DataModel.xcdatamodeld */,
+				362444D4256C56AA00838B12 /* Extensions */,
 				3F56573E253E3673002E5031 /* IOSMail */,
 				3F56573D253E3673002E5031 /* Products */,
 
@@ -336,8 +350,8 @@
 				3F565740253E3673002E5031 /* AppDelegate.swift in Sources */,
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
+				52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */,
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
-				367B8F70255DBD1A00BCB58D /* DataModel.xcdatamodeld in Sources */,
 				365CF5902551EAE400954DDD /* MailData.swift in Sources */,
 				3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */,
 				3F2671782548AF8C00A4DD92 /* SettingViewController.swift in Sources */,
@@ -345,6 +359,8 @@
 				52E37FC22566A14300101A46 /* Settings.swift in Sources */,
 				3F26717E2548AFC200A4DD92 /* ComposingViewController.swift in Sources */,
 				365CF5932551F09F00954DDD /* MailManager.swift in Sources */,
+				3F661D9E2575AAD4007E0DD9 /* EmailData.swift in Sources */,
+				362444DA256C56E300838B12 /* String.swift in Sources */,
 				3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,19 +572,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		367B8F6E255DBD1A00BCB58D /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				367B8F6F255DBD1A00BCB58D /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 367B8F6F255DBD1A00BCB58D /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3F565734253E3673002E5031 /* Project object */;
 }
