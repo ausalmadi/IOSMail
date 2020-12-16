@@ -22,7 +22,8 @@ class DraftViewController: MainViewController {
         manager.mailBox = mailboxText
         manager.listMessages(tableview: tableView, folder: manager.mailBox)
     }
-    override func viewDidLoad() {
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -31,7 +32,7 @@ class DraftViewController: MainViewController {
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+		tableView.reloadData()
     }
 }
 
