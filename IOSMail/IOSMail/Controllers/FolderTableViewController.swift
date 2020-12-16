@@ -9,27 +9,62 @@ import UIKit
 
 class FolderTableViewController: UITableViewController {
 
+    var mailBoxesArray = ["INBOX", "SENT", "DRAFT"]
+    var mailBox = "INBOX"
+    let manager = MailManager.shared
+    
+    @IBOutlet var labels: UITableView!
+
+    override func viewWillAppear(_ animated: Bool) {
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 70
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.rowHeight =  70
+//        mailBoxesArray = manager.messageList
+//        manager.messageList(tableView: manager.messageList)
+//        labels.reloadData() // Reload tableview data for Labels/Folders
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return mailBoxesArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath)
+        
+        cell.textLabel?.text = mailBoxesArray[indexPath.row]
+        
+        return cell
+    }
+    
+    //MARK: - Navigation buttons
+    
+    @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showSettings", sender: self)
+    }
+    
+    // MARK: - Tableview Delegate Methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        self.mailBox = mailBoxesArray[indexPath.row]
+        manager.mailBox = self.mailBox
+        //index = indexPath.row
+        performSegue(withIdentifier: "emailDetails", sender: self)
+    }
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let destinationVC = segue.destination as! EmailTableViewController
+        //manager.mailBox = self.mailBox
+        //destinationVC.selectedMailBox = mailBox
+       /* if let indexPath = tableView.indexPathForSelectedRow {
+            manager.mailBox = self.mailBox
+            //destinationVC.selectedMailBox = mailBox
+        }*/
     }
 
     /*
