@@ -9,7 +9,10 @@ import UIKit
 
 class FolderViewCell: UITableViewCell {
 
-
+    @IBOutlet weak var folderImage: UIImageView!
+    @IBOutlet weak var folderDescriptionLabel: UILabel!
+    @IBOutlet weak var folderCountLabel: UILabel!
+    
 
     
     override func awakeFromNib() {
