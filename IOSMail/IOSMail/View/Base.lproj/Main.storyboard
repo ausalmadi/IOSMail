@@ -784,7 +784,7 @@ Fk1zZyBEYXRlA
         <!--Folders Table View Controller-->
         <scene sceneID="DAJ-Qv-05g">
             <objects>
-                <tableViewController id="SCk-6M-4ou" userLabel="Folders Table View Controller" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="folderCell" title="Folders" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SCk-6M-4ou" userLabel="Folders Table View Controller" customClass="FolderTableViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xhD-N2-XHQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
