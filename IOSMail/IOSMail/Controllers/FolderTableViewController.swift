@@ -49,12 +49,12 @@ class FolderTableViewController: UITableViewController {
 		return cell!
     }
     
-    //MARK: - Navigation buttons
-    
-    @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "showSettings", sender: self)
-    }
-    
+//    //MARK: - Navigation buttons
+//    
+//    @IBAction func settingsPressed(_ sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: "showSettings", sender: self)
+//    }
+//    
     // MARK: - Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

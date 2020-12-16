@@ -125,7 +125,7 @@ class MailManager{
 		gmailService.shouldFetchNextPages = false
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		listQuery.maxResults = 3
+		listQuery.maxResults = 10
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
