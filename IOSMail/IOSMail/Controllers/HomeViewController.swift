@@ -78,7 +78,7 @@ class HomeViewController: UIViewController {
 
 	deinit {
 		NotificationCenter.default.removeObserver(self,
-          name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+          name: NSNotification.Name(rawValue: "signInStatus"),
           object: nil)
     }
 
@@ -105,8 +105,8 @@ class HomeViewController: UIViewController {
 	}
 	
 //MARK: Notification methods
-	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-		if notification.name.rawValue == "ToggleAuthUINotification" {
+	@objc func receivesignInStatus(_ notification: NSNotification) {
+		if notification.name.rawValue == "signInStatus" {
 			if notification.userInfo != nil {
                 guard (notification.userInfo as? [String:String]) != nil else { return }
 			}
