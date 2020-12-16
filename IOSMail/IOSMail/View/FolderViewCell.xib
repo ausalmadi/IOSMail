@@ -22,9 +22,9 @@
                         <rect key="frame" x="0.0" y="1" width="70" height="67.5"/>
                         <color key="tintColor" systemColor="systemTealColor"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="folderName" text="Folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSl-2j-58p" userLabel="Folder Label">
-                        <rect key="frame" x="78" y="25" width="330" height="26.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="folderName" text="Folder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSl-2j-58p" userLabel="Folder Label">
+                        <rect key="frame" x="78" y="25" width="330" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" name="MenuBar"/>
                         <nil key="highlightedColor"/>
                     </label>

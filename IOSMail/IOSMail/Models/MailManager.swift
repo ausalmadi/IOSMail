@@ -46,32 +46,20 @@ class MailManager{
 		tbview = tableview
 		labels.removeAll()
 		let listQuery = GTLRGmailQuery_UsersLabelsList.query(withUserId: "me")
-		// get authorized user
+		// get the authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
-
-		// set mail service authorizer
 		gmailService.authorizer = authorizer
-		//gmailService.shouldFetchNextPages = true
-		//listQuery.maxResults = 5 // set max results to return
 
 		gmailService.executeQuery(listQuery) { (ticket, response, error) in
 			if response != nil {
 				self.getLabels(response: response as! GTLRGmail_ListLabelsResponse)
 			} else {
-				print("Error: ")
-				print(error as Any)
+				print("Error: \(error as Any)")
 			}
-
 		}
-
 	}
 
 	func getLabels(response: GTLRGmail_ListLabelsResponse) {
-		/*var from : String = ""
-		var to : String = ""
-		var date : String = ""
-		var subject : String = ""
-		var msgtime : String = ""*/
 		var labelList = [GTLRGmail_Label]()
 		let messagesResponse = response as GTLRGmail_ListLabelsResponse
 
@@ -79,24 +67,13 @@ class MailManager{
 			let query = GTLRGmailQuery_UsersLabelsGet.query(withUserId: "me", identifier: msg.identifier!)
 			gmailService.executeQuery(query) { [self] (ticket, response, error) in
 				if response != nil {
-					//print(response as! GTLRGmail_Label)
 					labelList.append(response as! GTLRGmail_Label)
-					//print(labelList[labelList.endIndex - 1].identifier ?? "")
 					labels.append(labelList[labelList.endIndex - 1].identifier! as String)
-					//self.messageList.append(response as! GTLRGmail_Message)
-
-				}
+						}
 				self.tbview!.reloadData()
-
 			}
-			//
-		}
-
-		)
+		})
 		tbview?.reloadData()
-
-
-
 	}
 	/*
 	DESCRIPTION:
@@ -146,7 +123,6 @@ class MailManager{
 	}
 
      func dataFilling(_ emailData: EmailData, _ m: MailData) {
-		
             emailData.emailSubject = m.subject ?? ""
             emailData.emailSnippet = m.snippet ?? ""
             emailData.fromSender = m.from ?? ""
@@ -156,8 +132,6 @@ class MailManager{
             emailData.emaiTime = m.time ?? ""
 			emailData.messageID = m.messageID ?? ""
             RealmService.shared.create(emailData)
-           
-         
     }
     
    func dataFactory(_ m: MailData) {
@@ -165,14 +139,12 @@ class MailManager{
         emailData.mBox = mailBox
 
         if (emailData.mBox == "INBOX"){
-            
             dataFilling(emailData, m)
             
         } else if (emailData.mBox == "DRAFT"){
-            
             dataFilling(emailData, m)
-        }else if (emailData.mBox == "SENT" ){
             
+        }else if (emailData.mBox == "SENT" ){
             dataFilling(emailData, m)
         }
     }
@@ -185,9 +157,7 @@ class MailManager{
 		var subject : String = ""
 		var msgtime : String = ""
 		var mID : String = ""
-
         var snippet : String = ""
-
 		let messagesResponse = response as GTLRGmail_ListMessagesResponse
 
 		messagesResponse.messages?.forEach({ (msg) in
@@ -203,7 +173,6 @@ class MailManager{
 
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
-
 							if head.name=="Date" {
 								let tempdate = self.base64urlToBase64(base64url: head.value ?? "default value")
 								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
@@ -221,26 +190,20 @@ class MailManager{
 						to = self.base64urlToBase64(base64url: head.value ?? "default value")
 					}
 				}
-						// gets HTML part of message
-						guard let message2 = message.payload!.parts?[self.HTMLMessage] else
-						{return }
+                    // gets HTML part of message
+                    guard let message2 = message.payload!.parts?[self.HTMLMessage] else {return }
 
 						if (message2.body!.data != nil) {
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
 
-						if let data = Data(base64Encoded: mail) {
-
-
-                            let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
-
-
-							self.messages.append(m)
-							checkForDuplicates(data: m)
-													}
-
+                            if let data = Data(base64Encoded: mail) {
+                                let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
+                                self.messages.append(m)
+                                checkForDuplicates(data: m)
+                            }
 						} else { return }
 					}
-				}catch {
+				} catch {
 					print(error as Any)
 				}
 				// make sure table view gets loaded with new data
@@ -253,27 +216,16 @@ class MailManager{
 		})
 	}
 
-	/**
-		checkForDuplicates(data: MailData)
-
-	Parameters:
-	'data'  instance of MailData class to check
-	*/
-
 	func checkForDuplicates(data: MailData){
 		if mail!.count == 0 {
 			//print("adding message")
 			self.dataFactory(data)
 			return
 		}
-		//mail?.forEach { (msg) in
 		// contains method used to check for duplicates of messageID
 			if self.mail!.contains(where: {$0.messageID == data.messageID}) {
-			//if msg.messageID == data.messageID {
-				//print("Duplicate message \(data.messageID!)")
 				return
 			} else {
-				//print("added message \(data.messageID!)")
 				self.dataFactory(data)
 			}
 	}
