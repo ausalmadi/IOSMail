@@ -15,13 +15,12 @@ class MailManager{
 	let HTMLMessage = 1
 	let PlainMessage = 0
 
-	//var homeController = HomeViewController()
     var mailBox = ""
 
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
 
-	var labels = [String]()
+	var labels = [String]() // Labels array
 
     var tbview : UITableView? = nil
     let gmailService = GTLRGmailService.init() // initialize mail service
@@ -33,14 +32,12 @@ class MailManager{
 	private init(){ }
 
 	func setMessages(msg : [MailData]){
-		//print("setMessages() message count = \(msg.count)")
 		messages = msg
 	}
 
 	func settbView(_tbview : UITableView) {
 		self.tbview? = _tbview
 	}
-
 
 	func listLabels(tableview:UITableView) {
 		tbview = tableview
@@ -75,18 +72,17 @@ class MailManager{
 		})
 		tbview?.reloadData()
 	}
-	/*
-	DESCRIPTION:
-	listMessages(tableview)
+	/**
+		listMessages(tableview)
 
 	Parameters:
-	tableview -> UITableView object to add items to
+	tableview ->  UITableView object to add items to
 	*/
 	func listMessages(tableview :UITableView){
 		listMessages(tableview: tableview, folder: mailBox)
 	}
 
-	/*
+	/**
 	DESCRIPTION:
 	listMessages(tableview, folder)
 
@@ -99,10 +95,10 @@ class MailManager{
 		messages.removeAll()
 		messageList.removeAll()
 		mail = realm.objects(EmailData.self)
-		gmailService.shouldFetchNextPages = false
+		gmailService.shouldFetchNextPages = false // allows to fetch next page automatically
 		let listQuery = GTLRGmailQuery_UsersMessagesList.query(withUserId: "me")
 		listQuery.labelIds = [folder] // folder to view
-		listQuery.maxResults = 10
+		listQuery.maxResults = 10 // sets max results per page
 
 		// get authorized user
 		let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -118,7 +114,6 @@ class MailManager{
 				print("Error: ")
 				print(error as Any)
 			}
-
 		}
 	}
 
