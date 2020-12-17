@@ -145,13 +145,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tray.and.arrow.down" catalog="system" id="wU6-fG-CHd">
-                                        <rect key="frame" x="0.0" y="2.5" width="34" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="2.5" width="34.5" height="30.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PEI-Md-saM">
-                                        <rect key="frame" x="34" y="0.0" width="91" height="36"/>
+                                        <rect key="frame" x="34.5" y="0.0" width="90.5" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -341,13 +341,13 @@ Fk1zZyBEYXRlA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
-                                <rect key="frame" x="152" y="54" width="110.5" height="35"/>
+                                <rect key="frame" x="154" y="54" width="106" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FmV-CA-J1M" userLabel="email Stack View">
-                                <rect key="frame" x="20" y="149" width="374" height="34"/>
+                                <rect key="frame" x="20" y="150" width="374" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eMail ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-sI-lRh">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="34"/>
@@ -372,22 +372,22 @@ Fk1zZyBEYXRlA
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Wtp-DR-GJQ" userLabel="Display Stack View">
-                                <rect key="frame" x="20" y="274" width="374" height="30.5"/>
+                                <rect key="frame" x="20" y="275" width="374" height="29.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="eMails to Display" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-qq-Lrm">
-                                        <rect key="frame" x="0.0" y="0.0" width="217.5" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="217.5" height="29.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-sJ-g6I">
-                                        <rect key="frame" x="226.5" y="0.0" width="44.5" height="30.5"/>
+                                        <rect key="frame" x="226.5" y="0.0" width="44.5" height="29.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" name="MenuBar"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nKd-eY-ntJ">
-                                        <rect key="frame" x="280" y="0.0" width="94" height="30.5"/>
+                                        <rect key="frame" x="280" y="0.0" width="94" height="29.5"/>
                                         <connections>
                                             <action selector="stepperCount:" destination="CGJ-p8-LON" eventType="valueChanged" id="Lzi-0V-YHb"/>
                                         </connections>
@@ -395,7 +395,7 @@ Fk1zZyBEYXRlA
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-zI-hz9" userLabel="SetSig Stack View">
-                                <rect key="frame" x="20" y="213" width="374" height="31"/>
+                                <rect key="frame" x="20" y="214" width="374" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKc-z6-xus" userLabel="addSigLabel">
                                         <rect key="frame" x="0.0" y="5.5" width="315" height="20.5"/>
@@ -629,10 +629,10 @@ Fk1zZyBEYXRlA
                                         </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-vv-IH9" userLabel="Body Scroll View">
-                                        <rect key="frame" x="0.0" y="118" width="394" height="581"/>
+                                        <rect key="frame" x="0.0" y="118" width="394" height="546"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="787"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Hello" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
+                                                <rect key="frame" x="0.0" y="29" width="394" height="758"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="787" id="bG3-nt-vOt"/>
                                                 </constraints>
@@ -649,6 +649,13 @@ Fk1zZyBEYXRlA
                                             <constraint firstAttribute="bottom" secondItem="fXi-Ra-V1q" secondAttribute="bottom" id="zCZ-1d-AjP"/>
                                         </constraints>
                                     </scrollView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ual-av-g8U" userLabel="Attachement">
+                                        <rect key="frame" x="0.0" y="669" width="394" height="30"/>
+                                        <state key="normal" title="Add an Attachement"/>
+                                        <connections>
+                                            <action selector="addAttachment:" destination="ZYt-K6-SDN" eventType="touchUpInside" id="yaz-et-804"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-1B-ieF">
                                         <rect key="frame" x="0.0" y="704" width="394" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
@@ -684,7 +691,9 @@ Fk1zZyBEYXRlA
                             <constraint firstItem="0y9-tX-0EM" firstAttribute="centerX" secondItem="ouc-XD-tq2" secondAttribute="centerX" id="tNb-gc-VQB"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Compose" largeTitleDisplayMode="always" id="zAr-hf-5Cx"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bccField" destination="EA5-b5-iFb" id="nbS-IK-lT1"/>
                         <outlet property="bodyField" destination="fXi-Ra-V1q" id="pnA-G1-eY4"/>
@@ -695,7 +704,7 @@ Fk1zZyBEYXRlA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9V-6y-dQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="376"/>
+            <point key="canvasLocation" x="2095.6521739130435" y="375.66964285714283"/>
         </scene>
         <!--Navigation-->
         <scene sceneID="nha-wu-LJT">

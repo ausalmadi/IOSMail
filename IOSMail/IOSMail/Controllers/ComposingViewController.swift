@@ -157,18 +157,26 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
         return base64EncodedString
     }
     
+    @IBAction func addAttachment(_ sender: UIButton) {
+        
+    }
+    
     func sendWithMailComposer() {
         if MFMailComposeViewController.canSendMail() {
+                    print("1")
                     let mailComposer = MFMailComposeViewController()
                     mailComposer.setSubject("Update about ios tutorials")
                     mailComposer.setMessageBody("What is the update about ios tutorials on youtube", isHTML: false)
                     mailComposer.setToRecipients(["fazeli.mojtaba@gmail.com"])
-                    guard let filePath = Bundle.main.path(forResource: "./Supporting Files/images", ofType: "jpg") else {
+                    guard let filePath = Bundle.main.path(forResource: "IOSMail/Supporting Files/images", ofType: "jpg") else {
+                        print("2")
                         return
                     }
+                    print("3")
                     let url = URL(fileURLWithPath: filePath)
-                    
+                    print("4")
                     do {
+                        print("5")
                     let attachmentData = try Data(contentsOf: url)
                         mailComposer.addAttachmentData(attachmentData, mimeType: "application/jpg", fileName: "iamges")
                         mailComposer.mailComposeDelegate = self
@@ -177,6 +185,7 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
                     } catch let error {
                         print("We have encountered error \(error.localizedDescription)")
                     }
+            print("6")
  
                 } else {
                     print("Email is not configured in settings app or we are not able to send an email")
