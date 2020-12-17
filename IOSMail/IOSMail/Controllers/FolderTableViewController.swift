@@ -27,7 +27,6 @@ class FolderTableViewController: UITableViewController {
         labels.reloadData() // Reload tableview data for Labels/Folders
     }
 
-
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		if let firstVC = presentingViewController as? HomeViewController {
@@ -37,15 +36,14 @@ class FolderTableViewController: UITableViewController {
 			}
 		}
 	}
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return manager.labels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as? FolderViewCell
-
 		cell?.folderDescriptionLabel?.text = manager.labels[indexPath.row]
-
 		return cell!
     }
     
@@ -65,5 +63,4 @@ class FolderTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
-
 }

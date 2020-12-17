@@ -56,7 +56,6 @@ class ReadingViewController: MainViewController {
         vc.subjectFromReader = (message.emailSubject ?? "") as String
         vc.msgBodyFromReader = "<br><br><br><div style='color:gray'><p>Original email:</p>\(message.emailBody! as String)</div>"
     }
-
 }
 
 extension String {

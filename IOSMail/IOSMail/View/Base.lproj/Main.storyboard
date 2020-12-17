@@ -790,6 +790,7 @@ Fk1zZyBEYXRlA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" systemColor="systemTealColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZaX-QY-adm" customClass="FolderViewCell" customModule="iosMail" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
@@ -809,42 +810,12 @@ Fk1zZyBEYXRlA
                     <navigationItem key="navigationItem" id="uDh-7B-ICL"/>
                     <connections>
                         <outlet property="labels" destination="xhD-N2-XHQ" id="wKd-th-z7F"/>
-                        <segue destination="2Ny-Tq-tK0" kind="show" id="H1r-kv-2uZ"/>
                         <segue destination="mfG-TN-pZu" kind="showDetail" identifier="main" id="fJy-fc-Mnr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBh-Xc-wH2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3902" y="-30"/>
-        </scene>
-        <!--Any Table View Controller-->
-        <scene sceneID="fb3-Sk-GBA">
-            <objects>
-                <tableViewController id="2Ny-Tq-tK0" userLabel="Any Table View Controller" customClass="GenericTableViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="izP-j1-Mqb">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3LR-47-yrs">
-                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3LR-47-yrs" id="JWj-OI-wvR">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2Ny-Tq-tK0" id="0L5-3z-Gvz"/>
-                            <outlet property="delegate" destination="2Ny-Tq-tK0" id="gcd-pU-2fc"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="XvN-T4-8tN"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yf1-1T-9cx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4833" y="-29"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

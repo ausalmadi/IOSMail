@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
 	@objc func receivesignInStatus(_ notification: NSNotification) {
 		if notification.name.rawValue == "signInStatus" {
 			if notification.userInfo != nil {
-				guard let userInfo = notification.userInfo as? [String:String] else { return }
+                guard (notification.userInfo as? [String:String]) != nil else { return }
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
 
