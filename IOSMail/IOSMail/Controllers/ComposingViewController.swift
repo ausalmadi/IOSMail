@@ -11,8 +11,7 @@ import GoogleSignIn
 import GTMSessionFetcher
 import MessageUI
 
-class ComposingViewController: MainViewController,
-                               UITextViewDelegate, MFMailComposeViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class ComposingViewController: MainViewController, UITextViewDelegate, MFMailComposeViewControllerDelegate, UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
     
     @IBOutlet var toField: UITextField!
     @IBOutlet var ccField: UITextField!
@@ -29,7 +28,6 @@ class ComposingViewController: MainViewController,
     var filePath = ""
     var fileName = ""
     var fileExt = "jpeg"
-    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +44,6 @@ class ComposingViewController: MainViewController,
         } else {
             addHint()
         }
-        
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -149,20 +143,27 @@ class ComposingViewController: MainViewController,
     }
     
     @IBAction func addAttachment(_ sender: UIButton) {
-        self.present(self.imagePicker, animated: true, completion: nil)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
         
         
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
+        let image_data = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        let imageData:Data = (image_data!).pngData()!
+        let imageString = imageData.base64EncodedString()
+        
         guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
         print(fileUrl) // get file Name
         print(fileUrl.pathExtension)     // get file extension
         filePath = "\(fileUrl)"
         fileName = "\(fileUrl.lastPathComponent)"
         fileExt = fileUrl.pathExtension
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
+
     }
     
     func sendWithMailComposer() {
@@ -177,13 +178,13 @@ class ComposingViewController: MainViewController,
 //                        return
 //                    }
                     print("3")
-                    let url = URL(fileURLWithPath: "/private/var/mobile/Containers/Data/Application/94F84EFA-28B2-45DD-9235-0B5432373C48/tmp/33B52D2B-4B2C-4F29-838C-0740895ABF7E.jpeg")
+            let url = URL(fileURLWithPath: filePath)
                     print(filePath)
                     print(url)
                     print("4")
                     do {
                         print("5")
-                    let attachmentData = try Data(contentsOf: url)
+                        let attachmentData = try Data(contentsOf: url)
                         print("5.1")
                         mailComposer.addAttachmentData(attachmentData, mimeType: "image/\(fileExt)", fileName: "\(filePath)")
                         print("5.2")
