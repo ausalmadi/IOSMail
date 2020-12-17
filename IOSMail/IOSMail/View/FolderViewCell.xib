@@ -41,7 +41,6 @@
                     <constraint firstAttribute="bottom" secondItem="72U-Js-HKT" secondAttribute="bottom" id="Fae-hO-7FP"/>
                     <constraint firstItem="72U-Js-HKT" firstAttribute="top" secondItem="CG9-Zu-diq" secondAttribute="top" constant="10" id="OsK-hk-7c4"/>
                     <constraint firstItem="72U-Js-HKT" firstAttribute="leading" secondItem="CG9-Zu-diq" secondAttribute="leading" id="XXt-rg-J0M"/>
-                    <constraint firstItem="72U-Js-HKT" firstAttribute="top" secondItem="CG9-Zu-diq" secondAttribute="top" constant="10" id="d0Z-pH-c0D"/>
                     <constraint firstItem="fSl-2j-58p" firstAttribute="leading" secondItem="72U-Js-HKT" secondAttribute="trailing" constant="16" id="ebr-q2-nsz"/>
                     <constraint firstItem="MUa-Os-NrW" firstAttribute="leading" secondItem="fSl-2j-58p" secondAttribute="trailing" constant="28" id="hrb-Xh-n4U"/>
                     <constraint firstAttribute="trailing" secondItem="MUa-Os-NrW" secondAttribute="trailing" constant="5" id="jn6-gW-ORp"/>
@@ -54,7 +53,7 @@
                 <outlet property="folderDescriptionLabel" destination="fSl-2j-58p" id="piX-F7-GyJ"/>
                 <outlet property="folderImage" destination="72U-Js-HKT" id="gwd-FD-kzC"/>
             </connections>
-            <point key="canvasLocation" x="110.86956521739131" y="63.616071428571423"/>
+            <point key="canvasLocation" x="-328" y="60"/>
         </tableViewCell>
     </objects>
     <resources>
