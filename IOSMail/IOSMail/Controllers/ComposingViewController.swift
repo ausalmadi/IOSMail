@@ -12,7 +12,7 @@ import GTMSessionFetcher
 import MessageUI
 
 class ComposingViewController: MainViewController,
-UITextViewDelegate, MFMailComposeViewControllerDelegate {
+                               UITextViewDelegate, MFMailComposeViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet var toField: UITextField!
     @IBOutlet var ccField: UITextField!
@@ -26,6 +26,9 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
     var subjectFromReader = ""
     var msgBodyFromReader = ""
     var sendButtonPressed: Bool = false
+    var fileName = ""
+    var fileExt = ""
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,26 +39,16 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
             subjectField.text = "Re: " + subjectFromReader
             bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
             
-//           guard let filePath = Bundle.main.path(forResource: "images.jpg", ofType: "jpg") else {
-//               return
-//           }
-//           let url = URL(fileURLWithPath: filePath)
-//
-//           do {
-//           let attachmentData = try Data(contentsOf: url)
-//               mailComposer.addAttachmentData(attachmentData, mimeType: "application/jpg", fileName: "images.jpg")
-//               mailComposer.mailComposeDelegate = self
-//               self.present(mailComposer, animated: true
-//                   , completion: nil)
-//           } catch let error {
-//               print("We have encountered error \(error.localizedDescription)")
-//           }
         } else if isForwardButtonPressed {
             subjectField.text = "FWD: " + subjectFromReader
             bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
         } else {
             addHint()
         }
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -69,10 +62,7 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
         sendWithMailComposer()
     }
     
-//    func attachmentData(_ attachment: Data,
-//                           mimeType: String,
-//                           fileName filename: String) {
-//    }
+
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
@@ -158,7 +148,17 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
     }
     
     @IBAction func addAttachment(_ sender: UIButton) {
-        
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
+        print(fileUrl.lastPathComponent) // get file Name
+        print(fileUrl.pathExtension)     // get file extension
+        fileName = fileUrl.lastPathComponent
+        fileExt = fileUrl.pathExtension
+        dismiss(animated: true, completion: nil)
     }
     
     func sendWithMailComposer() {
@@ -168,7 +168,7 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
                     mailComposer.setSubject("Update about ios tutorials")
                     mailComposer.setMessageBody("What is the update about ios tutorials on youtube", isHTML: false)
                     mailComposer.setToRecipients(["fazeli.mojtaba@gmail.com"])
-                    guard let filePath = Bundle.main.path(forResource: "IOSMail/Supporting Files/images", ofType: "jpg") else {
+                    guard let filePath = Bundle.main.path(forResource: "\(fileName)", ofType: "\(fileExt)") else {
                         print("2")
                         return
                     }
@@ -178,7 +178,7 @@ UITextViewDelegate, MFMailComposeViewControllerDelegate {
                     do {
                         print("5")
                     let attachmentData = try Data(contentsOf: url)
-                        mailComposer.addAttachmentData(attachmentData, mimeType: "application/jpg", fileName: "iamges")
+                        mailComposer.addAttachmentData(attachmentData, mimeType: "application/\(fileExt)", fileName: "iamges")
                         mailComposer.mailComposeDelegate = self
                         self.present(mailComposer, animated: true
                             , completion: nil)

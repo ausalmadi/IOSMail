@@ -2,6 +2,5 @@
 
 https://github.com/ausalmadi/IOSMail
 
-David -  I worked on the following Jira tickets
+roaa- IM-62
 
-IM-28
