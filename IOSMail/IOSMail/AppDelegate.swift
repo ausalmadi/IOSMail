@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         NotificationCenter.default.post(
             name: Notification.Name(rawValue: "signInStatus"),
             object: nil,
-            userInfo: ["statusText": "Name"])
+            userInfo: ["statusText": "User has connected"])
 	}
 	
 	func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,

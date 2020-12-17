@@ -57,10 +57,9 @@ class MainViewController: UIViewController {
 
 	deinit {
 		NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "signInStatus"), object: nil)
-//		NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "GetMailNotification"), object: nil)
 	}
     
-//MARK: notification functions
+//MARK: - notification functions
 	@objc func receivesignInStatus(_ notification: NSNotification) {
 		if notification.name.rawValue == "signInStatus" {
 			if notification.userInfo != nil {
