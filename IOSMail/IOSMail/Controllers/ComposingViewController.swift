@@ -26,8 +26,9 @@ class ComposingViewController: MainViewController,
     var subjectFromReader = ""
     var msgBodyFromReader = ""
     var sendButtonPressed: Bool = false
+    var filePath = ""
     var fileName = ""
-    var fileExt = ""
+    var fileExt = "jpeg"
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -149,14 +150,17 @@ class ComposingViewController: MainViewController,
     
     @IBAction func addAttachment(_ sender: UIButton) {
         self.present(self.imagePicker, animated: true, completion: nil)
+        
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
-        print(fileUrl.lastPathComponent) // get file Name
+        print(fileUrl) // get file Name
         print(fileUrl.pathExtension)     // get file extension
-        fileName = fileUrl.lastPathComponent
+        filePath = "\(fileUrl)"
+        fileName = "\(fileUrl.lastPathComponent)"
         fileExt = fileUrl.pathExtension
         dismiss(animated: true, completion: nil)
     }
@@ -168,17 +172,21 @@ class ComposingViewController: MainViewController,
                     mailComposer.setSubject("Update about ios tutorials")
                     mailComposer.setMessageBody("What is the update about ios tutorials on youtube", isHTML: false)
                     mailComposer.setToRecipients(["fazeli.mojtaba@gmail.com"])
-                    guard let filePath = Bundle.main.path(forResource: "\(fileName)", ofType: "\(fileExt)") else {
-                        print("2")
-                        return
-                    }
+//                    guard let filePath = Bundle.main.path(forResource: filePath, ofType: fileExt) else {
+//                        print("2")
+//                        return
+//                    }
                     print("3")
-                    let url = URL(fileURLWithPath: filePath)
+                    let url = URL(fileURLWithPath: "/private/var/mobile/Containers/Data/Application/94F84EFA-28B2-45DD-9235-0B5432373C48/tmp/33B52D2B-4B2C-4F29-838C-0740895ABF7E.jpeg")
+                    print(filePath)
+                    print(url)
                     print("4")
                     do {
                         print("5")
                     let attachmentData = try Data(contentsOf: url)
-                        mailComposer.addAttachmentData(attachmentData, mimeType: "application/\(fileExt)", fileName: "iamges")
+                        print("5.1")
+                        mailComposer.addAttachmentData(attachmentData, mimeType: "image/\(fileExt)", fileName: "\(filePath)")
+                        print("5.2")
                         mailComposer.mailComposeDelegate = self
                         self.present(mailComposer, animated: true
                             , completion: nil)
