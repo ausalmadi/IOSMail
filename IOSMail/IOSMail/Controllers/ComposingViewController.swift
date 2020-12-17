@@ -9,8 +9,10 @@ import UIKit
 import GoogleAPIClientForREST
 import GoogleSignIn
 import GTMSessionFetcher
+import MessageUI
 
-class ComposingViewController: MainViewController, UITextViewDelegate {
+class ComposingViewController: MainViewController,
+UITextViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet var toField: UITextField!
     @IBOutlet var ccField: UITextField!
@@ -33,6 +35,21 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
             toField.text = fromReaderEmail
             subjectField.text = "Re: " + subjectFromReader
             bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
+            
+//           guard let filePath = Bundle.main.path(forResource: "images.jpg", ofType: "jpg") else {
+//               return
+//           }
+//           let url = URL(fileURLWithPath: filePath)
+//
+//           do {
+//           let attachmentData = try Data(contentsOf: url)
+//               mailComposer.addAttachmentData(attachmentData, mimeType: "application/jpg", fileName: "images.jpg")
+//               mailComposer.mailComposeDelegate = self
+//               self.present(mailComposer, animated: true
+//                   , completion: nil)
+//           } catch let error {
+//               print("We have encountered error \(error.localizedDescription)")
+//           }
         } else if isForwardButtonPressed {
             subjectField.text = "FWD: " + subjectFromReader
             bodyField.attributedText = msgBodyFromReader.htmlToAttributedString
@@ -48,8 +65,14 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
-        sendEmail()
+//        sendEmail()
+        sendWithMailComposer()
     }
+    
+//    func attachmentData(_ attachment: Data,
+//                           mimeType: String,
+//                           fileName filename: String) {
+//    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
@@ -92,6 +115,7 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         let service = GTLRGmailService()
         let gtlMessage = GTLRGmail_Message()
         gtlMessage.raw = self.generateRawString()
+        gtlMessage.payload?.filename = ""
         let query =
             GTLRGmailQuery_UsersMessagesSend.query(withObject: gtlMessage, userId: "me", uploadParameters: nil)
         let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
@@ -131,6 +155,32 @@ class ComposingViewController: MainViewController, UITextViewDelegate {
         let utf8Data = rawMessage.data
         let base64EncodedString = utf8Data.base64EncodedString()
         return base64EncodedString
+    }
+    
+    func sendWithMailComposer() {
+        if MFMailComposeViewController.canSendMail() {
+                    let mailComposer = MFMailComposeViewController()
+                    mailComposer.setSubject("Update about ios tutorials")
+                    mailComposer.setMessageBody("What is the update about ios tutorials on youtube", isHTML: false)
+                    mailComposer.setToRecipients(["fazeli.mojtaba@gmail.com"])
+                    guard let filePath = Bundle.main.path(forResource: "./Supporting Files/images", ofType: "jpg") else {
+                        return
+                    }
+                    let url = URL(fileURLWithPath: filePath)
+                    
+                    do {
+                    let attachmentData = try Data(contentsOf: url)
+                        mailComposer.addAttachmentData(attachmentData, mimeType: "application/jpg", fileName: "iamges")
+                        mailComposer.mailComposeDelegate = self
+                        self.present(mailComposer, animated: true
+                            , completion: nil)
+                    } catch let error {
+                        print("We have encountered error \(error.localizedDescription)")
+                    }
+ 
+                } else {
+                    print("Email is not configured in settings app or we are not able to send an email")
+                }
     }
 }
 

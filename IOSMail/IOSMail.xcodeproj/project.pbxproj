@@ -15,6 +15,8 @@
 		3F26717B2548AFA100A4DD92 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717A2548AFA100A4DD92 /* SentViewController.swift */; };
 		3F26717E2548AFC200A4DD92 /* ComposingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */; };
 		3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26718B2548B1A300A4DD92 /* HomeViewController.swift */; };
+		3F3CFC07258AA2EF007D02EB /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F3CFC06258AA2EE007D02EB /* images.jpg */; };
+		3F3CFC14258AAA45007D02EB /* attachmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3CFC13258AAA45007D02EB /* attachmentData.swift */; };
 		3F565740253E3673002E5031 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56573F253E3673002E5031 /* AppDelegate.swift */; };
 		3F565742253E3673002E5031 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F565741253E3673002E5031 /* SceneDelegate.swift */; };
 		3F565744253E3673002E5031 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F565743253E3673002E5031 /* MainViewController.swift */; };
@@ -45,6 +47,8 @@
 		3F26717A2548AFA100A4DD92 /* SentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
 		3F26717D2548AFC200A4DD92 /* ComposingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposingViewController.swift; sourceTree = "<group>"; };
 		3F26718B2548B1A300A4DD92 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3F3CFC06258AA2EE007D02EB /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpg; sourceTree = "<group>"; };
+		3F3CFC13258AAA45007D02EB /* attachmentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = attachmentData.swift; sourceTree = "<group>"; };
 		3F56573C253E3673002E5031 /* iosMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F56573F253E3673002E5031 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F565741253E3673002E5031 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				52E37FC12566A14300101A46 /* Settings.swift */,
 				3FB7FED32566F798002F4E20 /* RealmService.swift */,
 				3F661D9D2575AAD4007E0DD9 /* EmailData.swift */,
+				3F3CFC13258AAA45007D02EB /* attachmentData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				5203994F2564556B007C9707 /* GoogleService-Info.plist */,
 				3F565748253E3677002E5031 /* Assets.xcassets */,
+				3F3CFC06258AA2EE007D02EB /* images.jpg */,
 				522DEEBF2551B6F30002F4A1 /* Fonts */,
 			);
 			path = "Supporting Files";
@@ -261,6 +267,7 @@
 				521B47A225895F8900CC38BC /* FolderViewCell.xib in Resources */,
 				3F56574C253E3677002E5031 /* LaunchScreen.storyboard in Resources */,
 				3F565749253E3677002E5031 /* Assets.xcassets in Resources */,
+				3F3CFC07258AA2EF007D02EB /* images.jpg in Resources */,
 				522DEEC12551B71D0002F4A1 /* Itim-Regular.ttf in Resources */,
 				52E578272551CE1C0028539E /* Roboto-Light.ttf in Resources */,
 				3F565747253E3673002E5031 /* Main.storyboard in Resources */,
@@ -337,6 +344,7 @@
 				3F565740253E3673002E5031 /* AppDelegate.swift in Sources */,
 				3F2671752548AF4E00A4DD92 /* ReadingViewController.swift in Sources */,
 				3F8D295D2549BCD900434B99 /* TableViewCell.swift in Sources */,
+				3F3CFC14258AAA45007D02EB /* attachmentData.swift in Sources */,
 				52DEF3AD257AA5C000222E17 /* DraftViewController.swift in Sources */,
 				3F26718C2548B1A300A4DD92 /* HomeViewController.swift in Sources */,
 				365CF5902551EAE400954DDD /* MailData.swift in Sources */,
