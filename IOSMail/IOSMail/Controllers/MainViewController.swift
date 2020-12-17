@@ -32,11 +32,11 @@ class MainViewController: UIViewController {
 		GIDSignIn.sharedInstance()?.restorePreviousSignIn()
 
 		NotificationCenter.default.addObserver(self,
-           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
-           name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+           selector: #selector(MainViewController.receivesignInStatus(_:)),
+           name: NSNotification.Name(rawValue: "signInStatus"),
            object: nil)
 		NotificationCenter.default.addObserver(self,
-           selector: #selector(MainViewController.receiveToggleAuthUINotification(_:)),
+           selector: #selector(MainViewController.receivesignInStatus(_:)),
            name: NSNotification.Name(rawValue: "GetMailNotification"),
            object: nil)
     }
@@ -56,20 +56,15 @@ class MainViewController: UIViewController {
 	}
 
 	deinit {
-		NotificationCenter.default.removeObserver(self,
-												  name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
-												  object: nil)
-		NotificationCenter.default.removeObserver(self,
-												  name: NSNotification.Name(rawValue: "GetMailNotification"),
-												  object: nil)
+		NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "signInStatus"), object: nil)
+//		NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "GetMailNotification"), object: nil)
 	}
+    
 //MARK: notification functions
-	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-		if notification.name.rawValue == "ToggleAuthUINotification" {
+	@objc func receivesignInStatus(_ notification: NSNotification) {
+		if notification.name.rawValue == "signInStatus" {
 			if notification.userInfo != nil {
-				guard let userInfo = notification.userInfo as? [String:String] else { return }
-				print(userInfo)
-                print(GIDSignIn.sharedInstance()?.currentUser)
+                guard (notification.userInfo as? [String:String]) != nil else { return }
 				if let mvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController {
 					mvc.modalPresentationStyle = .fullScreen
 
@@ -80,13 +75,4 @@ class MainViewController: UIViewController {
 		}
 	}
     
-//    func base64urlToBase64(base64url: String) -> String {
-//        var base64 = base64url
-//            .replacingOccurrences(of: "-", with: "+")
-//            .replacingOccurrences(of: "_", with: "/")
-//        if base64.count % 4 != 0 {
-//            base64.append(String(repeating: "=", count: 4 - base64.count % 4))
-//        }
-//        return base64
-//    }
 }
