@@ -42,7 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	}
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let scopes = ["https://mail.google.com/"]
+        let scopes = ["https://mail.google.com/",
+		"https://www.googleapis.com/auth/gmail.send"]
 		GIDSignIn.sharedInstance().clientID =
 			"662449896826-2qlnkc1bpigf96oqkvbnd2sh25ebqfa3.apps.googleusercontent.com"
 			//"662449896826-13dpc48tgddtki7f7ad1pilpq13u8hnh.apps.googleusercontent.com"
