@@ -33,7 +33,6 @@ class SentViewController: MainViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 		tableView.reloadData()
-
     }
 }
 
@@ -59,7 +58,7 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
               cell!.tableSubjectLabel?.text = message.emailSnippet
-        }else{
+        } else {
             print("error")
         }
         return cell!

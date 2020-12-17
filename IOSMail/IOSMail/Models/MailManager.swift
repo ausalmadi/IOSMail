@@ -170,7 +170,6 @@ class MailManager{
 					try self.messageList.forEach { (message) in
 						mID = message.identifier!
                         snippet = message.snippet!
-
 						//get the body of the email and decode it
 						message.payload!.headers?.forEach {( head) in
 							if head.name=="Date" {
@@ -192,10 +191,8 @@ class MailManager{
 				}
                     // gets HTML part of message
                     guard let message2 = message.payload!.parts?[self.HTMLMessage] else {return }
-
 						if (message2.body!.data != nil) {
 						let mail = self.base64urlToBase64(base64url: (message2.body!.data!))
-
                             if let data = Data(base64Encoded: mail) {
                                 let m = MailData(subject: subject, snippet: snippet, from: from, to: to, body:String(data: data, encoding: .utf8)!, date: date, time: msgtime,  messageID: mID)
                                 self.messages.append(m)

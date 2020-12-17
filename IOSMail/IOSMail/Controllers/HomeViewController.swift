@@ -107,11 +107,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if   editingStyle == .delete {
-                guard let message = mail?[indexPath.row] else { return  }
-                RealmService.shared.delete(message)
-            }
-        
+        if   editingStyle == .delete {
+            guard let message = mail?[indexPath.row] else { return  }
+            RealmService.shared.delete(message)
+        }
             tableView.reloadData()
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -119,14 +118,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-			//if message.mBox == manager.mailBox {
-              cell!.tableLabel?.text = message.emailSubject
-              cell!.tableDateLabel?.text = message.emailDate
-			//}
-
-              cell!.tableSubjectLabel?.text = message.emailSnippet
-
-        }else{
+            cell!.tableLabel?.text = message.emailSubject
+            cell!.tableDateLabel?.text = message.emailDate
+            cell!.tableSubjectLabel?.text = message.emailSnippet
+        } else {
             print("error")
         }
         return cell!
