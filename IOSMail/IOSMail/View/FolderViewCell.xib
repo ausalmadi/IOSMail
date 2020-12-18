@@ -52,7 +52,7 @@
                             <constraint firstItem="MUa-Os-NrW" firstAttribute="leading" secondItem="fSl-2j-58p" secondAttribute="trailing" id="gJW-r4-44Q"/>
                             <constraint firstItem="72U-Js-HKT" firstAttribute="leading" secondItem="GRx-oq-ZYm" secondAttribute="leading" id="jUx-bK-mZt"/>
                             <constraint firstItem="72U-Js-HKT" firstAttribute="top" secondItem="GRx-oq-ZYm" secondAttribute="top" id="lpO-L6-5kR"/>
-                            <constraint firstItem="fSl-2j-58p" firstAttribute="leading" secondItem="72U-Js-HKT" secondAttribute="trailing" id="tj4-Nz-bt4"/>
+                            <constraint firstItem="fSl-2j-58p" firstAttribute="leading" secondItem="72U-Js-HKT" secondAttribute="trailing" constant="2" id="tj4-Nz-bt4"/>
                         </constraints>
                     </stackView>
                 </subviews>
