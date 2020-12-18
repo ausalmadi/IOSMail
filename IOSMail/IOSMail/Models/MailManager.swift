@@ -12,6 +12,7 @@ import GoogleAPIClientForREST
 
 class MailManager{
 
+	//MARK: - Variables & Constants
 	let HTMLMessage = 1
 	let PlainMessage = 0
 
@@ -28,7 +29,8 @@ class MailManager{
 
 	let realm = RealmService.shared.realm
 	var mail: Results<EmailData>?
-	
+
+	//MARK: - Methods
 	private init(){ }
 
 	func setMessages(msg : [MailData]){
@@ -39,6 +41,12 @@ class MailManager{
 		self.tbview? = _tbview
 	}
 
+	/**
+	listLabels(tableview : UITableView)
+
+	- parameter tableview : UITableView to add labels to
+	- returns : nothing
+	*/
 	func listLabels(tableview:UITableView) {
 		tbview = tableview
 		labels.removeAll()
@@ -75,20 +83,19 @@ class MailManager{
 	/**
 		listMessages(tableview)
 
-	Parameters:
-	tableview ->  UITableView object to add items to
+	- Parameter tableview : UITableView object to add items to
+	- returns : nothing
 	*/
 	func listMessages(tableview :UITableView){
 		listMessages(tableview: tableview, folder: mailBox)
 	}
 
 	/**
-	DESCRIPTION:
 	listMessages(tableview, folder)
 
-	Parameters:
-	tableview -> UITableView object to add items to
-	folder -> String with folder to grab items from
+	- Parameter tableview : UITableView object to add items to
+	- parameter folder  : String with folder to grab items from
+	- returns : nothing
 	*/
 	func listMessages(tableview:UITableView, folder : String) {
 		tbview = tableview

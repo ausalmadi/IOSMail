@@ -11,7 +11,8 @@ import RealmSwift
 import GoogleAPIClientForREST
 
 class HomeViewController: UIViewController {
-	
+
+	//MARK: - Variables & Constants
 	var messages = [MailData]()
 	var messageList = [GTLRGmail_Message]()
 	var manager = MailManager.shared
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController {
 	let realm = RealmService.shared.realm
 	var mail: Results<EmailData>?
 
+	//MARK: - Methods
 	// Load messages before screen actually appears
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)

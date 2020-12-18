@@ -9,17 +9,20 @@ import UIKit
 
 class MailboxTableViewController: UITableViewController {
     
-    var mailBoxesArray = ["INBOX", "SENT", "DRAFT"]
+	//MARK: - Variables & Constants
+	var mailBoxesArray = ["INBOX", "SENT", "DRAFT"]
     var mailBox = "INBOX"
 	let manager = MailManager.shared
 	
 	@IBOutlet var labels: UITableView!
+
+	//MARK: - Methods
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		manager.listLabels(tableview: labels)
 		mailBoxesArray = manager.labels
-		//labels.reloadData()
-    }
+	}
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
