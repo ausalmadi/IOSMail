@@ -16,16 +16,13 @@ class MailManager{
 	let HTMLMessage = 1
 	let PlainMessage = 0
 
-    var mailBox = ""
-
-	var messages = [MailData]() // Messages array
-    var messageList = [GTLRGmail_Message]()
-
 	var labels = [String]() // Labels array
 
     var tbview : UITableView? = nil
     let gmailService = GTLRGmailService.init() // initialize mail service
-	static let shared = MailManager() // Setting up shared instance of Singleton class
+
+	var labels = [String]() // Labels array
+
 
 	let realm = RealmService.shared.realm
 	var mail: Results<EmailData>?
@@ -179,7 +176,6 @@ class MailManager{
 								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
 								date = tempdate.substring(to: index)
 								msgtime = tempdate.substring(from: index)
-								//print (date.substring(to: index))
 							}
 							if head.name=="Subject" {
 								subject = self.base64urlToBase64(base64url: head.value ?? "default value")
@@ -217,7 +213,6 @@ class MailManager{
 
 	func checkForDuplicates(data: MailData){
 		if mail!.count == 0 {
-			//print("adding message")
 			self.dataFactory(data)
 			return
 		}

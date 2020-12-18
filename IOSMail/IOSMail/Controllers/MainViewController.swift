@@ -69,7 +69,6 @@ class MainViewController: UIViewController {
 
 					self.present(mvc, animated: true, completion: nil)
 				}
-
 			}
 		}
 	}

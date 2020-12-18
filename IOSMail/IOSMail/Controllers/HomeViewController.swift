@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
 	var messages = [MailData]()
 	var messageList = [GTLRGmail_Message]()
 	var manager = MailManager.shared
-
     var mailboxText : String = "INBOX"  // Used to set the title of the mailbox, the folder in listMessages & the filter for emails
     var index : Int = 0
     
