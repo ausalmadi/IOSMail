@@ -45,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let scopes = ["https://mail.google.com/"]
 		GIDSignIn.sharedInstance().clientID =
 			"662449896826-2qlnkc1bpigf96oqkvbnd2sh25ebqfa3.apps.googleusercontent.com"
-			//"662449896826-13dpc48tgddtki7f7ad1pilpq13u8hnh.apps.googleusercontent.com"
 		GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.scopes = scopes
         
