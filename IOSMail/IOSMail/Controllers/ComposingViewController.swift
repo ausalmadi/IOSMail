@@ -100,9 +100,13 @@ class ComposingViewController: MainViewController, UITextViewDelegate, MFMailCom
         let service = GTLRGmailService()
         let gtlMessage = GTLRGmail_Message()
         gtlMessage.raw = self.generateRawString()
+<<<<<<< HEAD
         gtlMessage.payload?.filename = ""
         let query =
             GTLRGmailQuery_UsersMessagesSend.query(withObject: gtlMessage, userId: "me", uploadParameters: nil)
+=======
+        let query = GTLRGmailQuery_UsersMessagesSend.query(withObject: gtlMessage, userId: "me", uploadParameters: nil)
+>>>>>>> sandbox
         let authorizer = GIDSignIn.sharedInstance()?.currentUser?.authentication?.fetcherAuthorizer()
         
         service.authorizer = authorizer
@@ -121,12 +125,10 @@ class ComposingViewController: MainViewController, UITextViewDelegate, MFMailCom
                 self.dismiss(animated: true, completion: nil)
             }))
             self.present(alert, animated: true)
-           
         })
     }
     
     func generateRawString() -> String {
-        
         let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"; //RFC2822-Format
         let todayString:String = dateFormatter.string(from: NSDate() as Date)
@@ -206,7 +208,6 @@ extension String {
     var data: Data { Data(utf8) }
     var base64Encoded: Data { data.base64EncodedData() }
     var base64Decoded: Data? { Data(base64Encoded: self) }
-
 }
 
 extension Data {

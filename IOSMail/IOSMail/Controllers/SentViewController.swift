@@ -27,11 +27,12 @@ class SentViewController: MainViewController {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+
         mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
 		tableView.reloadData()
-
     }
 }
 
@@ -55,11 +56,10 @@ extension SentViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-         
               cell!.tableLabel?.text = message.emailSubject
               cell!.tableDateLabel?.text = message.emailDate
               cell!.tableSubjectLabel?.text = message.emailSnippet
-        }else{
+        } else {
             print("error")
         }
         return cell!

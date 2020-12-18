@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>UIAppFonts</key>
@@ -11,6 +12,8 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Add a picture to your email</string>
+=======
+>>>>>>> sandbox
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
