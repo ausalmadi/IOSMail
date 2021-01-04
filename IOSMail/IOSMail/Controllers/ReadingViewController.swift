@@ -43,9 +43,6 @@ class ReadingViewController: MainViewController {
         msgBody.attributedText = message.emailBody!.htmlToAttributedString
 		msgSubject.text = message.emailSubject
 		msgFrom.text = message.fromSender
-		//msgBodyHTML.loadHTMLString(message.emailBody!, baseURL: nil)
-		//TODO: something seems to be missing this data below, as it keeps crashing app
-		//msgDate.text = message.emailDate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

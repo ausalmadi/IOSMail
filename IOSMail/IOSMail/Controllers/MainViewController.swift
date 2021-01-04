@@ -57,7 +57,6 @@ class MainViewController: UIViewController {
 
 	deinit {
 		NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "signInStatus"), object: nil)
-//		NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "GetMailNotification"), object: nil)
 	}
     
 //MARK: notification functions
@@ -70,7 +69,6 @@ class MainViewController: UIViewController {
 
 					self.present(mvc, animated: true, completion: nil)
 				}
-
 			}
 		}
 	}

@@ -12,19 +12,15 @@ import GoogleAPIClientForREST
 
 class MailManager{
 
-	let HTMLMessage = 1
-	let PlainMessage = 0
-
 	//var homeController = HomeViewController()
     var mailBox = ""
-
 	var messages = [MailData]() // Messages array
     var messageList = [GTLRGmail_Message]()
-
 	var labels = [String]()
-
     var tbview : UITableView? = nil
     let gmailService = GTLRGmailService.init() // initialize mail service
+    let HTMLMessage = 1
+    let PlainMessage = 0
 	static let shared = MailManager() // Setting up shared instance of Singleton class
 
 	let realm = RealmService.shared.realm
@@ -40,7 +36,6 @@ class MailManager{
 	func settbView(_tbview : UITableView) {
 		self.tbview? = _tbview
 	}
-
 
 	func listLabels(tableview:UITableView) {
 		tbview = tableview
@@ -118,7 +113,6 @@ class MailManager{
 				print("Error: ")
 				print(error as Any)
 			}
-
 		}
 	}
 
@@ -177,7 +171,6 @@ class MailManager{
 								let index = tempdate.index(tempdate.startIndex,offsetBy: 17)
 								date = tempdate.substring(to: index)
 								msgtime = tempdate.substring(from: index)
-								//print (date.substring(to: index))
 							}
 							if head.name=="Subject" {
 								subject = self.base64urlToBase64(base64url: head.value ?? "default value")
@@ -215,7 +208,6 @@ class MailManager{
 
 	func checkForDuplicates(data: MailData){
 		if mail!.count == 0 {
-			//print("adding message")
 			self.dataFactory(data)
 			return
 		}
