@@ -11,17 +11,28 @@ import RealmSwift
 class SentViewController: MainViewController {
 
     @IBOutlet weak var tableView: UITableView!
+	let manager = MailManager.shared
+    var mailboxText : String = "SENT"  // Used to set the title of the mailbox, the folder in listMessages & the filter for emails
+	let realm = RealmService.shared.realm
+	var mail: Results<EmailData>?
     
-    let data = ["To: ABC", "To: CDF","To: GBHDG","To: HIG", "To: Jack","To: Class"]
-    let date = ["Aug 1, 2020","Aug 12, 2020","Aug 16, 2020","Aug 17, 2020","Aug 20, 2020","Sep 1, 2020"]
-    let subject = ["Subject: A", "Subject: B", "Subject: C", "Subject: D", "Subject: E", "Subject: F"]
-    
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+        manager.mailBox = mailboxText
+        manager.listMessages(tableview: tableView, folder: manager.mailBox)
+
+	}
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+
+        mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
+		tableView.reloadData()
     }
 }
 
@@ -29,17 +40,28 @@ class SentViewController: MainViewController {
 
 extension SentViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
+		return self.mail?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as? TableViewCell {
-            cell.tableLabel.text = self.data[indexPath.row]
-            cell.tableDateLabel.text = self.date[indexPath.row]
-            cell.tableSubjectLabel.text = self.subject[indexPath.row]
-
-            return cell
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if   editingStyle == .delete {
+                guard let message = mail?[indexPath.row] else { return  }
+                RealmService.shared.delete(message)
+            }
+        
+            tableView.reloadData()
+            tableView.deselectRow(at: indexPath, animated: true)
         }
-        return UITableViewCell()
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
+        if let message = mail?[indexPath.row]{
+              cell!.tableLabel?.text = message.emailSubject
+              cell!.tableDateLabel?.text = message.emailDate
+              cell!.tableSubjectLabel?.text = message.emailSnippet
+        } else {
+            print("error")
+        }
+        return cell!
     }
 }

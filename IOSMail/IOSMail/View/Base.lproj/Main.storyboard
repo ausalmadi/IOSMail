@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ELE-Oa-rbb">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ELE-Oa-rbb">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="5120" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,11 +24,11 @@
             <objects>
                 <viewController storyboardIdentifier="MainView" title="Login" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DfM-ck-gft" userLabel="Main" customClass="MainViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wTy-bP-pLd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ucx-sC-Zpy" userLabel="Button Stack View">
-                                <rect key="frame" x="127" y="443.5" width="160" height="239"/>
+                                <rect key="frame" x="115" y="417.66666666666674" width="160" height="239"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_no_bkgrd" translatesAutoresizingMaskIntoConstraints="NO" id="jLU-MB-a5A">
                                         <rect key="frame" x="5" y="0.0" width="150" height="150"/>
@@ -38,7 +38,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="AIS-I0-Dmt" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="190" width="160" height="49"/>
+                                        <rect key="frame" x="0.0" y="189.99999999999994" width="160" height="49"/>
                                         <color key="backgroundColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="JQ3-kS-ftU"/>
@@ -48,7 +48,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sMail_name" translatesAutoresizingMaskIntoConstraints="NO" id="bql-g4-fVQ">
-                                <rect key="frame" x="82" y="193.5" width="250" height="250"/>
+                                <rect key="frame" x="70" y="167.66666666666663" width="250" height="250"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qge-1I-pKp"/>
@@ -71,11 +71,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mfG-TN-pZu" userLabel="Home View Controller" customClass="HomeViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lIE-lD-cEg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-yB-azA">
-                                <rect key="frame" x="0.0" y="764" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="658" width="390" height="49"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <items>
                                     <barButtonItem title="Drafts" id="ql7-pI-RwO" userLabel="Reader">
@@ -83,10 +83,15 @@
                                             <segue destination="95R-bE-BCH" kind="show" id="vQZ-Mp-fNd"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="6wV-p5-qhk"/>
                                     <barButtonItem title="Sent" id="LxM-QY-eVi">
                                         <connections>
                                             <segue destination="oWm-NH-vdx" kind="show" identifier="MainToSent" id="LMk-nZ-Bmc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="rux-g1-XBm"/>
+                                    <barButtonItem systemItem="organize" id="OZ0-7n-pxX">
+                                        <connections>
+                                            <segue destination="SCk-6M-4ou" kind="showDetail" identifier="folders" id="rXP-kM-Zuq"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="gUa-PC-Q9W"/>
@@ -95,18 +100,14 @@
                                             <segue destination="ZYt-K6-SDN" kind="show" identifier="MainToCompose" id="yZw-hY-6XE"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Z74-Mf-ajM"/>
-                                    <barButtonItem style="plain" id="kmi-v6-e4q">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="QCw-my-Jdg">
-                                            <rect key="frame" x="292" y="10" width="65" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="SignOut"/>
-                                            <connections>
-                                                <action selector="signout:" destination="mfG-TN-pZu" eventType="touchUpInside" id="R0j-zG-nA3"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="GNa-kt-oPS"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="QBg-nI-RDm"/>
+                                    <barButtonItem style="plain" systemItem="stop" id="kmi-v6-e4q">
+                                        <connections>
+                                            <action selector="signout:" destination="mfG-TN-pZu" id="I9r-sJ-6yp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="P4a-gg-zaP"/>
                                     <barButtonItem title="Settings" image="gearshape.fill" catalog="system" id="kfU-xx-Mcv">
                                         <connections>
                                             <segue destination="CGJ-p8-LON" kind="show" identifier="MainToSettings" id="x1z-xI-T0x"/>
@@ -116,13 +117,13 @@
                                 <color key="tintColor" name="MenuBar"/>
                             </toolbar>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="NN0-0E-gBO">
-                                <rect key="frame" x="0.0" y="73" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="73" width="390" height="56"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-2l-Fcf">
-                                <rect key="frame" x="47" y="134" width="71" height="22"/>
+                                <rect key="frame" x="47" y="134" width="47" height="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="trash" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -136,7 +137,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="inboxTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ydi-R1-rWG">
-                                <rect key="frame" x="0.0" y="164" width="414" height="584"/>
+                                <rect key="frame" x="0.0" y="164" width="390" height="478"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" id="e8D-Tz-VUI" userLabel="Inbox Stack View">
@@ -144,13 +145,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tray.and.arrow.down" catalog="system" id="wU6-fG-CHd">
-                                        <rect key="frame" x="0.0" y="2.5" width="34.5" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="1.9999999999999964" width="34" height="31.333333333333332"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24" scale="small"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PEI-Md-saM">
-                                        <rect key="frame" x="34.5" y="0.0" width="90.5" height="36"/>
+                                        <rect key="frame" x="34" y="0.0" width="91" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -204,15 +205,16 @@
         <scene sceneID="nH1-ak-8BT">
             <objects>
                 <viewController id="boz-12-v8k" userLabel="Reading View Controller" customClass="ReadingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sra-lQ-UtN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="sra-lQ-UtN">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="i7q-k1-eVw" userLabel="TheFullBodyStack View">
-                                <rect key="frame" x="20" y="64" width="374" height="768"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i7q-k1-eVw" userLabel="TheFullBodyStack View">
+                                <rect key="frame" x="20" y="20" width="374" height="707"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjo-dh-biu">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="351"/>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Sjo-dh-biu">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <items>
                                             <barButtonItem title="Reply" image="arrowshape.turn.up.left" catalog="system" id="md3-jW-zsu">
@@ -250,17 +252,17 @@
                                         <color key="tintColor" name="MenuBar"/>
                                         <color key="barTintColor" systemColor="systemBackgroundColor"/>
                                     </toolbar>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t07-GR-8bd" userLabel="TheSubjectAndAddresStack View">
-                                        <rect key="frame" x="0.0" y="381" width="374" height="118"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="t07-GR-8bd" userLabel="TheSubjectAndAddresStack View">
+                                        <rect key="frame" x="0.0" y="54" width="374" height="112"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="The Place Holder For The Email Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhR-eC-Zku">
-                                                <rect key="frame" x="0.0" y="0.0" width="361.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <color key="textColor" red="0.10996169295302349" green="0.33106897655684675" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inV-35-ITq">
-                                                <rect key="frame" x="0.0" y="42" width="157.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="39" width="374" height="34"/>
                                                 <string key="placeholder" base64-UTF8="YES">
 FlRlc3RAVGVzdC5jb20
 </string>
@@ -269,7 +271,7 @@ FlRlc3RAVGVzdC5jb20
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyX-tJ-83A">
-                                                <rect key="frame" x="0.0" y="84" width="157.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="78" width="374" height="34"/>
                                                 <string key="placeholder" base64-UTF8="YES">
 FlRlc3RAVGVzdC5jb20
 </string>
@@ -282,36 +284,48 @@ Fk1zZyBEYXRlA
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-UC-0fb">
-                                        <rect key="frame" x="0.0" y="529" width="374" height="239"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Email Body Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-UC-0fb">
+                                        <rect key="frame" x="0.0" y="176" width="374" height="531"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">     Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" name="MenuBar"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbq-XZ-hOP">
+                                        <rect key="frame" x="0.0" y="640" width="374" height="128"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="nIv-te-xie"/>
+                                        </constraints>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
                                 </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="vbq-XZ-hOP"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1vh-Om-QkV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="i7q-k1-eVw" firstAttribute="leading" secondItem="1vh-Om-QkV" secondAttribute="leading" constant="20" id="6Xb-rI-nPw"/>
-                            <constraint firstItem="i7q-k1-eVw" firstAttribute="centerY" secondItem="sra-lQ-UtN" secondAttribute="centerY" id="8Ig-VN-iy9"/>
-                            <constraint firstItem="i7q-k1-eVw" firstAttribute="centerY" secondItem="sra-lQ-UtN" secondAttribute="centerY" id="BJX-CN-Rcc"/>
-                            <constraint firstItem="i7q-k1-eVw" firstAttribute="top" secondItem="1vh-Om-QkV" secondAttribute="top" constant="20" id="Fm6-v7-7VZ"/>
-                            <constraint firstItem="i7q-k1-eVw" firstAttribute="centerX" secondItem="sra-lQ-UtN" secondAttribute="centerX" id="PR6-4V-vjy"/>
-                            <constraint firstItem="1vh-Om-QkV" firstAttribute="trailing" secondItem="i7q-k1-eVw" secondAttribute="trailing" constant="20" id="a8S-c0-Jd1"/>
-                            <constraint firstItem="i7q-k1-eVw" firstAttribute="centerX" secondItem="sra-lQ-UtN" secondAttribute="centerX" id="hBz-88-45L"/>
+                            <constraint firstItem="i7q-k1-eVw" firstAttribute="bottom" secondItem="1vh-Om-QkV" secondAttribute="bottom" constant="20" id="Fg2-1J-c80"/>
+                            <constraint firstItem="i7q-k1-eVw" firstAttribute="leading" secondItem="1vh-Om-QkV" secondAttribute="leading" constant="20" id="Yeb-La-vSH"/>
+                            <constraint firstItem="1vh-Om-QkV" firstAttribute="trailing" secondItem="i7q-k1-eVw" secondAttribute="trailing" constant="20" id="gU3-07-M8a"/>
+                            <constraint firstItem="i7q-k1-eVw" firstAttribute="top" secondItem="1vh-Om-QkV" secondAttribute="top" constant="20" id="zgb-yz-iEM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fi9-9W-Qtd"/>
                     <connections>
                         <outlet property="msgBody" destination="jhM-UC-0fb" id="dLF-W0-eyV"/>
-                        <outlet property="msgDate" destination="oyX-tJ-83A" id="ZyJ-ye-zw5"/>
+                        <outlet property="msgBodyHTML" destination="vbq-XZ-hOP" id="KCO-b1-bGl"/>
                         <outlet property="msgFrom" destination="inV-35-ITq" id="edj-Gd-Tx1"/>
                         <outlet property="msgSubject" destination="OhR-eC-Zku" id="ElY-Jd-3xJ"/>
-                        <segue destination="ZYt-K6-SDN" kind="show" identifier="ReaderToCompose" id="axQ-uO-rOZ"/>
+                        <segue destination="ZYt-K6-SDN" kind="show" identifier="ReaderToCompose" id="7dH-hI-oUV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c73-Id-g3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -323,97 +337,118 @@ Fk1zZyBEYXRlA
             <objects>
                 <viewController id="CGJ-p8-LON" userLabel="Setting View Controller" customClass="SettingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHU-gg-A8V">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caZ-hc-4oK">
-                                <rect key="frame" x="154" y="54" width="106" height="36"/>
+                                <rect key="frame" x="140" y="10" width="110.33333333333331" height="35"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="eMail ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-sI-lRh">
-                                <rect key="frame" x="20" y="158" width="70" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eMail address" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qup-bt-eT8">
-                                <rect key="frame" x="98" y="151" width="287" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" systemColor="systemBlueColor"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKc-z6-xus" userLabel="addSigLabel">
-                                <rect key="frame" x="20" y="216" width="233" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="MenuBar"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPX-aw-9Ox">
-                                <rect key="frame" x="336" y="211" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="signatureOn:" destination="CGJ-p8-LON" eventType="valueChanged" id="iCf-WG-ZEZ"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Signature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAc-iJ-PL9">
-                                <rect key="frame" x="20" y="325" width="73" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8xC-Gx-4pf" userLabel="Signature Text View">
-                                <rect key="frame" x="20" y="354" width="363" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">First &amp;Last Names
-Phone Number
-Email@address.com</string>
-                                <color key="textColor" systemColor="systemBlueColor"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axA-OA-GBm">
-                                <rect key="frame" x="154" y="743" width="95" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FmV-CA-J1M" userLabel="email Stack View">
+                                <rect key="frame" x="20" y="105" width="350" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eMail ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-sI-lRh">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eMail address" textAlignment="natural" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qup-bt-eT8">
+                                        <rect key="frame" x="80" y="0.0" width="270" height="34"/>
+                                        <color key="textColor" name="MenuBar"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axA-OA-GBm">
+                                <rect key="frame" x="147.66666666666666" y="475" width="94.666666666666657" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="btnSaveMed"/>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="CGJ-p8-LON" eventType="touchUpInside" id="SH2-46-pba"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many emails to display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-qq-Lrm">
-                                <rect key="frame" x="20" y="276" width="211" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Wtp-DR-GJQ" userLabel="Display Stack View">
+                                <rect key="frame" x="20" y="272.66666666666669" width="350" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="eMails to Display" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QJO-qq-Lrm">
+                                        <rect key="frame" x="0.0" y="0.0" width="193.66666666666666" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-sJ-g6I">
+                                        <rect key="frame" x="202.66666666666666" y="0.0" width="44.333333333333343" height="32"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="MenuBar"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nKd-eY-ntJ">
+                                        <rect key="frame" x="256" y="0.0" width="94" height="32"/>
+                                        <connections>
+                                            <action selector="stepperCount:" destination="CGJ-p8-LON" eventType="valueChanged" id="Lzi-0V-YHb"/>
+                                        </connections>
+                                    </stepper>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-zI-hz9" userLabel="SetSig Stack View">
+                                <rect key="frame" x="20" y="169" width="350" height="73.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKc-z6-xus" userLabel="addSigLabel">
+                                        <rect key="frame" x="0.0" y="26.666666666666657" width="291" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="MenuBar"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPX-aw-9Ox">
+                                        <rect key="frame" x="301" y="21.333333333333343" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="signatureOn:" destination="CGJ-p8-LON" eventType="valueChanged" id="iCf-WG-ZEZ"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" allowsEditingTextAttributes="YES" adjustsFontForContentSizeCategory="YES" id="8xC-Gx-4pf" userLabel="Signature Text View">
+                                <rect key="frame" x="20" y="365" width="374" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">First &amp;Last Names
+                            Phone Number
+                            Email@address.com</string>
+                                <color key="textColor" name="MenuBar"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signature for use in eMails" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAc-iJ-PL9" userLabel="Signature Label">
+                                <rect key="frame" x="20" y="334.66666666666669" width="350" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nKd-eY-ntJ">
-                                <rect key="frame" x="291" y="270" width="94" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="stepperCount:" destination="CGJ-p8-LON" eventType="valueChanged" id="Lzi-0V-YHb"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-sJ-g6I">
-                                <rect key="frame" x="241" y="275" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="MenuBar"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aSc-c7-vXA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="caZ-hc-4oK" firstAttribute="top" secondItem="aSc-c7-vXA" secondAttribute="top" constant="10" id="Gmw-Lm-Ndj"/>
-                            <constraint firstItem="caZ-hc-4oK" firstAttribute="centerX" secondItem="aHU-gg-A8V" secondAttribute="centerX" id="x3R-Tx-5up"/>
+                            <constraint firstItem="aSc-c7-vXA" firstAttribute="trailing" secondItem="Wtp-DR-GJQ" secondAttribute="trailing" constant="20" id="2FD-1a-duX"/>
+                            <constraint firstItem="vnu-zI-hz9" firstAttribute="leading" secondItem="aSc-c7-vXA" secondAttribute="leading" constant="20" id="3nF-1F-B52"/>
+                            <constraint firstItem="FmV-CA-J1M" firstAttribute="leading" secondItem="aSc-c7-vXA" secondAttribute="leading" constant="20" id="3s7-oq-TgH"/>
+                            <constraint firstItem="Wtp-DR-GJQ" firstAttribute="leading" secondItem="aSc-c7-vXA" secondAttribute="leading" constant="20" id="4i7-aU-vAl"/>
+                            <constraint firstItem="axA-OA-GBm" firstAttribute="top" secondItem="8xC-Gx-4pf" secondAttribute="bottom" constant="20" id="FUW-nl-zTl"/>
+                            <constraint firstItem="vnu-zI-hz9" firstAttribute="top" secondItem="FmV-CA-J1M" secondAttribute="bottom" constant="30" id="Hoi-ct-Fx1"/>
+                            <constraint firstItem="aSc-c7-vXA" firstAttribute="trailing" secondItem="FmV-CA-J1M" secondAttribute="trailing" constant="20" id="LZY-Ks-RYN"/>
+                            <constraint firstItem="FmV-CA-J1M" firstAttribute="top" secondItem="caZ-hc-4oK" secondAttribute="bottom" constant="60" id="Lrh-k7-w91"/>
+                            <constraint firstItem="aSc-c7-vXA" firstAttribute="trailing" secondItem="sAc-iJ-PL9" secondAttribute="trailing" constant="20" id="OCs-AS-bbF"/>
+                            <constraint firstItem="8xC-Gx-4pf" firstAttribute="top" secondItem="sAc-iJ-PL9" secondAttribute="bottom" constant="10" id="PW8-Cc-jSV"/>
+                            <constraint firstItem="axA-OA-GBm" firstAttribute="centerX" secondItem="aHU-gg-A8V" secondAttribute="centerX" id="VS4-1D-zrk"/>
+                            <constraint firstItem="aSc-c7-vXA" firstAttribute="trailing" secondItem="vnu-zI-hz9" secondAttribute="trailing" constant="20" id="dp2-xM-jw5"/>
+                            <constraint firstItem="sAc-iJ-PL9" firstAttribute="leading" secondItem="aSc-c7-vXA" secondAttribute="leading" constant="20" id="ewe-SJ-LGE"/>
+                            <constraint firstItem="caZ-hc-4oK" firstAttribute="centerX" secondItem="aHU-gg-A8V" secondAttribute="centerX" id="fW3-kk-47u"/>
+                            <constraint firstItem="Wtp-DR-GJQ" firstAttribute="top" secondItem="vnu-zI-hz9" secondAttribute="bottom" constant="30" id="k65-GZ-zNI"/>
+                            <constraint firstItem="sAc-iJ-PL9" firstAttribute="top" secondItem="Wtp-DR-GJQ" secondAttribute="bottom" constant="30" id="kgB-37-MfS"/>
+                            <constraint firstItem="caZ-hc-4oK" firstAttribute="top" secondItem="aSc-c7-vXA" secondAttribute="top" constant="10" id="zfO-qm-lNt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iXn-eJ-PYY"/>
@@ -435,22 +470,22 @@ Email@address.com</string>
             <objects>
                 <viewController id="oWm-NH-vdx" userLabel="Sent View Controller" customClass="SentViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2VE-B3-8He">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ck6-UT-xvg">
-                                <rect key="frame" x="147" y="25" width="120" height="36"/>
+                                <rect key="frame" x="147" y="10" width="96" height="32"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="sentTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pim-6Y-sRy">
-                                <rect key="frame" x="0.0" y="105" width="414" height="708"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="sentTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pim-6Y-sRy">
+                                <rect key="frame" x="0.0" y="107.66666666666669" width="390" height="599.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWR-mH-241">
-                                <rect key="frame" x="0.0" y="61" width="414" height="44"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QWR-mH-241">
+                                <rect key="frame" x="0.0" y="51.666666666666657" width="390" height="56"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" systemColor="systemTealColor"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -468,7 +503,7 @@ Email@address.com</string>
                             <constraint firstItem="ck6-UT-xvg" firstAttribute="leading" secondItem="Js0-Ol-acr" secondAttribute="leading" constant="177" id="rDQ-7f-GOb"/>
                             <constraint firstItem="QWR-mH-241" firstAttribute="trailing" secondItem="Js0-Ol-acr" secondAttribute="trailing" id="vEV-QT-wyJ"/>
                             <constraint firstItem="ck6-UT-xvg" firstAttribute="top" secondItem="Js0-Ol-acr" secondAttribute="top" constant="10" id="wYg-Fu-N9K"/>
-                            <constraint firstItem="QWR-mH-241" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" id="y72-Zm-LBh"/>
+                            <constraint firstItem="QWR-mH-241" firstAttribute="top" secondItem="ck6-UT-xvg" secondAttribute="bottom" constant="10" id="y72-Zm-LBh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nrj-E3-IHw"/>
@@ -485,86 +520,86 @@ Email@address.com</string>
             <objects>
                 <viewController id="ZYt-K6-SDN" userLabel="Composing View Controller" customClass="ComposingViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ouc-XD-tq2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0y9-tX-0EM" userLabel="Base View">
-                                <rect key="frame" x="10" y="59" width="394" height="744"/>
+                                <rect key="frame" x="10" y="15" width="370" height="682"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hHd-Vq-isH" userLabel="Header View">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="113"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="113"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yeI-xC-dfG" userLabel="To View">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="23"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="23"/>
                                                 <subviews>
                                                     <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="toLabel" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueQ-Sm-NRp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="21.5" height="23"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="21.333333333333332" height="23"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="16"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="50z-te-eUU">
-                                                        <rect key="frame" x="26.5" y="0.0" width="367.5" height="23"/>
+                                                        <rect key="frame" x="26.333333333333343" y="0.0" width="343.66666666666663" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TY3-VS-gZf" userLabel="First Divider">
-                                                <rect key="frame" x="0.0" y="26" width="394" height="1"/>
+                                                <rect key="frame" x="0.0" y="26" width="370" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="u7x-eZ-O9p"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a1B-Lj-TZd" userLabel="CC View">
-                                                <rect key="frame" x="0.0" y="30" width="394" height="23"/>
+                                                <rect key="frame" x="0.0" y="30" width="370" height="23"/>
                                                 <subviews>
                                                     <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ccLabel" text="Cc:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAh-dQ-W3V">
-                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="23"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="24.666666666666668" height="23"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="16"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZqB-Ci-3RC">
-                                                        <rect key="frame" x="30" y="0.0" width="364" height="23"/>
+                                                        <rect key="frame" x="29.666666666666657" y="0.0" width="340.33333333333337" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54e-ZK-SOA" userLabel="Second Divider">
-                                                <rect key="frame" x="0.0" y="56" width="394" height="1"/>
+                                                <rect key="frame" x="0.0" y="56" width="370" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="cCs-xF-V0P"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uab-VT-Vzf" userLabel="BCC View">
-                                                <rect key="frame" x="0.0" y="60" width="394" height="23"/>
+                                                <rect key="frame" x="0.0" y="60" width="370" height="23"/>
                                                 <subviews>
                                                     <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="bccLabel" text="Bcc:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op3-Qi-bWh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="23"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="32.666666666666664" height="23"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="16"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EA5-b5-iFb">
-                                                        <rect key="frame" x="38" y="0.0" width="356" height="23"/>
+                                                        <rect key="frame" x="37.666666666666657" y="0.0" width="332.33333333333337" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLJ-Eu-NK4" userLabel="Third Divider">
-                                                <rect key="frame" x="0.0" y="86" width="394" height="1"/>
+                                                <rect key="frame" x="0.0" y="86" width="370" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="URw-go-IVd"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d5e-iq-rhi" userLabel="Subject View">
-                                                <rect key="frame" x="0.0" y="90" width="394" height="19"/>
+                                                <rect key="frame" x="0.0" y="90" width="370" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="subjectLabel" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLm-a8-HeU">
                                                         <rect key="frame" x="0.0" y="0.0" width="59" height="19"/>
@@ -573,14 +608,14 @@ Email@address.com</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a55-8O-faY">
-                                                        <rect key="frame" x="64" y="0.0" width="330" height="19"/>
+                                                        <rect key="frame" x="64" y="0.0" width="306" height="19"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhE-9b-wjq" userLabel="Fourth Divider">
-                                                <rect key="frame" x="0.0" y="112" width="394" height="1"/>
+                                                <rect key="frame" x="0.0" y="112" width="370" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="3Ij-Xv-3EZ"/>
@@ -594,10 +629,10 @@ Email@address.com</string>
                                         </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="-2" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-vv-IH9" userLabel="Body Scroll View">
-                                        <rect key="frame" x="0.0" y="118" width="394" height="581"/>
+                                        <rect key="frame" x="0.0" y="118" width="370" height="519"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello" translatesAutoresizingMaskIntoConstraints="NO" id="fXi-Ra-V1q">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="787"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="787"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="787" id="bG3-nt-vOt"/>
                                                 </constraints>
@@ -615,7 +650,7 @@ Email@address.com</string>
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRk-1B-ieF">
-                                        <rect key="frame" x="0.0" y="704" width="394" height="40"/>
+                                        <rect key="frame" x="0.0" y="642" width="370" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="fd9-vC-q3L"/>
@@ -668,7 +703,7 @@ Email@address.com</string>
                 <navigationController title="Navigation" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="ELE-Oa-rbb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0CQ-cd-6dU">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <color key="tintColor" name="MenuBar"/>
@@ -680,7 +715,7 @@ Email@address.com</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R1X-Qx-sat">
-                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <rect key="frame" x="0.0" y="761" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <color key="tintColor" systemColor="systemTealColor"/>
@@ -699,11 +734,11 @@ Email@address.com</string>
             <objects>
                 <viewController id="95R-bE-BCH" userLabel="Draft View Controller" customClass="DraftViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YFV-cU-O1h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rnT-f2-uD0">
-                                <rect key="frame" x="0.0" y="61" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="390" height="44"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hcE-ZT-bcN"/>
@@ -712,11 +747,11 @@ Email@address.com</string>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="draftsTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C9L-gx-Ywe">
-                                <rect key="frame" x="0.0" y="105" width="414" height="708"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="607"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drafts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsA-U9-rqy" userLabel="Drafts">
-                                <rect key="frame" x="137" y="25" width="140" height="36"/>
+                                <rect key="frame" x="137" y="10" width="116" height="36"/>
                                 <fontDescription key="fontDescription" name="Itim-Regular" family="Itim" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -728,9 +763,9 @@ Email@address.com</string>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="top" secondItem="rnT-f2-uD0" secondAttribute="bottom" id="8fB-Oe-rUd"/>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="leading" secondItem="lWT-zA-XOH" secondAttribute="leading" id="BKR-KM-5VI"/>
                             <constraint firstItem="lWT-zA-XOH" firstAttribute="trailing" secondItem="GsA-U9-rqy" secondAttribute="trailing" constant="137" id="HQz-QF-jYn"/>
-                            <constraint firstItem="GsA-U9-rqy" firstAttribute="top" secondItem="YFV-cU-O1h" secondAttribute="top" constant="25" id="J4H-a7-ABE"/>
+                            <constraint firstItem="GsA-U9-rqy" firstAttribute="top" secondItem="YFV-cU-O1h" secondAttribute="top" constant="10" id="J4H-a7-ABE"/>
                             <constraint firstItem="rnT-f2-uD0" firstAttribute="trailing" secondItem="lWT-zA-XOH" secondAttribute="trailing" id="Mpz-xH-N9o"/>
-                            <constraint firstItem="rnT-f2-uD0" firstAttribute="top" secondItem="GsA-U9-rqy" secondAttribute="bottom" id="N2V-Da-fWe"/>
+                            <constraint firstItem="rnT-f2-uD0" firstAttribute="top" secondItem="GsA-U9-rqy" secondAttribute="bottom" constant="10" id="N2V-Da-fWe"/>
                             <constraint firstItem="rnT-f2-uD0" firstAttribute="leading" secondItem="lWT-zA-XOH" secondAttribute="leading" id="Zq5-h1-r8g"/>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="bottom" secondItem="lWT-zA-XOH" secondAttribute="bottom" id="hrK-WA-B8q"/>
                             <constraint firstItem="C9L-gx-Ywe" firstAttribute="trailing" secondItem="lWT-zA-XOH" secondAttribute="trailing" id="rem-cK-ZOb"/>
@@ -746,8 +781,45 @@ Email@address.com</string>
             </objects>
             <point key="canvasLocation" x="3066.666666666667" y="375.66964285714283"/>
         </scene>
+        <!--Folders Table View Controller-->
+        <scene sceneID="DAJ-Qv-05g">
+            <objects>
+                <tableViewController storyboardIdentifier="folderCell" title="Folders" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SCk-6M-4ou" userLabel="Folders Table View Controller" customClass="FolderTableViewController" customModule="iosMail" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xhD-N2-XHQ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" systemColor="systemTealColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZaX-QY-adm" customClass="FolderViewCell" customModule="iosMail" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZaX-QY-adm" id="fIR-Sh-MKF">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="SCk-6M-4ou" id="Cql-ku-4bA"/>
+                            <outlet property="delegate" destination="SCk-6M-4ou" id="x76-bb-ld6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uDh-7B-ICL"/>
+                    <connections>
+                        <outlet property="labels" destination="xhD-N2-XHQ" id="wKd-th-z7F"/>
+                        <segue destination="mfG-TN-pZu" kind="showDetail" identifier="main" id="fJy-fc-Mnr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lBh-Xc-wH2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3902" y="-30"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="fJy-fc-Mnr"/>
         <segue reference="yZw-hY-6XE"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="linkColor"/>
@@ -764,9 +836,6 @@ Email@address.com</string>
         <namedColor name="MenuBar">
             <color red="0.017000000923871994" green="0.19799999892711639" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

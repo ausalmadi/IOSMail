@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
 	var messages = [MailData]()
 	var messageList = [GTLRGmail_Message]()
 	var manager = MailManager.shared
-    var inboxText : String = "Inbox"
+    var mailboxText : String = "INBOX"  // Used to set the title of the mailbox, the folder in listMessages & the filter for emails
     var index : Int = 0
     
     let gmailService = GTLRGmailService.init()
@@ -25,21 +25,44 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
   	@IBOutlet var inboxTitle: UILabel!
-	  @IBOutlet var inbox: UITableView!
-	  @IBOutlet weak var sb: UISearchBar!
+	@IBOutlet var inbox: UITableView!
+	@IBOutlet weak var sb: UISearchBar!
 
-    let realm = RealmService.shared.realm
-       var mail: Results<EmailData>?
+	// to access realm database instance
+	let realm = RealmService.shared.realm
+	var mail: Results<EmailData>?
 
-    override func viewDidLoad() {
+	// Load messages before screen actually appears
+	override func viewWillAppear(_ animated: Bool) {
+		print("viewWillAppear()")
+		super.viewWillAppear(true)
+        manager.mailBox = mailboxText
+        manager.listMessages(tableview: tableView, folder: manager.mailBox)
+	}
+
+//	init(){
+//		super.init(nibName:nil, bundle: nil)
+//	}
+//
+//	required init?(coder: NSCoder) {
+//		fatalError("init(coder:) has not been implemented")
+//	}
+	
+	func unWindMe(){
+		//print(unwindSegue.identifier!)
+		print("unwind()")
+	}
+	override func viewDidLoad() {
 		super.viewDidLoad()
-        mail = realm.objects(EmailData.self)
-        manager.listInboxMessages(tableview: tableView, folder: manager.mailBox)
+		//manager.homeController = self as HomeViewController
+
+        mail = realm.objects(EmailData.self).filter("mBox == '\(mailboxText)'")
+
 
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-		inboxTitle.text = inboxText
+		inboxTitle.text = mailboxText
 		tableView.reloadData()
     }
     
@@ -54,16 +77,23 @@ class HomeViewController: UIViewController {
 
 	deinit {
 		NotificationCenter.default.removeObserver(self,
-          name: NSNotification.Name(rawValue: "ToggleAuthUINotification"),
+          name: NSNotification.Name(rawValue: "signInStatus"),
           object: nil)
     }
 
+	// Override closing method to sign out user from google servers
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
 
 		GIDSignIn.sharedInstance().signOut()
 	}
+    // IB action for setting the title of the button to the mailbox
+    @IBAction func pressedSelection(_ sender: UIBarButtonItem) {
+        manager.mailBox = sender.title ?? "INBOX"
+        manager.listMessages(tableview: tableView, folder: manager.mailBox)
+    }
 
+	// prepare next View Controller before Segue to it
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "MainToReader") {
 			let vc = segue.destination as! ReadingViewController
@@ -73,9 +103,9 @@ class HomeViewController: UIViewController {
 		print(segue.identifier as Any)
 	}
 	
-//MARK: Notification method
-	@objc func receiveToggleAuthUINotification(_ notification: NSNotification) {
-		if notification.name.rawValue == "ToggleAuthUINotification" {
+//MARK: Notification methods
+	@objc func receivesignInStatus(_ notification: NSNotification) {
+		if notification.name.rawValue == "signInStatus" {
 			if notification.userInfo != nil {
                 guard (notification.userInfo as? [String:String]) != nil else { return }
 			}
@@ -83,32 +113,30 @@ class HomeViewController: UIViewController {
 	}
 }
 
-//MARK: Tableview delegate and datasource
+//MARK: - Tableview delegate and datasource
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return mail?.count ?? 1
+       return mail?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if   editingStyle == .delete {
-                guard let message = mail?[indexPath.row] else { return  }
-                RealmService.shared.delete(message)
-            }
-        
+        if   editingStyle == .delete {
+            guard let message = mail?[indexPath.row] else { return  }
+            RealmService.shared.delete(message)
+        }
             tableView.reloadData()
             tableView.deselectRow(at: indexPath, animated: true)
         }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell" , for: indexPath) as? TableViewCell
         if let message = mail?[indexPath.row]{
-         
-              cell!.tableLabel?.text = message.emailSubject
-              cell!.tableDateLabel?.text = message.emailDate
-              cell!.tableSubjectLabel?.text = message.emailBody
-        }else{
+            cell!.tableLabel?.text = message.emailSubject
+            cell!.tableDateLabel?.text = message.emailDate
+            cell!.tableSubjectLabel?.text = message.emailSnippet
+        } else {
             print("error")
         }
         return cell!

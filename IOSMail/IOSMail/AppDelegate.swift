@@ -23,16 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 			} else {
 				print("\(error.localizedDescription)")
 			}
-			
 			NotificationCenter.default.post(
-				name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
-			
+				name: Notification.Name(rawValue: "signInStatus"), object: nil, userInfo: nil)
 			return
 		}
-
-        
         NotificationCenter.default.post(
-            name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+            name: Notification.Name(rawValue: "signInStatus"),
             object: nil,
             userInfo: ["statusText": "Name"])
 	}
@@ -40,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 	func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
 			  withError error: Error!) {
 		NotificationCenter.default.post(
-			name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+			name: Notification.Name(rawValue: "signInStatus"),
 			object: nil,
 			userInfo: ["statusText": "User has disconnected."])
 	}
@@ -49,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let scopes = ["https://mail.google.com/"]
 		GIDSignIn.sharedInstance().clientID =
 			"662449896826-2qlnkc1bpigf96oqkvbnd2sh25ebqfa3.apps.googleusercontent.com"
-			//"662449896826-13dpc48tgddtki7f7ad1pilpq13u8hnh.apps.googleusercontent.com"
 		GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.scopes = scopes
         
